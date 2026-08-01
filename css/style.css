@@ -74,8 +74,8 @@ body {
 }
 
 .icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  aspect-ratio: 1/1;
   border: none;
   background: transparent;
   display: flex;
@@ -228,4 +228,226 @@ body {
 
 .bottom-nav-item.is-active {
   color: var(--accent);
+}
+
+/* ---------- Recipe / preferment page ---------- */
+
+.page-title {
+  font-family: "Play", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text);
+}
+
+.recipe-page {
+  padding: 4px 16px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--card2);
+  border-radius: var(--radius-14);
+  padding: 18px;
+  border: solid 1px var(--border);
+  box-shadow: 2px 2px 6px 0 rgba(121, 120, 120, 0.2);
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hero-card-top {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.pill {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.pill-accent {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hero-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.segmented {
+  display: flex;
+  background: var(--bg);
+  border-radius: var(--radius-10);
+  padding: 3px;
+}
+
+.segmented-item {
+  border: none;
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.segmented-item.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.field-label {
+  font-size: 15px;
+  color: var(--text);
+}
+
+.value-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg);
+  border-radius: var(--radius-10);
+  padding: 6px 14px;
+}
+
+.value-box-accent input {
+  color: var(--accent);
+}
+
+.value-box input {
+  width: 64px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--text);
+}
+
+.value-box input:focus {
+  outline: none;
+}
+
+.value-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hr {
+  height: 1px;
+  background: var(--line);
+  margin: 14px 0;
+}
+
+.row-list-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.row-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row-list-item:last-child {
+  border-bottom: none;
+}
+
+.row-list-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.row-list-label .iconify {
+  font-size: 18px;
+}
+
+.row-list-icon {
+  width: 36px;
+  aspect-ratio: 1/1;
+  
+}
+
+.row-list-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.row-list-value .unit {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.summary-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--accent-soft);
+  border-radius: var(--radius-14);
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.summary-box strong {
+  font-size: 19px;
+}
+
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  text-decoration: none;
+  border: solid 1px var(--border);
 }

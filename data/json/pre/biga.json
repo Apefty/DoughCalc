@@ -1,0 +1,23 @@
+{
+  "id": "biga",
+  "category": "preferments",
+  "name": {
+    "uk": "Біга",
+    "en": "Biga"
+  },
+  "description": {
+    "uk": "Італійський преферментований тісто на дуже низькій гідратації з малою кількістю дріжджів. Дає хлібу відкритий м'якуш і горіхово-солодкуватий смак."
+  },
+  "ratio": {
+    "flour": 100,
+    "water": 50,
+    "yeast": 2
+  },
+  "hydration": 50,
+  "fermentation": {
+    "duration_hours": 16,
+    "duration_note_uk": "12–20 год",
+    "temperature_note_uk": "18–20°C, кімнатна температура"
+  },
+  "used_in": ["pizza", "bread", "baguette"]
+}
