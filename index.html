@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dough Calculator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <button class="icon-btn" id="menu-btn" aria-label="Меню">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <div class="app-brand">
+    <img src="img/icons/logo.png" alt="" class="app-logo">
+    <h1>Dough Calculator</h1>
+  </div>
+
+  <button class="icon-btn" id="settings-btn" aria-label="Налаштування">
+    <span class="iconify" data-icon="pepicons-print:gear"></span>
+  </button>
+</header>
+
+<main class="menu">
+
+  <nav class="menu-grid" aria-label="Основні розділи">
+
+    <a href="#preferments" class="menu-card" data-cat="preferments">
+      <img src="img/icons/preferments.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Преферменти</span>
+        <span class="menu-card-sub">Пулиш, біга, левайн, пате ферменте ...</span>
+      </div>
+    </a>
+
+    <a href="#bread" class="menu-card" data-cat="bread">
+      <img src="img/icons/bread.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Хліб</span>
+        <span class="menu-card-sub">Дріжджовий та заквасочний</span>
+      </div>
+    </a>
+
+    <a href="#pizza" class="menu-card" data-cat="pizza">
+      <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Піца</span>
+        <span class="menu-card-sub">Неаполітанська, римська, сицилійська ...</span>
+      </div>
+    </a>
+
+    <a href="#baguette" class="menu-card" data-cat="baguette">
+      <img src="img/icons/baguette.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Багети</span>
+        <span class="menu-card-sub">класичні французькі багети</span>
+      </div>
+    </a>
+
+    <a href="#sweet" class="menu-card" data-cat="sweet">
+      <img src="img/icons/sweet.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Солодка випічка</span>
+        <span class="menu-card-sub">Бріош, паска, панетоне, тарти ...</span>
+      </div>
+    </a>
+
+    <a href="#calculator" class="menu-card menu-card-accent" data-cat="calculator">
+      <img src="img/icons/calculator.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Калькулятор</span>
+        <span class="menu-card-sub">Швидкий розрахунок без рецепту</span>
+      </div>
+    </a>
+
+  </nav>
+
+  <div class="menu-divider"><span>Ще</span></div>
+
+  <nav class="menu-grid menu-grid-secondary" aria-label="Додаткові розділи">
+
+    <a href="#laminated" class="menu-card" data-cat="laminated">
+      <img src="img/icons/laminated.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Шарувате тісто</span>
+        <span class="menu-card-sub">Круасани, данська випічка</span>
+      </div>
+    </a>
+
+    <a href="#enriched" class="menu-card" data-cat="enriched">
+      <img src="img/icons/enriched.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Збагачене тісто</span>
+        <span class="menu-card-sub">Здоба з яйцями, маслом, молоком</span>
+      </div>
+    </a>
+
+    <a href="#flatbread" class="menu-card" data-cat="flatbread">
+      <img src="img/icons/flatbread.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Пласке тісто</span>
+        <span class="menu-card-sub">Лаваш, піта, фокача</span>
+      </div>
+    </a>
+
+    <a href="#technical" class="menu-card" data-cat="technical">
+      <img src="img/icons/dough.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Технічне тісто</span>
+        <span class="menu-card-sub">Допоміжні та службові рецепти</span>
+      </div>
+    </a>
+
+  </nav>
+
+</main>
+
+<nav class="bottom-nav" aria-label="Нижня навігація">
+  <a href="#calculator" class="bottom-nav-item is-active">
+    <span class="iconify" data-icon="hugeicons:calculator"></span>
+    <span>Калькулятор</span>
+  </a>
+  <a href="#recipes" class="bottom-nav-item">
+    <span class="iconify" data-icon="game-icons:notebook"></span>
+    <span>Рецепти</span>
+  </a>
+  <a href="#profiles" class="bottom-nav-item">
+    <span class="iconify" data-icon="game-icons:user"></span>
+    <span>Профілі</span>
+  </a>
+  <a href="#about" class="bottom-nav-item">
+    <span class="iconify" data-icon="game-icons:information"></span>
+    <span>Про додаток</span>
+  </a>
+</nav>
+
+<script src="data/cat.js"></script>
+<script src="data/calc.js"></script>
+<script src="data/app.js"></script>
+</body>
+</html>
