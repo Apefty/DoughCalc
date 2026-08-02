@@ -7,6 +7,17 @@
 
 window.DoughCalc = window.DoughCalc || {};
 
+// Reliable base path for fetch() calls — works whether the page was opened
+// as ".../DoughCalc" or ".../DoughCalc/" (GitHub Pages project sites don't
+// always have a trailing slash, which otherwise breaks relative fetch paths).
+DoughCalc.BASE = (function () {
+  var path = location.pathname;
+  if (!path.endsWith('/')) {
+    path = path.substring(0, path.lastIndexOf('/') + 1);
+  }
+  return path;
+})();
+
 DoughCalc.routes = {
   '': {
     file: 'pages/home.html'
@@ -100,7 +111,7 @@ DoughCalc.navigate = function (route) {
     return;
   }
 
-  fetch(r.file)
+  fetch(DoughCalc.BASE + r.file)
     .then(function (res) {
       if (!res.ok) throw new Error('Failed to load ' + r.file);
       return res.text();
@@ -112,7 +123,7 @@ DoughCalc.navigate = function (route) {
       DoughCalc.updateBottomNav(route);
     })
     .catch(function (err) {
-      contentArea.innerHTML = '<p style="padding:20px;color:var(--text-muted);">Не вдалося завантажити сторінку.</p>';
+      contentArea.innerHTML = '<p style="padding:20px;color:var(--text-muted);">Не вдалося завантажити сторінку: ' + (DoughCalc.BASE + r.file) + '<br>' + err.message + '</p>';
       console.error(err);
     });
 };
