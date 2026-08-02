@@ -456,3 +456,97 @@ body {
   text-decoration: none;
   border: solid 1px var(--border);
 }
+
+/* ---------- Flour type mix rows ---------- */
+
+.flour-type-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.flour-type-row:last-child {
+  border-bottom: none;
+}
+
+.flour-type-name {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.flour-type-name:focus {
+  outline: none;
+}
+
+.flour-type-pct-box {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--bg);
+  border-radius: var(--radius-10);
+  padding: 5px 10px;
+  flex-shrink: 0;
+}
+
+.flour-type-pct-box input {
+  width: 36px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--accent);
+}
+
+.flour-type-pct-box input:focus {
+  outline: none;
+}
+
+.flour-type-weight {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  min-width: 62px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.flour-type-remove {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flour-sum-warning {
+  color: #b5432e !important;
+}
+
+/* ---------- Baker's Percentages sliders ---------- */
+
+.pct-slider {
+  width: 100%;
+  margin: 4px 0 14px;
+  height: 4px;
+}
+
+.pct-slider:last-of-type {
+  margin-bottom: 0;
+}
+
+.pct-slider-water   { accent-color: var(--accent-bl); }
+.pct-slider-salt     { accent-color: var(--text-muted); }
+.pct-slider-yeast   { accent-color: var(--accent-gr); }
+.pct-slider-oil     { accent-color: var(--accent2); }

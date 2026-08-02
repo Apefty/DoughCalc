@@ -1,0 +1,12 @@
+{
+  "id": "neapolitan-pizza",
+  "category": "pizza",
+  "name": { "uk": "Неаполітанська піца" },
+  "description": {
+    "uk": "Класичне тісто на низькій гідратації без олії, коротка випічка при дуже високій температурі. М'яка, еластична, з характерним \"кордоне\" — пухким бортиком."
+  },
+  "baker_percentages_default": { "hydration": 62, "salt": 2.8, "yeast": 0.2, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "biga", "poolish"],
+  "default_preferment": "biga",
+  "default_preferment_percent": 20
+}

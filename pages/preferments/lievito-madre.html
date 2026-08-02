@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Левіто Мадре — Dough Calculator</title>
-<link rel="stylesheet" href="../../css/style.css">
-<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
-</head>
-<body>
-
 <header class="app-header">
-  <a href="pref.html" class="icon-btn" aria-label="Назад">
+  <a data-route="preferments" class="icon-btn" aria-label="Назад">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
@@ -54,15 +43,15 @@
         <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="../../img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
         <span class="row-list-value" id="out-flour">300 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="../../img/icons/water.png" alt="" class="row-list-icon">Вода</div>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
         <span class="row-list-value" id="out-water">150 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="../../img/icons/starter.png" alt="" class="row-list-icon">Закваска</div>
+        <div class="row-list-label"><img src="img/icons/starter.png" alt="" class="row-list-icon">Закваска</div>
         <span class="row-list-value" id="out-third">300 <span class="unit">г</span></span>
       </div>
     </div>
@@ -79,11 +68,11 @@
     </div>
     <div class="row-list">
       <div class="row-list-item">
-        <div class="row-list-label"><img src="../../img/icons/hourglass.png" alt="" class="row-list-icon">Тривалість</div>
+        <div class="row-list-label"><img src="img/icons/hourglass.png" alt="" class="row-list-icon">Тривалість</div>
         <span class="row-list-value">3–4 год</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="../../img/icons/temperature.png" alt="" class="row-list-icon">Температура</div>
+        <div class="row-list-label"><img src="img/icons/temperature.png" alt="" class="row-list-icon">Температура</div>
         <span class="row-list-value">26–28°C, тепле місце</span>
       </div>
     </div>
@@ -99,68 +88,3 @@
   </section>
 
 </main>
-
-<nav class="bottom-nav" aria-label="Нижня навігація">
-  <a href="../../index.html" class="bottom-nav-item">
-    <span class="iconify" data-icon="tabler:home"></span>
-    <span>Home</span>
-  </a>
-  <a href="../../index.html#calculator" class="bottom-nav-item">
-    <span class="iconify" data-icon="tabler:calculator"></span>
-    <span>Калькулятор</span>
-  </a>
-  <a href="../../index.html#recipes" class="bottom-nav-item is-active">
-    <span class="iconify" data-icon="tabler:notebook"></span>
-    <span>Рецепти</span>
-  </a>
-  <a href="../../index.html#profiles" class="bottom-nav-item">
-    <span class="iconify" data-icon="tabler:user"></span>
-    <span>Профілі</span>
-  </a>
-  <a href="../../index.html#about" class="bottom-nav-item">
-    <span class="iconify" data-icon="tabler:info-circle"></span>
-    <span>Про додаток</span>
-  </a>
-</nav>
-
-<script>
-  var ratio = { flour: 100, water: 50, third: 100 };
-  var input = document.getElementById('input-weight');
-  var label = document.getElementById('input-label');
-  var buttons = document.querySelectorAll('#mode-toggle .segmented-item');
-  var mode = 'flour';
-
-  function render() {
-    var v = parseFloat(input.value) || 0;
-    var flour, water, third;
-    if (mode === 'flour') {
-      flour = v;
-    } else {
-      var unitTotal = ratio.flour + ratio.water + ratio.third;
-      flour = v * (ratio.flour / unitTotal);
-    }
-    water = flour * (ratio.water / ratio.flour);
-    third = flour * (ratio.third / ratio.flour);
-
-    document.getElementById('out-flour').innerHTML = Math.round(flour) + ' <span class="unit">г</span>';
-    document.getElementById('out-water').innerHTML = Math.round(water) + ' <span class="unit">г</span>';
-    document.getElementById('out-third').innerHTML = Math.round(third) + ' <span class="unit">г</span>';
-    document.getElementById('out-total').textContent = Math.round(flour + water + third) + ' г';
-  }
-
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      buttons.forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
-      mode = btn.getAttribute('data-mode');
-      label.textContent = mode === 'flour' ? 'Вага муки' : 'Вага преферменту';
-      render();
-    });
-  });
-
-  input.addEventListener('input', render);
-  render();
-</script>
-
-</body>
-</html>
