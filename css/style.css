@@ -751,3 +751,15 @@ div#content-area {
     background: url("img/icons/sicilian-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
+.app-header#baguette {
+    background: url("img/icons/baguette.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#sweet {
+    background: url("img/icons/sweet.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#brioche {
+    background: url("img/icons/brioche.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}

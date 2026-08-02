@@ -1,0 +1,12 @@
+{
+  "id": "brioche",
+  "category": "sweet",
+  "name": { "uk": "Бріош" },
+  "description": {
+    "uk": "Французьке збагачене здобне тісто з великою кількістю яєць і вершкового масла. М'який, ніжний, злегка солодкуватий м'якуш золотистого кольору."
+  },
+  "baker_percentages_default": { "hydration": 20, "salt": 1.8, "yeast": 3, "oil": 0, "sugar": 15, "egg": 40, "butter": 45 },
+  "compatible_preferments": ["none", "poolish", "biga"],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}
