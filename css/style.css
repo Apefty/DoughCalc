@@ -1,15 +1,10 @@
 /* ==========================================================
    Dough Calculator — base styles
-   Palette (from design reference):
-   --bg          page background        #f5efe3
-   --card        card background        #fbf8f1
-   --accent      rust / brown accent    #a5652e
-   --accent-soft accent tint bg         #f2e6d0
-   --text        primary text           #2b2118
-   --text-muted  secondary text         #b0a691
-   --line        hairline dividers      #f1eadc
+   Version: 0.1
    ========================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --bg: #f5efe3;
@@ -20,8 +15,11 @@
   --accent: #a56020;
   --accent2: #e77c13;
   --accent-soft: #f2e6d0;
-  --accent-gr: #728e27;
-  --accent-bl: #4b7db1;
+  --yeast: #a4996c;
+  --oil: #a8c368;
+  --salt: #b8bdbf;
+  --grain: #728e27;
+  --blue: #4b7db1;
   --text: #2b2118;
   --text-muted: #b0a691;
   --line: #f1eadc;
@@ -40,7 +38,7 @@ body {
   margin: 0;
   background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Exo 2", sans-serif;
   padding-bottom: 84px; /* space for bottom nav */
 }
 
@@ -51,6 +49,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 18px;
+  margin-top: 20px;
 }
 
 .app-brand {
@@ -336,7 +335,10 @@ body {
   font-size: 15px;
   color: var(--text);
 }
-
+.field-label span{
+    position: relative;
+    top: -10px;
+}
 .value-box {
   display: flex;
   align-items: center;
@@ -408,7 +410,7 @@ body {
 }
 
 .row-list-icon {
-  width: 36px;
+  width: 48px;
   aspect-ratio: 1/1;
   
 }
@@ -426,21 +428,25 @@ body {
 }
 
 .summary-box {
-  display: flex;
+/*   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--accent-soft);
+  justify-content: start; */
+  background: url("/img/bg_dough.png") no-repeat center right/contain ;
   border-radius: var(--radius-14);
   padding: 14px 16px;
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--accent);
+  border: solid 1px var(--card3);
+
 }
 
 .summary-box strong {
   font-size: 19px;
 }
-
+.summary-box#flour-sum-box {
+    background: url("/img/bg_flour.png") no-repeat center right/contain ;
+}
 .tag-row {
   display: flex;
   gap: 8px;
@@ -534,19 +540,164 @@ body {
   color: #b5432e !important;
 }
 
-/* ---------- Baker's Percentages sliders ---------- */
+/* ---------- Baker sliders ---------- */
 
-.pct-slider {
-  width: 100%;
-  margin: 4px 0 14px;
-  height: 4px;
+.pct-slider{
+    --percent: 0%;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 16px;
+    background: transparent;
+    cursor: pointer;
 }
 
-.pct-slider:last-of-type {
-  margin-bottom: 0;
+/* Track */
+
+.pct-slider::-webkit-slider-runnable-track{
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+        to right,
+        var(--slider-color) 0%,
+        var(--slider-color) var(--percent),
+        var(--track-color) var(--percent),
+        var(--track-color) 100%
+    );
 }
 
-.pct-slider-water   { accent-color: var(--accent-bl); }
-.pct-slider-salt     { accent-color: var(--text-muted); }
-.pct-slider-yeast   { accent-color: var(--accent-gr); }
-.pct-slider-oil     { accent-color: var(--accent2); }
+.pct-slider::-moz-range-track{
+    height: 4px;
+    border-radius: 999px;
+    background: var(--track-color);
+}
+
+.pct-slider::-moz-range-progress{
+    height: 4px;
+    border-radius: 999px;
+    background: var(--slider-color);
+}
+
+/* Thumb */
+
+.pct-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:16px;
+    height:16px;
+    margin-top:-6px;
+    border:none;
+    border-radius:50%;
+    background:var(--slider-color);
+    cursor:pointer;
+}
+
+.pct-slider::-moz-range-thumb{
+
+    width:16px;
+    height:16px;
+    border:none;
+    border-radius:50%;
+    background:var(--slider-color);
+    cursor:pointer;
+}
+
+/* Colors */
+
+.pct-slider-water{
+    --slider-color: var(--blue);
+    --track-color: #dcecff;
+}
+
+.pct-slider-salt{
+    --slider-color: var(--salt);
+    --track-color: #e7e7e7;
+}
+
+.pct-slider-yeast{
+    --slider-color: var(--yeast);
+    --track-color: #f0edc7;
+}
+
+.pct-slider-oil{
+    --slider-color: var(--oil);
+    --track-color: #eff3d5;
+}
+
+/* ---------- Headers ---------- */
+.app-header#biga {
+    background: url("/img/icons/biga.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#levain {
+    background: url("/img/icons/levain.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#lievito-madre {
+    background: url("/img/icons/lievito_madre.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#opara {
+    background: url("/img/icons/opara.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#pf {
+    background: url("/img/icons/pf.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#poolish {
+    background: url("/img/icons/poolish.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#prefs {
+    background: url("/img/icons/prefs.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#sponge {
+    background: url("/img/icons/sponge.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#sourdough {
+    background: url("/img/icons/starter.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+
+.app-header#additions {
+    background: url("/img/icons/additions-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#bread {
+    background: url("/img/icons/bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#pan {
+    background: url("/img/icons/pan-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#rustic {
+    background: url("/img/icons/rustic-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#rye {
+    background: url("/img/icons/rye-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#wheat {
+    background: url("/img/icons/wheat-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#wholegrain {
+    background: url("/img/icons/wholegrain-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#sourdough-bread {
+    background: url("/img/icons/sourdough-bread.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#neapolitan {
+    background: url("/img/icons/neapolitan.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#pizza {
+    background: url("/img/icons/pizza.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}

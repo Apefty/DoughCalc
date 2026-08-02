@@ -1,4 +1,4 @@
-<header class="app-header">
+<header class="app-header" id="sourdough-bread">
   <a data-route="bread" class="icon-btn" aria-label="Назад">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
@@ -82,7 +82,7 @@
         <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
@@ -102,7 +102,8 @@
     </div>
 
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Гідратація</label>
+      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> 
+        <span> Гідратація</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-hydration" value="75" step="1" min="0">
         <span class="value-unit">%</span>
@@ -111,7 +112,8 @@
     <input type="range" id="rng-hydration" min="50" max="100" value="75" step="1" class="pct-slider pct-slider-water">
 
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon"> Сіль</label>
+      <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">
+        <span> Сіль</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-salt" value="2" step="0.1" min="0">
         <span class="value-unit">%</span>
@@ -120,7 +122,8 @@
     <input type="range" id="rng-salt" min="0" max="4" value="2" step="0.1" class="pct-slider pct-slider-salt">
 
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon"> Дріжджі (в основний заміс)</label>
+      <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">
+        <span> Дріжджі (в основний заміс)</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-yeast" value="0" step="0.1" min="0">
         <span class="value-unit">%</span>
@@ -129,7 +132,8 @@
     <input type="range" id="rng-yeast" min="0" max="3" value="0" step="0.1" class="pct-slider pct-slider-yeast">
 
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon"> Олія</label>
+      <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">
+        <span> Олія</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-oil" value="0" step="0.1" min="0">
         <span class="value-unit">%</span>
@@ -148,7 +152,7 @@
         <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
@@ -170,7 +174,7 @@
     </div>
 
     <div class="summary-box">
-      <span>Загальна вага тіста</span>
+      <span>Загальна вага тіста</span><br>
       <strong id="out-total-dough">0 г</strong>
     </div>
   </section>

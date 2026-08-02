@@ -135,14 +135,41 @@ DoughCalc.initRecipePage = function (options) {
     var el = document.getElementById(id);
     if (el) el.addEventListener('input', render);
   });
+//slider
+function updateSlider(range) {
+    const p = ((range.value - range.min) / (range.max - range.min)) * 100;
+    range.style.setProperty('--percent', p + '%');
+}
+function syncPair(numId, rangeId) {
+    var n = document.getElementById(numId);
+    var r = document.getElementById(rangeId);
+    if (!n || !r) return;
 
-  function syncPair(numId, rangeId) {
+    updateSlider(r);   // <-- додати
+
+    r.addEventListener('input', function () {
+    n.value = r.value;
+    updateSlider(r);
+    render();
+    });
+
+    n.addEventListener('input', function () {
+    r.value = n.value;
+    updateSlider(r);
+    render();
+});
+}
+
+/* old version of syncPair function
+
+ function syncPair(numId, rangeId) {
     var n = document.getElementById(numId);
     var r = document.getElementById(rangeId);
     if (!n || !r) return;
     n.addEventListener('input', function () { r.value = n.value; render(); });
     r.addEventListener('input', function () { n.value = r.value; render(); });
-  }
+  } */
+
   syncPair('pct-hydration', 'rng-hydration');
   syncPair('pct-salt', 'rng-salt');
   syncPair('pct-yeast', 'rng-yeast');
