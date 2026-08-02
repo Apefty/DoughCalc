@@ -26,49 +26,58 @@ DoughCalc.routes = {
   'preferments': { file: 'pages/preferments/pref.html' },
   'preferments/biga': {
     file: 'pages/preferments/biga.html',
+    json: 'data/json/pre/biga.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.biga); }
   },
   'preferments/poolish': {
     file: 'pages/preferments/poolish.html',
+    json: 'data/json/pre/poolish.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.poolish); }
   },
   'preferments/pf': {
     file: 'pages/preferments/pf.html',
+    json: 'data/json/pre/pf.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.pf); }
   },
   'preferments/levain': {
     file: 'pages/preferments/levain.html',
+    json: 'data/json/pre/levain.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.levain); }
   },
   'preferments/opara': {
     file: 'pages/preferments/opara.html',
+    json: 'data/json/pre/opara.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.opara); }
   },
   'preferments/lievito-madre': {
     file: 'pages/preferments/lievito-madre.html',
+    json: 'data/json/pre/lievito-madre.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS['lievito-madre']); }
   },
   'preferments/sponge': {
     file: 'pages/preferments/sponge.html',
+    json: 'data/json/pre/sponge.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sponge); }
   },
   'preferments/sourdough': {
     file: 'pages/preferments/sourdough.html',
+    json: 'data/json/sourdough.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sourdough); }
   },
 
   'bread': { file: 'pages/bread/bread.html' },
-  'bread/wheat': { file: 'pages/bread/wheat.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rye': { file: 'pages/bread/rye.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/sourdough-bread': { file: 'pages/bread/sourdough-bread.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/wholegrain': { file: 'pages/bread/wholegrain.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/pan': { file: 'pages/bread/pan.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rustic': { file: 'pages/bread/rustic.html', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/additions': { file: 'pages/bread/additions.html', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/wheat': { file: 'pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/rye': { file: 'pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/sourdough-bread': { file: 'pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/wholegrain': { file: 'pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/pan': { file: 'pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/rustic': { file: 'pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/additions': { file: 'pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function () { DoughCalc.initRecipePage(); } },
 
   'pizza': { file: 'pages/pizza/pizza.html' },
   'pizza/neapolitan': {
     file: 'pages/pizza/neapolitan.html',
+    json: 'data/json/pizza/neapolitan.json',
     init: function () {
       var flourTypesWidget = DoughCalc.initFlourTypes([
         { name: 'Борошно 00', pct: 90 },
@@ -81,6 +90,7 @@ DoughCalc.routes = {
   },
   'pizza/roman': {
     file: 'pages/pizza/roman.html',
+    json: 'data/json/pizza/roman.json',
     init: function () {
       var flourTypesWidget = DoughCalc.initFlourTypes([
         { name: 'Борошно 00', pct: 70 },
@@ -93,11 +103,13 @@ DoughCalc.routes = {
   },
   'pizza/sicilian': {
     file: 'pages/pizza/sicilian.html',
+    json: 'data/json/pizza/sicilian.json',
     init: function () { DoughCalc.initRecipePage(); }
   },
 
   'baguette': {
     file: 'pages/baguette/baguette.html',
+    json: 'data/json/baguette/baguette.json',
     init: function () { DoughCalc.initRecipePage(); }
   }
 };
@@ -119,6 +131,7 @@ DoughCalc.navigate = function (route) {
     .then(function (html) {
       contentArea.innerHTML = html;
       if (typeof r.init === 'function') r.init();
+      if (r.json) DoughCalc.loadPageData(r.json);
       window.scrollTo(0, 0);
       DoughCalc.updateBottomNav(route);
     })
