@@ -67,9 +67,6 @@ div#content-area {
   justify-content: space-between;
   padding: 16px 18px;
   margin-top: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .app-brand {
@@ -127,8 +124,6 @@ div#content-area {
 
 .menu {
   padding: 4px 16px 24px;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .menu-grid {
@@ -226,13 +221,14 @@ div#content-area {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   bottom: 0;
   display: flex;
   justify-content: space-around;
   background: var(--card);
   border-top: 1px solid var(--line);
-  padding: 10px 0 20px;
+  padding: 10px 20px 20px;
+  box-sizing: border-box;
 }
 
 .bottom-nav-item {
@@ -268,8 +264,6 @@ div#content-area {
 
 .recipe-page {
   padding: 4px 16px 24px;
-  max-width: 600px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
