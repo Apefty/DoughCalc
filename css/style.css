@@ -107,7 +107,7 @@ body {
 
 .menu {
   padding: 4px 16px 24px;
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -246,7 +246,7 @@ body {
 
 .recipe-page {
   padding: 4px 16px 24px;
-  max-width: 480px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
