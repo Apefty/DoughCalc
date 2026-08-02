@@ -44,20 +44,16 @@ body {
 div#body-wrapper {
   min-width: 320px;
   max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
   padding-bottom: 84px; /* space for bottom nav */
   padding-left: 20px;
   padding-right: 20px;
 } 
 div#content-area {
-  min-width: 320px;
-  max-width: 650px;
-  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
-  padding-bottom: 84px; /* space for bottom nav */
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  /* sizing/background handled by the parent #body-wrapper —
+     this stays a plain hook for cat.js to swap fragment content into */
 } 
 /* ---------- Header ---------- */
 
