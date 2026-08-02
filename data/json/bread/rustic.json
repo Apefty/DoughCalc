@@ -1,0 +1,12 @@
+{
+  "id": "rustic-bread",
+  "category": "bread",
+  "name": { "uk": "Сільський хліб" },
+  "description": {
+    "uk": "Pain de campagne — деревенський хліб на суміші пшеничної та невеликої частки житньої/цільнозернової муки. Формується як буль чи батард, випікається з насиченою скоринкою у поді чи на камені."
+  },
+  "baker_percentages_default": { "hydration": 76, "salt": 2, "yeast": 0.5, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "pf", "biga"],
+  "default_preferment": "levain",
+  "default_preferment_percent": 25
+}

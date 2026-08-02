@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Цільнозерновий хліб — Dough Calculator</title>
+<link rel="stylesheet" href="../../css/style.css">
+<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+  <a href="bread.html" class="icon-btn" aria-label="Назад">
+    <span class="iconify" data-icon="tabler:arrow-left"></span>
+  </a>
+  <div class="app-brand">
+    <h1 class="page-title">Цільнозерновий хліб</h1>
+  </div>
+  <span class="icon-btn"></span>
+</header>
+
+<main class="recipe-page">
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Режим вводу</span>
+      <div class="segmented" id="entry-toggle">
+        <button class="segmented-item is-active" data-entry="total">За тістом</button>
+        <button class="segmented-item" data-entry="flour">За мукою</button>
+        <button class="segmented-item" data-entry="portions">Порції</button>
+      </div>
+    </div>
+
+    <div class="field-row" id="row-total">
+      <label for="input-total" class="field-label">Загальна вага тіста</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-total" value="1000" step="10" min="0">
+        <span class="value-unit">г</span>
+      </div>
+    </div>
+
+    <div class="field-row" id="row-flour" style="display:none">
+      <label for="input-flour" class="field-label">Вага муки</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-flour" value="600" step="10" min="0">
+        <span class="value-unit">г</span>
+      </div>
+    </div>
+
+    <div class="field-row" id="row-portions" style="display:none">
+      <label for="input-portions" class="field-label">Кількість заготовок</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-portions" value="4" step="1" min="1">
+        <span class="value-unit">шт</span>
+      </div>
+    </div>
+
+    <div class="field-row" id="row-portion-weight" style="display:none">
+      <label for="input-portion-weight" class="field-label">Вага 1 заготовки</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-portion-weight" value="500" step="10" min="0">
+        <span class="value-unit">г</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Преферемент</span>
+    </div>
+
+    <div class="field-row">
+      <label for="select-preferment" class="field-label">Тип</label>
+      <select id="select-preferment" class="value-box" style="border:none;">
+        <option value="none">Без преферменту</option>
+        <option value="sourdough">Закваска (Sourdough)</option>
+        <option value="levain">Левен</option>
+        <option value="biga">Біга</option>
+        <option value="poolish" selected>Пулиш</option>
+        <option value="pf">Pâte fermentée</option>
+        <option value="opara">Опара</option>
+      </select>
+    </div>
+
+    <div class="field-row" id="row-pre-percent">
+      <label for="input-pre-percent" class="field-label">% від загальної муки</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-pre-percent" value="30" step="1" min="0" max="100">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+
+    <div class="hr" id="pre-hr"></div>
+
+    <div class="row-list" id="pre-breakdown">
+      <div class="row-list-header">
+        <span>Склад преферменту</span>
+        <span>Вага</span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/water.png" alt="" class="row-list-icon">Вода</div>
+        <span class="row-list-value" id="pre-water">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">Дріжджі/закваска</div>
+        <span class="row-list-value" id="pre-third">0 <span class="unit">г</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Baker's Percentages</span>
+    </div>
+
+    <div class="field-row">
+      <label class="field-label"><img src="../../img/icons/water.png" alt="" class="row-list-icon"> Гідратація</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="pct-hydration" value="78" step="1" min="0">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+    <input type="range" id="rng-hydration" min="50" max="100" value="78" step="1" style="width:100%;accent-color:var(--accent-bl);margin:4px 0 14px;">
+
+    <div class="field-row">
+      <label class="field-label"><img src="../../img/icons/salt.png" alt="" class="row-list-icon"> Сіль</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="pct-salt" value="2" step="0.1" min="0">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+    <input type="range" id="rng-salt" min="0" max="4" value="2" step="0.1" style="width:100%;accent-color:var(--text-muted);margin:4px 0 14px;">
+
+    <div class="field-row">
+      <label class="field-label"><img src="../../img/icons/yeast.png" alt="" class="row-list-icon"> Дріжджі (в основний заміс)</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="pct-yeast" value="1" step="0.1" min="0">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+    <input type="range" id="rng-yeast" min="0" max="3" value="1" step="0.1" style="width:100%;accent-color:var(--accent-gr);margin:4px 0 14px;">
+
+    <div class="field-row">
+      <label class="field-label"><img src="../../img/icons/oil.png" alt="" class="row-list-icon"> Олія</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="pct-oil" value="0" step="0.1" min="0">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+    <input type="range" id="rng-oil" min="0" max="10" value="0" step="0.1" style="width:100%;accent-color:var(--accent2);margin:4px 0 0;">
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Основний заміс</span>
+    </div>
+    <div class="row-list">
+      <div class="row-list-header">
+        <span>Інгредієнт</span>
+        <span>Вага</span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/water.png" alt="" class="row-list-icon">Вода</div>
+        <span class="row-list-value" id="main-water">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/salt.png" alt="" class="row-list-icon">Сіль</div>
+        <span class="row-list-value" id="main-salt">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/yeast.png" alt="" class="row-list-icon">Дріжджі</div>
+        <span class="row-list-value" id="main-yeast">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="../../img/icons/oil.png" alt="" class="row-list-icon">Олія</div>
+        <span class="row-list-value" id="main-oil">0 <span class="unit">г</span></span>
+      </div>
+    </div>
+
+    <div class="summary-box">
+      <span>Загальна вага тіста</span>
+      <strong id="out-total-dough">0 г</strong>
+    </div>
+  </section>
+
+</main>
+
+<nav class="bottom-nav" aria-label="Нижня навігація">
+  <a href="../../index.html" class="bottom-nav-item">
+    <span class="iconify" data-icon="tabler:home"></span>
+    <span>Home</span>
+  </a>
+  <a href="../../index.html#calculator" class="bottom-nav-item">
+    <span class="iconify" data-icon="tabler:calculator"></span>
+    <span>Калькулятор</span>
+  </a>
+  <a href="../../index.html#recipes" class="bottom-nav-item is-active">
+    <span class="iconify" data-icon="tabler:notebook"></span>
+    <span>Рецепти</span>
+  </a>
+  <a href="../../index.html#profiles" class="bottom-nav-item">
+    <span class="iconify" data-icon="tabler:user"></span>
+    <span>Профілі</span>
+  </a>
+  <a href="../../index.html#about" class="bottom-nav-item">
+    <span class="iconify" data-icon="tabler:info-circle"></span>
+    <span>Про додаток</span>
+  </a>
+</nav>
+
+<script>
+  var PREFERMENTS = {
+    none:      { mode: null },
+    sourdough: { mode: 'starter', flour: 100, water: 100, third: 100 },
+    levain:    { mode: 'starter', flour: 100, water: 100, third: 20 },
+    biga:      { mode: 'yeast',   flour: 100, water: 50,  third: 2 },
+    poolish:   { mode: 'yeast',   flour: 100, water: 100, third: 0.5 },
+    pf:        { mode: 'yeast',   flour: 100, water: 60,  third: 1 },
+    opara:     { mode: 'yeast',   flour: 100, water: 100, third: 0.5 }
+  };
+
+  var entryButtons = document.querySelectorAll('#entry-toggle .segmented-item');
+  var entryMode = 'total';
+  var rowTotal = document.getElementById('row-total');
+  var rowFlour = document.getElementById('row-flour');
+  var rowPortions = document.getElementById('row-portions');
+  var rowPortionWeight = document.getElementById('row-portion-weight');
+
+  entryButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      entryButtons.forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      entryMode = btn.getAttribute('data-entry');
+      rowTotal.style.display = entryMode === 'total' ? 'flex' : 'none';
+      rowFlour.style.display = entryMode === 'flour' ? 'flex' : 'none';
+      rowPortions.style.display = entryMode === 'portions' ? 'flex' : 'none';
+      rowPortionWeight.style.display = entryMode === 'portions' ? 'flex' : 'none';
+      render();
+    });
+  });
+
+  var selectPreferment = document.getElementById('select-preferment');
+  var rowPrePercent = document.getElementById('row-pre-percent');
+  var preHr = document.getElementById('pre-hr');
+  var preBreakdown = document.getElementById('pre-breakdown');
+
+  selectPreferment.addEventListener('change', function () {
+    var isNone = selectPreferment.value === 'none';
+    rowPrePercent.style.display = isNone ? 'none' : 'flex';
+    preHr.style.display = isNone ? 'none' : 'block';
+    preBreakdown.style.display = isNone ? 'none' : 'block';
+    var pre = PREFERMENTS[selectPreferment.value];
+    var thirdLabel = pre && pre.mode === 'starter' ? 'Закваска' : 'Дріжджі';
+    document.querySelector('#pre-breakdown .row-list-item:nth-child(3) .row-list-label').lastChild.textContent = thirdLabel;
+    render();
+  });
+
+  ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
+   'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', render);
+  });
+
+  function syncPair(numId, rangeId) {
+    var num = document.getElementById(numId);
+    var rng = document.getElementById(rangeId);
+    num.addEventListener('input', function () { rng.value = num.value; render(); });
+    rng.addEventListener('input', function () { num.value = rng.value; render(); });
+  }
+  syncPair('pct-hydration', 'rng-hydration');
+  syncPair('pct-salt', 'rng-salt');
+  syncPair('pct-yeast', 'rng-yeast');
+  syncPair('pct-oil', 'rng-oil');
+
+  function num(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+  function render() {
+    var H = num('pct-hydration'), S = num('pct-salt'), Y = num('pct-yeast'), O = num('pct-oil');
+    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100;
+
+    var flour;
+    if (entryMode === 'flour') {
+      flour = num('input-flour');
+    } else if (entryMode === 'portions') {
+      var totalDough = num('input-portions') * num('input-portion-weight');
+      flour = totalDough / factor;
+    } else {
+      flour = num('input-total') / factor;
+    }
+
+    var water = flour * H / 100;
+    var salt = flour * S / 100;
+    var yeast = flour * Y / 100;
+    var oil = flour * O / 100;
+
+    var preKey = selectPreferment.value;
+    var pre = PREFERMENTS[preKey];
+    var preFlour = 0, preWater = 0, preThird = 0;
+
+    if (pre && pre.mode) {
+      var pPercent = num('input-pre-percent');
+      preFlour = flour * pPercent / 100;
+      var scale = preFlour / pre.flour;
+      preWater = pre.water * scale;
+      preThird = pre.third * scale;
+
+      document.getElementById('pre-flour').innerHTML = Math.round(preFlour) + ' <span class="unit">г</span>';
+      document.getElementById('pre-water').innerHTML = Math.round(preWater) + ' <span class="unit">г</span>';
+      document.getElementById('pre-third').innerHTML = Math.round(preThird * 10) / 10 + ' <span class="unit">г</span>';
+    }
+
+    var mainFlour = flour - preFlour;
+    var mainWater = water - preWater;
+
+    document.getElementById('main-flour').innerHTML = Math.round(mainFlour) + ' <span class="unit">г</span>';
+    document.getElementById('main-water').innerHTML = Math.round(mainWater) + ' <span class="unit">г</span>';
+    document.getElementById('main-salt').innerHTML = Math.round(salt * 10) / 10 + ' <span class="unit">г</span>';
+    document.getElementById('main-yeast').innerHTML = Math.round(yeast * 10) / 10 + ' <span class="unit">г</span>';
+    document.getElementById('main-oil').innerHTML = Math.round(oil * 10) / 10 + ' <span class="unit">г</span>';
+
+    var totalDoughOut = flour + water + salt + yeast + oil;
+    document.getElementById('out-total-dough').textContent = Math.round(totalDoughOut) + ' г';
+  }
+
+  render();
+</script>
+
+</body>
+</html>

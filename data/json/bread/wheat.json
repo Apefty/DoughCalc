@@ -1,0 +1,12 @@
+{
+  "id": "wheat-bread",
+  "category": "bread",
+  "name": { "uk": "Пшеничний хліб" },
+  "description": {
+    "uk": "Класичний хліб на білій пшеничній муці. Базовий рецепт для щоденної випічки — основа для більшості інших видів хліба."
+  },
+  "baker_percentages_default": { "hydration": 73, "salt": 2, "yeast": 1, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "biga", "poolish", "pf", "opara"],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 30
+}

@@ -1,0 +1,12 @@
+{
+  "id": "wholegrain-bread",
+  "category": "bread",
+  "name": { "uk": "Цільнозерновий / багатозерновий хліб" },
+  "description": {
+    "uk": "Хліб на обойній муці або суміші кількох видів зерна. Висівки й зародок вбирають більше вологи та послаблюють клейковинний каркас, тому потребує вищої гідратації й трохи довшого вимішування."
+  },
+  "baker_percentages_default": { "hydration": 78, "salt": 2, "yeast": 1, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "biga", "poolish", "pf", "opara"],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 30
+}

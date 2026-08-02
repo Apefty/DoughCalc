@@ -1,0 +1,12 @@
+{
+  "id": "additions-bread",
+  "category": "bread",
+  "name": { "uk": "Хліб з добавками" },
+  "description": {
+    "uk": "Базовий заміс, збагачений добавками — горіхами, насінням, оливками, сухофруктами тощо. Основа рахується як звичайний хліб; вага самих добавок додається окремо понад основний заміс і тут поки не автоматизована."
+  },
+  "baker_percentages_default": { "hydration": 72, "salt": 2, "yeast": 1, "oil": 2 },
+  "compatible_preferments": ["sourdough", "levain", "biga", "poolish", "pf", "opara"],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 25
+}

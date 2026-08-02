@@ -1,0 +1,12 @@
+{
+  "id": "sourdough-bread",
+  "category": "bread",
+  "name": { "uk": "Заквасочний хліб" },
+  "description": {
+    "uk": "Хліб, який піднімається виключно на заквасці або Левені — без жодних комерційних дріжджів. Довша ферментація дає характерну кислинку, хрустку скоринку та відкритий пористий м'якуш."
+  },
+  "baker_percentages_default": { "hydration": 75, "salt": 2, "yeast": 0, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain"],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 20
+}

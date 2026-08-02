@@ -1,0 +1,12 @@
+{
+  "id": "rye-bread",
+  "category": "bread",
+  "name": { "uk": "Житній / житньо-пшеничний хліб" },
+  "description": {
+    "uk": "Хліб на житній або змішаній житньо-пшеничній муці. Житнє борошно бідне на клейковину і сильно вбирає воду, тому традиційно випікається на заквасці — вона стабілізує м'якуш і додає характерну кислинку."
+  },
+  "baker_percentages_default": { "hydration": 80, "salt": 2, "yeast": 0.5, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "opara"],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 20
+}
