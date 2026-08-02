@@ -1,9 +1,9 @@
-/* ==========================================================
-   Dough Calculator — SPA router
-   Loads page fragments (pages .html — no <head>, no
-   bottom-nav, just <header>+<main>) into #content-area and
-   runs the matching init function from calc.js afterwards.
-   ========================================================== */
+// ==========================================================
+// Dough Calculator — SPA router
+// Loads page fragments (pages/.../*.html — no <head>, no
+// bottom-nav, just <header>+<main>) into #content-area and
+// runs the matching init function from calc.js afterwards.
+// ==========================================================
 
 window.DoughCalc = window.DoughCalc || {};
 
