@@ -706,3 +706,11 @@ body {
     background: url("/img/icons/pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
+.app-header#roman {
+    background: url("/img/icons/roman-pizza.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#sicilian {
+    background: url("/img/icons/sicilian-pizza.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}

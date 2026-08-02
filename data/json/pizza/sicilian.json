@@ -1,0 +1,12 @@
+{
+  "id": "sicilian-pizza",
+  "category": "pizza",
+  "name": { "uk": "Сицилійська піца" },
+  "description": {
+    "uk": "Товста, пориста піца, яка випікається у прямокутній формі з олією на дні — звідси хрустка смажена скоринка знизу і м'який хлібний м'якуш усередині."
+  },
+  "baker_percentages_default": { "hydration": 75, "salt": 2, "yeast": 1, "oil": 5 },
+  "compatible_preferments": ["sourdough", "levain", "biga", "poolish"],
+  "default_preferment": "biga",
+  "default_preferment_percent": 20
+}

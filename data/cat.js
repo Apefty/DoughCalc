@@ -67,6 +67,22 @@ DoughCalc.routes = {
         onFlourChange: function (mainFlour) { flourTypesWidget.setMainFlour(mainFlour); }
       });
     }
+  },
+  'pizza/roman': {
+    file: 'pages/pizza/roman.html',
+    init: function () {
+      var flourTypesWidget = DoughCalc.initFlourTypes([
+        { name: 'Борошно 00', pct: 70 },
+        { name: 'Манітоба (сильна)', pct: 30 }
+      ]);
+      DoughCalc.initRecipePage({
+        onFlourChange: function (mainFlour) { flourTypesWidget.setMainFlour(mainFlour); }
+      });
+    }
+  },
+  'pizza/sicilian': {
+    file: 'pages/pizza/sicilian.html',
+    init: function () { DoughCalc.initRecipePage(); }
   }
 };
 
