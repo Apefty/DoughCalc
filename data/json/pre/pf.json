@@ -1,0 +1,23 @@
+{
+  "id": "pf",
+  "category": "preferments",
+  "name": {
+    "uk": "Pâte fermentée",
+    "en": "Pate fermentee"
+  },
+  "description": {
+    "uk": "\"Стара тісто-закваска\" — французький преферемент на базі звичайного хлібного тіста середньої гідратації. Дає готовому хлібу глибший смак і кращу структуру м'якушки без додаткового обладнання чи заквасок."
+  },
+  "ratio": {
+    "flour": 100,
+    "water": 60,
+    "yeast": 1
+  },
+  "hydration": 60,
+  "fermentation": {
+    "duration_hours": 16,
+    "duration_note_uk": "3–4 год кімнатної + 12–24 год холодильник",
+    "temperature_note_uk": "спочатку 20°C, потім холодильник 4°C"
+  },
+  "used_in": ["bread", "baguette"]
+}
