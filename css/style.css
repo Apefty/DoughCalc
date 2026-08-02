@@ -36,12 +36,29 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
+  background: url("/img/bg.png") top left repeat;
   color: var(--text);
   font-family: "Exo 2", sans-serif;
   padding-bottom: 84px; /* space for bottom nav */
 }
-
+div#body-wrapper {
+  min-width: 320px;
+  max-width: 650px;
+  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
+  padding-bottom: 84px; /* space for bottom nav */
+  padding-left: 20px;
+  padding-right: 20px;
+} 
+div#content-area {
+  min-width: 320px;
+  max-width: 650px;
+  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
+  padding-bottom: 84px; /* space for bottom nav */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+} 
 /* ---------- Header ---------- */
 
 .app-header {
@@ -712,9 +729,5 @@ body {
 }
 .app-header#sicilian {
     background: url("/img/icons/sicilian-pizza.png") no-repeat center right/contain ;
-    background-position: calc(100% - 20px) center;
-}
-.app-header#baguette {
-    background: url("/img/icons/baguette.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
