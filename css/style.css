@@ -714,3 +714,7 @@ body {
     background: url("/img/icons/sicilian-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
+.app-header#baguette {
+    background: url("/img/icons/baguette.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}

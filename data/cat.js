@@ -83,6 +83,10 @@ DoughCalc.routes = {
   'pizza/sicilian': {
     file: 'pages/pizza/sicilian.html',
     init: function () { DoughCalc.initRecipePage(); }
+  },
+  'pizza/baguette': {
+    file: 'pages/pizza/baguette.html',
+    init: function () { DoughCalc.initRecipePage(); }
   }
 };
 

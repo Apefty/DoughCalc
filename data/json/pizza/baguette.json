@@ -1,0 +1,12 @@
+{
+  "id": "baguette",
+  "category": "pizza",
+  "name": { "uk": "Багет" },
+  "description": {
+    "uk": "Класичний французький багет — довгий, тонкий, з хрусткою скоринкою і легким, нерівномірно пористим м'якушем. Традиційно на пулиш або pâte fermentée для глибшого смаку."
+  },
+  "baker_percentages_default": { "hydration": 72, "salt": 2, "yeast": 0.8, "oil": 0 },
+  "compatible_preferments": ["sourdough", "levain", "poolish", "pf"],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 30
+}
