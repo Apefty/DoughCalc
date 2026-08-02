@@ -84,8 +84,9 @@ DoughCalc.routes = {
     file: 'pages/pizza/sicilian.html',
     init: function () { DoughCalc.initRecipePage(); }
   },
-  'pizza/baguette': {
-    file: 'pages/pizza/baguette.html',
+
+  'baguette': {
+    file: 'pages/baguette/baguette.html',
     init: function () { DoughCalc.initRecipePage(); }
   }
 };
@@ -122,7 +123,7 @@ DoughCalc.updateBottomNav = function (route) {
   var section = route === '' ? 'home'
     : (route.indexOf('/') > -1 ? route.split('/')[0] : route);
   var activeKey = (section === 'home') ? 'home'
-    : (['preferments', 'bread', 'pizza', 'sweet'].indexOf(section) > -1) ? 'recipes'
+    : (['preferments', 'bread', 'pizza', 'baguette', 'sweet'].indexOf(section) > -1) ? 'recipes'
     : section;
 
   items.forEach(function (item) {
