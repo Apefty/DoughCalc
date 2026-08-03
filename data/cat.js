@@ -111,6 +111,13 @@ DoughCalc.routes = {
     file: 'pages/baguette/baguette.html',
     json: 'data/json/baguette/baguette.json',
     init: function () { DoughCalc.initRecipePage(); }
+  },
+
+  'sweet': { file: 'pages/sweet/sweet.html' },
+  'sweet/brioche': {
+    file: 'pages/sweet/brioche.html',
+    json: 'data/json/sweet/brioche.json',
+    init: function () { DoughCalc.initRecipePage(); }
   }
 };
 
