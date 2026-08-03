@@ -60,9 +60,12 @@ div#content-area {
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 16px 18px;
   margin-top: 20px;
+}
+
+.app-header > *:last-child {
+  margin-left: auto;
 }
 
 .app-brand {
