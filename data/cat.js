@@ -118,6 +118,11 @@ DoughCalc.routes = {
     file: 'pages/sweet/brioche.html',
     json: 'data/json/sweet/brioche.json',
     init: function () { DoughCalc.initRecipePage(); }
+  },
+
+  'calculator': {
+    file: 'pages/calculator/calculator.html',
+    init: function () { DoughCalc.initRecipePage(); }
   }
 };
 

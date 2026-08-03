@@ -783,6 +783,31 @@ div#body-wrapper {
     background-position: calc(100% - 20px) center;
 }
 .app-header#baguette {
-    background: url("/img/icons/baguette-one.png") no-repeat center right/contain ;
+    background: url("/img/icons/baguette2.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+  }
+
+  .app-header#sweet {
+    background: url("/img/icons/sweet.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+  }
+.app-header#brioche {
+    background: url("/img/icons/brioche.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#paska {
+    background: url("/img/icons/paska.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#panettone {
+    background: url("/img/icons/panettone.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#tart {
+    background: url("/img/icons/tart.png") no-repeat center right/contain ;
+    background-position: calc(100% - 20px) center;
+}
+.app-header#calculator {
+    background: url("/img/icons/calculator.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
