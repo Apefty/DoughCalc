@@ -41,7 +41,7 @@ a {
 }
 body {
   margin: 0;
-  background: url("/img/bg.png") top left repeat;
+  background: url("../img/bg.png") top left repeat;
   color: var(--text);
   font-family: "Exo 2", sans-serif;
   padding-bottom: 84px; /* space for bottom nav */
@@ -62,22 +62,16 @@ div#body-wrapper {
      8px 0 12px -8px rgba(0,0,0,.2);
 } 
 
-/* div#content-area {
-  min-width: 320px;
-  max-width: 650px;
-  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
-  padding-bottom: 84px; 
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}  */
-/* ---------- Header ---------- */
+ div#content-area {
+ padding-top: 20px;
+}  
+  
+* ---------- Header ---------- */
 .app-header {
   display: flex;
   align-items: center;
   padding: 16px 18px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .app-header > *:last-child {
@@ -484,7 +478,7 @@ div#body-wrapper {
 /*   display: flex;
   align-items: center;
   justify-content: start; */
-  background: url("/img/bg_dough.png") no-repeat center right/contain ;
+  background: url("../img/bg_dough.png") no-repeat center right/contain ;
   border-radius: var(--radius-14);
   padding: 14px 16px;
   margin-top: 14px;
@@ -498,7 +492,7 @@ div#body-wrapper {
   font-size: 19px;
 }
 .summary-box#flour-sum-box {
-    background: url("/img/bg_flour.png") no-repeat center right/contain ;
+    background: url("../img/bg_flour.png") no-repeat center right/contain ;
 }
 .tag-row {
   display: flex;
@@ -698,116 +692,116 @@ div#body-wrapper {
 
 /* ---------- Headers ---------- */
 .app-header#biga {
-    background: url("/img/icons/biga.png") no-repeat center right/contain ;
+    background: url("../img/icons/biga.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#levain {
-    background: url("/img/icons/levain.png") no-repeat center right/contain ;
+    background: url("../img/icons/levain.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#lievito-madre {
-    background: url("/img/icons/lm.png") no-repeat center right/contain ;
+    background: url("../img/icons/lm.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#opara {
-    background: url("/img/icons/opara.png") no-repeat center right/contain ;
+    background: url("../img/icons/opara.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pf {
-    background: url("/img/icons/pf.png") no-repeat center right/contain ;
+    background: url("../img/icons/pf.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#poolish {
-    background: url("/img/icons/poolish.png") no-repeat center right/contain ;
+    background: url("../img/icons/poolish.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#prefs {
-    background: url("/img/icons/prefs.png") no-repeat center right/contain ;
+    background: url("../img/icons/prefs.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sponge {
-    background: url("/img/icons/sponge.png") no-repeat center right/contain ;
+    background: url("../img/icons/sponge.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sourdough {
-    background: url("/img/icons/starter.png") no-repeat center right/contain ;
+    background: url("../img/icons/starter.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 
 .app-header#additions {
-    background: url("/img/icons/additions-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/additions-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#bread {
-    background: url("/img/icons/bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pan {
-    background: url("/img/icons/pan-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/pan-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#rustic {
-    background: url("/img/icons/rustic-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/rustic-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#rye {
-    background: url("/img/icons/rye-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/rye-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#wheat {
-    background: url("/img/icons/wheat-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/wheat-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#wholegrain {
-    background: url("/img/icons/wholegrain-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/wholegrain-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sourdough-bread {
-    background: url("/img/icons/sourdough-bread.png") no-repeat center right/contain ;
+    background: url("../img/icons/sourdough-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#neapolitan {
-    background: url("/img/icons/neapolitan.png") no-repeat center right/contain ;
+    background: url("../img/icons/neapolitan.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pizza {
-    background: url("/img/icons/pizza.png") no-repeat center right/contain ;
+    background: url("../img/icons/pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#roman {
-    background: url("/img/icons/roman-pizza.png") no-repeat center right/contain ;
+    background: url("../img/icons/roman-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sicilian {
-    background: url("/img/icons/sicilian-pizza.png") no-repeat center right/contain ;
+    background: url("../img/icons/sicilian-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#baguette {
-    background: url("/img/icons/baguette2.png") no-repeat center right/contain ;
+    background: url("../img/icons/baguette2.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
   }
 
   .app-header#sweet {
-    background: url("/img/icons/sweet.png") no-repeat center right/contain ;
+    background: url("../img/icons/sweet.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
   }
 .app-header#brioche {
-    background: url("/img/icons/brioche.png") no-repeat center right/contain ;
+    background: url("../img/icons/brioche.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#paska {
-    background: url("/img/icons/paska.png") no-repeat center right/contain ;
+    background: url("../img/icons/paska.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#panettone {
-    background: url("/img/icons/panettone.png") no-repeat center right/contain ;
+    background: url("../img/icons/panettone.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#tart {
-    background: url("/img/icons/tart.png") no-repeat center right/contain ;
+    background: url("../img/icons/tart.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#calculator {
-    background: url("/img/icons/calculator.png") no-repeat center right/contain ;
+    background: url("../img/icons/calculator.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
