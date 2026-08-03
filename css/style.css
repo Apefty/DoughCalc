@@ -49,6 +49,8 @@ body {
 div#body-wrapper {
   min-width: 320px;
   max-width: 650px;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
   padding-bottom: 84px; 
   padding-left: 20px;
