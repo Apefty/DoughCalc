@@ -131,8 +131,7 @@ DoughCalc.initRecipePage = function (options) {
   });
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
-   'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil',
-   'pct-sugar', 'pct-egg', 'pct-butter'].forEach(function (id) {
+   'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener('input', render);
   });
@@ -175,14 +174,10 @@ function syncPair(numId, rangeId) {
   syncPair('pct-salt', 'rng-salt');
   syncPair('pct-yeast', 'rng-yeast');
   syncPair('pct-oil', 'rng-oil');
-  syncPair('pct-sugar', 'rng-sugar');
-  syncPair('pct-egg', 'rng-egg');
-  syncPair('pct-butter', 'rng-butter');
 
   function render() {
     var H = dcNum('pct-hydration'), S = dcNum('pct-salt'), Y = dcNum('pct-yeast'), O = dcNum('pct-oil');
-    var SU = dcNum('pct-sugar'), EG = dcNum('pct-egg'), BU = dcNum('pct-butter');
-    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100 + SU / 100 + EG / 100 + BU / 100;
+    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100;
 
     var flour;
     if (entryMode === 'flour') {
@@ -198,9 +193,6 @@ function syncPair(numId, rangeId) {
     var salt = flour * S / 100;
     var yeast = flour * Y / 100;
     var oil = flour * O / 100;
-    var sugar = flour * SU / 100;
-    var egg = flour * EG / 100;
-    var butter = flour * BU / 100;
 
     var preKey = selectPreferment.value;
     var pre = DoughCalc.PREFERMENTS[preKey];
@@ -226,12 +218,9 @@ function syncPair(numId, rangeId) {
     dcSetHTML('main-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-yeast', (Math.round(yeast * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-oil', (Math.round(oil * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-sugar', (Math.round(sugar * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-egg', (Math.round(egg * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-butter', (Math.round(butter * 10) / 10) + ' <span class="unit">г</span>');
 
     var totalEl = document.getElementById('out-total-dough');
-    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + sugar + egg + butter) + ' г';
+    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil) + ' г';
 
     if (typeof onFlourChange === 'function') onFlourChange(mainFlour);
   }

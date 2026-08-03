@@ -13,6 +13,7 @@
   --card2: #fffdfa;
   --card3: #f8f1e4;
   --accent: #a56020;
+  --accent-hover: #8a4d1a;
   --accent2: #e77c13;
   --accent-soft: #f2e6d0;
   --yeast: #a4996c;
@@ -33,10 +34,14 @@
 * {
   box-sizing: border-box;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 body {
   margin: 0;
-  background: url("img/bg.png") top left repeat;
+  background: url("/img/bg.png") top left repeat;
   color: var(--text);
   font-family: "Exo 2", sans-serif;
   padding-bottom: 84px; /* space for bottom nav */
@@ -44,26 +49,50 @@ body {
 div#body-wrapper {
   min-width: 320px;
   max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
   background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
-  padding-bottom: 84px; /* space for bottom nav */
+  padding-bottom: 84px; 
   padding-left: 20px;
   padding-right: 20px;
+   margin-left: auto;
+  margin-right: auto;
+  border-right: solid 5px var(--accent-soft);
+  border-left: solid 5px var(--accent-soft);
+  box-shadow:
+    -8px 0 12px -8px rgba(0,0,0,.2),
+     8px 0 12px -8px rgba(0,0,0,.2);
 } 
-div#content-area {
-  /* sizing/background handled by the parent #body-wrapper —
-     this stays a plain hook for cat.js to swap fragment content into */
-} 
-/* ---------- Header ---------- */
 
+/* div#content-area {
+  min-width: 320px;
+  max-width: 650px;
+  background: linear-gradient(to bottom, var(--bg2) 70%,var(--bg) 99%);
+  padding-bottom: 84px; 
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}  */
+/* ---------- Header ---------- */
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 16px 18px;
   margin-top: 20px;
 }
+
+.app-header > *:last-child {
+  margin-left: auto;
+}
+/* .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: flex-start;
+  padding: 30px 18px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+} */
 
 .app-brand {
   display: flex;
@@ -120,6 +149,8 @@ div#content-area {
 
 .menu {
   padding: 4px 16px 24px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .menu-grid {
@@ -134,13 +165,15 @@ div#content-area {
   gap: 14px;
   background: var(--card2);
   border-radius: var(--radius-14);
-  padding: 16px 18px;
+  padding: 10px 18px;
   text-decoration: none;
   color: var(--text);
   border: solid 1px var(--border);
   box-shadow: 2px 2px 6px 0 rgba(121, 120, 120, 0.2);
 }
-
+.menu-card:hover {
+ background: var(--card3);
+}
 .menu-card-icon {
   width: 64px;
   aspect-ratio: 1/1;
@@ -171,7 +204,9 @@ div#content-area {
   box-shadow: 2px 2px 6px 0 rgba(121, 120, 120, 0.5);
   border: solid 1px var(--accent2);
 }
-
+.menu-card-accent:hover {
+ background: var(--accent-hover);
+}
 .menu-card-accent .menu-card-title,
 .menu-card-accent .menu-card-sub {
   color: #fff;
@@ -223,8 +258,12 @@ div#content-area {
   justify-content: space-around;
   background: var(--card);
   border-top: 1px solid var(--line);
-  padding: 10px 20px 20px;
-  box-sizing: border-box;
+  border-right: solid 5px var(--accent-soft);
+  border-left: solid 5px var(--accent-soft);
+  padding: 10px 0 20px;
+  box-shadow:
+    -8px 0 12px -8px rgba(0,0,0,.2),
+     8px 0 12px -8px rgba(0,0,0,.2);
 }
 
 .bottom-nav-item {
@@ -260,6 +299,8 @@ div#content-area {
 
 .recipe-page {
   padding: 4px 16px 24px;
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -443,7 +484,7 @@ div#content-area {
 /*   display: flex;
   align-items: center;
   justify-content: start; */
-  background: url("img/bg_dough.png") no-repeat center right/contain ;
+  background: url("/img/bg_dough.png") no-repeat center right/contain ;
   border-radius: var(--radius-14);
   padding: 14px 16px;
   margin-top: 14px;
@@ -457,7 +498,7 @@ div#content-area {
   font-size: 19px;
 }
 .summary-box#flour-sum-box {
-    background: url("img/bg_flour.png") no-repeat center right/contain ;
+    background: url("/img/bg_flour.png") no-repeat center right/contain ;
 }
 .tag-row {
   display: flex;
@@ -657,99 +698,91 @@ div#content-area {
 
 /* ---------- Headers ---------- */
 .app-header#biga {
-    background: url("img/icons/biga.png") no-repeat center right/contain ;
+    background: url("/img/icons/biga.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#levain {
-    background: url("img/icons/levain.png") no-repeat center right/contain ;
+    background: url("/img/icons/levain.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#lievito-madre {
-    background: url("img/icons/lievito_madre.png") no-repeat center right/contain ;
+    background: url("/img/icons/lm.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#opara {
-    background: url("img/icons/opara.png") no-repeat center right/contain ;
+    background: url("/img/icons/opara.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pf {
-    background: url("img/icons/pf.png") no-repeat center right/contain ;
+    background: url("/img/icons/pf.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#poolish {
-    background: url("img/icons/poolish.png") no-repeat center right/contain ;
+    background: url("/img/icons/poolish.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#prefs {
-    background: url("img/icons/prefs.png") no-repeat center right/contain ;
+    background: url("/img/icons/prefs.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sponge {
-    background: url("img/icons/sponge.png") no-repeat center right/contain ;
+    background: url("/img/icons/sponge.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sourdough {
-    background: url("img/icons/starter.png") no-repeat center right/contain ;
+    background: url("/img/icons/starter.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 
 .app-header#additions {
-    background: url("img/icons/additions-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/additions-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#bread {
-    background: url("img/icons/bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pan {
-    background: url("img/icons/pan-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/pan-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#rustic {
-    background: url("img/icons/rustic-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/rustic-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#rye {
-    background: url("img/icons/rye-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/rye-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#wheat {
-    background: url("img/icons/wheat-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/wheat-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#wholegrain {
-    background: url("img/icons/wholegrain-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/wholegrain-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sourdough-bread {
-    background: url("img/icons/sourdough-bread.png") no-repeat center right/contain ;
+    background: url("/img/icons/sourdough-bread.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#neapolitan {
-    background: url("img/icons/neapolitan.png") no-repeat center right/contain ;
+    background: url("/img/icons/neapolitan.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#pizza {
-    background: url("img/icons/pizza.png") no-repeat center right/contain ;
+    background: url("/img/icons/pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#roman {
-    background: url("img/icons/roman-pizza.png") no-repeat center right/contain ;
+    background: url("/img/icons/roman-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#sicilian {
-    background: url("img/icons/sicilian-pizza.png") no-repeat center right/contain ;
+    background: url("/img/icons/sicilian-pizza.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
 .app-header#baguette {
-    background: url("img/icons/baguette.png") no-repeat center right/contain ;
-    background-position: calc(100% - 20px) center;
-}
-.app-header#sweet {
-    background: url("img/icons/sweet.png") no-repeat center right/contain ;
-    background-position: calc(100% - 20px) center;
-}
-.app-header#brioche {
-    background: url("img/icons/brioche.png") no-repeat center right/contain ;
+    background: url("/img/icons/baguette-one.png") no-repeat center right/contain ;
     background-position: calc(100% - 20px) center;
 }
