@@ -63,8 +63,8 @@ div#body-wrapper {
   border-right: solid 5px var(--accent-soft);
   border-left: solid 5px var(--accent-soft);
   box-shadow:
-    -8px 0 12px -8px rgba(0,0,0,.2),
-     8px 0 12px -8px rgba(0,0,0,.2);
+    -15px 0 15px 0px rgba(0,0,0,.25),
+     15px 0 15px 0px rgba(0,0,0,.25)
 } 
 
  div#content-area {
@@ -84,7 +84,7 @@ div#body-wrapper {
 }
 
 .app-header#home .app-logo {
-  width: 48px;
+  width: 128px;
 }
 
 .app-header > *:last-child {
@@ -104,7 +104,8 @@ div#body-wrapper {
 .app-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-around;
+  gap: 30%;
 }
 
 .app-brand h1 {
@@ -130,6 +131,7 @@ div#body-wrapper {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: var(--text-muted);
 }
 .icon-btn .iconify {
  font-size: 22px;
@@ -152,10 +154,10 @@ div#body-wrapper {
   border-radius: 2px;
 }
 
-.btn-group div {
+.btn-group {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  justify-content: space-between;;
+  /* gap: 30%; */
 }
 
 /* ---------- Menu grid ---------- */
@@ -275,8 +277,8 @@ div#body-wrapper {
   border-left: solid 5px var(--accent-soft);
   padding: 10px 0 20px;
   box-shadow:
-    -8px 0 12px -8px rgba(0,0,0,.2),
-     8px 0 12px -8px rgba(0,0,0,.2);
+    -15px 0 15px 0px rgba(0,0,0,.25),
+     15px 0 15px 0px rgba(0,0,0,.25)
 }
 
 .bottom-nav-item {
