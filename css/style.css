@@ -34,6 +34,22 @@
   --radius-14: 14px;
    --radius-10: 10px;
 
+   --header-icon-size:48px;
+   --home-logo-size:48px;
+
+}
+@media (min-width:600px){
+    :root{
+        --header-icon-size:96px;
+        --home-logo-size:96px;
+    }
+}
+
+@media (min-width:900px){
+    :root{
+        --header-icon-size:128px;
+        --home-logo-size:128px;
+    }
 }
 
 * {
@@ -209,7 +225,7 @@ div#body-wrapper {
 }
 
 .home-logo {
-  width: 48px;
+  width: var(--home-logo-size);
   aspect-ratio: 1/1;
 }
 
@@ -799,7 +815,8 @@ div#body-wrapper {
     background-image: var(--bg-icon);
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
-    background-size: 64px;   
+    /* background-size: clamp(48px, 10vw, 128px);   */
+    background-size:var(--header-icon-size);
 }
 
 .app-header#biga {
