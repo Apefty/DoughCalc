@@ -1,0 +1,12 @@
+{
+  "id": "paska",
+  "category": "sweet",
+  "name": { "uk": "Паска" },
+  "description": {
+    "uk": ""
+  },
+  "baker_percentages_default": { "salt": 0, "yeast": 0, "milk": 0, "sugar": 0, "egg": 0, "butter": 0 },
+  "compatible_preferments": ["none", "poolish", "biga"],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

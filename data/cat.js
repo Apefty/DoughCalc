@@ -1,6 +1,6 @@
 // ==========================================================
 // Dough Calculator — SPA router
-// Loads page fragments (pages/.../*.html — no <head>, no
+// Loads page fragments (data/pages/.../*.html — no <head>, no
 // bottom-nav, just <header>+<main>) into #content-area and
 // runs the matching init function from calc.js afterwards.
 // ==========================================================
@@ -20,63 +20,63 @@ DoughCalc.BASE = (function () {
 
 DoughCalc.routes = {
   '': {
-    file: 'pages/home.html'
+    file: 'data/pages/home.html'
   },
 
-  'preferments': { file: 'pages/preferments/pref.html' },
+  'preferments': { file: 'data/pages/preferments/pref.html' },
   'preferments/biga': {
-    file: 'pages/preferments/biga.html',
+    file: 'data/pages/preferments/biga.html',
     json: 'data/json/pre/biga.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.biga); }
   },
   'preferments/poolish': {
-    file: 'pages/preferments/poolish.html',
+    file: 'data/pages/preferments/poolish.html',
     json: 'data/json/pre/poolish.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.poolish); }
   },
   'preferments/pf': {
-    file: 'pages/preferments/pf.html',
+    file: 'data/pages/preferments/pf.html',
     json: 'data/json/pre/pf.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.pf); }
   },
   'preferments/levain': {
-    file: 'pages/preferments/levain.html',
+    file: 'data/pages/preferments/levain.html',
     json: 'data/json/pre/levain.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.levain); }
   },
   'preferments/opara': {
-    file: 'pages/preferments/opara.html',
+    file: 'data/pages/preferments/opara.html',
     json: 'data/json/pre/opara.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.opara); }
   },
   'preferments/lievito-madre': {
-    file: 'pages/preferments/lievito-madre.html',
+    file: 'data/pages/preferments/lievito-madre.html',
     json: 'data/json/pre/lievito-madre.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS['lievito-madre']); }
   },
   'preferments/sponge': {
-    file: 'pages/preferments/sponge.html',
+    file: 'data/pages/preferments/sponge.html',
     json: 'data/json/pre/sponge.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sponge); }
   },
   'preferments/sourdough': {
-    file: 'pages/preferments/sourdough.html',
+    file: 'data/pages/preferments/sourdough.html',
     json: 'data/json/sourdough.json',
     init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sourdough); }
   },
 
-  'bread': { file: 'pages/bread/bread.html' },
-  'bread/wheat': { file: 'pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rye': { file: 'pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/sourdough-bread': { file: 'pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/wholegrain': { file: 'pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/pan': { file: 'pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rustic': { file: 'pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/additions': { file: 'pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread': { file: 'data/pages/bread/bread.html' },
+  'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/rye': { file: 'data/pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/sourdough-bread': { file: 'data/pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/wholegrain': { file: 'data/pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/pan': { file: 'data/pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/rustic': { file: 'data/pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function () { DoughCalc.initRecipePage(); } },
 
-  'pizza': { file: 'pages/pizza/pizza.html' },
+  'pizza': { file: 'data/pages/pizza/pizza.html' },
   'pizza/neapolitan': {
-    file: 'pages/pizza/neapolitan.html',
+    file: 'data/pages/pizza/neapolitan.html',
     json: 'data/json/pizza/neapolitan.json',
     init: function () {
       var flourTypesWidget = DoughCalc.initFlourTypes([
@@ -89,7 +89,7 @@ DoughCalc.routes = {
     }
   },
   'pizza/roman': {
-    file: 'pages/pizza/roman.html',
+    file: 'data/pages/pizza/roman.html',
     json: 'data/json/pizza/roman.json',
     init: function () {
       var flourTypesWidget = DoughCalc.initFlourTypes([
@@ -102,26 +102,41 @@ DoughCalc.routes = {
     }
   },
   'pizza/sicilian': {
-    file: 'pages/pizza/sicilian.html',
+    file: 'data/pages/pizza/sicilian.html',
     json: 'data/json/pizza/sicilian.json',
     init: function () { DoughCalc.initRecipePage(); }
   },
 
   'baguette': {
-    file: 'pages/baguette/baguette.html',
+    file: 'data/pages/baguette/baguette.html',
     json: 'data/json/baguette/baguette.json',
     init: function () { DoughCalc.initRecipePage(); }
   },
 
-  'sweet': { file: 'pages/sweet/sweet.html' },
+  'sweet': { file: 'data/pages/sweet/sweet.html' },
   'sweet/brioche': {
-    file: 'pages/sweet/brioche.html',
+    file: 'data/pages/sweet/brioche.html',
     json: 'data/json/sweet/brioche.json',
+    init: function () { DoughCalc.initRecipePage(); }
+  },
+  'sweet/paska': {
+    file: 'data/pages/sweet/paska.html',
+    json: 'data/json/sweet/paska.json',
+    init: function () { DoughCalc.initRecipePage(); }
+  },
+  'sweet/panettone': {
+    file: 'data/pages/sweet/panettone.html',
+    json: 'data/json/sweet/panettone.json',
+    init: function () { DoughCalc.initRecipePage(); }
+  },
+  'sweet/kolomba': {
+    file: 'data/pages/sweet/kolomba.html',
+    json: 'data/json/sweet/kolomba.json',
     init: function () { DoughCalc.initRecipePage(); }
   },
 
   'calculator': {
-    file: 'pages/calculator/calculator.html',
+    file: 'data/pages/calculator/calculator.html',
     init: function () { DoughCalc.initRecipePage(); }
   }
 };

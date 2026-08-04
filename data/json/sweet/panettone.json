@@ -1,0 +1,12 @@
+{
+  "id": "panettone",
+  "category": "sweet",
+  "name": { "uk": "Панеттоне" },
+  "description": {
+    "uk": "Італійська здобна різдвяна випічка на Левіто Мадре з тривалою багатоетапною ферментацією. Легкий, тягучий, ароматний м'якуш із цукатами та родзинками."
+  },
+  "baker_percentages_default": { "hydration": 40, "salt": 1.8, "sugar": 38, "egg": 45, "butter": 43, "candy": 55 },
+  "compatible_preferments": ["lievito-madre"],
+  "default_preferment": "lievito-madre",
+  "default_preferment_percent": 43
+}

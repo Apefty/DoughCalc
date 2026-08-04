@@ -1,7 +1,7 @@
 /* ==========================================================
    Dough Calculator — shared calculation logic
-   Used by preferment pages (pages/preferments/*.html) and
-   recipe pages (pages/bread/*.html, pages/pizza/*.html).
+   Used by preferment pages (data/pages/preferments/*.html) and
+   recipe pages (data/pages/bread/*.html, data/pages/pizza/*.html).
    ========================================================== */
 
 window.DoughCalc = window.DoughCalc || {};
@@ -82,7 +82,7 @@ DoughCalc.initPrefermentPage = function (ratio) {
 
 /* ----------------------------------------------------------
    Recipe page calculator
-   (pages/bread/*.html, pages/pizza/*.html)
+   (data/pages/bread/*.html, data/pages/pizza/*.html)
 
    options.onFlourChange(mainFlour) — optional callback fired
    every render with the main-mix flour weight (total flour
@@ -132,7 +132,7 @@ DoughCalc.initRecipePage = function (options) {
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
    'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil',
-   'pct-sugar', 'pct-egg', 'pct-butter', 'pct-candy'].forEach(function (id) {
+   'pct-milk', 'pct-sugar', 'pct-egg', 'pct-butter', 'pct-candy'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener('input', render);
   });
@@ -175,6 +175,7 @@ function syncPair(numId, rangeId) {
   syncPair('pct-salt', 'rng-salt');
   syncPair('pct-yeast', 'rng-yeast');
   syncPair('pct-oil', 'rng-oil');
+  syncPair('pct-milk', 'rng-milk');
   syncPair('pct-sugar', 'rng-sugar');
   syncPair('pct-egg', 'rng-egg');
   syncPair('pct-butter', 'rng-butter');
@@ -182,9 +183,9 @@ function syncPair(numId, rangeId) {
 
   function render() {
     var H = dcNum('pct-hydration'), S = dcNum('pct-salt'), Y = dcNum('pct-yeast'), O = dcNum('pct-oil');
+    var MK = dcNum('pct-milk');
     var SU = dcNum('pct-sugar'), EG = dcNum('pct-egg'), BU = dcNum('pct-butter'), CA = dcNum('pct-candy');
-    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100 + SU / 100 + EG / 100 + BU / 100 + CA / 100;
-    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100;
+    var factor = 1 + H / 100 + S / 100 + Y / 100 + O / 100 + MK / 100 + SU / 100 + EG / 100 + BU / 100 + CA / 100;
 
     var flour;
     if (entryMode === 'flour') {
@@ -200,6 +201,7 @@ function syncPair(numId, rangeId) {
     var salt = flour * S / 100;
     var yeast = flour * Y / 100;
     var oil = flour * O / 100;
+    var milk = flour * MK / 100;
     var sugar = flour * SU / 100;
     var egg = flour * EG / 100;
     var butter = flour * BU / 100;
@@ -229,13 +231,14 @@ function syncPair(numId, rangeId) {
     dcSetHTML('main-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-yeast', (Math.round(yeast * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-oil', (Math.round(oil * 10) / 10) + ' <span class="unit">г</span>');
+    dcSetHTML('main-milk', (Math.round(milk * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-sugar', (Math.round(sugar * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-egg', (Math.round(egg * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-butter', (Math.round(butter * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-candy', (Math.round(candy * 10) / 10) + ' <span class="unit">г</span>');
 
     var totalEl = document.getElementById('out-total-dough');
-    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + sugar + egg + butter + candy) + ' г';
+    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + milk + sugar + egg + butter + candy) + ' г';
 
     if (typeof onFlourChange === 'function') onFlourChange(mainFlour);
   }
@@ -268,6 +271,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
       var nameInput = document.createElement('input');
       nameInput.type = 'text';
       nameInput.className = 'flour-type-name';
+      nameInput.placeholder = 'Назва типу';
       nameInput.value = ft.name;
       nameInput.addEventListener('input', function () {
         flourTypes[idx].name = nameInput.value;
@@ -333,10 +337,13 @@ DoughCalc.initFlourTypes = function (initialTypes) {
   }
 
   addFlourTypeBtn.addEventListener('click', function () {
-    flourTypes.push({ name: 'Новий тип', pct: 0 });
+    flourTypes.push({ name: '', pct: 0 });
     renderList();
     updateSum();
     updateWeights();
+    var nameInputs = flourTypesList.querySelectorAll('.flour-type-name');
+    var lastInput = nameInputs[nameInputs.length - 1];
+    if (lastInput) lastInput.focus();
   });
 
   renderList();

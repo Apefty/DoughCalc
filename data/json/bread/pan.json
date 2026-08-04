@@ -5,7 +5,7 @@
   "description": {
     "uk": "М'який хліб, який випікається у формі — класичний сендвічний/тостовий хліб. Нижча гідратація і трохи олії дають щільніший, еластичний м'якуш, зручний для нарізання скибками."
   },
-  "baker_percentages_default": { "hydration": 65, "salt": 1.8, "yeast": 1.5, "oil": 5 },
+  "baker_percentages_default": { "hydration": 65, "salt": 2, "yeast": 2, "oil": 5, "milk": 0, "sugar": 5, "egg": 0 },
   "compatible_preferments": ["sourdough", "levain", "biga", "poolish"],
   "default_preferment": "poolish",
   "default_preferment_percent": 20
