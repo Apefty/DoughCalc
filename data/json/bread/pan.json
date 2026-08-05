@@ -1,12 +1,62 @@
 {
   "id": "pan-bread",
   "category": "bread",
-  "name": { "uk": "Формовий / тостовий хліб" },
+  "name": {
+    "uk": "Формовий / тостовий хліб"
+  },
   "description": {
     "uk": "М'який хліб, який випікається у формі — класичний сендвічний/тостовий хліб. Нижча гідратація і трохи олії дають щільніший, еластичний м'якуш, зручний для нарізання скибками."
   },
-  "baker_percentages_default": { "hydration": 65, "salt": 2, "yeast": 2, "oil": 5, "milk": 0, "sugar": 5, "egg": 0 },
-  "compatible_preferments": ["sourdough", "levain", "biga", "poolish"],
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 65,
+      "min": 50,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 5,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 0,
+      "min": 0,
+      "max": 70,
+      "step": 1
+    },
+    "sugar": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 0,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "sourdough",
+    "levain",
+    "biga",
+    "poolish"
+  ],
   "default_preferment": "poolish",
   "default_preferment_percent": 20
 }

@@ -140,7 +140,7 @@ DoughCalc.initPrefermentPage = function (data) {
       buttons.forEach(function (b) { b.classList.remove('is-active'); });
       btn.classList.add('is-active');
       mode = btn.getAttribute('data-mode');
-      label.textContent = mode === 'flour' ? 'Вага муки' : 'Вага преферменту';
+      label.textContent = mode === 'flour' ? 'Вага борошна' : 'Вага преферменту';
       render();
     });
   });

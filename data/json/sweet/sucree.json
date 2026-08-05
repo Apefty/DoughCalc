@@ -1,0 +1,41 @@
+{
+  "id": "sucree",
+  "category": "sweet",
+  "name": {
+    "uk": "Тарт Sucrée"
+  },
+  "description": {
+    "uk": "Солодке пісочне тісто, щільніше й міцніше за sablée — класична основа для солодких тартів, добре тримає форму та начинку."
+  },
+  "baker_percentages_default": {
+    "sugar": {
+      "value": 33,
+      "min": 0,
+      "max": 60,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 28,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "salt": {
+      "value": 1,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 58,
+      "min": 0,
+      "max": 90,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "none"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

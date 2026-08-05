@@ -1,12 +1,53 @@
 {
   "id": "kolomba",
   "category": "sweet",
-  "name": { "uk": "Коломба" },
+  "name": {
+    "uk": "Коломба"
+  },
   "description": {
     "uk": "Італійська великодня здоба у формі голуба на Левіто Мадре. Родичка панеттоне — легша, з цукатами (часто без родзинок) і цукровою мигдальною глазур'ю зверху."
   },
-  "baker_percentages_default": { "hydration": 40, "salt": 1.8, "sugar": 33, "egg": 43, "butter": 38, "candy": 33 },
-  "compatible_preferments": ["lievito-madre"],
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 40,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 33,
+      "min": 0,
+      "max": 60,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 43,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 38,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "candy": {
+      "value": 33,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "lievito-madre"
+  ],
   "default_preferment": "lievito-madre",
   "default_preferment_percent": 43
 }

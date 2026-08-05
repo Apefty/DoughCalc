@@ -15,7 +15,7 @@
       <span class="card-title">Режим вводу</span>
       <div class="segmented" id="entry-toggle">
         <button class="segmented-item is-active" data-entry="total">За тістом</button>
-        <button class="segmented-item" data-entry="flour">За мукою</button>
+        <button class="segmented-item" data-entry="flour">За борошном</button>
         <button class="segmented-item" data-entry="portions">Порції</button>
       </div>
     </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="field-row" id="row-flour" style="display:none">
-      <label for="input-flour" class="field-label">Вага муки</label>
+      <label for="input-flour" class="field-label">Вага борошна</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-flour" value="450" step="10" min="0">
         <span class="value-unit">г</span>
@@ -68,7 +68,10 @@
     </div>
 
     <div class="field-row" id="row-pre-percent" style="display:none">
-      <label for="input-pre-percent" class="field-label">% від загальної муки</label>
+      <label for="input-pre-percent" class="field-label">% від загального борошна
+        <span class="info-icon" tabindex="0">?
+          <span class="tooltip-bubble">Це відсоток лише борошна в преферменті від загального борошна рецепта — не відсоток від ваги тіста чи преферменту. Через рівні частки борошно:вода:закваска (наприклад, 100:100:100 для Закваски) повна вага преферменту може бути в кілька разів більшою за цей відсоток.</span>
+        </span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-pre-percent" value="20" step="1" min="0" max="100">
         <span class="value-unit">%</span>
@@ -83,7 +86,7 @@
         <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
@@ -105,56 +108,70 @@
     <div class="field-row">
       <label class="field-label"><img src="img/icons/milk.png" alt="" class="row-list-icon"> Гідратація (молоко)</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-hydration" value="20" step="1" min="0">
+        <input type="number" id="pct-hydration">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-hydration" min="0" max="100" value="20" step="1" class="pct-slider pct-slider-water">
+    <input type="range" id="rng-hydration" class="pct-slider pct-slider-water">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon"> Сіль</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-salt" value="1.8" step="0.1" min="0">
+        <input type="number" id="pct-salt">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-salt" min="0" max="4" value="1.8" step="0.1" class="pct-slider pct-slider-salt">
+    <input type="range" id="rng-salt" class="pct-slider pct-slider-salt">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon"> Дріжджі</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-yeast" value="3" step="0.1" min="0">
+        <input type="number" id="pct-yeast">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-yeast" min="0" max="6" value="3" step="0.1" class="pct-slider pct-slider-yeast">
+    <input type="range" id="rng-yeast" class="pct-slider pct-slider-yeast">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon"> Цукор</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-sugar" value="15" step="0.5" min="0">
+        <input type="number" id="pct-sugar">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-sugar" min="0" max="30" value="15" step="0.5" class="pct-slider pct-slider-oil">
+    <input type="range" id="rng-sugar" class="pct-slider pct-slider-oil">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon"> Яйця</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-egg" value="40" step="1" min="0">
+        <input type="number" id="pct-egg">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-egg" min="0" max="80" value="40" step="1" class="pct-slider pct-slider-yeast">
+    <input type="range" id="rng-egg" class="pct-slider pct-slider-yeast">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/butter.png" alt="" class="row-list-icon"> Масло вершкове</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-butter" value="45" step="1" min="0">
+        <input type="number" id="pct-butter">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-butter" min="0" max="80" value="45" step="1" class="pct-slider pct-slider-oil">
+    <input type="range" id="rng-butter" class="pct-slider pct-slider-oil">
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Типи борошна</span>
+      <button class="icon-btn" id="add-flour-type" aria-label="Додати тип" style="width:32px;height:32px;">
+        <span class="iconify" data-icon="tabler:plus"></span>
+      </button>
+    </div>
+    <div id="flour-types-list"></div>
+    <div class="summary-box" id="flour-sum-box" style="margin-top:12px;">
+      <span>Сума часток</span><br>
+      <strong id="flour-sum">100%</strong>
+    </div>
   </section>
 
   <section class="card">
@@ -167,7 +184,7 @@
         <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Мука</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">

@@ -1,0 +1,35 @@
+{
+  "id": "brisee",
+  "category": "sweet",
+  "name": {
+    "uk": "Тарт Brisée"
+  },
+  "description": {
+    "uk": "Класичне пісочне тісто без цукру — універсальна основа для несолодких (кіш, овочеві тарти) і фруктових тартів. Ламке, масляне, нейтральне на смак."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 28,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 60,
+      "min": 0,
+      "max": 90,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "none"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

@@ -66,7 +66,10 @@
     </div>
 
     <div class="field-row" id="row-pre-percent">
-      <label for="input-pre-percent" class="field-label">% від загального борошна</label>
+      <label for="input-pre-percent" class="field-label">% від загального борошна
+        <span class="info-icon" tabindex="0">?
+          <span class="tooltip-bubble">Це відсоток лише борошна в преферменті від загального борошна рецепта — не відсоток від ваги тіста чи преферменту. Через рівні частки борошно:вода:закваска (наприклад, 100:100:100 для Закваски) повна вага преферменту може бути в кілька разів більшою за цей відсоток.</span>
+        </span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-pre-percent" value="43" step="1" min="0" max="100">
         <span class="value-unit">%</span>
@@ -103,56 +106,70 @@
     <div class="field-row">
       <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Гідратація (вода)</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-hydration" value="40" step="1" min="0">
+        <input type="number" id="pct-hydration">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-hydration" min="0" max="80" value="40" step="1" class="pct-slider pct-slider-water">
+    <input type="range" id="rng-hydration" class="pct-slider pct-slider-water">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon"> Сіль</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-salt" value="1.8" step="0.1" min="0">
+        <input type="number" id="pct-salt">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-salt" min="0" max="4" value="1.8" step="0.1" class="pct-slider pct-slider-salt">
+    <input type="range" id="rng-salt" class="pct-slider pct-slider-salt">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon"> Цукор</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-sugar" value="38" step="0.5" min="0">
+        <input type="number" id="pct-sugar">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-sugar" min="0" max="60" value="38" step="0.5" class="pct-slider pct-slider-oil">
+    <input type="range" id="rng-sugar" class="pct-slider pct-slider-oil">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon"> Яйця</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-egg" value="45" step="1" min="0">
+        <input type="number" id="pct-egg">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-egg" min="0" max="80" value="45" step="1" class="pct-slider pct-slider-yeast">
+    <input type="range" id="rng-egg" class="pct-slider pct-slider-yeast">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/butter.png" alt="" class="row-list-icon"> Масло вершкове</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-butter" value="43" step="1" min="0">
+        <input type="number" id="pct-butter">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-butter" min="0" max="60" value="43" step="1" class="pct-slider pct-slider-oil">
+    <input type="range" id="rng-butter" class="pct-slider pct-slider-oil">
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon"> Цукати та родзинки</label>
       <div class="value-box value-box-accent">
-        <input type="number" id="pct-candy" value="55" step="1" min="0">
+        <input type="number" id="pct-candy">
         <span class="value-unit">%</span>
       </div>
     </div>
-    <input type="range" id="rng-candy" min="0" max="80" value="55" step="1" class="pct-slider pct-slider-oil">
+    <input type="range" id="rng-candy" class="pct-slider pct-slider-oil">
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Типи борошна</span>
+      <button class="icon-btn" id="add-flour-type" aria-label="Додати тип" style="width:32px;height:32px;">
+        <span class="iconify" data-icon="tabler:plus"></span>
+      </button>
+    </div>
+    <div id="flour-types-list"></div>
+    <div class="summary-box" id="flour-sum-box" style="margin-top:12px;">
+      <span>Сума часток</span><br>
+      <strong id="flour-sum">100%</strong>
+    </div>
   </section>
 
   <section class="card">

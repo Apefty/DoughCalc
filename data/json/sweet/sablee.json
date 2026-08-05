@@ -1,0 +1,41 @@
+{
+  "id": "sablee",
+  "category": "sweet",
+  "name": {
+    "uk": "Тарт Sablée"
+  },
+  "description": {
+    "uk": "Розсипчасте пісочно-печивне тісто з великою кількістю масла і цукру, зв'язане яйцем. Ніжне, крихке, тане в роті — для солодких тартів і печива-основи."
+  },
+  "baker_percentages_default": {
+    "sugar": {
+      "value": 40,
+      "min": 0,
+      "max": 60,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 23,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "salt": {
+      "value": 1,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 70,
+      "min": 0,
+      "max": 90,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "none"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

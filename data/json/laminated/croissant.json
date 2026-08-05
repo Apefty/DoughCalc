@@ -1,0 +1,55 @@
+{
+  "id": "croissant",
+  "category": "laminated",
+  "name": {
+    "uk": "Круасан / Данська випічка"
+  },
+  "description": {
+    "uk": "Класичне листкове дріжджове тісто для круасанів і данської випічки — багатошарове завдяки послідовному загортанню масла (ламінації). Хрустке зовні, повітряне й шарувате всередині."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 58,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 3,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 9,
+      "min": 0,
+      "max": 20,
+      "step": 0.5
+    },
+    "butter": {
+      "value": 8,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    "oil": {
+      "value": 33,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "none",
+    "poolish",
+    "pf"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}
