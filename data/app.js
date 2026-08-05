@@ -54,16 +54,7 @@ DoughCalc.renderYouTube = function (ytValue) {
   main.appendChild(section);
 };
 
-// Fetches the JSON tied to the current route (r.json in cat.js's
-// routes table) and renders whatever optional media it declares.
-// Silently does nothing if there's no json path, the fetch fails,
-// or the JSON has no "yt" field — this is enhancement, not core flow.
-DoughCalc.loadPageData = function (jsonPath) {
-  if (!jsonPath) return;
-  fetch(DoughCalc.BASE + jsonPath)
-    .then(function (res) { return res.ok ? res.json() : null; })
-    .then(function (data) {
-      if (data && data.yt) DoughCalc.renderYouTube(data.yt);
-    })
-    .catch(function () { /* no json file yet, or it 404s — ignore */ });
-};
+// Note: the page JSON itself is now fetched once by cat.js's
+// navigate() (in parallel with the HTML fragment) and passed to
+// both the route's init() and here as DoughCalc.renderYouTube(data.yt) —
+// see cat.js. This file no longer needs its own fetch for it.

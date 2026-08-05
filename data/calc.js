@@ -6,20 +6,52 @@
 
 window.DoughCalc = window.DoughCalc || {};
 
-/* Fixed preferment ratios (flour : water : third), where
-   "third" is either yeast (mode: "yeast") or mature starter
-   (mode: "starter"). Kept in one place instead of copy-pasted
-   into every recipe page. */
-DoughCalc.PREFERMENTS = {
-  none:          { mode: null },
-  sourdough:     { mode: 'starter', flour: 100, water: 100, third: 100 },
-  levain:        { mode: 'starter', flour: 100, water: 100, third: 20 },
-  biga:          { mode: 'yeast',   flour: 100, water: 50,  third: 2 },
-  poolish:       { mode: 'yeast',   flour: 100, water: 100, third: 0.5 },
-  pf:            { mode: 'yeast',   flour: 100, water: 60,  third: 1 },
-  opara:         { mode: 'yeast',   flour: 100, water: 100, third: 0.5 },
-  'lievito-madre': { mode: 'starter', flour: 100, water: 50, third: 100 },
-  sponge:        { mode: 'yeast',   flour: 100, water: 60,  third: 2 }
+/* Where to fetch each preferment's data/json/pre/*.json (content —
+   ratio, hydration, description, fermentation, used_in — lives only
+   in those files now; this is just a path map, not data). */
+DoughCalc.PREFERMENT_PATHS = {
+  sourdough:       'data/json/sourdough.json',
+  levain:          'data/json/pre/levain.json',
+  biga:            'data/json/pre/biga.json',
+  poolish:         'data/json/pre/poolish.json',
+  pf:              'data/json/pre/pf.json',
+  opara:           'data/json/pre/opara.json',
+  'lievito-madre': 'data/json/pre/lievito-madre.json',
+  sponge:          'data/json/pre/sponge.json'
+};
+
+/* UI labels for used_in / route sections (chrome, not recipe data —
+   shared across every preferment page instead of copy-pasted). */
+DoughCalc.SECTION_LABELS = {
+  preferments: 'Преферменти',
+  bread: 'Хліб',
+  pizza: 'Піца',
+  baguette: 'Багети',
+  sweet: 'Солодка випічка'
+};
+
+DoughCalc._preferentCache = {};
+
+/* Fetches (and caches) a preferment's JSON by id. cb(data|null). */
+DoughCalc.fetchPreferment = function (id, cb) {
+  if (id === 'none' || !DoughCalc.PREFERMENT_PATHS[id]) { cb(null); return; }
+  if (DoughCalc._preferentCache[id]) { cb(DoughCalc._preferentCache[id]); return; }
+  fetch(DoughCalc.BASE + DoughCalc.PREFERMENT_PATHS[id])
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (data) {
+      if (data) DoughCalc._preferentCache[id] = data;
+      cb(data);
+    })
+    .catch(function () { cb(null); });
+};
+
+/* Extracts { flour, water, third } out of a preferment JSON's
+   "ratio" object, where the third component is keyed "yeast" or
+   "starter" depending on "mode". */
+DoughCalc._ratioOf = function (data) {
+  var r = data.ratio || {};
+  var third = data.mode === 'starter' ? r.starter : r.yeast;
+  return { flour: r.flour, water: r.water, third: third || 0 };
 };
 
 function dcNum(id) {
@@ -37,11 +69,48 @@ function dcSetHTML(id, html) {
    (biga.html, poolish.html, pf.html, levain.html, opara.html,
     lievito-madre.html, sponge.html, sourdough.html)
 
-   Required markup ids: #mode-toggle .segmented-item[data-mode],
-   #input-weight, #input-label, #out-flour, #out-water,
-   #out-third, #out-total
+   Takes the full preferment JSON (fetched by cat.js's router) and
+   renders everything from it: hero pills + description, the
+   flour/water/third breakdown, fermentation duration/temperature,
+   and the "used in" tags. Nothing content-related is hardcoded in
+   the page markup anymore — only ids for this function to fill.
+
+   Required markup ids: #hero-pills, #hero-desc, #mode-toggle
+   .segmented-item[data-mode], #input-weight, #input-label,
+   #third-label, #third-icon, #out-flour, #out-water, #out-third,
+   #out-total, #ferment-duration, #ferment-temp, #used-in-tags
    ---------------------------------------------------------- */
-DoughCalc.initPrefermentPage = function (ratio) {
+DoughCalc.initPrefermentPage = function (data) {
+  if (!data) return;
+  var ratio = DoughCalc._ratioOf(data);
+  var isStarter = data.mode === 'starter';
+  var thirdName = isStarter ? 'Закваска' : 'Дріжджі';
+
+  dcSetHTML('hero-pills',
+    '<span class="pill pill-accent">' + data.hydration + '% гідратації</span>' +
+    '<span class="pill">' + ratio.third + '% ' + (isStarter ? 'закваски' : 'дріжджів') + '</span>');
+  dcSetHTML('hero-desc', (data.description && data.description.uk) || '');
+
+  var thirdLabelEl = document.getElementById('third-label');
+  if (thirdLabelEl) {
+    var icon = document.getElementById('third-icon');
+    if (icon) icon.src = 'img/icons/' + (isStarter ? 'starter' : 'yeast') + '.png';
+    thirdLabelEl.lastChild.textContent = thirdName;
+  }
+
+  if (data.fermentation) {
+    dcSetHTML('ferment-duration', data.fermentation.duration_note_uk || '');
+    dcSetHTML('ferment-temp', data.fermentation.temperature_note_uk || '');
+  }
+
+  var tagsEl = document.getElementById('used-in-tags');
+  if (tagsEl && data.used_in) {
+    tagsEl.innerHTML = data.used_in.map(function (key) {
+      var label = DoughCalc.SECTION_LABELS[key] || key;
+      return '<a href="#' + key + '" class="tag" data-route="' + key + '">' + label + '</a>';
+    }).join('');
+  }
+
   var input = document.getElementById('input-weight');
   var label = document.getElementById('input-label');
   var buttons = document.querySelectorAll('#mode-toggle .segmented-item');
@@ -117,17 +186,26 @@ DoughCalc.initRecipePage = function (options) {
   var rowPrePercent = document.getElementById('row-pre-percent');
   var preHr = document.getElementById('pre-hr');
   var preBreakdown = document.getElementById('pre-breakdown');
+  var currentPreData = null; // fetched data/json/pre/<id>.json for the selected preferment
+
+  function loadSelectedPreferment() {
+    var key = selectPreferment.value;
+    if (key === 'none') { currentPreData = null; render(); return; }
+    DoughCalc.fetchPreferment(key, function (data) {
+      currentPreData = data;
+      var thirdLabel = data && data.mode === 'starter' ? 'Закваска' : 'Дріжджі';
+      var labelEl = document.querySelector('#pre-breakdown .row-list-item:nth-child(3) .row-list-label');
+      if (labelEl) labelEl.lastChild.textContent = thirdLabel;
+      render();
+    });
+  }
 
   selectPreferment.addEventListener('change', function () {
     var isNone = selectPreferment.value === 'none';
     rowPrePercent.style.display = isNone ? 'none' : 'flex';
     preHr.style.display = isNone ? 'none' : 'block';
     preBreakdown.style.display = isNone ? 'none' : 'block';
-    var pre = DoughCalc.PREFERMENTS[selectPreferment.value];
-    var thirdLabel = pre && pre.mode === 'starter' ? 'Закваска' : 'Дріжджі';
-    var labelEl = document.querySelector('#pre-breakdown .row-list-item:nth-child(3) .row-list-label');
-    if (labelEl) labelEl.lastChild.textContent = thirdLabel;
-    render();
+    loadSelectedPreferment();
   });
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
@@ -207,11 +285,10 @@ function syncPair(numId, rangeId) {
     var butter = flour * BU / 100;
     var candy = flour * CA / 100;
 
-    var preKey = selectPreferment.value;
-    var pre = DoughCalc.PREFERMENTS[preKey];
     var preFlour = 0, preWater = 0, preThird = 0;
 
-    if (pre && pre.mode) {
+    if (currentPreData) {
+      var pre = DoughCalc._ratioOf(currentPreData);
       var pPercent = dcNum('input-pre-percent');
       preFlour = flour * pPercent / 100;
       var scale = preFlour / pre.flour;
@@ -243,7 +320,11 @@ function syncPair(numId, rangeId) {
     if (typeof onFlourChange === 'function') onFlourChange(mainFlour);
   }
 
-  render();
+  if (selectPreferment.value !== 'none') {
+    loadSelectedPreferment(); // fetches JSON, then calls render() itself
+  } else {
+    render();
+  }
 };
 
 /* ----------------------------------------------------------

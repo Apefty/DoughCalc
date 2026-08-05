@@ -27,42 +27,42 @@ DoughCalc.routes = {
   'preferments/biga': {
     file: 'data/pages/preferments/biga.html',
     json: 'data/json/pre/biga.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.biga); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/poolish': {
     file: 'data/pages/preferments/poolish.html',
     json: 'data/json/pre/poolish.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.poolish); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/pf': {
     file: 'data/pages/preferments/pf.html',
     json: 'data/json/pre/pf.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.pf); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/levain': {
     file: 'data/pages/preferments/levain.html',
     json: 'data/json/pre/levain.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.levain); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/opara': {
     file: 'data/pages/preferments/opara.html',
     json: 'data/json/pre/opara.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.opara); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/lievito-madre': {
     file: 'data/pages/preferments/lievito-madre.html',
     json: 'data/json/pre/lievito-madre.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS['lievito-madre']); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/sponge': {
     file: 'data/pages/preferments/sponge.html',
     json: 'data/json/pre/sponge.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sponge); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
   'preferments/sourdough': {
     file: 'data/pages/preferments/sourdough.html',
     json: 'data/json/sourdough.json',
-    init: function () { DoughCalc.initPrefermentPage(DoughCalc.PREFERMENTS.sourdough); }
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
 
   'bread': { file: 'data/pages/bread/bread.html' },
@@ -150,15 +150,20 @@ DoughCalc.navigate = function (route) {
     return;
   }
 
-  fetch(DoughCalc.BASE + r.file)
-    .then(function (res) {
-      if (!res.ok) throw new Error('Failed to load ' + r.file);
-      return res.text();
-    })
-    .then(function (html) {
+  var htmlPromise = fetch(DoughCalc.BASE + r.file).then(function (res) {
+    if (!res.ok) throw new Error('Failed to load ' + r.file);
+    return res.text();
+  });
+  var jsonPromise = r.json
+    ? fetch(DoughCalc.BASE + r.json).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; })
+    : Promise.resolve(null);
+
+  Promise.all([htmlPromise, jsonPromise])
+    .then(function (results) {
+      var html = results[0], data = results[1];
       contentArea.innerHTML = html;
-      if (typeof r.init === 'function') r.init();
-      if (r.json) DoughCalc.loadPageData(r.json);
+      if (typeof r.init === 'function') r.init(data);
+      if (data && data.yt) DoughCalc.renderYouTube(data.yt);
       window.scrollTo(0, 0);
       DoughCalc.updateBottomNav(route);
     })
