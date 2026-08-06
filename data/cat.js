@@ -18,6 +18,17 @@ DoughCalc.BASE = (function () {
   return path;
 })();
 
+/* Cache-busting for fetch() calls. GitHub Pages serves data/pages/*.html
+   and data/json/*.json with caching headers that can make browsers keep
+   showing stale content after a push (symptom: page shows an older
+   recipe/number even though the repo is up to date). Appending a
+   per-page-load version param forces a fresh request every visit
+   without needing a manual hard-refresh. */
+DoughCalc.CACHE_BUST = Date.now();
+DoughCalc.withCacheBust = function (url) {
+  return url + (url.indexOf('?') > -1 ? '&' : '?') + 'v=' + DoughCalc.CACHE_BUST;
+};
+
 DoughCalc.routes = {
   '': {
     file: 'data/pages/home.html'
@@ -179,12 +190,12 @@ DoughCalc.navigate = function (route) {
     return;
   }
 
-  var htmlPromise = fetch(DoughCalc.BASE + r.file).then(function (res) {
+  var htmlPromise = fetch(DoughCalc.withCacheBust(DoughCalc.BASE + r.file)).then(function (res) {
     if (!res.ok) throw new Error('Failed to load ' + r.file);
     return res.text();
   });
   var jsonPromise = r.json
-    ? fetch(DoughCalc.BASE + r.json).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; })
+    ? fetch(DoughCalc.withCacheBust(DoughCalc.BASE + r.json)).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; })
     : Promise.resolve(null);
 
   Promise.all([htmlPromise, jsonPromise])

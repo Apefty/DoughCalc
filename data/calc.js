@@ -38,7 +38,7 @@ DoughCalc._preferentCache = {};
 DoughCalc.fetchPreferment = function (id, cb) {
   if (id === 'none' || !DoughCalc.PREFERMENT_PATHS[id]) { cb(null); return; }
   if (DoughCalc._preferentCache[id]) { cb(DoughCalc._preferentCache[id]); return; }
-  fetch(DoughCalc.BASE + DoughCalc.PREFERMENT_PATHS[id])
+  fetch(DoughCalc.withCacheBust(DoughCalc.BASE + DoughCalc.PREFERMENT_PATHS[id]))
     .then(function (res) { return res.ok ? res.json() : null; })
     .then(function (data) {
       if (data) DoughCalc._preferentCache[id] = data;
