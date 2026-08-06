@@ -66,73 +66,99 @@ DoughCalc.routes = {
   },
 
   'bread': { file: 'data/pages/bread/bread.html' },
-  'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rye': { file: 'data/pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/sourdough-bread': { file: 'data/pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/wholegrain': { file: 'data/pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/pan': { file: 'data/pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/rustic': { file: 'data/pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function () { DoughCalc.initRecipePage(); } },
-  'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function () { DoughCalc.initRecipePage(); } },
+  'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/rye': { file: 'data/pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/sourdough-bread': { file: 'data/pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/wholegrain': { file: 'data/pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/pan': { file: 'data/pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/rustic': { file: 'data/pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'pizza': { file: 'data/pages/pizza/pizza.html' },
   'pizza/neapolitan': {
     file: 'data/pages/pizza/neapolitan.html',
     json: 'data/json/pizza/neapolitan.json',
-    init: function () {
-      var flourTypesWidget = DoughCalc.initFlourTypes([
-        { name: 'Борошно 00', pct: 90 },
-        { name: 'Семола', pct: 10 }
-      ]);
-      DoughCalc.initRecipePage({
-        onFlourChange: function (mainFlour) { flourTypesWidget.setMainFlour(mainFlour); }
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно 00', pct: 90 },
+          { name: 'Семола', pct: 10 }
+        ]
       });
     }
   },
   'pizza/roman': {
     file: 'data/pages/pizza/roman.html',
     json: 'data/json/pizza/roman.json',
-    init: function () {
-      var flourTypesWidget = DoughCalc.initFlourTypes([
-        { name: 'Борошно 00', pct: 70 },
-        { name: 'Манітоба (сильна)', pct: 30 }
-      ]);
-      DoughCalc.initRecipePage({
-        onFlourChange: function (mainFlour) { flourTypesWidget.setMainFlour(mainFlour); }
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно 00', pct: 70 },
+          { name: 'Манітоба', pct: 30 }
+        ]
       });
     }
   },
   'pizza/sicilian': {
     file: 'data/pages/pizza/sicilian.html',
     json: 'data/json/pizza/sicilian.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
   'baguette': {
     file: 'data/pages/baguette/baguette.html',
     json: 'data/json/baguette/baguette.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+
+  'laminated': { file: 'data/pages/laminated/laminated.html' },
+  'laminated/croissant': {
+    file: 'data/pages/laminated/croissant.html',
+    json: 'data/json/laminated/croissant.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/feuillete': {
+    file: 'data/pages/laminated/feuillete.html',
+    json: 'data/json/laminated/feuillete.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
   'sweet': { file: 'data/pages/sweet/sweet.html' },
+  'sweet/tart': { file: 'data/pages/sweet/tart.html' },
   'sweet/brioche': {
     file: 'data/pages/sweet/brioche.html',
     json: 'data/json/sweet/brioche.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
   'sweet/paska': {
     file: 'data/pages/sweet/paska.html',
     json: 'data/json/sweet/paska.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
   'sweet/panettone': {
     file: 'data/pages/sweet/panettone.html',
     json: 'data/json/sweet/panettone.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
   'sweet/kolomba': {
     file: 'data/pages/sweet/kolomba.html',
     json: 'data/json/sweet/kolomba.json',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/tart/brisee': {
+    file: 'data/pages/sweet/brisee.html',
+    json: 'data/json/sweet/brisee.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/tart/sablee': {
+    file: 'data/pages/sweet/sablee.html',
+    json: 'data/json/sweet/sablee.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/tart/sucree': {
+    file: 'data/pages/sweet/sucree.html',
+    json: 'data/json/sweet/sucree.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
   'calculator': {

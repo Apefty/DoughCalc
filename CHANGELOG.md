@@ -1,0 +1,96 @@
+# Changelog — DoughCalc
+
+Усі помітні зміни проєкту фіксуються тут у хронологічному порядку.
+
+## [2026-08-01] — Старт проєкту
+- Ініціалізація репозиторію, README з умовами використання
+- Перше завантаження базової структури (icons folder, перші файли)
+
+## [2026-08-02] — Дизайн, структура, перші розділи
+- Дизайн та стилі (`style.css`), новий набір іконок
+- Додано `pf.html` (Pâte fermentée)
+- Додано `cat.js` (логіка каталогів секцій)
+- Обмежено ширину header/bottom-nav до 600px по центру
+- Додано сторінки Roman та Sicilian pizza
+- Додано сторінку Baguette
+- Багети виділено в окрему top-level категорію, окремо від Піци
+- Виправлено коментарі в `cat.js` (передчасне закриття `*/`)
+- Виправлено відносні шляхи для GitHub Pages subpath: `BASE` тепер обчислюється з `location.pathname`, шляхи до картинок у CSS — відносні, а не root-absolute
+- Додано підтримку YouTube-embed: `app.js` читає опційне поле `yt` з JSON кожного маршруту та рендерить responsive embed
+- Додано каталог Солодкої випічки + сторінку Brioche; розширено `calc.js` опційними відсотками цукру/яєць/масла для збагаченого тіста
+- Вирівняно ширину header/menu/recipe-page/bottom-nav під 650px wrapper (прибрано конфліктні обмеження в 600px)
+- Відновлено `#body-wrapper` в `index.html`, спрощено `#content-area`
+- Виправлено шляхи `url()` в CSS: `../img/...` замість root-absolute, бо `style.css` лежить у `css/`
+
+## [2026-08-03] — Header fixes та відновлення втрачених правок
+- Header: заголовок/меню вирівняно вліво, іконка налаштувань закріплена справа через `margin-left:auto`
+- **Відомий інцидент:** локальний merge користувача випадково відкотив поля sugar/egg/butter у `calc.js` та маршрути sweet/brioche у `cat.js` — відновлено окремим комітом
+- Кілька локальних `upd`-комітів та merge гілки `main`
+
+---
+
+## Поточний стан (станом на 2026-08-04)
+
+**Готово:**
+- Хліб: bread1/2, pan, rustic, rye, sourdough-bread, wheat, wholegrain, additions
+- Піца: neapolitan, pizza1/2, roman, sicilian
+- Багети: baguette.html
+- Преферменти: biga, levain, lievito-madre, opara, pf, poolish, sponge, sourdough (+ каталог pref.html)
+- Солодка випічка: brioche.html (+ каталог sweet.html)
+- Калькулятор: calculator.html (standalone quick-calc)
+
+**Ще не побудовано (лише `.gitkeep`):**
+- Шарувате тісто (laminated)
+- Збагачене тісто (enriched) — окрім brioche, який вже в sweet
+- Пласке тісто (flatbread)
+- Технічне тісто (technical)
+- У Солодкій випічці: Паска, Панетоне, Тарти
+
+**Відомий проблемний паттерн:** локальні `upd`-коміти користувача іноді відкочують нещодавні пуші, якщо локальна робоча копія відстає — рекомендовано робити `git pull` перед локальними правками.
+
+## [2026-08-06] Fixes
+
+**data/calc.js**
+
+Made slider fill calculations robust by validating min, max, and value and clamping --percent to 0-100%, preventing invisible slider tracks when invalid values were present.
+Added recipe default application so baker_percentages_default values now populate both numeric inputs and range sliders on recipe pages.
+Ensured default_preferment and default_preferment_percent are applied at init and the preferment section is shown/hidden correctly when a recipe ships with a preselected preferment.
+Added support for options.flourTypes in DoughCalc.initRecipePage() and auto-initialized the flour-type widget when #flour-types-list exists.
+Updated render path so flour-type widget receives the current main flour weight every time the calculation updates.
+Added safety around preferment scaling and clamped mainFlour / mainWater to zero, preventing negative displayed main-water values when preferment water exceeded the main dough hydration.
+data/cat.js
+
+Updated recipe route init callbacks to pass fetched JSON data into DoughCalc.initRecipePage().
+Simplified pizza route initialization for neapolitan and roman to use the new options.flourTypes mechanism instead of separately creating a flour widget.
+
+**css/style.css**
+
+Added a more resilient slider track fallback so invalid or non-finite --percent values no longer hide the slider track.
+HTML fixes
+
+Fixed egg slider CSS class mismatches for rng-egg across affected recipe pages so the egg slider now uses the correct .pct-slider-eggs styling.
+Verified the sweet/panettone flour-type “Add type” button now works, adding a new flour type row as expected.
+
+Created the laminated route support.
+
+**Changes made in data/cat.js:**
+
+Added 'laminated' route pointing to data/pages/laminated/laminated.html
+Added 'laminated/croissant' route with data/pages/laminated/croissant.html and data/json/laminated/croissant.json
+Added 'laminated/feuillete' route with data/pages/laminated/feuillete.html and data/json/laminated/feuillete.json
+Added the missing sweet/tart route and the child routes for the tart pages:
+
+sweet/tart → data/pages/sweet/tart.html
+sweet/tart/brisee → data/pages/sweet/brisee.html
+sweet/tart/sablee → data/pages/sweet/sablee.html
+sweet/tart/sucree → data/pages/sweet/sucree.html
+
+
+**Result:**
+
+- Sliders now render correctly with valid fill styling.
+- Recipe page inputs now load defaults from JSON.
+- sweet/brioche no longer shows negative main-water values in the UI.
+- sweet/panettone flour-type widget now responds to the add button.
+- #laminated now loads the laminated menu page and #laminated/croissant loads its recipe page correctly.
+- #sweet/tart now opens and #sweet/tart/brisee loads correctly.

@@ -18,14 +18,14 @@
   --accent-soft: #f2e6d0;
   --yeast: #a4996c;
   --oil: #a8c368;
-  --salt: #b8bdbf;
+  --salt: #b4c7ce;
   --milk: #9ccaff;
   --eggs: #f3d9b1;
   --butter: #ffdc18;
-  --sugar: #9be9ff;
+  --sugar: #d1d1d1;
   --candy: #f3b1b1;
   --grain: #728e27;
-  --blue: #4b7db1;
+  --blue: #5ea5f1;
   --text: #2b2118;
   --text-muted: #b0a691;
   --line: #f1eadc;
@@ -725,6 +725,7 @@ div#body-wrapper {
 .pct-slider::-webkit-slider-runnable-track{
     height: 4px;
     border-radius: 999px;
+    background: var(--track-color);
     background: linear-gradient(
         to right,
         var(--slider-color) 0%,
@@ -907,6 +908,57 @@ div#body-wrapper {
 .app-header#tart {
     --bg-icon: url("../img/icons/tart.png");
 }
+.app-header#laminated {
+    --bg-icon: url("../img/icons/laminated.png");
+}
 .app-header#calculator {
     --bg-icon: url("../img/icons/calculator.png");
+}
+
+/* ---------- Info tooltip (e.g. next to "% від загального борошна") ---------- */
+
+.field-label {
+  position: relative;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 6px;
+  vertical-align: middle;
+  outline: none;
+}
+
+.tooltip-bubble {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 240px;
+  max-width: 70vw;
+  background: var(--text);
+  color: var(--bg2);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 10px 12px;
+  border-radius: 10px;
+  z-index: 30;
+  text-align: left;
+  white-space: normal;
+}
+
+.info-icon:hover .tooltip-bubble,
+.info-icon:focus .tooltip-bubble {
+  display: block;
 }

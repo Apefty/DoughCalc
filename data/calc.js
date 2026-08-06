@@ -158,7 +158,11 @@ DoughCalc.initPrefermentPage = function (data) {
    minus whatever went into the preferment). Used by
    DoughCalc.initFlourTypes() to split that flour into 00/semola/etc.
    ---------------------------------------------------------- */
-DoughCalc.initRecipePage = function (options) {
+DoughCalc.initRecipePage = function (recipeData, options) {
+  if (recipeData && typeof recipeData === 'object' && !options && !recipeData.baker_percentages_default && !recipeData.compatible_preferments) {
+    options = recipeData;
+    recipeData = null;
+  }
   options = options || {};
   var onFlourChange = options.onFlourChange;
 
@@ -187,6 +191,11 @@ DoughCalc.initRecipePage = function (options) {
   var preHr = document.getElementById('pre-hr');
   var preBreakdown = document.getElementById('pre-breakdown');
   var currentPreData = null; // fetched data/json/pre/<id>.json for the selected preferment
+  var flourTypesWidget = null;
+
+  if (document.getElementById('flour-types-list')) {
+    flourTypesWidget = DoughCalc.initFlourTypes(options.flourTypes);
+  }
 
   function loadSelectedPreferment() {
     var key = selectPreferment.value;
@@ -200,6 +209,59 @@ DoughCalc.initRecipePage = function (options) {
     });
   }
 
+  function applyRecipeDefaults() {
+    if (!recipeData) return;
+
+    var pctMap = [
+      { key: 'hydration', pctId: 'pct-hydration', rngId: 'rng-hydration' },
+      { key: 'salt', pctId: 'pct-salt', rngId: 'rng-salt' },
+      { key: 'yeast', pctId: 'pct-yeast', rngId: 'rng-yeast' },
+      { key: 'oil', pctId: 'pct-oil', rngId: 'rng-oil' },
+      { key: 'milk', pctId: 'pct-milk', rngId: 'rng-milk' },
+      { key: 'sugar', pctId: 'pct-sugar', rngId: 'rng-sugar' },
+      { key: 'egg', pctId: 'pct-egg', rngId: 'rng-egg' },
+      { key: 'butter', pctId: 'pct-butter', rngId: 'rng-butter' },
+      { key: 'candy', pctId: 'pct-candy', rngId: 'rng-candy' }
+    ];
+
+    var defaults = recipeData.baker_percentages_default || {};
+    pctMap.forEach(function (map) {
+      var cfg = defaults[map.key];
+      if (!cfg) return;
+
+      var pctInput = document.getElementById(map.pctId);
+      var rangeInput = document.getElementById(map.rngId);
+      if (pctInput) {
+        if (cfg.min != null) pctInput.min = cfg.min;
+        if (cfg.max != null) pctInput.max = cfg.max;
+        if (cfg.step != null) pctInput.step = cfg.step;
+        if (cfg.value != null) pctInput.value = cfg.value;
+      }
+      if (rangeInput) {
+        if (cfg.min != null) rangeInput.min = cfg.min;
+        if (cfg.max != null) rangeInput.max = cfg.max;
+        if (cfg.step != null) rangeInput.step = cfg.step;
+        if (cfg.value != null) rangeInput.value = cfg.value;
+        updateSlider(rangeInput);
+      }
+    });
+
+    if (recipeData.default_preferment) {
+      selectPreferment.value = recipeData.default_preferment;
+      var isNone = selectPreferment.value === 'none';
+      rowPrePercent.style.display = isNone ? 'none' : 'flex';
+      preHr.style.display = isNone ? 'none' : 'block';
+      preBreakdown.style.display = isNone ? 'none' : 'block';
+    }
+
+    if (recipeData.default_preferment_percent != null) {
+      var prePercentInput = document.getElementById('input-pre-percent');
+      if (prePercentInput) {
+        prePercentInput.value = recipeData.default_preferment_percent;
+      }
+    }
+  }
+
   selectPreferment.addEventListener('change', function () {
     var isNone = selectPreferment.value === 'none';
     rowPrePercent.style.display = isNone ? 'none' : 'flex';
@@ -207,6 +269,8 @@ DoughCalc.initRecipePage = function (options) {
     preBreakdown.style.display = isNone ? 'none' : 'block';
     loadSelectedPreferment();
   });
+
+  applyRecipeDefaults();
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
    'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil',
@@ -216,15 +280,25 @@ DoughCalc.initRecipePage = function (options) {
   });
 //slider
 function updateSlider(range) {
-    const p = ((range.value - range.min) / (range.max - range.min)) * 100;
-    range.style.setProperty('--percent', p + '%');
+    var min = parseFloat(range.min);
+    var max = parseFloat(range.max);
+    var value = parseFloat(range.value);
+    var percent = 0;
+
+    if (isFinite(min) && isFinite(max) && max !== min && isFinite(value)) {
+      percent = ((value - min) / (max - min)) * 100;
+      if (!isFinite(percent)) percent = 0;
+      percent = Math.min(Math.max(percent, 0), 100);
+    }
+
+    range.style.setProperty('--percent', percent + '%');
 }
 function syncPair(numId, rangeId) {
     var n = document.getElementById(numId);
     var r = document.getElementById(rangeId);
     if (!n || !r) return;
 
-    updateSlider(r);   // <-- додати
+    updateSlider(r);
 
     r.addEventListener('input', function () {
     n.value = r.value;
@@ -291,17 +365,22 @@ function syncPair(numId, rangeId) {
       var pre = DoughCalc._ratioOf(currentPreData);
       var pPercent = dcNum('input-pre-percent');
       preFlour = flour * pPercent / 100;
-      var scale = preFlour / pre.flour;
-      preWater = pre.water * scale;
-      preThird = pre.third * scale;
+      if (pre.flour > 0) {
+        var scale = preFlour / pre.flour;
+        preWater = pre.water * scale;
+        preThird = pre.third * scale;
+      } else {
+        preWater = 0;
+        preThird = 0;
+      }
 
       dcSetHTML('pre-flour', Math.round(preFlour) + ' <span class="unit">г</span>');
       dcSetHTML('pre-water', Math.round(preWater) + ' <span class="unit">г</span>');
       dcSetHTML('pre-third', (Math.round(preThird * 10) / 10) + ' <span class="unit">г</span>');
     }
 
-    var mainFlour = flour - preFlour;
-    var mainWater = water - preWater;
+    var mainFlour = Math.max(flour - preFlour, 0);
+    var mainWater = Math.max(water - preWater, 0);
 
     dcSetHTML('main-flour', Math.round(mainFlour) + ' <span class="unit">г</span>');
     dcSetHTML('main-water', Math.round(mainWater) + ' <span class="unit">г</span>');
@@ -318,6 +397,9 @@ function syncPair(numId, rangeId) {
     if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + milk + sugar + egg + butter + candy) + ' г';
 
     if (typeof onFlourChange === 'function') onFlourChange(mainFlour);
+    if (flourTypesWidget && typeof flourTypesWidget.setMainFlour === 'function') {
+      flourTypesWidget.setMainFlour(mainFlour);
+    }
   }
 
   if (selectPreferment.value !== 'none') {
