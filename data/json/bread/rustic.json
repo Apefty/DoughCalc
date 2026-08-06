@@ -35,10 +35,11 @@
   },
   "compatible_preferments": [
     "sourdough",
-    "levain",
+    "levain-stiff",
+    "levain-liquid",
     "pf",
     "biga"
   ],
-  "default_preferment": "levain",
+  "default_preferment": "levain-stiff",
   "default_preferment_percent": 25
 }

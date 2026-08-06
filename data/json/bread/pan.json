@@ -53,7 +53,8 @@
   },
   "compatible_preferments": [
     "sourdough",
-    "levain",
+    "levain-stiff",
+    "levain-liquid",
     "biga",
     "poolish"
   ],

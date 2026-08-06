@@ -11,7 +11,8 @@ window.DoughCalc = window.DoughCalc || {};
    in those files now; this is just a path map, not data). */
 DoughCalc.PREFERMENT_PATHS = {
   sourdough:       'data/json/pre/sourdough.json',
-  levain:          'data/json/pre/levain.json',
+  'levain-stiff':  'data/json/pre/levain-stiff.json',
+  'levain-liquid': 'data/json/pre/levain-liquid.json',
   biga:            'data/json/pre/biga.json',
   poolish:         'data/json/pre/poolish.json',
   pf:              'data/json/pre/pf.json',
@@ -181,6 +182,57 @@ DoughCalc.initPrefermentPage = function (data) {
 
   input.addEventListener('input', render);
   render();
+};
+
+/* ----------------------------------------------------------
+   Levain page (levain.html) — Master/Stiff/Liquid tabs.
+
+   Master is culture-maintenance info only (no calculator — a
+   master levain isn't mixed into dough directly, see levain.json's
+   master.description). Stiff and Liquid are full preferments with
+   their own JSON (levain-stiff.json / levain-liquid.json) and reuse
+   the exact same calculator markup/behavior as initPrefermentPage —
+   switching tabs just re-fetches and re-renders it.
+
+   Required markup ids: #levain-tabs .segmented-item[data-tab],
+   #levain-master-panel, #master-desc, #levain-calc-panel (plus
+   everything initPrefermentPage needs, nested inside that panel)
+   ---------------------------------------------------------- */
+DoughCalc.initLevainPage = function (masterData) {
+  if (!masterData) return;
+  dcSetHTML('master-desc', (masterData.master && masterData.master.description && masterData.master.description.uk) || '');
+
+  var tabs = document.querySelectorAll('#levain-tabs .segmented-item');
+  var masterPanel = document.getElementById('levain-master-panel');
+  var calcPanel = document.getElementById('levain-calc-panel');
+  var calcPanelTemplate = calcPanel.innerHTML; // pristine markup, reused on every tab switch
+  var loadedBuild = null;
+
+  function showTab(tab) {
+    tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
+
+    if (tab === 'master') {
+      masterPanel.style.display = 'block';
+      calcPanel.style.display = 'none';
+      return;
+    }
+
+    masterPanel.style.display = 'none';
+    calcPanel.style.display = 'block';
+    var id = tab === 'stiff' ? 'levain-stiff' : 'levain-liquid';
+    if (loadedBuild === id) return;
+    loadedBuild = id;
+    calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
+    DoughCalc.fetchPreferment(id, function (data) {
+      DoughCalc.initPrefermentPage(data);
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () { showTab(btn.getAttribute('data-tab')); });
+  });
+
+  showTab('master');
 };
 
 /* ----------------------------------------------------------

@@ -42,7 +42,7 @@ DoughCalc.routes = {
   'preferments/levain': {
     file: 'data/pages/preferments/levain.html',
     json: 'data/json/pre/levain.json',
-    init: function (data) { DoughCalc.initPrefermentPage(data); }
+    init: function (data) { DoughCalc.initLevainPage(data); }
   },
   'preferments/opara': {
     file: 'data/pages/preferments/opara.html',
