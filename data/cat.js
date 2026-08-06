@@ -23,7 +23,10 @@ DoughCalc.routes = {
     file: 'data/pages/home.html'
   },
 
-  'preferments': { file: 'data/pages/preferments/pref.html' },
+  'preferments': {
+    file: 'data/pages/preferments/pref.html',
+    init: function () { DoughCalc.initPrefermentsCatalog(); }
+  },
   'preferments/biga': {
     file: 'data/pages/preferments/biga.html',
     json: 'data/json/pre/biga.json',

@@ -10,6 +10,10 @@
 
 <main class="recipe-page">
 
+  <section class="card hero-card">
+    <p class="hero-desc" id="hero-desc"></p>
+  </section>
+
   <section class="card">
     <div class="card-title-row">
       <span class="card-title">Метод розрахунку</span>
@@ -60,16 +64,7 @@
 
     <div class="field-row">
       <label for="select-preferment" class="field-label">Тип</label>
-      <select id="select-preferment" class="value-box" style="border:none;">
-        <option value="none">Без преферменту</option>
-        <option value="sourdough">Закваска (Sourdough)</option>
-        <option value="levain-stiff">Левен (щільний)</option>
-        <option value="levain-liquid">Левен (рідкий)</option>
-        <option value="biga">Біга</option>
-        <option value="poolish" selected>Пулиш</option>
-        <option value="pf">Pâte fermentée</option>
-        <option value="opara">Опара</option>
-      </select>
+      <select id="select-preferment" class="value-box" style="border:none;"></select>
     </div>
 
     <div class="field-row" id="row-pre-percent">

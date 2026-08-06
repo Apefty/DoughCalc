@@ -11,6 +11,7 @@ window.DoughCalc = window.DoughCalc || {};
    in those files now; this is just a path map, not data). */
 DoughCalc.PREFERMENT_PATHS = {
   sourdough:       'data/json/pre/sourdough.json',
+  levain:          'data/json/pre/levain.json',
   'levain-stiff':  'data/json/pre/levain-stiff.json',
   'levain-liquid': 'data/json/pre/levain-liquid.json',
   biga:            'data/json/pre/biga.json',
@@ -64,6 +65,36 @@ function dcSetHTML(id, html) {
   var el = document.getElementById(id);
   if (el) el.innerHTML = html;
 }
+
+/* ----------------------------------------------------------
+   Preferments catalog (pref.html)
+
+   Card markup only carries the route + icon; title and subtitle
+   are filled in from each preferment's own JSON (via the shared
+   fetchPreferment cache) so the catalog can't drift out of sync
+   with the actual recipe data the way hand-typed text did before
+   (e.g. sourdough's card once said "100% гідратації" while
+   sourdough.json had hydration: 80).
+
+   Required markup: .menu-card[data-pre] containing
+   .menu-card-title and .menu-card-sub (both empty).
+   ---------------------------------------------------------- */
+DoughCalc.initPrefermentsCatalog = function () {
+  document.querySelectorAll('.menu-card[data-pre]').forEach(function (card) {
+    var id = card.getAttribute('data-pre');
+    DoughCalc.fetchPreferment(id, function (data) {
+      if (!data) return;
+      var titleEl = card.querySelector('.menu-card-title');
+      var subEl = card.querySelector('.menu-card-sub');
+      if (titleEl) titleEl.textContent = (data.name && data.name.uk) || '';
+      if (subEl) {
+        subEl.textContent = data.hydration != null
+          ? data.hydration + '% гідратації' + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
+          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : '');
+      }
+    });
+  });
+};
 
 /* ----------------------------------------------------------
    Preferment page calculator
@@ -265,6 +296,13 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   options = options || {};
   var onFlourChange = options.onFlourChange;
 
+  /* hero-desc is optional markup — only recipe pages that include a
+     <p id="hero-desc"> get the description filled in; pages without
+     it (not yet migrated) are unaffected. */
+  if (recipeData && recipeData.description && recipeData.description.uk) {
+    dcSetHTML('hero-desc', recipeData.description.uk);
+  }
+
   var entryButtons = document.querySelectorAll('#entry-toggle .segmented-item');
   var entryMode = 'total';
   var rowTotal = document.getElementById('row-total');
@@ -344,6 +382,37 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     });
   }
 
+  /* Builds <select id="select-preferment"> from the recipe's own
+     compatible_preferments (data/json/.../*.json) instead of a
+     hand-typed <option> list per page — each recipe only offers
+     preferments that actually make sense for it, and the option
+     labels come from each preferment's own name.uk (via the shared
+     fetchPreferment cache) so they can't drift out of sync with the
+     preferment pages the way copy-pasted labels could. cb() runs
+     once the select is fully populated. */
+  function buildPreferentOptions(cb) {
+    selectPreferment.innerHTML = '<option value="none">Без преферменту</option>';
+    var ids = (recipeData && recipeData.compatible_preferments) || [];
+    if (!ids.length) { cb(); return; }
+
+    var opts = new Array(ids.length);
+    var remaining = ids.length;
+    ids.forEach(function (id, i) {
+      DoughCalc.fetchPreferment(id, function (data) {
+        opts[i] = { id: id, name: (data && data.name && data.name.uk) || id };
+        if (--remaining === 0) {
+          opts.forEach(function (o) {
+            var el = document.createElement('option');
+            el.value = o.id;
+            el.textContent = o.name;
+            selectPreferment.appendChild(el);
+          });
+          cb();
+        }
+      });
+    });
+  }
+
   function applyRecipeDefaults() {
     if (!recipeData) return;
 
@@ -381,14 +450,6 @@ DoughCalc.initRecipePage = function (recipeData, options) {
       }
     });
 
-    if (recipeData.default_preferment) {
-      selectPreferment.value = recipeData.default_preferment;
-      var isNone = selectPreferment.value === 'none';
-      rowPrePercent.style.display = isNone ? 'none' : 'flex';
-      preHr.style.display = isNone ? 'none' : 'block';
-      preBreakdown.style.display = isNone ? 'none' : 'block';
-    }
-
     if (recipeData.default_preferment_percent != null) {
       var prePercentInput = document.getElementById('input-pre-percent');
       if (prePercentInput) {
@@ -406,6 +467,21 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   });
 
   applyRecipeDefaults();
+
+  buildPreferentOptions(function () {
+    if (recipeData.default_preferment) {
+      selectPreferment.value = recipeData.default_preferment;
+      var isNone = selectPreferment.value === 'none';
+      rowPrePercent.style.display = isNone ? 'none' : 'flex';
+      preHr.style.display = isNone ? 'none' : 'block';
+      preBreakdown.style.display = isNone ? 'none' : 'block';
+    }
+    if (selectPreferment.value !== 'none') {
+      loadSelectedPreferment(); // fetches JSON, then calls render() itself
+    } else {
+      render();
+    }
+  });
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
    'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil',
@@ -541,12 +617,6 @@ function syncPair(numId, rangeId) {
     if (flourTypesWidget && typeof flourTypesWidget.setMainFlour === 'function') {
       flourTypesWidget.setMainFlour(mainFlour);
     }
-  }
-
-  if (selectPreferment.value !== 'none') {
-    loadSelectedPreferment(); // fetches JSON, then calls render() itself
-  } else {
-    render();
   }
 };
 
