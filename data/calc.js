@@ -202,6 +202,19 @@ DoughCalc.initLevainPage = function (masterData) {
   if (!masterData) return;
   dcSetHTML('master-desc', (masterData.master && masterData.master.description && masterData.master.description.uk) || '');
 
+  var sr = masterData.master && masterData.master.starter_recipe;
+  if (sr) {
+    var listEl = document.getElementById('starter-recipe-list');
+    if (listEl && sr.ingredients) {
+      listEl.innerHTML = sr.ingredients.map(function (ing) {
+        return '<div class="row-list-item"><div class="row-list-label">' + ing.name_uk + '</div>' +
+          '<span class="row-list-value">' + ing.amount_g + ' <span class="unit">г</span></span></div>';
+      }).join('');
+    }
+    dcSetHTML('starter-recipe-yield', sr.yield_g + ' г');
+    dcSetHTML('starter-recipe-ferment', sr.fermentation_note_uk || '');
+  }
+
   var tabs = document.querySelectorAll('#levain-tabs .segmented-item');
   var masterPanel = document.getElementById('levain-master-panel');
   var calcPanel = document.getElementById('levain-calc-panel');
