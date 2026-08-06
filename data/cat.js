@@ -61,7 +61,7 @@ DoughCalc.routes = {
   },
   'preferments/sourdough': {
     file: 'data/pages/preferments/sourdough.html',
-    json: 'data/json/sourdough.json',
+    json: 'data/json/pre/sourdough.json',
     init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
 

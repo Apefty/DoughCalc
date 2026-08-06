@@ -10,7 +10,7 @@ window.DoughCalc = window.DoughCalc || {};
    ratio, hydration, description, fermentation, used_in — lives only
    in those files now; this is just a path map, not data). */
 DoughCalc.PREFERMENT_PATHS = {
-  sourdough:       'data/json/sourdough.json',
+  sourdough:       'data/json/pre/sourdough.json',
   levain:          'data/json/pre/levain.json',
   biga:            'data/json/pre/biga.json',
   poolish:         'data/json/pre/poolish.json',
