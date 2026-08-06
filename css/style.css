@@ -649,7 +649,7 @@ div#body-wrapper {
 }
 
 .flour-type-pct-box input {
-  width: 36px;
+  width: 40px;
   border: none;
   background: transparent;
   font-size: 15px;
@@ -660,6 +660,15 @@ div#body-wrapper {
 
 .flour-type-pct-box input:focus {
   outline: none;
+}
+
+.flour-type-pct-box-locked {
+  opacity: 0.6;
+}
+
+.flour-type-pct-box-locked input {
+  color: var(--text-muted);
+  cursor: default;
 }
 
 .flour-type-weight {

@@ -501,6 +501,17 @@ DoughCalc.initFlourTypes = function (initialTypes) {
   var addFlourTypeBtn = document.getElementById('add-flour-type');
   var currentMainFlour = 0;
 
+  /* flourTypes[0] is the "base" flour and is never edited directly —
+     its % is always whatever's left after the other (added) types,
+     so the total is guaranteed to be exactly 100% instead of
+     requiring the user to manually rebalance every type by hand. */
+  function recomputeBase() {
+    var sumOthers = 0;
+    for (var i = 1; i < flourTypes.length; i++) sumOthers += (flourTypes[i].pct || 0);
+    flourTypes[0].pct = Math.round(Math.max(0, 100 - sumOthers) * 10) / 10;
+    return sumOthers;
+  }
+
   function renderList() {
     flourTypesList.innerHTML = '';
     flourTypes.forEach(function (ft, idx) {
@@ -524,11 +535,21 @@ DoughCalc.initFlourTypes = function (initialTypes) {
       pctInput.max = '100';
       pctInput.step = '1';
       pctInput.value = ft.pct;
-      pctInput.addEventListener('input', function () {
-        flourTypes[idx].pct = parseFloat(pctInput.value) || 0;
-        updateSum();
-        updateWeights();
-      });
+      if (idx === 0) {
+        pctInput.readOnly = true;
+        pctInput.tabIndex = -1;
+        pctInput.title = 'Автоматично: залишок від інших типів борошна';
+        pctBox.classList.add('flour-type-pct-box-locked');
+      } else {
+        pctInput.addEventListener('input', function () {
+          flourTypes[idx].pct = parseFloat(pctInput.value) || 0;
+          recomputeBase();
+          var baseInput = flourTypesList.querySelector('.flour-type-row:first-child .flour-type-pct-box input');
+          if (baseInput) baseInput.value = flourTypes[0].pct;
+          updateSum();
+          updateWeights();
+        });
+      }
       var pctUnit = document.createElement('span');
       pctUnit.className = 'value-unit';
       pctUnit.textContent = '%';
@@ -544,13 +565,14 @@ DoughCalc.initFlourTypes = function (initialTypes) {
       removeBtn.setAttribute('aria-label', 'Видалити');
       removeBtn.innerHTML = '<span class="iconify" data-icon="tabler:x"></span>';
       removeBtn.addEventListener('click', function () {
-        if (flourTypes.length <= 1) return;
+        if (idx === 0) return; // base flour can't be removed
         flourTypes.splice(idx, 1);
+        recomputeBase();
         renderList();
         updateSum();
         updateWeights();
       });
-      if (flourTypes.length <= 1) removeBtn.style.visibility = 'hidden';
+      if (idx === 0) removeBtn.style.visibility = 'hidden';
 
       row.appendChild(nameInput);
       row.appendChild(pctBox);
@@ -567,16 +589,16 @@ DoughCalc.initFlourTypes = function (initialTypes) {
   }
 
   function updateWeights() {
-    var sum = flourTypes.reduce(function (a, ft) { return a + ft.pct; }, 0) || 1;
     var weightEls = flourTypesList.querySelectorAll('.flour-type-weight');
     flourTypes.forEach(function (ft, idx) {
-      var w = currentMainFlour * (ft.pct / sum);
+      var w = currentMainFlour * (ft.pct / 100);
       weightEls[idx].textContent = Math.round(w) + ' г';
     });
   }
 
   addFlourTypeBtn.addEventListener('click', function () {
     flourTypes.push({ name: '', pct: 0 });
+    recomputeBase();
     renderList();
     updateSum();
     updateWeights();
@@ -585,6 +607,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
     if (lastInput) lastInput.focus();
   });
 
+  recomputeBase();
   renderList();
   updateSum();
 
