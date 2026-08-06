@@ -11,14 +11,18 @@
   "mode": "yeast",
   "ratio": {
     "flour": 100,
-    "water": 100,
-    "yeast": 0.5
+    "water": 100
   },
   "hydration": 100,
+  "yeast_formula": {
+    "type": "water_time",
+    "constant": 0.04,
+    "time_range_hours": [1, 18],
+    "default_hours": 10
+  },
   "fermentation": {
-    "duration_hours": 12,
-    "duration_note_uk": "8–16 год",
-    "temperature_note_uk": "18–21°C, кімнатна температура"
+    "duration_note_uk": "1–18 год (залежно від к-ті дріжджів)",
+    "temperature_note_uk": "21–24°C, кімнатна температура"
   },
   "used_in": ["pizza", "bread", "baguette"]
 }

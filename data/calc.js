@@ -85,10 +85,14 @@ DoughCalc.initPrefermentPage = function (data) {
   var ratio = DoughCalc._ratioOf(data);
   var isStarter = data.mode === 'starter';
   var thirdName = isStarter ? 'Закваска' : 'Дріжджі';
+  var formula = data.yeast_formula; // e.g. poolish: { constant, time_range_hours, default_hours }
 
+  var thirdPillText = formula
+    ? 'дріжджі за часом ферментації'
+    : (ratio.third + '% ' + (isStarter ? 'закваски' : 'дріжджів'));
   dcSetHTML('hero-pills',
     '<span class="pill pill-accent">' + data.hydration + '% гідратації</span>' +
-    '<span class="pill">' + ratio.third + '% ' + (isStarter ? 'закваски' : 'дріжджів') + '</span>');
+    '<span class="pill">' + thirdPillText + '</span>');
   dcSetHTML('hero-desc', (data.description && data.description.uk) || '');
 
   var thirdLabelEl = document.getElementById('third-label');
@@ -116,20 +120,50 @@ DoughCalc.initPrefermentPage = function (data) {
   var buttons = document.querySelectorAll('#mode-toggle .segmented-item');
   var mode = 'flour';
 
+  /* Water × 40 ÷ fermentation hours (metric): needs a time slider
+     instead of a fixed baker's percentage. Range and default come
+     from the JSON, not hardcoded here — see poolish.json's
+     yeast_formula. */
+  var timeInput = null, timeDisplay = null;
+  if (formula) {
+    var range = formula.time_range_hours || [1, 18];
+    var hrEl = document.querySelector('main.recipe-page .hr');
+    if (hrEl) {
+      hrEl.insertAdjacentHTML('beforebegin',
+        '<div class="field-row">' +
+          '<label for="input-ferment-time" class="field-label">Час ферментації</label>' +
+          '<div class="value-box value-box-accent"><span id="ferment-time-display">' + formula.default_hours + '</span><span class="value-unit">год</span></div>' +
+        '</div>' +
+        '<input type="range" id="input-ferment-time" min="' + range[0] + '" max="' + range[1] + '" step="1" value="' + formula.default_hours + '" style="width:100%;margin:0 0 16px;">'
+      );
+      timeInput = document.getElementById('input-ferment-time');
+      timeDisplay = document.getElementById('ferment-time-display');
+      timeInput.addEventListener('input', render);
+    }
+  }
+
   function render() {
     var v = parseFloat(input.value) || 0;
     var flour;
+    var thirdRatio = formula ? 0 : ratio.third; // formula ignores baker's % for the third component
     if (mode === 'flour') {
       flour = v;
     } else {
-      var unitTotal = ratio.flour + ratio.water + ratio.third;
+      var unitTotal = ratio.flour + ratio.water + thirdRatio;
       flour = v * (ratio.flour / unitTotal);
     }
     var water = flour * (ratio.water / ratio.flour);
-    var third = flour * (ratio.third / ratio.flour);
+    var third;
+    if (formula) {
+      var hours = timeInput ? (parseFloat(timeInput.value) || formula.default_hours) : formula.default_hours;
+      if (timeDisplay) timeDisplay.textContent = hours;
+      third = water * formula.constant / hours;
+    } else {
+      third = flour * (ratio.third / ratio.flour);
+    }
 
     dcSetHTML('out-flour', Math.round(flour) + ' <span class="unit">г</span>');
-    dcSetHTML('out-water', Math.round(water) + ' <span class="unit">г</span>');
+    dcSetHTML('out-water', Math.round(water) + ' <span class="unit">мл</span>');
     dcSetHTML('out-third', (Math.round(third * 10) / 10) + ' <span class="unit">г</span>');
     var totalEl = document.getElementById('out-total');
     if (totalEl) totalEl.textContent = Math.round(flour + water + third) + ' г';
@@ -192,19 +226,55 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   var preBreakdown = document.getElementById('pre-breakdown');
   var currentPreData = null; // fetched data/json/pre/<id>.json for the selected preferment
   var flourTypesWidget = null;
+  var preTimeRow = null, preTimeInput = null, preTimeDisplay = null;
 
   if (document.getElementById('flour-types-list')) {
     flourTypesWidget = DoughCalc.initFlourTypes(options.flourTypes);
   }
 
+  /* Some preferments (poolish) size their yeast from a fermentation
+     time rather than a fixed baker's %: yeast = water × constant ÷
+     hours (see data/json/pre/poolish.json's yeast_formula). When the
+     selected preferment declares one, show a time slider here too —
+     range/default come from that JSON, not hardcoded. */
+  function ensurePreTimeRow(formula) {
+    if (!preTimeRow) {
+      rowPrePercent.insertAdjacentHTML('afterend',
+        '<div class="field-row" id="row-pre-ferment-time" style="display:none;">' +
+          '<label for="input-pre-ferment-time" class="field-label">Час ферментації преферменту</label>' +
+          '<div class="value-box value-box-accent"><span id="pre-ferment-time-display"></span><span class="value-unit">год</span></div>' +
+        '</div>' +
+        '<input type="range" id="input-pre-ferment-time" style="width:100%;margin:0 0 16px;display:none;">'
+      );
+      preTimeRow = document.getElementById('row-pre-ferment-time');
+      preTimeInput = document.getElementById('input-pre-ferment-time');
+      preTimeDisplay = document.getElementById('pre-ferment-time-display');
+      preTimeInput.addEventListener('input', render);
+    }
+    if (formula) {
+      var range = formula.time_range_hours || [1, 18];
+      preTimeInput.min = range[0];
+      preTimeInput.max = range[1];
+      preTimeInput.step = 1;
+      preTimeInput.value = formula.default_hours;
+      preTimeDisplay.textContent = formula.default_hours;
+      preTimeRow.style.display = 'flex';
+      preTimeInput.style.display = 'block';
+    } else {
+      preTimeRow.style.display = 'none';
+      preTimeInput.style.display = 'none';
+    }
+  }
+
   function loadSelectedPreferment() {
     var key = selectPreferment.value;
-    if (key === 'none') { currentPreData = null; render(); return; }
+    if (key === 'none') { currentPreData = null; ensurePreTimeRow(null); render(); return; }
     DoughCalc.fetchPreferment(key, function (data) {
       currentPreData = data;
       var thirdLabel = data && data.mode === 'starter' ? 'Закваска' : 'Дріжджі';
       var labelEl = document.querySelector('#pre-breakdown .row-list-item:nth-child(3) .row-list-label');
       if (labelEl) labelEl.lastChild.textContent = thirdLabel;
+      ensurePreTimeRow(data && data.yeast_formula);
       render();
     });
   }
@@ -368,14 +438,20 @@ function syncPair(numId, rangeId) {
       if (pre.flour > 0) {
         var scale = preFlour / pre.flour;
         preWater = pre.water * scale;
-        preThird = pre.third * scale;
+        if (currentPreData.yeast_formula) {
+          var preHours = preTimeInput ? (parseFloat(preTimeInput.value) || currentPreData.yeast_formula.default_hours) : currentPreData.yeast_formula.default_hours;
+          if (preTimeDisplay) preTimeDisplay.textContent = preHours;
+          preThird = preWater * currentPreData.yeast_formula.constant / preHours;
+        } else {
+          preThird = pre.third * scale;
+        }
       } else {
         preWater = 0;
         preThird = 0;
       }
 
       dcSetHTML('pre-flour', Math.round(preFlour) + ' <span class="unit">г</span>');
-      dcSetHTML('pre-water', Math.round(preWater) + ' <span class="unit">г</span>');
+      dcSetHTML('pre-water', Math.round(preWater) + ' <span class="unit">мл</span>');
       dcSetHTML('pre-third', (Math.round(preThird * 10) / 10) + ' <span class="unit">г</span>');
     }
 
@@ -383,7 +459,7 @@ function syncPair(numId, rangeId) {
     var mainWater = Math.max(water - preWater, 0);
 
     dcSetHTML('main-flour', Math.round(mainFlour) + ' <span class="unit">г</span>');
-    dcSetHTML('main-water', Math.round(mainWater) + ' <span class="unit">г</span>');
+    dcSetHTML('main-water', Math.round(mainWater) + ' <span class="unit">мл</span>');
     dcSetHTML('main-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-yeast', (Math.round(yeast * 10) / 10) + ' <span class="unit">г</span>');
     dcSetHTML('main-oil', (Math.round(oil * 10) / 10) + ' <span class="unit">г</span>');
