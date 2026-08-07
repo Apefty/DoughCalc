@@ -178,10 +178,11 @@ DoughCalc.initPrefermentPage = function (data) {
     var v = parseFloat(input.value) || 0;
     var flour;
     var thirdRatio = formula ? 0 : ratio.third; // formula ignores baker's % for the third component
+    var saltRatio = ratio.salt || 0; // optional — only Pâte fermentée uses this so far
     if (mode === 'flour') {
       flour = v;
     } else {
-      var unitTotal = ratio.flour + ratio.water + thirdRatio;
+      var unitTotal = ratio.flour + ratio.water + thirdRatio + saltRatio;
       flour = v * (ratio.flour / unitTotal);
     }
     var water = flour * (ratio.water / ratio.flour);
@@ -193,12 +194,14 @@ DoughCalc.initPrefermentPage = function (data) {
     } else {
       third = flour * (ratio.third / ratio.flour);
     }
+    var salt = saltRatio ? flour * (saltRatio / ratio.flour) : 0;
 
     dcSetHTML('out-flour', Math.round(flour) + ' <span class="unit">г</span>');
     dcSetHTML('out-water', Math.round(water) + ' <span class="unit">мл</span>');
     dcSetHTML('out-third', (Math.round(third * 10) / 10) + ' <span class="unit">г</span>');
+    if (saltRatio) dcSetHTML('out-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
     var totalEl = document.getElementById('out-total');
-    if (totalEl) totalEl.textContent = Math.round(flour + water + third) + ' г';
+    if (totalEl) totalEl.textContent = Math.round(flour + water + third + salt) + ' г';
   }
 
   buttons.forEach(function (btn) {
