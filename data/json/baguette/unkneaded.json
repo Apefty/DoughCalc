@@ -1,0 +1,32 @@
+{
+  "id": "baguette-unkneaded",
+  "category": "baguette",
+  "name": {
+    "uk": "Unkneaded Six-fold"
+  },
+  "description": {
+    "uk": "Малозамішане тісто, структура якого розвивається через три складання на початку бульк-ферментації, а не інтенсивний заміс."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 73,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

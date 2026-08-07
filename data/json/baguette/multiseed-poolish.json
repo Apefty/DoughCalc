@@ -1,0 +1,42 @@
+{
+  "id": "baguette-multiseed-poolish",
+  "category": "baguette",
+  "name": {
+    "uk": "Мультизлаковий пулиш (Ferrandi)"
+  },
+  "description": {
+    "uk": "Варіація традиційного пулиша з підсмаженим насінням (кількість — на свій смак, задайте через поле «Добавки»)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 68.3,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.83,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.5,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 0,
+      "min": 0,
+      "max": 70,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 16.7
+}

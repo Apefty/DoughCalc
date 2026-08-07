@@ -1,0 +1,36 @@
+{
+  "id": "baguette-poolish",
+  "category": "baguette",
+  "name": {
+    "uk": "Пулиш (Hamelman)"
+  },
+  "description": {
+    "uk": "Класичний багет на пулиші — відкрита пориста структура, легкий аромат."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 68,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.1,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 33
+}

@@ -1,0 +1,32 @@
+{
+  "id": "baguette-tradition",
+  "category": "baguette",
+  "name": {
+    "uk": "Традиційні (Baguettes de Tradition)"
+  },
+  "description": {
+    "uk": "Пряме тісто без преферменту, дуже слабо замішане, структуру формують складання. Хрустка скоринка, кремовий м'якуш."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 76,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.75,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

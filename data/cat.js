@@ -172,11 +172,21 @@ DoughCalc.routes = {
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
-  'baguette': {
-    file: 'data/pages/baguette/baguette.html',
-    json: 'data/json/baguette/baguette.json',
-    init: function (data) { DoughCalc.initRecipePage(data); }
-  },
+  'baguette': { file: 'data/pages/baguette/baguette.html' },
+  'baguette/tradition': { file: 'data/pages/baguette/tradition.html', json: 'data/json/baguette/tradition.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/pointage-en-bac': { file: 'data/pages/baguette/pointage-en-bac.html', json: 'data/json/baguette/pointage-en-bac.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/unkneaded': { file: 'data/pages/baguette/unkneaded.html', json: 'data/json/baguette/unkneaded.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/white-dough': { file: 'data/pages/baguette/white-dough.html', json: 'data/json/baguette/white-dough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/pf': { file: 'data/pages/baguette/pf.html', json: 'data/json/baguette/pf.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/poolish': { file: 'data/pages/baguette/poolish.html', json: 'data/json/baguette/poolish.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/traditional-poolish': { file: 'data/pages/baguette/traditional-poolish.html', json: 'data/json/baguette/traditional-poolish.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/multiseed-poolish': { file: 'data/pages/baguette/multiseed-poolish.html', json: 'data/json/baguette/multiseed-poolish.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/vienna': { file: 'data/pages/baguette/vienna.html', json: 'data/json/baguette/vienna.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/choc-vienna': { file: 'data/pages/baguette/choc-vienna.html', json: 'data/json/baguette/choc-vienna.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/sourdough': { file: 'data/pages/baguette/sourdough.html', json: 'data/json/baguette/sourdough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/rustic-sourdough': { file: 'data/pages/baguette/rustic-sourdough.html', json: 'data/json/baguette/rustic-sourdough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/marchand-du-vin': { file: 'data/pages/baguette/marchand-du-vin.html', json: 'data/json/baguette/marchand-du-vin.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'baguette/bacon-rolls': { file: 'data/pages/baguette/bacon-rolls.html', json: 'data/json/baguette/bacon-rolls.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'laminated': { file: 'data/pages/laminated/laminated.html' },
   'laminated/croissant': {

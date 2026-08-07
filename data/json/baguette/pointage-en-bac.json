@@ -1,0 +1,32 @@
+{
+  "id": "baguette-pointage-en-bac",
+  "category": "baguette",
+  "name": {
+    "uk": "Pointage en Bac"
+  },
+  "description": {
+    "uk": "Пряме тісто з масовою ретардацією (bulk retard) у холоді — дозволяє гнучкий графік випікання протягом дня."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.75,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

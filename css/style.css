@@ -915,7 +915,49 @@ div#body-wrapper {
 
 /* baguette */
 .app-header#baguette {
+    --bg-icon: url("../img/icons/baguette.png");
+}
+.app-header#tradition {
     --bg-icon: url("../img/icons/baguette2.png");
+}
+.app-header#pointage-en-bac {
+    --bg-icon: url("../img/icons/baguette.png");
+}
+.app-header#unkneaded {
+    --bg-icon: url("../img/icons/baguette.png");
+}
+.app-header#white-dough {
+    --bg-icon: url("../img/icons/baguette.png");
+}
+.app-header#pf {
+    --bg-icon: url("../img/icons/pf.png");
+}
+.app-header#poolish {
+    --bg-icon: url("../img/icons/poolish.png");
+}
+.app-header#traditional-poolish {
+    --bg-icon: url("../img/icons/poolish.png");
+}
+.app-header#multiseed-poolish {
+    --bg-icon: url("../img/icons/poolish.png");
+}
+.app-header#vienna {
+    --bg-icon: url("../img/icons/pf.png");
+}
+.app-header#choc-vienna {
+    --bg-icon: url("../img/icons/pf.png");
+}
+.app-header#baguette-sourdough {
+    --bg-icon: url("../img/icons/sourdough-bread.png");
+}
+.app-header#rustic-sourdough {
+    --bg-icon: url("../img/icons/sourdough-bread.png");
+}
+.app-header#marchand-du-vin {
+    --bg-icon: url("../img/icons/levain.png");
+}
+.app-header#bacon-rolls {
+    --bg-icon: url("../img/icons/sourdough-bread.png");
 }
 
 /* sweet */

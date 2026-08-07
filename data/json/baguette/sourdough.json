@@ -1,0 +1,36 @@
+{
+  "id": "baguette-sourdough",
+  "category": "baguette",
+  "name": {
+    "uk": "Sourdough (Liquid Levain) — Hamelman"
+  },
+  "description": {
+    "uk": "Багет на рідкому левені (125% гідратації). Комерційні дріжджі опційні — без них м'якуш буде щільнішим і смак виразнішим. За бажанням додайте ~0.1% солодового борошна."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.5,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-liquid"
+  ],
+  "default_preferment": "levain-liquid",
+  "default_preferment_percent": 15
+}

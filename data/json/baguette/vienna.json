@@ -1,0 +1,48 @@
+{
+  "id": "baguette-vienna",
+  "category": "baguette",
+  "name": {
+    "uk": "Vienna Baguettes (Ferrandi)"
+  },
+  "description": {
+    "uk": "Збагачене здобне тісто на pâte fermentée з маслом і молочним порошком."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 42,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 4.5,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 7.2,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "milk": {
+      "value": 4.5,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "pf"
+  ],
+  "default_preferment": "pf",
+  "default_preferment_percent": 9
+}

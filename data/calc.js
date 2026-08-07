@@ -514,9 +514,23 @@ DoughCalc.initRecipePage = function (recipeData, options) {
      preferment pages the way copy-pasted labels could. cb() runs
      once the select is fully populated. */
   function buildPreferentOptions(cb) {
-    selectPreferment.innerHTML = '<option value="none">Без преферменту</option>';
+    /* fixed_preferment: true (e.g. Багети recipe cards) means the
+       preferment (or lack of one) is a defining part of that specific
+       recipe, not a user choice — the dropdown shows just that one
+       option and is disabled, instead of the usual "Без преферменту"
+       + full compatible_preferments list. */
+    var fixed = !!(recipeData && recipeData.fixed_preferment);
     var ids = (recipeData && recipeData.compatible_preferments) || [];
-    if (!ids.length) { cb(); return; }
+
+    selectPreferment.innerHTML = (fixed && ids.length)
+      ? ''
+      : '<option value="none">Без преферменту</option>';
+
+    if (!ids.length) {
+      selectPreferment.disabled = fixed;
+      cb();
+      return;
+    }
 
     var opts = new Array(ids.length);
     var remaining = ids.length;
@@ -530,6 +544,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
             el.textContent = o.name;
             selectPreferment.appendChild(el);
           });
+          selectPreferment.disabled = fixed;
           cb();
         }
       });
