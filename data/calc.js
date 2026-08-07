@@ -753,7 +753,7 @@ function syncPair(numId, rangeId) {
    current main-mix flour weight.
    ---------------------------------------------------------- */
 DoughCalc.initFlourTypes = function (initialTypes) {
-  var flourTypes = initialTypes || [{ name: 'Борошно 00', pct: 100 }];
+  var flourTypes = initialTypes || [{ name: 'Борошно', pct: 100 }];
   var flourTypesList = document.getElementById('flour-types-list');
   var flourSumEl = document.getElementById('flour-sum');
   var addFlourTypeBtn = document.getElementById('add-flour-type');

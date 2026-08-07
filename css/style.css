@@ -649,7 +649,7 @@ div#body-wrapper {
 }
 
 .flour-type-pct-box input {
-  width: 40px;
+  width: 45px;
   border: none;
   background: transparent;
   font-size: 15px;
@@ -828,7 +828,7 @@ div#body-wrapper {
     /* background-size: clamp(48px, 10vw, 128px);   */
     background-size:var(--header-icon-size);
 }
-
+/* preferments */
 .app-header#biga {
     --bg-icon: url("../img/icons/biga.png");
 }
@@ -838,7 +838,6 @@ div#body-wrapper {
 .app-header#lievito-madre {
     --bg-icon: url("../img/icons/lm.png");
 }
-
 .app-header#opara {
     --bg-icon: url("../img/icons/opara.png");
 }
@@ -857,7 +856,23 @@ div#body-wrapper {
 .app-header#sourdough {
     --bg-icon: url("../img/icons/starter.png");
 }
+.app-header#raisin-juice {
+    --bg-icon: url("../img/icons/raisin-juice.png");
+}
+.app-header#soakers {
+    --bg-icon: url("../img/icons/soakers.png");
+}
+.app-header#salzsauer {
+    --bg-icon: url("../img/icons/salzsauer.png");
+}
+.app-header#zavarka {
+    --bg-icon: url("../img/icons/zavarka.png");
+}
+.app-header#detmolder {
+    --bg-icon: url("../img/icons/detmolder.png");
+}
 
+/* bread */
 .app-header#additions {
     --bg-icon: url("../img/icons/additions-bread.png");
 }
@@ -883,6 +898,8 @@ div#body-wrapper {
 .app-header#sourdough-bread {
     --bg-icon: url("../img/icons/sourdough-bread.png");
 }
+
+/* pizza */
 .app-header#neapolitan {
     --bg-icon: url("../img/icons/neapolitan.png");
 }
@@ -895,10 +912,13 @@ div#body-wrapper {
 .app-header#sicilian {
     --bg-icon: url("../img/icons/sicilian-pizza.png");
 }
+
+/* baguette */
 .app-header#baguette {
     --bg-icon: url("../img/icons/baguette2.png");
 }
 
+/* sweet */
   .app-header#sweet {
     --bg-icon: url("../img/icons/sweet.png");
 }
@@ -917,9 +937,13 @@ div#body-wrapper {
 .app-header#tart {
     --bg-icon: url("../img/icons/tart.png");
 }
+
+/* laminated */
 .app-header#laminated {
     --bg-icon: url("../img/icons/laminated.png");
 }
+
+/* other */
 .app-header#calculator {
     --bg-icon: url("../img/icons/calculator.png");
 }
