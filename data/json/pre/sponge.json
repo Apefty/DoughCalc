@@ -2,16 +2,5 @@
   "id": "sponge",
   "category": "preferments",
   "name": { "uk": "Спонж", "en": "Sponge" },
-  "description": {
-    "uk": "Короткоферментований преферемент, який швидко активізує дріжджі перед замісом основного тіста. Часто застосовується у збагачених та солодких тістах."
-  },
-  "mode": "yeast",
-  "ratio": { "flour": 100, "water": 60, "yeast": 2 },
-  "hydration": 60,
-  "fermentation": {
-    "duration_hours": 1.5,
-    "duration_note_uk": "1–2 год, до появи бульбашок",
-    "temperature_note_uk": "24–27°C"
-  },
-  "used_in": ["sweet", "bread"]
+  "builds": ["sponge-classic", "sponge-liquid"]
 }

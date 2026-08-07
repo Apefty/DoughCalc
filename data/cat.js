@@ -71,7 +71,7 @@ DoughCalc.routes = {
   'preferments/sponge': {
     file: 'data/pages/preferments/sponge.html',
     json: 'data/json/pre/sponge.json',
-    init: function (data) { DoughCalc.initPrefermentPage(data); }
+    init: function (data) { DoughCalc.initSpongePage(data); }
   },
   'preferments/sourdough': {
     file: 'data/pages/preferments/sourdough.html',

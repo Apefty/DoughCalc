@@ -19,7 +19,9 @@ DoughCalc.PREFERMENT_PATHS = {
   pf:              'data/json/pre/pf.json',
   opara:           'data/json/pre/opara.json',
   'lievito-madre': 'data/json/pre/lievito-madre.json',
-  sponge:          'data/json/pre/sponge.json'
+  sponge:          'data/json/pre/sponge.json',
+  'sponge-classic': 'data/json/pre/sponge-classic.json',
+  'sponge-liquid':  'data/json/pre/sponge-liquid.json'
 };
 
 /* UI labels for used_in / route sections (chrome, not recipe data —
@@ -90,7 +92,7 @@ DoughCalc.initPrefermentsCatalog = function () {
       if (subEl) {
         subEl.textContent = data.hydration != null
           ? data.hydration + '% гідратації' + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
-          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : '');
+          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : (data.builds ? 'Класичний / Рідкий' : ''));
       }
     });
   });
@@ -132,6 +134,17 @@ DoughCalc.initPrefermentPage = function (data) {
     var icon = document.getElementById('third-icon');
     if (icon) icon.src = 'img/icons/' + (isStarter ? 'starter' : 'yeast') + '.png';
     thirdLabelEl.lastChild.textContent = thirdName;
+  }
+
+  /* Optional: some builds use milk instead of water (e.g. sponge-liquid).
+     water-label/water-icon ids are optional too, so pages that don't
+     have them (every preferment except the liquid sponge build) are
+     unaffected. */
+  var waterLabelEl = document.getElementById('water-label');
+  if (waterLabelEl && data.liquid_ingredient) {
+    var waterIcon = document.getElementById('water-icon');
+    if (waterIcon && data.liquid_ingredient.icon) waterIcon.src = 'img/icons/' + data.liquid_ingredient.icon + '.png';
+    waterLabelEl.lastChild.textContent = (data.liquid_ingredient.uk) || waterLabelEl.lastChild.textContent;
   }
 
   if (data.fermentation) {
@@ -280,6 +293,38 @@ DoughCalc.initLevainPage = function (masterData) {
   });
 
   showTab('master');
+};
+
+/* ----------------------------------------------------------
+   Sponge page (two independent builds, no shared master —
+   unlike Levain, Класичний/Рідкий don't come from one starter
+   culture, so both tabs go straight to a calc panel). shellData
+   is sponge.json: { id, name, builds: [...] }.
+   ---------------------------------------------------------- */
+DoughCalc.initSpongePage = function (shellData) {
+  if (!shellData) return;
+
+  var tabs = document.querySelectorAll('#sponge-tabs .segmented-item');
+  var calcPanel = document.getElementById('sponge-calc-panel');
+  var calcPanelTemplate = calcPanel.innerHTML; // pristine markup, reused on every tab switch
+  var loadedBuild = null;
+
+  function showTab(tab) {
+    tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
+    var id = tab === 'liquid' ? 'sponge-liquid' : 'sponge-classic';
+    if (loadedBuild === id) return;
+    loadedBuild = id;
+    calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
+    DoughCalc.fetchPreferment(id, function (data) {
+      DoughCalc.initPrefermentPage(data);
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () { showTab(btn.getAttribute('data-tab')); });
+  });
+
+  showTab('classic');
 };
 
 /* ----------------------------------------------------------
