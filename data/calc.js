@@ -21,7 +21,23 @@ DoughCalc.PREFERMENT_PATHS = {
   'lievito-madre': 'data/json/pre/lievito-madre.json',
   sponge:          'data/json/pre/sponge.json',
   'sponge-classic': 'data/json/pre/sponge-classic.json',
-  'sponge-liquid':  'data/json/pre/sponge-liquid.json'
+  'sponge-liquid':  'data/json/pre/sponge-liquid.json',
+  desem:           'data/json/pre/desem.json',
+  detmolder:       'data/json/pre/detmolder.json',
+  'detmolder-anfrischsauer': 'data/json/pre/detmolder-anfrischsauer.json',
+  'detmolder-grundsauer':    'data/json/pre/detmolder-grundsauer.json',
+  'detmolder-vollsauer':     'data/json/pre/detmolder-vollsauer.json',
+  zavarka:         'data/json/pre/zavarka.json',
+  salzsauer:       'data/json/pre/salzsauer.json',
+  'pie-de-masa':   'data/json/pre/pie-de-masa.json',
+  'raisin-juice':  'data/json/pre/raisin-juice.json',
+  'raisin-soak':   'data/json/pre/raisin-soak.json',
+  'raisin-build1': 'data/json/pre/raisin-build1.json',
+  'raisin-build2': 'data/json/pre/raisin-build2.json',
+  soakers:         'data/json/pre/soakers.json',
+  'soaker-general': 'data/json/pre/soaker-general.json',
+  'soaker-flax':    'data/json/pre/soaker-flax.json',
+  'soaker-barley':  'data/json/pre/soaker-barley.json'
 };
 
 /* UI labels for used_in / route sections (chrome, not recipe data —
@@ -92,7 +108,7 @@ DoughCalc.initPrefermentsCatalog = function () {
       if (subEl) {
         subEl.textContent = data.hydration != null
           ? data.hydration + '% гідратації' + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
-          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : (data.builds ? 'Класичний / Рідкий' : ''));
+          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : (data.builds ? data.builds.length + ' варіанти' : ''));
       }
     });
   });
@@ -120,14 +136,24 @@ DoughCalc.initPrefermentPage = function (data) {
   var isStarter = data.mode === 'starter';
   var thirdName = isStarter ? 'Закваска' : 'Дріжджі';
   var formula = data.yeast_formula; // e.g. poolish: { constant, time_range_hours, default_hours }
+  /* Some builds have no fermentation agent at all — scalds, soakers,
+     raisin-juice stages, Detmolder's Grundsauer/Vollsauer (which use
+     the entire previous stage rather than a % starter). Distinguish
+     "genuinely no third ingredient" from "0% of one" by checking the
+     JSON directly rather than the resolved ratio.third (which
+     defaults to 0 either way). */
+  var hasThird = !!(data.ratio && (data.ratio.yeast != null || data.ratio.starter != null)) || !!formula;
 
   var thirdPillText = formula
     ? 'дріжджі за часом ферментації'
     : (ratio.third + '% ' + (isStarter ? 'закваски' : 'дріжджів'));
   dcSetHTML('hero-pills',
     '<span class="pill pill-accent">' + data.hydration + '% гідратації</span>' +
-    '<span class="pill">' + thirdPillText + '</span>');
+    (hasThird ? '<span class="pill">' + thirdPillText + '</span>' : ''));
   dcSetHTML('hero-desc', (data.description && data.description.uk) || '');
+
+  var thirdRowEl = document.getElementById('third-row');
+  if (thirdRowEl) thirdRowEl.style.display = hasThird ? 'flex' : 'none';
 
   var thirdLabelEl = document.getElementById('third-label');
   if (thirdLabelEl) {
@@ -145,6 +171,20 @@ DoughCalc.initPrefermentPage = function (data) {
     var waterIcon = document.getElementById('water-icon');
     if (waterIcon && data.liquid_ingredient.icon) waterIcon.src = 'img/icons/' + data.liquid_ingredient.icon + '.png';
     waterLabelEl.lastChild.textContent = (data.liquid_ingredient.uk) || waterLabelEl.lastChild.textContent;
+  }
+
+  /* Optional: the first ingredient isn't always flour (e.g. raisins
+     for a raisin-juice soak). flour-label/flour-icon ids are optional
+     — only raisin-soak uses them. */
+  var flourLabelEl = document.getElementById('flour-label');
+  if (flourLabelEl && data.first_ingredient) {
+    var flourIcon = document.getElementById('flour-icon');
+    if (flourIcon && data.first_ingredient.icon) flourIcon.src = 'img/icons/' + data.first_ingredient.icon + '.png';
+    flourLabelEl.lastChild.textContent = (data.first_ingredient.uk) || flourLabelEl.lastChild.textContent;
+  }
+  var inputLabelEl = document.getElementById('input-label');
+  if (inputLabelEl && data.first_ingredient) {
+    inputLabelEl.textContent = 'Вага: ' + data.first_ingredient.uk;
   }
 
   if (data.fermentation) {
@@ -222,7 +262,9 @@ DoughCalc.initPrefermentPage = function (data) {
       buttons.forEach(function (b) { b.classList.remove('is-active'); });
       btn.classList.add('is-active');
       mode = btn.getAttribute('data-mode');
-      label.textContent = mode === 'flour' ? 'Вага борошна' : 'Вага преферменту';
+      label.textContent = mode === 'flour'
+        ? (data.first_ingredient ? 'Вага: ' + data.first_ingredient.uk : 'Вага борошна')
+        : 'Вага преферменту';
       render();
     });
   });
@@ -325,6 +367,39 @@ DoughCalc.initSpongePage = function (shellData) {
   });
 
   showTab('classic');
+};
+
+/* ----------------------------------------------------------
+   Generic multi-tab preferment page (2+ independent/sequential
+   builds sharing one calc panel, no master). Used by Detmolder
+   (3 stages), Raisin Juice (soak + 2 builds), Soakers (grain
+   types) — same tab-switch pattern as initSpongePage, but data-
+   driven instead of one bespoke function per preferment.
+   tabToId maps each data-tab value to a PREFERMENT_PATHS key.
+   ---------------------------------------------------------- */
+DoughCalc.initTabbedPreferentPage = function (panelId, tabsContainerId, tabToId, defaultTab) {
+  var tabs = document.querySelectorAll('#' + tabsContainerId + ' .segmented-item');
+  var calcPanel = document.getElementById(panelId);
+  if (!calcPanel) return;
+  var calcPanelTemplate = calcPanel.innerHTML;
+  var loadedBuild = null;
+
+  function showTab(tab) {
+    tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
+    var id = tabToId[tab] || tab;
+    if (loadedBuild === id) return;
+    loadedBuild = id;
+    calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
+    DoughCalc.fetchPreferment(id, function (data) {
+      DoughCalc.initPrefermentPage(data);
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () { showTab(btn.getAttribute('data-tab')); });
+  });
+
+  showTab(defaultTab);
 };
 
 /* ----------------------------------------------------------

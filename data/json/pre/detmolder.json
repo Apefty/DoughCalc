@@ -1,0 +1,6 @@
+{
+  "id": "detmolder",
+  "category": "preferments",
+  "name": { "uk": "Детмольдський 3-фазний метод", "en": "Detmolder Three-Stage Method" },
+  "builds": ["detmolder-anfrischsauer", "detmolder-grundsauer", "detmolder-vollsauer"]
+}

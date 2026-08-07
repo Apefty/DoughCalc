@@ -1,0 +1,17 @@
+{
+  "id": "desem",
+  "category": "preferments",
+  "name": { "uk": "Дезем (Desem)", "en": "Desem" },
+  "description": {
+    "uk": "Бельгійська культура закваски на 100% цільнозерновому борошні. Традиційно зберігається у прохолодному місці (в мішку з борошном), а хліб на ній випікають майже завжди без жодних комерційних дріжджів. Точного «майстер-співвідношення», як у пулиша, джерела не дають — цифри нижче наближені, під щільне, як у Левена, тісто.",
+    "en": "Belgian 100% whole-wheat sourdough culture, traditionally kept cool and used without any commercial yeast. No single master ratio is given in sources — figures here approximate a stiff, levain-like build."
+  },
+  "mode": "starter",
+  "ratio": { "flour": 100, "water": 45, "starter": 20 },
+  "hydration": 45,
+  "fermentation": {
+    "duration_note_uk": "залежить від температури; підтримується прохолодним довгостроково",
+    "temperature_note_uk": "прохолодне місце"
+  },
+  "used_in": ["bread"]
+}

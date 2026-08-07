@@ -1,0 +1,6 @@
+{
+  "id": "soakers",
+  "category": "preferments",
+  "name": { "uk": "Замочування (Soakers)", "en": "Soakers" },
+  "builds": ["soaker-general", "soaker-flax", "soaker-barley"]
+}

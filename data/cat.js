@@ -78,6 +78,59 @@ DoughCalc.routes = {
     json: 'data/json/pre/sourdough.json',
     init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
+  'preferments/desem': {
+    file: 'data/pages/preferments/desem.html',
+    json: 'data/json/pre/desem.json',
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
+  },
+  'preferments/detmolder': {
+    file: 'data/pages/preferments/detmolder.html',
+    json: 'data/json/pre/detmolder.json',
+    init: function () {
+      DoughCalc.initTabbedPreferentPage('detmolder-calc-panel', 'detmolder-tabs', {
+        anfrischsauer: 'detmolder-anfrischsauer',
+        grundsauer: 'detmolder-grundsauer',
+        vollsauer: 'detmolder-vollsauer'
+      }, 'anfrischsauer');
+    }
+  },
+  'preferments/zavarka': {
+    file: 'data/pages/preferments/zavarka.html',
+    json: 'data/json/pre/zavarka.json',
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
+  },
+  'preferments/salzsauer': {
+    file: 'data/pages/preferments/salzsauer.html',
+    json: 'data/json/pre/salzsauer.json',
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
+  },
+  'preferments/pie-de-masa': {
+    file: 'data/pages/preferments/pie-de-masa.html',
+    json: 'data/json/pre/pie-de-masa.json',
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
+  },
+  'preferments/raisin-juice': {
+    file: 'data/pages/preferments/raisin-juice.html',
+    json: 'data/json/pre/raisin-juice.json',
+    init: function () {
+      DoughCalc.initTabbedPreferentPage('raisin-juice-calc-panel', 'raisin-juice-tabs', {
+        soak: 'raisin-soak',
+        build1: 'raisin-build1',
+        build2: 'raisin-build2'
+      }, 'soak');
+    }
+  },
+  'preferments/soakers': {
+    file: 'data/pages/preferments/soakers.html',
+    json: 'data/json/pre/soakers.json',
+    init: function () {
+      DoughCalc.initTabbedPreferentPage('soakers-calc-panel', 'soakers-tabs', {
+        general: 'soaker-general',
+        flax: 'soaker-flax',
+        barley: 'soaker-barley'
+      }, 'general');
+    }
+  },
 
   'bread': { file: 'data/pages/bread/bread.html' },
   'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function (data) { DoughCalc.initRecipePage(data); } },

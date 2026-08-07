@@ -1,0 +1,28 @@
+{
+  "id": "soaker-general",
+  "category": "preferments",
+  "name": {
+    "uk": "Загальні зернові",
+    "en": "General Grains"
+  },
+  "description": {
+    "uk": "Замочування твердих зерен (тріснута пшениця/жито, овес, просо тощо) перед додаванням у тісто — розм'якшує текстуру й захищає гідратацію фінального тіста. Не є ферментом."
+  },
+  "first_ingredient": {
+    "uk": "Тверді зерна",
+    "icon": "flour"
+  },
+  "mode": "none",
+  "ratio": {
+    "flour": 100,
+    "water": 112.5
+  },
+  "hydration": 112.5,
+  "fermentation": {
+    "duration_note_uk": "кілька годин (іноді окропом)",
+    "temperature_note_uk": "кімнатна температура або окріп"
+  },
+  "used_in": [
+    "bread"
+  ]
+}

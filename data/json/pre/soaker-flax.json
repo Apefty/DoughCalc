@@ -1,0 +1,28 @@
+{
+  "id": "soaker-flax",
+  "category": "preferments",
+  "name": {
+    "uk": "Лляне насіння",
+    "en": "Flaxseed"
+  },
+  "description": {
+    "uk": "Лляне насіння потребує значно більше води, ніж тверді зерна — інакше витягує вологу з готового тіста."
+  },
+  "first_ingredient": {
+    "uk": "Лляне насіння",
+    "icon": "flour"
+  },
+  "mode": "none",
+  "ratio": {
+    "flour": 100,
+    "water": 275
+  },
+  "hydration": 275,
+  "fermentation": {
+    "duration_note_uk": "кілька годин",
+    "temperature_note_uk": "кімнатна температура"
+  },
+  "used_in": [
+    "bread"
+  ]
+}

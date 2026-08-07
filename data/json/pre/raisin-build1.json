@@ -1,0 +1,17 @@
+{
+  "id": "raisin-build1",
+  "category": "preferments",
+  "name": { "uk": "2. Перший заміс", "en": "First Build" },
+  "description": {
+    "uk": "Хлібне борошно змішується з процідженим родзинковим соком (замість води чи дріжджів) — дикі дріжджі з соку запускають ферментацію."
+  },
+  "mode": "none",
+  "liquid_ingredient": { "uk": "Родзинковий сік", "icon": "water" },
+  "ratio": { "flour": 100, "water": 63 },
+  "hydration": 63,
+  "fermentation": {
+    "duration_note_uk": "до готовності перед другим замісом",
+    "temperature_note_uk": "кімнатна температура"
+  },
+  "used_in": ["bread", "sweet"]
+}

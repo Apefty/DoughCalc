@@ -1,0 +1,16 @@
+{
+  "id": "raisin-build2",
+  "category": "preferments",
+  "name": { "uk": "3. Другий заміс", "en": "Second Build" },
+  "description": {
+    "uk": "Змішується з усією масою першого замісу цілком. Борошно тут — суміш ~68% хлібного та ~32% цільнозернового (враховано нижче як єдине «борошно» на розрахунок ваги)."
+  },
+  "mode": "none",
+  "ratio": { "flour": 100, "water": 63 },
+  "hydration": 63,
+  "fermentation": {
+    "duration_note_uk": "вбирає всю масу першого замісу цілком",
+    "temperature_note_uk": "кімнатна температура"
+  },
+  "used_in": ["bread", "sweet"]
+}

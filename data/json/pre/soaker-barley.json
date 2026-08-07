@@ -1,0 +1,28 @@
+{
+  "id": "soaker-barley",
+  "category": "preferments",
+  "name": {
+    "uk": "Перловий ячмінь",
+    "en": "Purple Barley"
+  },
+  "description": {
+    "uk": "Замочування перлового ячменю перед додаванням у тісто."
+  },
+  "first_ingredient": {
+    "uk": "Перловий ячмінь",
+    "icon": "flour"
+  },
+  "mode": "none",
+  "ratio": {
+    "flour": 100,
+    "water": 200
+  },
+  "hydration": 200,
+  "fermentation": {
+    "duration_note_uk": "кілька годин",
+    "temperature_note_uk": "кімнатна температура"
+  },
+  "used_in": [
+    "bread"
+  ]
+}

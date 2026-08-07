@@ -1,0 +1,16 @@
+{
+  "id": "detmolder-anfrischsauer",
+  "category": "preferments",
+  "name": { "uk": "1. Освіження (Anfrischsauer)", "en": "Freshening" },
+  "description": {
+    "uk": "Перша з трьох фаз німецького житнього методу. Рідка паста на середній температурі — сприяє розвитку дріжджів перед двома наступними, кислотними фазами."
+  },
+  "mode": "starter",
+  "ratio": { "flour": 100, "water": 150, "starter": 50 },
+  "hydration": 150,
+  "fermentation": {
+    "duration_note_uk": "до наступної фази",
+    "temperature_note_uk": "середня температура (сприяє дріжджам)"
+  },
+  "used_in": ["bread"]
+}

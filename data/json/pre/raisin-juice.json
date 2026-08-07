@@ -1,0 +1,6 @@
+{
+  "id": "raisin-juice",
+  "category": "preferments",
+  "name": { "uk": "Родзинковий сік (Raisin Juice Leavener)", "en": "Raisin Juice Leavener" },
+  "builds": ["raisin-soak", "raisin-build1", "raisin-build2"]
+}
