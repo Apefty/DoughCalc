@@ -3,17 +3,17 @@
   "category": "preferments",
   "name": { "uk": "Рідкий (для збагачених тіст)", "en": "Liquid Sponge" },
   "description": {
-    "uk": "Рідкий спонж-«батер» на молоці для збагачених тіст (наприклад, Pan d'Oro) — «розганяє» дріжджі перед тим, як їм доведеться підіймати важке тісто з великою кількістю масла й яєць. Проції тут за рецептом Pan d'Oro «короткого спонжу»: 100% борошна, 65% теплого молока, 6% свіжих дріжджів, дозріває ~1 год за 28°C. Для дуже рідких «батер»-спонжів у деяких рецептах (наприклад, Hot Cross Buns) молока може бути значно більше (до 500% від борошна) і дріжджів — до 50%; тоді спонж піднімається у 3–4 рази за 30–40 хв при 27°C.",
-    "en": "Liquid milk-based sponge for enriched doughs (e.g. Pan d'Oro), used to jumpstart the yeast before it has to lift heavy butter/egg dough. Proportions here follow Pan d'Oro's 'short sponge': 100% flour, 65% warm milk, 6% fresh yeast, ~1h at 28°C."
+    "uk": "Рідкий спонж на молоці для збагачених тіст (наприклад, Gâche Brioche) — додає легкість, характер і смак готовому виробу. Збивається до гладкості й ферментується при кімнатній температурі.",
+    "en": "Liquid milk-based sponge for enriched doughs (e.g. Gâche Brioche) — adds lightness, character and flavour. Whisked smooth and fermented at room temperature."
   },
   "mode": "yeast",
   "liquid_ingredient": { "uk": "Молоко", "icon": "milk" },
-  "ratio": { "flour": 100, "water": 65, "yeast": 6 },
-  "hydration": 65,
+  "ratio": { "flour": 100, "water": 62.5, "yeast": 4 },
+  "hydration": 62.5,
   "fermentation": {
-    "duration_hours": 1,
-    "duration_note_uk": "~1 год, до 3–4-кратного підйому",
-    "temperature_note_uk": "28°C (82°F), тепле місце"
+    "duration_hours": 3,
+    "duration_note_uk": "3 год",
+    "temperature_note_uk": "кімнатна температура (21-24°C)"
   },
   "used_in": ["sweet"]
 }

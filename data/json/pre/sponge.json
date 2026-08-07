@@ -2,5 +2,5 @@
   "id": "sponge",
   "category": "preferments",
   "name": { "uk": "Спонж", "en": "Sponge" },
-  "builds": ["sponge-classic", "sponge-liquid"]
+  "builds": ["sponge-classic", "sponge-liquid", "sponge-short"]
 }

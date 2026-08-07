@@ -835,6 +835,9 @@ div#body-wrapper {
 .app-header#levain {
     --bg-icon: url("../img/icons/levain.png");
 }
+.app-header#milk-levain {
+    --bg-icon: url("../img/icons/levain.png");
+}
 .app-header#lievito-madre {
     --bg-icon: url("../img/icons/lm.png");
 }

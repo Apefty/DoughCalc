@@ -58,6 +58,11 @@ DoughCalc.routes = {
     json: 'data/json/pre/levain.json',
     init: function (data) { DoughCalc.initLevainPage(data); }
   },
+  'preferments/milk-levain': {
+    file: 'data/pages/preferments/milk-levain.html',
+    json: 'data/json/pre/milk-levain.json',
+    init: function (data) { DoughCalc.initPrefermentPage(data); }
+  },
   'preferments/opara': {
     file: 'data/pages/preferments/opara.html',
     json: 'data/json/pre/opara.json',
@@ -70,8 +75,13 @@ DoughCalc.routes = {
   },
   'preferments/sponge': {
     file: 'data/pages/preferments/sponge.html',
-    json: 'data/json/pre/sponge.json',
-    init: function (data) { DoughCalc.initSpongePage(data); }
+    init: function () {
+      DoughCalc.initTabbedPreferentPage('sponge-calc-panel', 'sponge-tabs', {
+        classic: 'sponge-classic',
+        liquid: 'sponge-liquid',
+        short: 'sponge-short'
+      }, 'classic');
+    }
   },
   'preferments/sourdough': {
     file: 'data/pages/preferments/sourdough.html',
