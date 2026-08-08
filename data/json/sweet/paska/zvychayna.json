@@ -1,0 +1,50 @@
+{
+  "id": "paska-zvychayna",
+  "category": "sweet",
+  "name": {
+    "uk": "Паска Звичайна (Цвек)"
+  },
+  "description": {
+    "uk": "Переведено з ваги/об'єму джерела: склянка молока = 250г, 1 жовток = 20г, 1 ч.л. солі ≈ 6г, 1 ст.л. жиру ≈ 15г."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 50,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "egg": {
+      "value": 16,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "yeast": {
+      "value": 10,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    },
+    "butter": {
+      "value": 20,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "sugar": {
+      "value": 20,
+      "min": 0,
+      "max": 50,
+      "step": 0.5
+    },
+    "salt": {
+      "value": 0.6,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

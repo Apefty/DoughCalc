@@ -1,0 +1,56 @@
+{
+  "id": "croissant-choc",
+  "category": "laminated",
+  "name": {
+    "uk": "Двоколірний шоколадний"
+  },
+  "description": {
+    "uk": "Та сама база, що й Стандартний, з частиною какао в тісті (джерело не дає конкретного % какао — додайте вручну за смаком). Мед 4% — у полі «Добавки». Масло для ламінації: 33% (системне значення, точний % джерело не дає)."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 50,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "sugar": {
+      "value": 10,
+      "min": 0,
+      "max": 20,
+      "step": 0.5
+    },
+    "candy": {
+      "value": 4,
+      "min": 0,
+      "max": 20,
+      "step": 0.5
+    },
+    "yeast": {
+      "value": 4,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 4,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    "oil": {
+      "value": 33,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

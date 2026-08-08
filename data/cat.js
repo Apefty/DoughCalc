@@ -378,9 +378,25 @@ DoughCalc.routes = {
   'baguette/bacon-rolls': { file: 'data/pages/baguette/bacon-rolls.html', json: 'data/json/baguette/bacon-rolls.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'laminated': { file: 'data/pages/laminated/laminated.html' },
-  'laminated/croissant': {
-    file: 'data/pages/laminated/croissant.html',
-    json: 'data/json/laminated/croissant.json',
+  'laminated/croissant': { file: 'data/pages/laminated/croissant.html' },
+  'laminated/croissant/standard': {
+    file: 'data/pages/laminated/croissant/standard.html',
+    json: 'data/json/laminated/croissant/standard.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/croissant/choc': {
+    file: 'data/pages/laminated/croissant/choc.html',
+    json: 'data/json/laminated/croissant/choc.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/croissant/garlic-herb': {
+    file: 'data/pages/laminated/croissant/garlic-herb.html',
+    json: 'data/json/laminated/croissant/garlic-herb.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/croissant/flaky-rolls': {
+    file: 'data/pages/laminated/croissant/flaky-rolls.html',
+    json: 'data/json/laminated/croissant/flaky-rolls.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
   'laminated/feuillete': {
@@ -406,9 +422,20 @@ DoughCalc.routes = {
   'sweet/brioche/sweet-dough': { file: 'data/pages/sweet/brioche/sweet-dough.html', json: 'data/json/sweet/brioche/sweet-dough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'sweet/brioche/milk-rolls': { file: 'data/pages/sweet/brioche/milk-rolls.html', json: 'data/json/sweet/brioche/milk-rolls.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'sweet/brioche/vegan': { file: 'data/pages/sweet/brioche/vegan.html', json: 'data/json/sweet/brioche/vegan.json', init: function (data) { DoughCalc.initRecipePage(data); } },
-  'sweet/paska': {
-    file: 'data/pages/sweet/paska.html',
-    json: 'data/json/sweet/paska.json',
+  'sweet/paska': { file: 'data/pages/sweet/paska.html' },
+  'sweet/paska/podilska': {
+    file: 'data/pages/sweet/paska/podilska.html',
+    json: 'data/json/sweet/paska/podilska.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/paska/zvychayna': {
+    file: 'data/pages/sweet/paska/zvychayna.html',
+    json: 'data/json/sweet/paska/zvychayna.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/paska/svyatkova': {
+    file: 'data/pages/sweet/paska/svyatkova.html',
+    json: 'data/json/sweet/paska/svyatkova.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
   'sweet/panettone': {

@@ -1019,7 +1019,10 @@ div#body-wrapper {
 .app-header#brioche-vegan {
     --bg-icon: url("../img/icons/brioche.png");
 }
-.app-header#paska {
+.app-header#paska,
+.app-header#paska-podilska,
+.app-header#paska-zvychayna,
+.app-header#paska-svyatkova {
     --bg-icon: url("../img/icons/paska.png");
 }
 .app-header#panettone {
@@ -1034,6 +1037,13 @@ div#body-wrapper {
 
 /* laminated */
 .app-header#laminated {
+    --bg-icon: url("../img/icons/laminated.png");
+}
+.app-header#croissant,
+.app-header#croissant-standard,
+.app-header#croissant-choc,
+.app-header#croissant-garlicherb,
+.app-header#croissant-flakyrolls {
     --bg-icon: url("../img/icons/laminated.png");
 }
 .app-header#feuillete-ferrandi {
