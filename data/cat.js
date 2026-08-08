@@ -209,14 +209,24 @@ DoughCalc.routes = {
     json: 'data/json/laminated/feuillete.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'laminated/feuillete-ferrandi': {
+    file: 'data/pages/laminated/feuillete-ferrandi.html',
+    json: 'data/json/laminated/feuillete-ferrandi.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
 
   'sweet': { file: 'data/pages/sweet/sweet.html' },
   'sweet/tart': { file: 'data/pages/sweet/tart.html' },
-  'sweet/brioche': {
-    file: 'data/pages/sweet/brioche.html',
-    json: 'data/json/sweet/brioche.json',
-    init: function (data) { DoughCalc.initRecipePage(data); }
-  },
+  'sweet/brioche': { file: 'data/pages/sweet/brioche.html' },
+  'sweet/brioche/standard': { file: 'data/pages/sweet/brioche/standard.html', json: 'data/json/sweet/brioche/standard.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/vendee': { file: 'data/pages/sweet/brioche/vendee.html', json: 'data/json/sweet/brioche/vendee.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/gache': { file: 'data/pages/sweet/brioche/gache.html', json: 'data/json/sweet/brioche/gache.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/cardamom': { file: 'data/pages/sweet/brioche/cardamom.html', json: 'data/json/sweet/brioche/cardamom.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/pandoro': { file: 'data/pages/sweet/brioche/pandoro.html', json: 'data/json/sweet/brioche/pandoro.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/ferrandi-dough': { file: 'data/pages/sweet/brioche/ferrandi-dough.html', json: 'data/json/sweet/brioche/ferrandi-dough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/sweet-dough': { file: 'data/pages/sweet/brioche/sweet-dough.html', json: 'data/json/sweet/brioche/sweet-dough.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/milk-rolls': { file: 'data/pages/sweet/brioche/milk-rolls.html', json: 'data/json/sweet/brioche/milk-rolls.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'sweet/brioche/vegan': { file: 'data/pages/sweet/brioche/vegan.html', json: 'data/json/sweet/brioche/vegan.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'sweet/paska': {
     file: 'data/pages/sweet/paska.html',
     json: 'data/json/sweet/paska.json',

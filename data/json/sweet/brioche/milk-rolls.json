@@ -1,0 +1,50 @@
+{
+  "id": "brioche-milk-rolls",
+  "category": "sweet",
+  "name": {
+    "uk": "Молочні булочки (Ferrandi)"
+  },
+  "description": {
+    "uk": "М'які молочні булочки школи Ferrandi."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 30,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 4,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 12,
+      "min": 0,
+      "max": 30,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 26,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 26,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

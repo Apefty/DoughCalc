@@ -1,0 +1,60 @@
+{
+  "id": "brioche-gache",
+  "category": "sweet",
+  "name": {
+    "uk": "Gâche Brioche (Ferrandi)"
+  },
+  "description": {
+    "uk": "Нормандська бріош на рідкому спонжі, з крем-фрешем."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 31.3,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 5,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 18.8,
+      "min": 0,
+      "max": 30,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 25,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 31.3,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "oil": {
+      "value": 25,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sponge-liquid"
+  ],
+  "default_preferment": "sponge-liquid",
+  "default_preferment_percent": 50
+}

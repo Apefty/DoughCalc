@@ -1,0 +1,50 @@
+{
+  "id": "brioche-sweet-dough",
+  "category": "sweet",
+  "name": {
+    "uk": "Солодке тісто (Bertinet)"
+  },
+  "description": {
+    "uk": "Універсальне здобне тісто за методом Річарда Бертіне."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 50,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 3,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 8,
+      "min": 0,
+      "max": 30,
+      "step": 0.5
+    },
+    "egg": {
+      "value": 20,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 12,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

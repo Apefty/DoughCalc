@@ -1,0 +1,38 @@
+{
+  "id": "brioche-vegan",
+  "category": "sweet",
+  "name": {
+    "uk": "Веганська бріош (Ferrandi)"
+  },
+  "description": {
+    "uk": "Бріош без яєць, молочних продуктів і дріжджів — на соєвому молоці й олії. Гарбуз/банан додаються за рецептом (не входять у розрахунок пропорцій)."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 37.5,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 12.5,
+      "min": 0,
+      "max": 30,
+      "step": 0.5
+    },
+    "oil": {
+      "value": 52.5,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

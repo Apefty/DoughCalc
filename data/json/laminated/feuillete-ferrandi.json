@@ -1,0 +1,18 @@
+{
+  "id": "feuillete-ferrandi",
+  "category": "laminated",
+  "name": { "uk": "Бріош-фельєте (Ferrandi)" },
+  "description": {
+    "uk": "Ламіноване бріошеве тісто за методом школи Ferrandi — значно більше масла для ламінації (60% від борошна), ніж у класичному варіанті."
+  },
+  "baker_percentages_default": {
+    "egg":    { "value": 60, "min": 0, "max": 80, "step": 1 },
+    "butter": { "value": 36, "min": 0, "max": 80, "step": 1 },
+    "sugar":  { "value": 12, "min": 0, "max": 30, "step": 0.5 },
+    "yeast":  { "value": 4, "min": 0, "max": 6, "step": 0.1 },
+    "salt":   { "value": 2, "min": 0, "max": 4, "step": 0.1 },
+    "oil":    { "value": 60, "min": 0, "max": 80, "step": 1 }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

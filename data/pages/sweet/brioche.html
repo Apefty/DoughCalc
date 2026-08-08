@@ -8,215 +8,82 @@
   <span class="icon-btn"></span>
 </header>
 
-<main class="recipe-page">
+<main class="menu">
 
-  <section class="card">
-    <div class="card-title-row">
-      <span class="card-title">Режим вводу</span>
-      <div class="segmented" id="entry-toggle">
-        <button class="segmented-item is-active" data-entry="total">За тістом</button>
-        <button class="segmented-item" data-entry="flour">За борошном</button>
-        <button class="segmented-item" data-entry="portions">Порції</button>
-      </div>
-    </div>
+  <nav class="menu-grid" aria-label="Бріош">
 
-    <div class="field-row" id="row-total">
-      <label for="input-total" class="field-label">Загальна вага тіста</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="input-total" value="1000" step="10" min="0">
-        <span class="value-unit">г</span>
+    <a data-route="sweet/brioche/standard" class="menu-card" data-brioche="standard">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Стандартна (Hamelman)</span>
+        <span class="menu-card-sub">Пряме тісто, без преферменту</span>
       </div>
-    </div>
+    </a>
 
-    <div class="field-row" id="row-flour" style="display:none">
-      <label for="input-flour" class="field-label">Вага борошна</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="input-flour" value="450" step="10" min="0">
-        <span class="value-unit">г</span>
+    <a data-route="sweet/brioche/vendee" class="menu-card" data-brioche="vendee">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Плетена Вандея (Ferrandi)</span>
+        <span class="menu-card-sub">На pâte fermentée, 15.3%</span>
       </div>
-    </div>
+    </a>
 
-    <div class="field-row" id="row-portions" style="display:none">
-      <label for="input-portions" class="field-label">Кількість заготовок</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="input-portions" value="6" step="1" min="1">
-        <span class="value-unit">шт</span>
+    <a data-route="sweet/brioche/gache" class="menu-card" data-brioche="gache">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Gâche Brioche (Ferrandi)</span>
+        <span class="menu-card-sub">На рідкому спонжі, 50%</span>
       </div>
-    </div>
+    </a>
 
-    <div class="field-row" id="row-portion-weight" style="display:none">
-      <label for="input-portion-weight" class="field-label">Вага 1 заготовки</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="input-portion-weight" value="150" step="10" min="0">
-        <span class="value-unit">г</span>
+    <a data-route="sweet/brioche/cardamom" class="menu-card" data-brioche="cardamom">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Кардамонові булочки (Ferrandi)</span>
+        <span class="menu-card-sub">На молочному левені, ~26%</span>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <section class="card">
-    <div class="card-title-row">
-      <span class="card-title">Преферемент</span>
-    </div>
+    <a data-route="sweet/brioche/pandoro" class="menu-card" data-brioche="pandoro">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Pan d'Oro (Hamelman)</span>
+        <span class="menu-card-sub">На короткому спонжі, ~30%</span>
+      </div>
+    </a>
 
-    <div class="field-row">
-      <label for="select-preferment" class="field-label">Тип</label>
-      <select id="select-preferment" class="value-box" style="border:none;">
-        <option value="none" selected>Без преферменту</option>
-        <option value="poolish">Пулиш</option>
-        <option value="biga">Біга</option>
-      </select>
-    </div>
+    <a data-route="sweet/brioche/ferrandi-dough" class="menu-card" data-brioche="ferrandi-dough">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Тісто бріош (Ferrandi)</span>
+        <span class="menu-card-sub">Пряме тісто, з крем-фрешем</span>
+      </div>
+    </a>
 
-    <div class="field-row" id="row-pre-percent" style="display:none">
-      <label for="input-pre-percent" class="field-label">% від загального борошна
-        <span class="info-icon" tabindex="0">?
-          <span class="tooltip-bubble">Це відсоток лише борошна в преферменті від загального борошна рецепта — не відсоток від ваги тіста чи преферменту. Через рівні частки борошно:вода:закваска (наприклад, 100:100:100 для Закваски) повна вага преферменту може бути в кілька разів більшою за цей відсоток.</span>
-        </span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="input-pre-percent" value="20" step="1" min="0" max="100">
-        <span class="value-unit">%</span>
+    <a data-route="sweet/brioche/sweet-dough" class="menu-card" data-brioche="sweet-dough">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Солодке тісто (Bertinet)</span>
+        <span class="menu-card-sub">Пряме тісто, універсальне</span>
       </div>
-    </div>
+    </a>
 
-    <div class="hr" id="pre-hr" style="display:none"></div>
+    <a data-route="sweet/brioche/milk-rolls" class="menu-card" data-brioche="milk-rolls">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Молочні булочки (Ferrandi)</span>
+        <span class="menu-card-sub">Пряме тісто</span>
+      </div>
+    </a>
 
-    <div class="row-list" id="pre-breakdown" style="display:none">
-      <div class="row-list-header">
-        <span>Склад преферменту</span>
-        <span>Вага</span>
+    <a data-route="sweet/brioche/vegan" class="menu-card" data-brioche="vegan">
+      <img src="img/icons/brioche.png" alt="" class="menu-card-icon">
+      <div class="menu-card-text">
+        <span class="menu-card-title">Веганська бріош (Ferrandi)</span>
+        <span class="menu-card-sub">Соєве молоко, без яєць і масла</span>
       </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
-        <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
-        <span class="row-list-value" id="pre-water">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">Дріжджі/закваска</div>
-        <span class="row-list-value" id="pre-third">0 <span class="unit">г</span></span>
-      </div>
-    </div>
-  </section>
+    </a>
 
-  <section class="card">
-    <div class="card-title-row">
-      <span class="card-title">Baker's Percentages</span>
-    </div>
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Гідратація (вода)</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-hydration">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-hydration" class="pct-slider pct-slider-water">
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon"> Сіль</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-salt">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-salt" class="pct-slider pct-slider-salt">
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon"> Дріжджі</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-yeast">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-yeast" class="pct-slider pct-slider-yeast">
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon"> Цукор</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-sugar">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-sugar" class="pct-slider pct-slider-sugar">
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon"> Яйця</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-egg">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-egg" class="pct-slider pct-slider-eggs">
-
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/butter.png" alt="" class="row-list-icon"> Масло вершкове</label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-butter">
-        <span class="value-unit">%</span>
-      </div>
-    </div>
-    <input type="range" id="rng-butter" class="pct-slider pct-slider-butter">
-  </section>
-
-  <section class="card">
-    <div class="card-title-row">
-      <span class="card-title">Типи борошна</span>
-      <button class="icon-btn" id="add-flour-type" aria-label="Додати тип" style="width:32px;height:32px;">
-        <span class="iconify" data-icon="tabler:plus"></span>
-      </button>
-    </div>
-    <div id="flour-types-list"></div>
-    <div class="summary-box" id="flour-sum-box" style="margin-top:12px;">
-      <span>Сума часток</span><br>
-      <strong id="flour-sum">100%</strong>
-    </div>
-  </section>
-
-  <section class="card">
-    <div class="card-title-row">
-      <span class="card-title">Основний заміс</span>
-    </div>
-    <div class="row-list">
-      <div class="row-list-header">
-        <span>Інгредієнт</span>
-        <span>Вага</span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
-        <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">Молоко</div>
-        <span class="row-list-value" id="main-water">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">Сіль</div>
-        <span class="row-list-value" id="main-salt">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">Дріжджі</div>
-        <span class="row-list-value" id="main-yeast">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon">Цукор</div>
-        <span class="row-list-value" id="main-sugar">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">Яйця</div>
-        <span class="row-list-value" id="main-egg">0 <span class="unit">г</span></span>
-      </div>
-      <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/butter.png" alt="" class="row-list-icon">Масло вершкове</div>
-        <span class="row-list-value" id="main-butter">0 <span class="unit">г</span></span>
-      </div>
-    </div>
-
-    <div class="summary-box">
-      <span>Загальна вага тіста</span>
-      <strong id="out-total-dough">0 г</strong>
-    </div>
-  </section>
+  </nav>
 
 </main>

@@ -970,6 +970,17 @@ div#body-wrapper {
 .app-header#brioche {
     --bg-icon: url("../img/icons/brioche.png");
 }
+.app-header#brioche-standard,
+.app-header#brioche-vendee,
+.app-header#brioche-gache,
+.app-header#brioche-cardamom,
+.app-header#brioche-pandoro,
+.app-header#brioche-ferrandi,
+.app-header#brioche-sweetdough,
+.app-header#brioche-milkrolls,
+.app-header#brioche-vegan {
+    --bg-icon: url("../img/icons/brioche.png");
+}
 .app-header#paska {
     --bg-icon: url("../img/icons/paska.png");
 }
@@ -985,6 +996,9 @@ div#body-wrapper {
 
 /* laminated */
 .app-header#laminated {
+    --bg-icon: url("../img/icons/laminated.png");
+}
+.app-header#feuillete-ferrandi {
     --bg-icon: url("../img/icons/laminated.png");
 }
 
