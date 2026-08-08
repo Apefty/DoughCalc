@@ -903,6 +903,9 @@ div#body-wrapper {
 }
 
 /* pizza */
+.app-header#italian {
+    --bg-icon: url("../img/icons/pizza.png");
+}
 .app-header#neapolitan {
     --bg-icon: url("../img/icons/neapolitan.png");
 }
@@ -914,6 +917,17 @@ div#body-wrapper {
 }
 .app-header#sicilian {
     --bg-icon: url("../img/icons/sicilian-pizza.png");
+}
+
+/* ciabatta */
+.app-header#ciabatta,
+.app-header#ciabatta-stiff-biga,
+.app-header#ciabatta-poolish,
+.app-header#ciabatta-olivewheatgerm,
+.app-header#ciabatta-walnutraisin,
+.app-header#ciabatta-levain,
+.app-header#ciabatta-overnightautolyse {
+    --bg-icon: url("../img/icons/pizza.png");
 }
 
 /* baguette */

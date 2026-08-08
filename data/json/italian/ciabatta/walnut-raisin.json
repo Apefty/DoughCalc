@@ -1,0 +1,42 @@
+{
+  "id": "ciabatta-walnut-raisin",
+  "category": "italian",
+  "name": {
+    "uk": "З волоськими горіхами й родзинками"
+  },
+  "description": {
+    "uk": "Чіабатта на рідкому левені (гібридна побудова) зі зародками пшениці, волоськими горіхами та родзинками. Добавки: 16% волоських горіхів + 16% родзинок (разом 32% — введіть загальну вагу в полі «Добавки»)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 73,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.25,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 32,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-liquid"
+  ],
+  "default_preferment": "levain-liquid",
+  "default_preferment_percent": 10
+}

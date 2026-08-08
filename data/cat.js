@@ -151,10 +151,12 @@ DoughCalc.routes = {
   'bread/rustic': { file: 'data/pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
-  'pizza': { file: 'data/pages/pizza/pizza.html' },
-  'pizza/neapolitan': {
-    file: 'data/pages/pizza/neapolitan.html',
-    json: 'data/json/pizza/neapolitan.json',
+  'italian': { file: 'data/pages/italian/italian.html' },
+
+  'italian/pizza': { file: 'data/pages/italian/pizza/pizza.html' },
+  'italian/pizza/neapolitan': {
+    file: 'data/pages/italian/pizza/neapolitan.html',
+    json: 'data/json/italian/pizza/neapolitan.json',
     init: function (data) {
       DoughCalc.initRecipePage(data, {
         flourTypes: [
@@ -164,9 +166,9 @@ DoughCalc.routes = {
       });
     }
   },
-  'pizza/roman': {
-    file: 'data/pages/pizza/roman.html',
-    json: 'data/json/pizza/roman.json',
+  'italian/pizza/roman': {
+    file: 'data/pages/italian/pizza/roman.html',
+    json: 'data/json/italian/pizza/roman.json',
     init: function (data) {
       DoughCalc.initRecipePage(data, {
         flourTypes: [
@@ -176,10 +178,64 @@ DoughCalc.routes = {
       });
     }
   },
-  'pizza/sicilian': {
-    file: 'data/pages/pizza/sicilian.html',
-    json: 'data/json/pizza/sicilian.json',
+  'italian/pizza/sicilian': {
+    file: 'data/pages/italian/pizza/sicilian.html',
+    json: 'data/json/italian/pizza/sicilian.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+
+  'italian/ciabatta': { file: 'data/pages/italian/ciabatta/ciabatta.html' },
+  'italian/ciabatta/stiff-biga': {
+    file: 'data/pages/italian/ciabatta/stiff-biga.html',
+    json: 'data/json/italian/ciabatta/stiff-biga.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/ciabatta/poolish': {
+    file: 'data/pages/italian/ciabatta/poolish.html',
+    json: 'data/json/italian/ciabatta/poolish.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/ciabatta/olive-wheat-germ': {
+    file: 'data/pages/italian/ciabatta/olive-wheat-germ.html',
+    json: 'data/json/italian/ciabatta/olive-wheat-germ.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 95 },
+          { name: 'Зародки пшениці', pct: 5 }
+        ]
+      });
+    }
+  },
+  'italian/ciabatta/walnut-raisin': {
+    file: 'data/pages/italian/ciabatta/walnut-raisin.html',
+    json: 'data/json/italian/ciabatta/walnut-raisin.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Змішане борошно', pct: 95 },
+          { name: 'Зародки пшениці', pct: 5 }
+        ]
+      });
+    }
+  },
+  'italian/ciabatta/levain': {
+    file: 'data/pages/italian/ciabatta/levain.html',
+    json: 'data/json/italian/ciabatta/levain.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/ciabatta/overnight-autolyse': {
+    file: 'data/pages/italian/ciabatta/overnight-autolyse.html',
+    json: 'data/json/italian/ciabatta/overnight-autolyse.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 80 },
+          { name: 'Житнє борошно', pct: 10 },
+          { name: 'Цільнозернове борошно', pct: 10 }
+        ]
+      });
+    }
   },
 
   'baguette': { file: 'data/pages/baguette/baguette.html' },
@@ -302,7 +358,7 @@ DoughCalc.updateBottomNav = function (route) {
   var section = route === '' ? 'home'
     : (route.indexOf('/') > -1 ? route.split('/')[0] : route);
   var activeKey = (section === 'home') ? 'home'
-    : (['preferments', 'bread', 'pizza', 'baguette', 'sweet'].indexOf(section) > -1) ? 'recipes'
+    : (['preferments', 'bread', 'italian', 'baguette', 'sweet'].indexOf(section) > -1) ? 'recipes'
     : section;
 
   items.forEach(function (item) {
