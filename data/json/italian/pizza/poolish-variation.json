@@ -1,0 +1,30 @@
+{
+  "id": "pizza-poolish-variation",
+  "category": "italian",
+  "name": {
+    "uk": "Poolish Variation (Forkish)"
+  },
+  "description": {
+    "uk": "Нижча гідратація за Overnight with Poolish. Дріжджі у фінальний заміс — не вказано в джерелі, все закисання від пулиша."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 50
+}

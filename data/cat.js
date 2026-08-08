@@ -184,6 +184,66 @@ DoughCalc.routes = {
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
+  'italian/pizza/same-day': {
+    file: 'data/pages/italian/pizza/same-day.html',
+    json: 'data/json/italian/pizza/same-day.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/overnight-straight': {
+    file: 'data/pages/italian/pizza/overnight-straight.html',
+    json: 'data/json/italian/pizza/overnight-straight.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/bertinet': {
+    file: 'data/pages/italian/pizza/bertinet.html',
+    json: 'data/json/italian/pizza/bertinet.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/alsatian-ham': {
+    file: 'data/pages/italian/pizza/alsatian-ham.html',
+    json: 'data/json/italian/pizza/alsatian-ham.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/poolish-overnight': {
+    file: 'data/pages/italian/pizza/poolish-overnight.html',
+    json: 'data/json/italian/pizza/poolish-overnight.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/poolish-variation': {
+    file: 'data/pages/italian/pizza/poolish-variation.html',
+    json: 'data/json/italian/pizza/poolish-variation.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/biga': {
+    file: 'data/pages/italian/pizza/biga.html',
+    json: 'data/json/italian/pizza/biga.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pizza/pissaladiere': {
+    file: 'data/pages/italian/pizza/pissaladiere.html',
+    json: 'data/json/italian/pizza/pissaladiere.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Біле борошно', pct: 80 },
+          { name: 'Цільнозернове борошно', pct: 20 }
+        ]
+      });
+    }
+  },
+  'italian/pizza/levain-overnight': {
+    file: 'data/pages/italian/pizza/levain-overnight.html',
+    json: 'data/json/italian/pizza/levain-overnight.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Біле борошно', pct: 98 },
+          { name: 'Цільнозернове борошно', pct: 2 }
+        ]
+      });
+    }
+  },
+
   'italian/ciabatta': { file: 'data/pages/italian/ciabatta/ciabatta.html' },
   'italian/ciabatta/stiff-biga': {
     file: 'data/pages/italian/ciabatta/stiff-biga.html',

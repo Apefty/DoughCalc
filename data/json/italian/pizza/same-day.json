@@ -1,0 +1,32 @@
+{
+  "id": "pizza-same-day",
+  "category": "italian",
+  "name": {
+    "uk": "Same-Day Straight (Forkish)"
+  },
+  "description": {
+    "uk": "Пряме тісто, готове того ж дня."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

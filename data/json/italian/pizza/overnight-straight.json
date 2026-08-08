@@ -1,0 +1,32 @@
+{
+  "id": "pizza-overnight-straight",
+  "category": "italian",
+  "name": {
+    "uk": "Overnight Straight (Forkish)"
+  },
+  "description": {
+    "uk": "Пряме тісто з нічною холодною ферментацією — мінімум дріжджів."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.08,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

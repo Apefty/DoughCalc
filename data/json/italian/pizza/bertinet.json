@@ -1,0 +1,38 @@
+{
+  "id": "pizza-bertinet",
+  "category": "italian",
+  "name": {
+    "uk": "Bertinet Pizza (Olive Dough)"
+  },
+  "description": {
+    "uk": "На відміну від загального Olive Dough Бертіне, для піци семоліна навмисно не додається — тісто лишається гладким і еластичним для розтягування."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 3,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 10,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

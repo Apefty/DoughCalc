@@ -1,0 +1,30 @@
+{
+  "id": "pizza-poolish-overnight",
+  "category": "italian",
+  "name": {
+    "uk": "Overnight with Poolish (Forkish)"
+  },
+  "description": {
+    "uk": "Джерело не дає окремого % дріжджів у фінальний заміс для цього варіанту — все закисання забезпечує пулиш (стандартна практика для довгої ферментації)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 75,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 50
+}

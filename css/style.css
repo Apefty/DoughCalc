@@ -918,6 +918,17 @@ div#body-wrapper {
 .app-header#sicilian {
     --bg-icon: url("../img/icons/sicilian-pizza.png");
 }
+.app-header#pizza-sameday,
+.app-header#pizza-overnightstraight,
+.app-header#pizza-bertinet,
+.app-header#pizza-alsatian,
+.app-header#pizza-poolishovernight,
+.app-header#pizza-poolishvariation,
+.app-header#pizza-biga,
+.app-header#pizza-pissaladiere,
+.app-header#pizza-levainovernight {
+    --bg-icon: url("../img/icons/pizza.png");
+}
 
 /* ciabatta */
 .app-header#ciabatta,
