@@ -1,0 +1,32 @@
+{
+  "id": "focaccia-olive-anchovy",
+  "category": "italian",
+  "name": {
+    "uk": "Olive/Anchovy Focaccia"
+  },
+  "description": {
+    "uk": "Гідратацію (64%) і суміш борошна (96% хлібне / 4% семоліна) взято зі Standard Olive Dough (Bertinet) — джерело для цього варіанту дало лише сіль і олію в тісті, без окремих даних гідратації й преферменту. Пряме тісто, без преферменту. Оливки й анчоуси зверху — не входять у розрахунок тіста. Зовнішня олія: 1-2 ст.л. на форму — також не входить у розрахунок."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 5,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

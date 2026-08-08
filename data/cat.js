@@ -261,6 +261,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'italian/focaccia/olive-anchovy': {
+    file: 'data/pages/italian/focaccia/olive-anchovy.html',
+    json: 'data/json/italian/focaccia/olive-anchovy.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 96 },
+          { name: 'Семоліна', pct: 4 }
+        ]
+      });
+    }
+  },
   'italian/focaccia/ferrandi': {
     file: 'data/pages/italian/focaccia/ferrandi.html',
     json: 'data/json/italian/focaccia/ferrandi.json',
