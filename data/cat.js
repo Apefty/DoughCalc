@@ -238,6 +238,57 @@ DoughCalc.routes = {
     }
   },
 
+  'italian/focaccia': { file: 'data/pages/italian/focaccia/focaccia.html' },
+  'italian/focaccia/ciabatta-style': {
+    file: 'data/pages/italian/focaccia/ciabatta-style.html',
+    json: 'data/json/italian/focaccia/ciabatta-style.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/genovese': {
+    file: 'data/pages/italian/focaccia/genovese.html',
+    json: 'data/json/italian/focaccia/genovese.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/olive-dough': {
+    file: 'data/pages/italian/focaccia/olive-dough.html',
+    json: 'data/json/italian/focaccia/olive-dough.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 96 },
+          { name: 'Семоліна', pct: 4 }
+        ]
+      });
+    }
+  },
+  'italian/focaccia/ferrandi': {
+    file: 'data/pages/italian/focaccia/ferrandi.html',
+    json: 'data/json/italian/focaccia/ferrandi.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/pissaladiere': {
+    file: 'data/pages/italian/focaccia/pissaladiere.html',
+    json: 'data/json/italian/focaccia/pissaladiere.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 80 },
+          { name: 'Цільнозернове борошно', pct: 20 }
+        ]
+      });
+    }
+  },
+  'italian/focaccia/spanish-cocas': {
+    file: 'data/pages/italian/focaccia/spanish-cocas.html',
+    json: 'data/json/italian/focaccia/spanish-cocas.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/zucchini': {
+    file: 'data/pages/italian/focaccia/zucchini.html',
+    json: 'data/json/italian/focaccia/zucchini.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+
   'baguette': { file: 'data/pages/baguette/baguette.html' },
   'baguette/tradition': { file: 'data/pages/baguette/tradition.html', json: 'data/json/baguette/tradition.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'baguette/pointage-en-bac': { file: 'data/pages/baguette/pointage-en-bac.html', json: 'data/json/baguette/pointage-en-bac.json', init: function (data) { DoughCalc.initRecipePage(data); } },

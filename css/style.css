@@ -930,6 +930,18 @@ div#body-wrapper {
     --bg-icon: url("../img/icons/pizza.png");
 }
 
+/* focaccia */
+.app-header#focaccia,
+.app-header#focaccia-ciabattastyle,
+.app-header#focaccia-genovese,
+.app-header#focaccia-olivedough,
+.app-header#focaccia-ferrandi,
+.app-header#focaccia-pissaladiere,
+.app-header#focaccia-spanishcocas,
+.app-header#focaccia-zucchini {
+    --bg-icon: url("../img/icons/pizza.png");
+}
+
 /* baguette */
 .app-header#baguette {
     --bg-icon: url("../img/icons/baguette.png");

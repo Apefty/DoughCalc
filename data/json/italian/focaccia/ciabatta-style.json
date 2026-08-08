@@ -1,0 +1,30 @@
+{
+  "id": "focaccia-ciabatta-style",
+  "category": "italian",
+  "name": {
+    "uk": "Чіабатта-стиль (Hamelman)"
+  },
+  "description": {
+    "uk": "Дуже легка, бульбашкова структура з хрусткою скоринкою. Джерело допускає біга АБО пулиш 20-30% — обрано пулиш 25% (середина діапазону). Зовнішня олія: ~2 ст.л. (30г) на форму 25см — не входить у розрахунок тіста."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 73,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 25
+}

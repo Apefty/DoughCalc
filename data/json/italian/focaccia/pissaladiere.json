@@ -1,0 +1,36 @@
+{
+  "id": "focaccia-pissaladiere",
+  "category": "italian",
+  "name": {
+    "uk": "Focaccia «Пісаладьєр» (Hamelman)"
+  },
+  "description": {
+    "uk": "На pâte fermentée, з цільнозерновим борошном. Традиційно готується із засмаженою цибулею (олія для якої не входить у розрахунок тіста)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 65,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 5,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "pf"
+  ],
+  "default_preferment": "pf",
+  "default_preferment_percent": 25
+}

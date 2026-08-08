@@ -1,0 +1,30 @@
+{
+  "id": "focaccia-zucchini",
+  "category": "italian",
+  "name": {
+    "uk": "Zucchini Focaccia (Forkish)"
+  },
+  "description": {
+    "uk": "Джерело не дає конкретного % преферменту («Varies», лише вказано тип — пулиш) — за аналогією з Focaccia Genovese того ж автора й тієї ж гідратації взято пулиш 50% (перевір і скоригуй за потреби). Кабачки додаються зверху за смаком — не входять у розрахунок тіста."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 75,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 50
+}

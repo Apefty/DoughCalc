@@ -1,0 +1,32 @@
+{
+  "id": "focaccia-olive-dough",
+  "category": "italian",
+  "name": {
+    "uk": "Olive Dough (Bertinet)"
+  },
+  "description": {
+    "uk": "Пряме тісто (без преферменту), дуже пружне й м'яке завдяки високому вмісту олії просто в тісті. Зовнішня олія: 4+ ст.л. щедро зверху — не входить у розрахунок тіста."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 64,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 10,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}
