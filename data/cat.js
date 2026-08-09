@@ -438,6 +438,16 @@ DoughCalc.routes = {
     json: 'data/json/sweet/paska/svyatkova.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'sweet/paska/pokutska': {
+    file: 'data/pages/sweet/paska/pokutska.html',
+    json: 'data/json/sweet/paska/pokutska.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/paska/grecka': {
+    file: 'data/pages/sweet/paska/grecka.html',
+    json: 'data/json/sweet/paska/grecka.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
   'sweet/panettone': {
     file: 'data/pages/sweet/panettone.html',
     json: 'data/json/sweet/panettone.json',

@@ -1022,7 +1022,9 @@ div#body-wrapper {
 .app-header#paska,
 .app-header#paska-podilska,
 .app-header#paska-zvychayna,
-.app-header#paska-svyatkova {
+.app-header#paska-svyatkova,
+.app-header#paska-pokutska,
+.app-header#paska-grecka {
     --bg-icon: url("../img/icons/paska.png");
 }
 .app-header#panettone {
