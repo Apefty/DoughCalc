@@ -149,6 +149,19 @@ DoughCalc.routes = {
   'bread/wholegrain': { file: 'data/pages/bread/wholegrain.html', json: 'data/json/bread/wholegrain.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/pan': { file: 'data/pages/bread/pan.html', json: 'data/json/bread/pan.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/rustic': { file: 'data/pages/bread/rustic.html', json: 'data/json/bread/rustic.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/pain-rustique': { file: 'data/pages/bread/pain-rustique.html', json: 'data/json/bread/pain-rustique.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/country': {
+    file: 'data/pages/bread/country.html',
+    json: 'data/json/bread/country.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 90 },
+          { name: 'Цільнозернове борошно', pct: 10 }
+        ]
+      });
+    }
+  },
   'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'italian': { file: 'data/pages/italian/italian.html' },

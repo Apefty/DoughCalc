@@ -1,45 +1,18 @@
 {
-  "id": "rustic-bread",
+  "id": "bread-rustic",
   "category": "bread",
-  "name": {
-    "uk": "Сільський хліб"
-  },
+  "name": { "uk": "Сільський хліб (Rustic Bread, Hamelman)" },
   "description": {
-    "uk": "Pain de campagne — деревенський хліб на суміші пшеничної та невеликої частки житньої/цільнозернової муки. Формується як буль чи батард, випікається з насиченою скоринкою у поді чи на камені."
+    "uk": "Hamelman. Легка домішка житнього борошна. Сіль/дріжджі в основний заміс не вказані джерелом (стандарт джерела: сіль 1.8-2.2% за замовчуванням) — тут 2% та 0% відповідно, уточни за потреби."
   },
   "baker_percentages_default": {
-    "hydration": {
-      "value": 76,
-      "min": 50,
-      "max": 100,
-      "step": 1
-    },
-    "salt": {
-      "value": 2,
-      "min": 0,
-      "max": 4,
-      "step": 0.1
-    },
-    "yeast": {
-      "value": 0.5,
-      "min": 0,
-      "max": 3,
-      "step": 0.1
-    },
-    "oil": {
-      "value": 0,
-      "min": 0,
-      "max": 10,
-      "step": 0.1
-    }
+    "hydration": { "value": 70, "min": 50, "max": 100, "step": 1 },
+    "salt": { "value": 2, "min": 0, "max": 4, "step": 0.1 },
+    "yeast": { "value": 0, "min": 0, "max": 3, "step": 0.1 },
+    "oil": { "value": 0, "min": 0, "max": 10, "step": 0.1 }
   },
-  "compatible_preferments": [
-    "sourdough",
-    "levain-stiff",
-    "levain-liquid",
-    "pf",
-    "biga"
-  ],
-  "default_preferment": "levain-stiff",
+  "fixed_preferment": true,
+  "compatible_preferments": ["poolish"],
+  "default_preferment": "poolish",
   "default_preferment_percent": 25
 }
