@@ -887,7 +887,10 @@ div#body-wrapper {
 }
 .app-header#rustic,
 .app-header#bread-pain-rustique,
-.app-header#bread-country {
+.app-header#bread-country,
+.app-header#bread-honeyspelt,
+.app-header#bread-fivegrain,
+.app-header#bread-sunflowerpf {
     --bg-icon: url("../img/icons/rustic-bread.png");
 }
 .app-header#rye {

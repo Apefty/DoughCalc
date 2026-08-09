@@ -162,6 +162,32 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/honey-spelt': { file: 'data/pages/bread/honey-spelt.html', json: 'data/json/bread/honey-spelt.json', init: function (data) { DoughCalc.initRecipePage(data); } },
+  'bread/five-grain-pf': {
+    file: 'data/pages/bread/five-grain-pf.html',
+    json: 'data/json/bread/five-grain-pf.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 80 },
+          { name: 'Цільнозернове борошно', pct: 10 },
+          { name: 'Житнє борошно', pct: 10 }
+        ]
+      });
+    }
+  },
+  'bread/sunflower-pf': {
+    file: 'data/pages/bread/sunflower-pf.html',
+    json: 'data/json/bread/sunflower-pf.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 95 },
+          { name: 'Житнє борошно', pct: 5 }
+        ]
+      });
+    }
+  },
   'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'italian': { file: 'data/pages/italian/italian.html' },
