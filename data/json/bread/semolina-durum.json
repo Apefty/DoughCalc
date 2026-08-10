@@ -1,0 +1,44 @@
+{
+  "id": "bread-semolina-durum",
+  "category": "bread",
+  "name": {
+    "uk": "Semolina (Durum) Bread"
+  },
+  "description": {
+    "uk": "Hamelman. Дріжджовий «летючий спонж» (durum50/борошно50/вода70/дріжджі3/цукор5, дозріває ~1.25г) — не окрема картка преферменту (два типи борошна всередині не вписуються в систему одного преферменту), борошно/вода/дріжджі спонжа вже входять у загальні % нижче."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 62,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 2,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    },
+    "oil": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

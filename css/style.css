@@ -890,7 +890,13 @@ div#body-wrapper {
 .app-header#bread-country,
 .app-header#bread-honeyspelt,
 .app-header#bread-fivegrain,
-.app-header#bread-sunflowerpf {
+.app-header#bread-sunflowerpf,
+.app-header#bread-corn,
+.app-header#bread-wholewheat,
+.app-header#bread-semolina,
+.app-header#bread-semolinadurum,
+.app-header#bread-semolinasoaker,
+.app-header#bread-buttermilk {
     --bg-icon: url("../img/icons/rustic-bread.png");
 }
 .app-header#rye {

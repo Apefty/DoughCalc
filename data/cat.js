@@ -188,6 +188,78 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/corn': {
+    file: 'data/pages/bread/corn.html',
+    json: 'data/json/bread/corn.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 75 },
+          { name: 'Кукурудзяне борошно', pct: 25 }
+        ]
+      });
+    }
+  },
+  'bread/whole-wheat': {
+    file: 'data/pages/bread/whole-wheat.html',
+    json: 'data/json/bread/whole-wheat.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/semolina': {
+    file: 'data/pages/bread/semolina.html',
+    json: 'data/json/bread/semolina.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 40 },
+          { name: 'Борошно дурум', pct: 60 }
+        ]
+      });
+    }
+  },
+  'bread/semolina-durum': {
+    file: 'data/pages/bread/semolina-durum.html',
+    json: 'data/json/bread/semolina-durum.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно дурум', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/semolina-soaker': {
+    file: 'data/pages/bread/semolina-soaker.html',
+    json: 'data/json/bread/semolina-soaker.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно дурум', pct: 60 },
+          { name: 'Хлібне борошно', pct: 40 }
+        ]
+      });
+    }
+  },
+  'bread/buttermilk': {
+    file: 'data/pages/bread/buttermilk.html',
+    json: 'data/json/bread/buttermilk.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 50 },
+          { name: 'Цільнозернове борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
   'italian': { file: 'data/pages/italian/italian.html' },

@@ -1,0 +1,42 @@
+{
+  "id": "bread-whole-wheat",
+  "category": "bread",
+  "name": {
+    "uk": "Whole-Wheat Bread"
+  },
+  "description": {
+    "uk": "Hamelman."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.1,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 3,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "pf"
+  ],
+  "default_preferment": "pf",
+  "default_preferment_percent": 25
+}

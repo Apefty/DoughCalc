@@ -11,11 +11,11 @@
   "mode": "yeast",
   "ratio": {
     "flour": 100,
-    "water": 63,
-    "yeast": 1,
+    "water": 65,
+    "yeast": 0.2,
     "salt": 2
   },
-  "hydration": 63,
+  "hydration": 65,
   "fermentation": {
     "duration_hours": 14,
     "duration_note_uk": "12–16 год",

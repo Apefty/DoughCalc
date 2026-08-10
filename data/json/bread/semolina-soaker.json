@@ -1,0 +1,38 @@
+{
+  "id": "bread-semolina-soaker",
+  "category": "bread",
+  "name": {
+    "uk": "Semolina Bread with Soaker and Fennel Seed"
+  },
+  "description": {
+    "uk": "Hamelman. Соакер (просо 8% + пшеничні пластівці 8% + кукурудзяне борошно 4% = 20%) + фенхель 1.5% — об'єднано в одне поле «Добавки» = 21.5% (детальний склад — у цьому описі, бо окремого поля під кожен інгредієнт немає)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 82,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.8,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 21.5,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}
