@@ -212,6 +212,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/whole-wheat-multigrain': {
+    file: 'data/pages/bread/whole-wheat-multigrain.html',
+    json: 'data/json/bread/whole-wheat-multigrain.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
