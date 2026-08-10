@@ -302,6 +302,77 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/pal-mixed-starters': {
+    file: 'data/pages/bread/pal-mixed-starters.html',
+    json: 'data/json/bread/pal-mixed-starters.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 95 },
+          { name: 'Житнє борошно', pct: 5 }
+        ]
+      });
+    }
+  },
+  'bread/miche-pointe-a-calliere': {
+    file: 'data/pages/bread/miche-pointe-a-calliere.html',
+    json: 'data/json/bread/miche-pointe-a-calliere.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно (в.в.)', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/mixed-flour-miche': {
+    file: 'data/pages/bread/mixed-flour-miche.html',
+    json: 'data/json/bread/mixed-flour-miche.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 50 },
+          { name: 'Цільнозернове борошно', pct: 40 },
+          { name: 'Житнє борошно', pct: 10 }
+        ]
+      });
+    }
+  },
+  'bread/whole-wheat-levain': {
+    file: 'data/pages/bread/whole-wheat-levain.html',
+    json: 'data/json/bread/whole-wheat-levain.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/durum': {
+    file: 'data/pages/bread/durum.html',
+    json: 'data/json/bread/durum.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно дурум', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/harvest': {
+    file: 'data/pages/bread/harvest.html',
+    json: 'data/json/bread/harvest.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 80 },
+          { name: 'Цільнозернове борошно', pct: 15 },
+          { name: 'Житнє борошно', pct: 5 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',

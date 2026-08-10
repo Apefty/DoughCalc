@@ -1,0 +1,36 @@
+{
+  "id": "bread-whole-wheat-levain",
+  "category": "bread",
+  "name": {
+    "uk": "Whole-Wheat Levain"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 2 (Ch.5). PFF 20%, гідратація 82%, 100% цільнозернове борошно. Джерело позначає тип закваски як «WW Levain» — змодельовано через рідкий левен (levain-liquid), збудований на цільнозерновому борошні. Сіль/дріжджі джерелом не деталізовані (загальне правило індексу: сіль 1.8–2.2%) — тут 2%/0%."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 82,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-liquid"
+  ],
+  "default_preferment": "levain-liquid",
+  "default_preferment_percent": 20
+}

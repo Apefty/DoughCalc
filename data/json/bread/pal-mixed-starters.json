@@ -1,0 +1,37 @@
+{
+  "id": "bread-pal-mixed-starters",
+  "category": "bread",
+  "name": {
+    "uk": "PAL w/ Mixed Starters"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 2 (Ch.5). PFF 20%, гідратація 66%, борошно 95% хлібне / 5% житнє. Джерело вказує «змішані закваски» (Stiff/Liquid) без деталізації пропорцій — тут дано вибір з двох сумісних преферементів (щільний за замовчуванням), обери потрібний в застосунку. Сіль/дріжджі джерелом не деталізовані (загальне правило індексу: сіль 1.8–2.2%) — тут 2%/0%."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 66,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff",
+    "levain-liquid"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 20
+}
