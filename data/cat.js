@@ -224,6 +224,84 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/ww-multigrain-soaker': {
+    file: 'data/pages/bread/ww-multigrain-soaker.html',
+    json: 'data/json/bread/ww-multigrain-soaker.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/cracked-wheat': {
+    file: 'data/pages/bread/cracked-wheat.html',
+    json: 'data/json/bread/cracked-wheat.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/vermont-sourdough': {
+    file: 'data/pages/bread/vermont-sourdough.html',
+    json: 'data/json/bread/vermont-sourdough.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 90 },
+          { name: 'Цільнозернове борошно', pct: 10 }
+        ]
+      });
+    }
+  },
+  'bread/vermont-sourdough-ww': {
+    file: 'data/pages/bread/vermont-sourdough-ww.html',
+    json: 'data/json/bread/vermont-sourdough-ww.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 85 },
+          { name: 'Цільнозернове борошно', pct: 15 }
+        ]
+      });
+    }
+  },
+  'bread/vermont-sourdough-increased-wg': {
+    file: 'data/pages/bread/vermont-sourdough-increased-wg.html',
+    json: 'data/json/bread/vermont-sourdough-increased-wg.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 70 },
+          { name: 'Цільнозернове борошно', pct: 30 }
+        ]
+      });
+    }
+  },
+  'bread/pain-au-levain': {
+    file: 'data/pages/bread/pain-au-levain.html',
+    json: 'data/json/bread/pain-au-levain.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 95 },
+          { name: 'Цільнозернове борошно', pct: 5 }
+        ]
+      });
+    }
+  },
+  'bread/pain-au-levain-ww': {
+    file: 'data/pages/bread/pain-au-levain-ww.html',
+    json: 'data/json/bread/pain-au-levain-ww.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 90 },
+          { name: 'Цільнозернове борошно', pct: 10 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
