@@ -1,0 +1,32 @@
+{
+  "id": "bread-rye-no-acidified-65",
+  "category": "bread",
+  "name": {
+    "uk": "65% No Acidified Flour"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 3 (Ch.6). Rye 65%, без преферементу (PFF 0%, лише комерційні дріжджі), гідратація 68%, борошно 65% житнє / 35% хлібне. Джерело не дає числового % дріжджів («commercial yeast only») — введено орієнтовне значення 0.8% (не з джерела, скоригуй за потреби). Сіль 2% (стандарт, не з джерела)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 68,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.8,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

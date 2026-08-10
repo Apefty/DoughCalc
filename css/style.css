@@ -918,6 +918,33 @@ div#body-wrapper {
 .app-header#rye {
     --bg-icon: url("../img/icons/rye-bread.png");
 }
+.app-header#bread-ryecaraway40,
+.app-header#bread-wholeryewholewheat,
+.app-header#bread-delirye,
+.app-header#bread-sourdoughryewalnuts,
+.app-header#bread-3stagerye90,
+.app-header#bread-3stagerye80,
+.app-header#bread-3stagerye70,
+.app-header#bread-ryeraisinswalnuts,
+.app-header#bread-quarkbrot,
+.app-header#bread-ryesourdough66,
+.app-header#bread-flaxseed,
+.app-header#bread-ryeflioursoaker80,
+.app-header#bread-ryesoakerww70,
+.app-header#bread-vollkornbrot,
+.app-header#bread-vollkornbrotflax,
+.app-header#bread-vollkornbrotcurrants,
+.app-header#bread-horstbandelpumpernickel,
+.app-header#bread-flaxryeoldbread,
+.app-header#bread-blackbread,
+.app-header#bread-5grainsourdoughrye,
+.app-header#bread-sunflowerseedrye,
+.app-header#bread-beerbread,
+.app-header#bread-ryesourdough65,
+.app-header#bread-ryefirmwhitelevain65,
+.app-header#bread-ryenoacidified65 {
+    --bg-icon: url("../img/icons/rye-bread.png");
+}
 .app-header#wheat {
     --bg-icon: url("../img/icons/wheat-bread.png");
 }

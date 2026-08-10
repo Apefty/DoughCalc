@@ -1,0 +1,42 @@
+{
+  "id": "bread-rye-caraway-40",
+  "category": "bread",
+  "name": {
+    "uk": "40% Caraway Rye"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 3 (Ch.6). Rye 40%, PFF 20% (Sourdough), гідратація 67%, борошно 40% житнє / 60% хлібне. Кмин 1.5% — введено в поле «Добавки» (candy). Сіль/дріжджі джерелом не деталізовані (загальне правило: сіль 2%, дріжджі 0% для природно заквашених) — тут 2%/0%, якщо не вказано інше нижче."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 67,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 1.5,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sourdough"
+  ],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 20
+}

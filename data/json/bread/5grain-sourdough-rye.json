@@ -1,0 +1,42 @@
+{
+  "id": "bread-5grain-sourdough-rye",
+  "category": "bread",
+  "name": {
+    "uk": "5-Grain Sourdough w/ Rye"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 3 (Ch.6). Rye 50%, PFF 25% (Sourdough), гідратація 75%, борошно 50% житнє / 50% хлібне. Мультизлаковий соакер 30% — у полі «Добавки» (candy). Сіль/дріжджі джерелом не деталізовані (загальне правило: сіль 2%, дріжджі 0% для природно заквашених) — тут 2%/0%, якщо не вказано інше нижче."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 75,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 30,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sourdough"
+  ],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 25
+}

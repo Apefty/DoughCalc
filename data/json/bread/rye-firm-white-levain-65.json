@@ -1,0 +1,36 @@
+{
+  "id": "bread-rye-firm-white-levain-65",
+  "category": "bread",
+  "name": {
+    "uk": "65% w/ Firm White Levain"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 3 (Ch.6). Rye 65%, PFF 20% (щільний білий левен на хлібному борошні — низька кислотність), гідратація 68%, борошно 65% житнє / 35% хлібне. Сіль/дріжджі джерелом не деталізовані (загальне правило: сіль 2%, дріжджі 0% для природно заквашених) — тут 2%/0%, якщо не вказано інше нижче."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 68,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 20
+}

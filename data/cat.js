@@ -397,6 +397,302 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/rye-caraway-40': {
+    file: 'data/pages/bread/rye-caraway-40.html',
+    json: 'data/json/bread/rye-caraway-40.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 40 },
+          { name: 'Хлібне борошно', pct: 60 }
+        ]
+      });
+    }
+  },
+  'bread/whole-rye-whole-wheat': {
+    file: 'data/pages/bread/whole-rye-whole-wheat.html',
+    json: 'data/json/bread/whole-rye-whole-wheat.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Цільнозернове борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/deli-rye': {
+    file: 'data/pages/bread/deli-rye.html',
+    json: 'data/json/bread/deli-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 30 },
+          { name: 'Хлібне борошно (clear flour)', pct: 70 }
+        ]
+      });
+    }
+  },
+  'bread/sourdough-rye-walnuts': {
+    file: 'data/pages/bread/sourdough-rye-walnuts.html',
+    json: 'data/json/bread/sourdough-rye-walnuts.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/3stage-rye-90': {
+    file: 'data/pages/bread/3stage-rye-90.html',
+    json: 'data/json/bread/3stage-rye-90.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 90 },
+          { name: 'Хлібне борошно', pct: 10 }
+        ]
+      });
+    }
+  },
+  'bread/3stage-rye-80': {
+    file: 'data/pages/bread/3stage-rye-80.html',
+    json: 'data/json/bread/3stage-rye-80.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 80 },
+          { name: 'Хлібне борошно', pct: 20 }
+        ]
+      });
+    }
+  },
+  'bread/3stage-rye-70': {
+    file: 'data/pages/bread/3stage-rye-70.html',
+    json: 'data/json/bread/3stage-rye-70.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 70 },
+          { name: 'Хлібне борошно', pct: 30 }
+        ]
+      });
+    }
+  },
+  'bread/rye-raisins-walnuts': {
+    file: 'data/pages/bread/rye-raisins-walnuts.html',
+    json: 'data/json/bread/rye-raisins-walnuts.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/quarkbrot': {
+    file: 'data/pages/bread/quarkbrot.html',
+    json: 'data/json/bread/quarkbrot.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/rye-sourdough-66': {
+    file: 'data/pages/bread/rye-sourdough-66.html',
+    json: 'data/json/bread/rye-sourdough-66.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 66 },
+          { name: 'Хлібне борошно', pct: 34 }
+        ]
+      });
+    }
+  },
+  'bread/flaxseed': {
+    file: 'data/pages/bread/flaxseed.html',
+    json: 'data/json/bread/flaxseed.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 40 },
+          { name: 'Хлібне борошно', pct: 60 }
+        ]
+      });
+    }
+  },
+  'bread/rye-flour-soaker-80': {
+    file: 'data/pages/bread/rye-flour-soaker-80.html',
+    json: 'data/json/bread/rye-flour-soaker-80.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 80 },
+          { name: 'Хлібне борошно', pct: 20 }
+        ]
+      });
+    }
+  },
+  'bread/rye-soaker-ww-70': {
+    file: 'data/pages/bread/rye-soaker-ww-70.html',
+    json: 'data/json/bread/rye-soaker-ww-70.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 70 },
+          { name: 'Цільнозернове борошно', pct: 30 }
+        ]
+      });
+    }
+  },
+  'bread/vollkornbrot': {
+    file: 'data/pages/bread/vollkornbrot.html',
+    json: 'data/json/bread/vollkornbrot.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/vollkornbrot-flax': {
+    file: 'data/pages/bread/vollkornbrot-flax.html',
+    json: 'data/json/bread/vollkornbrot-flax.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/vollkornbrot-currants': {
+    file: 'data/pages/bread/vollkornbrot-currants.html',
+    json: 'data/json/bread/vollkornbrot-currants.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/horst-bandel-pumpernickel': {
+    file: 'data/pages/bread/horst-bandel-pumpernickel.html',
+    json: 'data/json/bread/horst-bandel-pumpernickel.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/flax-rye-old-bread': {
+    file: 'data/pages/bread/flax-rye-old-bread.html',
+    json: 'data/json/bread/flax-rye-old-bread.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 60 },
+          { name: 'Хлібне борошно', pct: 40 }
+        ]
+      });
+    }
+  },
+  'bread/black-bread': {
+    file: 'data/pages/bread/black-bread.html',
+    json: 'data/json/bread/black-bread.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 60 },
+          { name: 'Хлібне борошно', pct: 40 }
+        ]
+      });
+    }
+  },
+  'bread/5grain-sourdough-rye': {
+    file: 'data/pages/bread/5grain-sourdough-rye.html',
+    json: 'data/json/bread/5grain-sourdough-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/sunflower-seed-rye': {
+    file: 'data/pages/bread/sunflower-seed-rye.html',
+    json: 'data/json/bread/sunflower-seed-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'bread/beer-bread': {
+    file: 'data/pages/bread/beer-bread.html',
+    json: 'data/json/bread/beer-bread.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 40 },
+          { name: 'Хлібне борошно', pct: 60 }
+        ]
+      });
+    }
+  },
+  'bread/rye-sourdough-65': {
+    file: 'data/pages/bread/rye-sourdough-65.html',
+    json: 'data/json/bread/rye-sourdough-65.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 65 },
+          { name: 'Хлібне борошно', pct: 35 }
+        ]
+      });
+    }
+  },
+  'bread/rye-firm-white-levain-65': {
+    file: 'data/pages/bread/rye-firm-white-levain-65.html',
+    json: 'data/json/bread/rye-firm-white-levain-65.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 65 },
+          { name: 'Хлібне борошно', pct: 35 }
+        ]
+      });
+    }
+  },
+  'bread/rye-no-acidified-65': {
+    file: 'data/pages/bread/rye-no-acidified-65.html',
+    json: 'data/json/bread/rye-no-acidified-65.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 65 },
+          { name: 'Хлібне борошно', pct: 35 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
