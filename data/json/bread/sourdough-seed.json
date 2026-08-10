@@ -1,0 +1,42 @@
+{
+  "id": "bread-sourdough-seed",
+  "category": "bread",
+  "name": {
+    "uk": "Sourdough Seed Bread"
+  },
+  "description": {
+    "uk": "Hamelman. PFF 15% (рідкий левен), гідратація 75%, борошно 92% хлібне / 8% цільне житнє. Насіннєва суміш 25% разом: 12% підсмаженого соняшникового насіння + 6% підсмаженого кунжуту (напряму в заміс) + 7% льняного насіння (через холодний соакер) — введено загальною вагою в поле «Добавки» (candy); процес підсмажування/замочування не моделюється, лише пропорції. Сіль 2.3%, дріжджі 0% (чисто натуральне заквашування; джерело допускає до ~1% дріжджів для прискорення бродіння)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 75,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.3,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 25,
+      "min": 0,
+      "max": 40,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-liquid"
+  ],
+  "default_preferment": "levain-liquid",
+  "default_preferment_percent": 15
+}

@@ -373,6 +373,30 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/five-grain-levain': {
+    file: 'data/pages/bread/five-grain-levain.html',
+    json: 'data/json/bread/five-grain-levain.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 75 },
+          { name: 'Цільнозернове борошно', pct: 25 }
+        ]
+      });
+    }
+  },
+  'bread/sourdough-seed': {
+    file: 'data/pages/bread/sourdough-seed.html',
+    json: 'data/json/bread/sourdough-seed.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 92 },
+          { name: 'Житнє борошно', pct: 8 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
