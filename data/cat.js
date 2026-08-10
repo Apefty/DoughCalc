@@ -693,6 +693,106 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/hand-mixed-white': {
+    file: 'data/pages/bread/hand-mixed-white.html',
+    json: 'data/json/bread/hand-mixed-white.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/french-bread': {
+    file: 'data/pages/bread/french-bread.html',
+    json: 'data/json/bread/french-bread.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/oatmeal': {
+    file: 'data/pages/bread/oatmeal.html',
+    json: 'data/json/bread/oatmeal.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/oatmeal-cin-raisins': {
+    file: 'data/pages/bread/oatmeal-cin-raisins.html',
+    json: 'data/json/bread/oatmeal-cin-raisins.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/five-grain-straight': {
+    file: 'data/pages/bread/five-grain-straight.html',
+    json: 'data/json/bread/five-grain-straight.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/challah': {
+    file: 'data/pages/bread/challah.html',
+    json: 'data/json/bread/challah.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/berne-brot': {
+    file: 'data/pages/bread/berne-brot.html',
+    json: 'data/json/bread/berne-brot.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/pullman': {
+    file: 'data/pages/bread/pullman.html',
+    json: 'data/json/bread/pullman.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/whey': {
+    file: 'data/pages/bread/whey.html',
+    json: 'data/json/bread/whey.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/ww-pecans-raisins': {
+    file: 'data/pages/bread/ww-pecans-raisins.html',
+    json: 'data/json/bread/ww-pecans-raisins.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 100 }
+        ]
+      });
+    }
+  },
+  'bread/hazelnut-fig-rosemary': {
+    file: 'data/pages/bread/hazelnut-fig-rosemary.html',
+    json: 'data/json/bread/hazelnut-fig-rosemary.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/german-farmers': {
+    file: 'data/pages/bread/german-farmers.html',
+    json: 'data/json/bread/german-farmers.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно', pct: 70 },
+          { name: 'Хлібне борошно', pct: 30 }
+        ]
+      });
+    }
+  },
+  'bread/toast': {
+    file: 'data/pages/bread/toast.html',
+    json: 'data/json/bread/toast.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',

@@ -912,7 +912,11 @@ div#body-wrapper {
 .app-header#bread-semolina,
 .app-header#bread-semolinadurum,
 .app-header#bread-semolinasoaker,
-.app-header#bread-buttermilk {
+.app-header#bread-buttermilk,
+.app-header#bread-oatmeal,
+.app-header#bread-oatmealcinraisins,
+.app-header#bread-fivegrainstraight,
+.app-header#bread-hazelnutfigrosemary {
     --bg-icon: url("../img/icons/rustic-bread.png");
 }
 .app-header#rye {
@@ -942,15 +946,33 @@ div#body-wrapper {
 .app-header#bread-beerbread,
 .app-header#bread-ryesourdough65,
 .app-header#bread-ryefirmwhitelevain65,
-.app-header#bread-ryenoacidified65 {
+.app-header#bread-ryenoacidified65,
+.app-header#bread-germanfarmers {
     --bg-icon: url("../img/icons/rye-bread.png");
 }
 .app-header#wheat {
     --bg-icon: url("../img/icons/wheat-bread.png");
 }
+.app-header#bread-handmixedwhite,
+.app-header#bread-french,
+.app-header#bread-whey {
+    --bg-icon: url("../img/icons/wheat-bread.png");
+}
 
 .app-header#wholegrain {
  --bg-icon: url("../img/icons/wholegrain-bread.png"); }
+.app-header#bread-wwpecansraisins {
+ --bg-icon: url("../img/icons/wholegrain-bread.png"); }
+
+.app-header#bread-challah,
+.app-header#bread-bernebrot {
+    --bg-icon: url("../img/icons/enriched.png");
+}
+
+.app-header#bread-pullman,
+.app-header#bread-toast {
+    --bg-icon: url("../img/icons/pan-bread.png");
+}
 
 .app-header#sourdough-bread {
     --bg-icon: url("../img/icons/sourdough-bread.png");

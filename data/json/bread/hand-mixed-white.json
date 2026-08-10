@@ -1,0 +1,32 @@
+{
+  "id": "bread-hand-mixed-white",
+  "category": "bread",
+  "name": {
+    "uk": "Hand-Mixed White"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 4 (Ch.7, Straight Doughs). Пряме тісто без преферементу. Гідратація 68%, сіль 2%, дріжджі 0.5%, 100% хлібне борошно. Ручний заміс без машини (Hand-Mixed Protocol), 2.5г бродіння з 2-3 обминаннями — технологія, не впливає на пропорції."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 68,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.5,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}
