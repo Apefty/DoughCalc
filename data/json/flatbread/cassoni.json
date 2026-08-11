@@ -1,0 +1,38 @@
+{
+  "id": "flatbread-cassoni",
+  "category": "flatbread",
+  "name": {
+    "uk": "Cassoni / Consum Dough (Hazan)"
+  },
+  "description": {
+    "uk": "Тісто для запечених/смажених фарширований коржиків (кассоні). Розпушується пекарським порошком, не дріжджами — поле «Дріжджі» перейменовано на «Розпушувач» спеціально для цієї картки (значення 1.4%). Гідратація 46.5%, сіль 1.8%, олія 7.9%."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 46.5,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.4,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 7.9,
+      "min": 0,
+      "max": 30,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

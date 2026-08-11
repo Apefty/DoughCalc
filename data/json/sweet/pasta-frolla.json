@@ -1,0 +1,44 @@
+{
+  "id": "sweet-pasta-frolla",
+  "category": "sweet",
+  "name": {
+    "uk": "Pasta Frolla / Sweet Pastry (Hazan)"
+  },
+  "description": {
+    "uk": "Італійське пісочне тісто для тартів. Без дріжджів. Крижана вода 19.6%, сіль (щіпка) 0.2%, масло 49.8%, яєчні жовтки 17.8% (лише жовтки, за конвертацією 20г/жовток), цукор 10.7%."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 19.6,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    },
+    "salt": {
+      "value": 0.2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 49.8,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "egg": {
+      "value": 17.8,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    },
+    "sugar": {
+      "value": 10.7,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

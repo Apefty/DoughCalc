@@ -1026,7 +1026,8 @@ div#body-wrapper {
 .app-header#pizza-biga,
 .app-header#pizza-pissaladiere,
 .app-header#pizza-levainovernight,
-.app-header#pizza-classic {
+.app-header#pizza-classic,
+.app-header#pizza-hazan {
     --bg-icon: url("../img/icons/pizza.png");
 }
 
@@ -1052,8 +1053,47 @@ div#body-wrapper {
 .app-header#focaccia-spanishcocas,
 .app-header#focaccia-zucchini,
 .app-header#focaccia-hamelman,
-.app-header#focaccia-fougasseolives {
+.app-header#focaccia-fougasseolives,
+.app-header#focaccia-sfinciuni,
+.app-header#focaccia-genovese-hazan,
+.app-header#focaccia-crescentina,
+.app-header#focaccia-focaccette {
     --bg-icon: url("../img/icons/pizza.png");
+}
+
+/* italian/pasta */
+.app-header#italian-pasta,
+.app-header#pasta-yellow,
+.app-header#pasta-green,
+.app-header#pasta-apulian-orecchiette,
+.app-header#pasta-buckwheat-pizzoccheri {
+    --bg-icon: url("../img/icons/dough.png");
+}
+
+/* Hazan bread additions */
+.app-header#bread-mantovana,
+.app-header#bread-apulia-olive {
+    --bg-icon: url("../img/icons/bread.png");
+}
+.app-header#bread-pane-integrale {
+    --bg-icon: url("../img/icons/wholegrain-bread.png");
+}
+.app-header#bread-pane-di-grano-duro {
+    --bg-icon: url("../img/icons/wheat-bread.png");
+}
+
+/* Hazan flatbread additions */
+.app-header#flatbread-piadina,
+.app-header#flatbread-cassoni {
+    --bg-icon: url("../img/icons/flatbread.png");
+}
+
+/* Hazan sweet additions */
+.app-header#sweet-pasta-frolla {
+    --bg-icon: url("../img/icons/tart.png");
+}
+.app-header#sweet-pastry-fritters {
+    --bg-icon: url("../img/icons/sweet.png");
 }
 
 /* baguette */

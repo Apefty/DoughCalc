@@ -1,0 +1,20 @@
+{
+  "id": "pasta-yellow",
+  "category": "italian",
+  "name": {
+    "uk": "Жовте тісто для пасти (Hazan)"
+  },
+  "description": {
+    "uk": "Класичне яєчне тісто для розкочування вручну. 1 склянка (115г) універсального борошна на 2 великих яйця. Без води/солі/дріжджів/олії — вологість дає лише яйце."
+  },
+  "baker_percentages_default": {
+    "egg": {
+      "value": 87,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

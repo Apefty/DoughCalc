@@ -1,0 +1,48 @@
+{
+  "id": "bread-apulia-olive",
+  "category": "bread",
+  "name": {
+    "uk": "Apulia's Olive Bread (Hazan)"
+  },
+  "description": {
+    "uk": "Єдиний рецепт цього джерела на бізі (25% борошна). Гідратація 79% (сумарна, з урахуванням води біги), сіль 2%, додаткові дріжджі в основний заміс 0.8% (дріжджі самої біги рахуються окремо преферементом), олія 2.3%. Оливки 24% (5 унцій на 600г борошна) — введено через поле «Добавки» (заміна назви на «Оливки»). Біга джерела вологіша (~79%) за системний преферемент «Біга» (60%) — це особливість саме цього рецепту, системний преферемент не змінено."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 79,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.8,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 2.3,
+      "min": 0,
+      "max": 30,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 24,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "biga"
+  ],
+  "default_preferment": "biga",
+  "default_preferment_percent": 25
+}

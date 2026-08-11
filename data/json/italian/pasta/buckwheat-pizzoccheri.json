@@ -1,0 +1,38 @@
+{
+  "id": "pasta-buckwheat-pizzoccheri",
+  "category": "italian",
+  "name": {
+    "uk": "Гречане тісто / Pizzoccheri (Hazan)"
+  },
+  "description": {
+    "uk": "1.25 склянки гречаного борошна + 0.5 склянки+1 ст.л. універсального борошна, 1 ст.л. води, 1 ст.л. молока, 3 яйця. Вага інгредієнтів без грамів у джерелі — перераховано за стандартними довідковими співвідношеннями (борошно ~120г/склянку), скоригуйте за потреби."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 7,
+      "min": 0,
+      "max": 150,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 7,
+      "min": 0,
+      "max": 30,
+      "step": 0.1
+    },
+    "salt": {
+      "value": 1.4,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "egg": {
+      "value": 70,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

@@ -772,6 +772,119 @@ DoughCalc.routes = {
       DoughCalc.initRecipePage(data);
     }
   },
+  'italian/pasta': { file: 'data/pages/italian/pasta/pasta.html' },
+  'italian/pasta/yellow': {
+    file: 'data/pages/italian/pasta/yellow.html',
+    json: 'data/json/italian/pasta/yellow.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pasta/green': {
+    file: 'data/pages/italian/pasta/green.html',
+    json: 'data/json/italian/pasta/green.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/pasta/apulian-orecchiette': {
+    file: 'data/pages/italian/pasta/apulian-orecchiette.html',
+    json: 'data/json/italian/pasta/apulian-orecchiette.json',
+      init: function (data) {
+        DoughCalc.initRecipePage(data, {
+          flourTypes: [
+          { name: 'Семоліна', pct: 34 },
+          { name: 'Універсальне борошно', pct: 66 }
+          ]
+        });
+      }
+  },
+  'italian/pasta/buckwheat-pizzoccheri': {
+    file: 'data/pages/italian/pasta/buckwheat-pizzoccheri.html',
+    json: 'data/json/italian/pasta/buckwheat-pizzoccheri.json',
+      init: function (data) {
+        DoughCalc.initRecipePage(data, {
+          flourTypes: [
+          { name: 'Гречане борошно', pct: 70 },
+          { name: 'Універсальне борошно', pct: 30 }
+          ]
+        });
+      }
+  },
+  'italian/pizza/hazan': {
+    file: 'data/pages/italian/pizza/hazan.html',
+    json: 'data/json/italian/pizza/hazan.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/sfinciuni': {
+    file: 'data/pages/italian/focaccia/sfinciuni.html',
+    json: 'data/json/italian/focaccia/sfinciuni.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/genovese-hazan': {
+    file: 'data/pages/italian/focaccia/genovese-hazan.html',
+    json: 'data/json/italian/focaccia/genovese-hazan.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/crescentina': {
+    file: 'data/pages/italian/focaccia/crescentina.html',
+    json: 'data/json/italian/focaccia/crescentina.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'italian/focaccia/focaccette': {
+    file: 'data/pages/italian/focaccia/focaccette.html',
+    json: 'data/json/italian/focaccia/focaccette.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'bread/mantovana': {
+    file: 'data/pages/bread/mantovana.html',
+    json: 'data/json/bread/mantovana.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'bread/pane-integrale': {
+    file: 'data/pages/bread/pane-integrale.html',
+    json: 'data/json/bread/pane-integrale.json',
+      init: function (data) {
+        DoughCalc.initRecipePage(data, {
+          flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 35 },
+          { name: 'Універсальне борошно', pct: 65 }
+          ]
+        });
+      }
+  },
+  'bread/pane-di-grano-duro': {
+    file: 'data/pages/bread/pane-di-grano-duro.html',
+    json: 'data/json/bread/pane-di-grano-duro.json',
+      init: function (data) {
+        DoughCalc.initRecipePage(data, {
+          flourTypes: [
+          { name: 'Борошно дурум', pct: 100 }
+          ]
+        });
+      }
+  },
+  'bread/apulia-olive': {
+    file: 'data/pages/bread/apulia-olive.html',
+    json: 'data/json/bread/apulia-olive.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'flatbread/piadina': {
+    file: 'data/pages/flatbread/piadina.html',
+    json: 'data/json/flatbread/piadina.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'flatbread/cassoni': {
+    file: 'data/pages/flatbread/cassoni.html',
+    json: 'data/json/flatbread/cassoni.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/pasta-frolla': {
+    file: 'data/pages/sweet/pasta-frolla.html',
+    json: 'data/json/sweet/pasta-frolla.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/pastry-fritters': {
+    file: 'data/pages/sweet/pastry-fritters.html',
+    json: 'data/json/sweet/pastry-fritters.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
