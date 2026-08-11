@@ -918,9 +918,6 @@ div#body-wrapper {
 .app-header#bread-semolina,
 .app-header#bread-semolinadurum,
 .app-header#bread-semolinasoaker,
-.app-header#bread-buttermilk,
-.app-header#bread-oatmeal,
-.app-header#bread-oatmealcinraisins,
 .app-header#bread-fivegrainstraight,
 .app-header#bread-hazelnutfigrosemary {
     --bg-icon: url("../img/icons/rustic-bread.png");
@@ -970,21 +967,33 @@ div#body-wrapper {
 .app-header#bread-wwpecansraisins {
  --bg-icon: url("../img/icons/wholegrain-bread.png"); }
 
-.app-header#bread-challah,
-.app-header#bread-bernebrot {
+.app-header#enriched {
+    --bg-icon: url("../img/icons/enriched.png");
+}
+.app-header#enriched-challah,
+.app-header#enriched-berne-brot {
     --bg-icon: url("../img/icons/enriched.png");
 }
 
-.app-header#bread-pullman,
-.app-header#bread-toast {
+.app-header#enriched-pullman,
+.app-header#enriched-toast {
     --bg-icon: url("../img/icons/pan-bread.png");
 }
 
-.app-header#bread-tarteflambee,
-.app-header#bread-sesamebreadsticks,
-.app-header#bread-grissini,
-.app-header#bread-lavash,
-.app-header#bread-socca {
+.app-header#enriched-oatmeal,
+.app-header#enriched-oatmealcinraisins,
+.app-header#enriched-buttermilk {
+    --bg-icon: url("../img/icons/rustic-bread.png");
+}
+
+.app-header#flatbread {
+    --bg-icon: url("../img/icons/flatbread.png");
+}
+.app-header#flatbread-tarteflambee,
+.app-header#flatbread-sesamebreadsticks,
+.app-header#flatbread-grissini,
+.app-header#flatbread-lavash,
+.app-header#flatbread-socca {
     --bg-icon: url("../img/icons/flatbread.png");
 }
 

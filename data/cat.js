@@ -707,44 +707,9 @@ DoughCalc.routes = {
       DoughCalc.initRecipePage(data);
     }
   },
-  'bread/oatmeal': {
-    file: 'data/pages/bread/oatmeal.html',
-    json: 'data/json/bread/oatmeal.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/oatmeal-cin-raisins': {
-    file: 'data/pages/bread/oatmeal-cin-raisins.html',
-    json: 'data/json/bread/oatmeal-cin-raisins.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
   'bread/five-grain-straight': {
     file: 'data/pages/bread/five-grain-straight.html',
     json: 'data/json/bread/five-grain-straight.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/challah': {
-    file: 'data/pages/bread/challah.html',
-    json: 'data/json/bread/challah.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/berne-brot': {
-    file: 'data/pages/bread/berne-brot.html',
-    json: 'data/json/bread/berne-brot.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/pullman': {
-    file: 'data/pages/bread/pullman.html',
-    json: 'data/json/bread/pullman.json',
     init: function (data) {
       DoughCalc.initRecipePage(data);
     }
@@ -786,13 +751,6 @@ DoughCalc.routes = {
       });
     }
   },
-  'bread/toast': {
-    file: 'data/pages/bread/toast.html',
-    json: 'data/json/bread/toast.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
   'italian/pizza/classic': {
     file: 'data/pages/italian/pizza/classic.html',
     json: 'data/json/italian/pizza/classic.json',
@@ -812,45 +770,6 @@ DoughCalc.routes = {
     json: 'data/json/italian/focaccia/fougasse-olives.json',
     init: function (data) {
       DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/tarte-flambee': {
-    file: 'data/pages/bread/tarte-flambee.html',
-    json: 'data/json/bread/tarte-flambee.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/sesame-breadsticks': {
-    file: 'data/pages/bread/sesame-breadsticks.html',
-    json: 'data/json/bread/sesame-breadsticks.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/grissini': {
-    file: 'data/pages/bread/grissini.html',
-    json: 'data/json/bread/grissini.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/lavash': {
-    file: 'data/pages/bread/lavash.html',
-    json: 'data/json/bread/lavash.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data);
-    }
-  },
-  'bread/socca': {
-    file: 'data/pages/bread/socca.html',
-    json: 'data/json/bread/socca.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data, {
-        flourTypes: [
-          { name: 'Борошно нуту (chickpea)', pct: 100 }
-        ]
-      });
     }
   },
   'bread/semolina': {
@@ -885,18 +804,6 @@ DoughCalc.routes = {
         flourTypes: [
           { name: 'Борошно дурум', pct: 60 },
           { name: 'Хлібне борошно', pct: 40 }
-        ]
-      });
-    }
-  },
-  'bread/buttermilk': {
-    file: 'data/pages/bread/buttermilk.html',
-    json: 'data/json/bread/buttermilk.json',
-    init: function (data) {
-      DoughCalc.initRecipePage(data, {
-        flourTypes: [
-          { name: 'Хлібне борошно', pct: 50 },
-          { name: 'Цільнозернове борошно', pct: 50 }
         ]
       });
     }
@@ -1249,6 +1156,101 @@ DoughCalc.routes = {
     file: 'data/pages/sweet/bialys.html',
     json: 'data/json/sweet/bialys.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'enriched': { file: 'data/pages/enriched/enriched.html' },
+  'enriched/challah': {
+    file: 'data/pages/enriched/challah.html',
+    json: 'data/json/enriched/challah.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/berne-brot': {
+    file: 'data/pages/enriched/berne-brot.html',
+    json: 'data/json/enriched/berne-brot.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/pullman': {
+    file: 'data/pages/enriched/pullman.html',
+    json: 'data/json/enriched/pullman.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/toast': {
+    file: 'data/pages/enriched/toast.html',
+    json: 'data/json/enriched/toast.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/oatmeal': {
+    file: 'data/pages/enriched/oatmeal.html',
+    json: 'data/json/enriched/oatmeal.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/oatmeal-cin-raisins': {
+    file: 'data/pages/enriched/oatmeal-cin-raisins.html',
+    json: 'data/json/enriched/oatmeal-cin-raisins.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'enriched/buttermilk': {
+    file: 'data/pages/enriched/buttermilk.html',
+    json: 'data/json/enriched/buttermilk.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 50 },
+          { name: 'Цільнозернове борошно', pct: 50 }
+        ]
+      });
+    }
+  },
+  'flatbread': { file: 'data/pages/flatbread/flatbread.html' },
+  'flatbread/tarte-flambee': {
+    file: 'data/pages/flatbread/tarte-flambee.html',
+    json: 'data/json/flatbread/tarte-flambee.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'flatbread/sesame-breadsticks': {
+    file: 'data/pages/flatbread/sesame-breadsticks.html',
+    json: 'data/json/flatbread/sesame-breadsticks.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'flatbread/grissini': {
+    file: 'data/pages/flatbread/grissini.html',
+    json: 'data/json/flatbread/grissini.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'flatbread/lavash': {
+    file: 'data/pages/flatbread/lavash.html',
+    json: 'data/json/flatbread/lavash.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'flatbread/socca': {
+    file: 'data/pages/flatbread/socca.html',
+    json: 'data/json/flatbread/socca.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно нуту (chickpea)', pct: 100 }
+        ]
+      });
+    }
   },
   'technical': { file: 'data/pages/technical/technical.html' },
   'technical/dark-yeasted': {
