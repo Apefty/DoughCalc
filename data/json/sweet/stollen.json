@@ -1,0 +1,56 @@
+{
+  "id": "sweet-stollen",
+  "category": "sweet",
+  "name": {
+    "uk": "Stollen"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 6 (Enriched, Festive & Specialty Grains). Масло 45%, яйця 15%, цукор 15%, PFF 15% — тип преферементу джерелом не вказано, тому не змодельовано як окремий вибір (за потреби використай пулиш або бігу як наближення). Гідратація/сіль/дріжджі в цій категорії джерелом не деталізовані (таблиця дає лише Butter%/Egg%/Sugar%/PFF%/Notes) — орієнтовні значення нижче не з джерела, оцінені за аналогією зі Стандартною бріош (Hamelman) з цього ж каталогу; скоригуй за потреби. Сухофрукти/горіхи 50% — у полі «Добавки» (candy). Марципан — начинка/начинення, без %, не змодельовано."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 35,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 3,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 45,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "egg": {
+      "value": 15,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    },
+    "sugar": {
+      "value": 15,
+      "min": 0,
+      "max": 30,
+      "step": 0.5
+    },
+    "candy": {
+      "value": 50,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

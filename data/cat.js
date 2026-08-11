@@ -1210,6 +1210,46 @@ DoughCalc.routes = {
     json: 'data/json/sweet/kolomba.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'sweet/brioche/savory': {
+    file: 'data/pages/sweet/brioche/savory.html',
+    json: 'data/json/sweet/brioche/savory.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/stollen': {
+    file: 'data/pages/sweet/stollen.html',
+    json: 'data/json/sweet/stollen.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/pretzels': {
+    file: 'data/pages/sweet/pretzels.html',
+    json: 'data/json/sweet/pretzels.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/beesting': {
+    file: 'data/pages/sweet/beesting.html',
+    json: 'data/json/sweet/beesting.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/hot-cross-buns': {
+    file: 'data/pages/sweet/hot-cross-buns.html',
+    json: 'data/json/sweet/hot-cross-buns.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/soft-butter-rolls': {
+    file: 'data/pages/sweet/soft-butter-rolls.html',
+    json: 'data/json/sweet/soft-butter-rolls.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/bagels': {
+    file: 'data/pages/sweet/bagels.html',
+    json: 'data/json/sweet/bagels.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/bialys': {
+    file: 'data/pages/sweet/bialys.html',
+    json: 'data/json/sweet/bialys.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
   'sweet/tart/brisee': {
     file: 'data/pages/sweet/brisee.html',
     json: 'data/json/sweet/brisee.json',

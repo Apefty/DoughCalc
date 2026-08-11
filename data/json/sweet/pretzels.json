@@ -1,0 +1,44 @@
+{
+  "id": "sweet-pretzels",
+  "category": "sweet",
+  "name": {
+    "uk": "Pretzels"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 6 (Enriched, Festive & Specialty Grains). Масло 5%, без яєць, цукор 2%, без преферементу. Гідратація/сіль/дріжджі в цій категорії джерелом не деталізовані (таблиця дає лише Butter%/Egg%/Sugar%/PFF%/Notes) — орієнтовні значення нижче не з джерела, оцінені за аналогією зі Стандартною бріош (Hamelman) з цього ж каталогу; скоригуй за потреби. Занурення в 3% розчин лугу (лай) — технологія обробки поверхні, не інгредієнт тіста, не змодельовано."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 55,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.5,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "sugar": {
+      "value": 2,
+      "min": 0,
+      "max": 10,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

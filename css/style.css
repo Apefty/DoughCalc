@@ -1103,7 +1103,8 @@ div#body-wrapper {
 .app-header#brioche-ferrandi,
 .app-header#brioche-sweetdough,
 .app-header#brioche-milkrolls,
-.app-header#brioche-vegan {
+.app-header#brioche-vegan,
+.app-header#brioche-savory {
     --bg-icon: url("../img/icons/brioche.png");
 }
 .app-header#paska,
@@ -1119,6 +1120,17 @@ div#body-wrapper {
 }
 .app-header#kolomba {
     --bg-icon: url("../img/icons/panettone.png");
+}
+.app-header#sweet-stollen,
+.app-header#sweet-beesting,
+.app-header#sweet-hotcrossbuns,
+.app-header#sweet-softbutterrolls {
+    --bg-icon: url("../img/icons/enriched.png");
+}
+.app-header#sweet-pretzels,
+.app-header#sweet-bagels,
+.app-header#sweet-bialys {
+    --bg-icon: url("../img/icons/bread.png");
 }
 .app-header#tart {
     --bg-icon: url("../img/icons/tart.png");
