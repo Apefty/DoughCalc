@@ -1,0 +1,38 @@
+{
+  "id": "pizza-classic",
+  "category": "italian",
+  "name": {
+    "uk": "Pizza Dough (Hamelman)"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 5 (Italian, Flatbreads & Pizza Doughs). Гідратація 65%, сіль 2%, оливкова олія 2%. Дріжджі в цій категорії джерелом не деталізовані (немає стовпця Yeast% у таблиці) — орієнтовне значення нижче не з джерела, скоригуй за потреби. (тут 0.4%)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 65,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.4,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 2,
+      "min": 0,
+      "max": 10,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

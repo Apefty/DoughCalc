@@ -1,0 +1,32 @@
+{
+  "id": "bread-socca",
+  "category": "bread",
+  "name": {
+    "uk": "Socca"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 5 (Italian, Flatbreads & Pizza Doughs). Гідратація 150% (рідке тісто-млинець), сіль 1.5%, 100% борошно нуту (chickpea flour). Традиційно без дріжджів — 0% (страва на кшталт млинця, не хліб)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 150,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

@@ -974,6 +974,14 @@ div#body-wrapper {
     --bg-icon: url("../img/icons/pan-bread.png");
 }
 
+.app-header#bread-tarteflambee,
+.app-header#bread-sesamebreadsticks,
+.app-header#bread-grissini,
+.app-header#bread-lavash,
+.app-header#bread-socca {
+    --bg-icon: url("../img/icons/flatbread.png");
+}
+
 .app-header#sourdough-bread {
     --bg-icon: url("../img/icons/sourdough-bread.png");
 }
@@ -1002,7 +1010,8 @@ div#body-wrapper {
 .app-header#pizza-poolishvariation,
 .app-header#pizza-biga,
 .app-header#pizza-pissaladiere,
-.app-header#pizza-levainovernight {
+.app-header#pizza-levainovernight,
+.app-header#pizza-classic {
     --bg-icon: url("../img/icons/pizza.png");
 }
 
@@ -1026,7 +1035,9 @@ div#body-wrapper {
 .app-header#focaccia-ferrandi,
 .app-header#focaccia-pissaladiere,
 .app-header#focaccia-spanishcocas,
-.app-header#focaccia-zucchini {
+.app-header#focaccia-zucchini,
+.app-header#focaccia-hamelman,
+.app-header#focaccia-fougasseolives {
     --bg-icon: url("../img/icons/pizza.png");
 }
 

@@ -793,6 +793,66 @@ DoughCalc.routes = {
       DoughCalc.initRecipePage(data);
     }
   },
+  'italian/pizza/classic': {
+    file: 'data/pages/italian/pizza/classic.html',
+    json: 'data/json/italian/pizza/classic.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'italian/focaccia/hamelman': {
+    file: 'data/pages/italian/focaccia/hamelman.html',
+    json: 'data/json/italian/focaccia/hamelman.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'italian/focaccia/fougasse-olives': {
+    file: 'data/pages/italian/focaccia/fougasse-olives.html',
+    json: 'data/json/italian/focaccia/fougasse-olives.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/tarte-flambee': {
+    file: 'data/pages/bread/tarte-flambee.html',
+    json: 'data/json/bread/tarte-flambee.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/sesame-breadsticks': {
+    file: 'data/pages/bread/sesame-breadsticks.html',
+    json: 'data/json/bread/sesame-breadsticks.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/grissini': {
+    file: 'data/pages/bread/grissini.html',
+    json: 'data/json/bread/grissini.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/lavash': {
+    file: 'data/pages/bread/lavash.html',
+    json: 'data/json/bread/lavash.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'bread/socca': {
+    file: 'data/pages/bread/socca.html',
+    json: 'data/json/bread/socca.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Борошно нуту (chickpea)', pct: 100 }
+        ]
+      });
+    }
+  },
   'bread/semolina': {
     file: 'data/pages/bread/semolina.html',
     json: 'data/json/bread/semolina.json',
