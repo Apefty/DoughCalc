@@ -1070,6 +1070,12 @@ div#body-wrapper {
     --bg-icon: url("../img/icons/dough.png");
 }
 
+/* italian/batters */
+.app-header#italian-batters,
+.app-header#batters-crespelle {
+    --bg-icon: url("../img/icons/dough.png");
+}
+
 /* Hazan bread additions */
 .app-header#bread-mantovana,
 .app-header#bread-apulia-olive {

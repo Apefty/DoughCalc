@@ -807,6 +807,12 @@ DoughCalc.routes = {
         });
       }
   },
+  'italian/batters': { file: 'data/pages/italian/batters/batters.html' },
+  'italian/batters/crespelle': {
+    file: 'data/pages/italian/batters/crespelle.html',
+    json: 'data/json/italian/batters/crespelle.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
   'italian/pizza/hazan': {
     file: 'data/pages/italian/pizza/hazan.html',
     json: 'data/json/italian/pizza/hazan.json',

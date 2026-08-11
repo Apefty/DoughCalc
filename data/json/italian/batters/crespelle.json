@@ -1,0 +1,32 @@
+{
+  "id": "batters-crespelle",
+  "category": "italian",
+  "name": {
+    "uk": "Crespelle Batter (Hazan)"
+  },
+  "description": {
+    "uk": "Рідке тісто для італійських млинців (креспелле). 0.75 склянки (85г) універсального борошна, 1 склянка (250г) молока, 2 яйця, щіпка солі (1/8 ч.л.). Без води, дріжджів, олії, цукру — це рідке тісто (батер), а не дріжджове/розкачуване тісто; борошна навмисно мало відносно рідини."
+  },
+  "baker_percentages_default": {
+    "salt": {
+      "value": 0.9,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 294,
+      "min": 0,
+      "max": 350,
+      "step": 1
+    },
+    "egg": {
+      "value": 118,
+      "min": 0,
+      "max": 150,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}
