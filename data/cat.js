@@ -1250,6 +1250,37 @@ DoughCalc.routes = {
     json: 'data/json/sweet/bialys.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'technical': { file: 'data/pages/technical/technical.html' },
+  'technical/dark-yeasted': {
+    file: 'data/pages/technical/dark-yeasted.html',
+    json: 'data/json/technical/dark-yeasted.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 92 },
+          { name: 'Какао-порошок', pct: 8 }
+        ]
+      });
+    }
+  },
+  'technical/light-yeasted': {
+    file: 'data/pages/technical/light-yeasted.html',
+    json: 'data/json/technical/light-yeasted.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
+  'technical/pate-morte': {
+    file: 'data/pages/technical/pate-morte.html',
+    json: 'data/json/technical/pate-morte.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Житнє борошно (сіяне, біле)', pct: 100 }
+        ]
+      });
+    }
+  },
   'sweet/tart/brisee': {
     file: 'data/pages/sweet/brisee.html',
     json: 'data/json/sweet/brisee.json',

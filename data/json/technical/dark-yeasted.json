@@ -1,0 +1,50 @@
+{
+  "id": "technical-dark-yeasted",
+  "category": "technical",
+  "name": {
+    "uk": "Dark Yeasted Decorative Dough"
+  },
+  "description": {
+    "uk": "Тісто для декоративних виробів тривалого зберігання. Гідратація 56%, сіль 1.5%, дріжджі 0.4%. Борошно: 92% хлібне + 8% какао-порошок (просіяний) — уведено як другий тип у «Типи борошна». Молочний порошок 5%, цукор 4.5%, масло 5%."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 56,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.4,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "sugar": {
+      "value": 4.5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "butter": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

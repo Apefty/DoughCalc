@@ -885,6 +885,12 @@ div#body-wrapper {
 .app-header#pan {
     --bg-icon: url("../img/icons/pan-bread.png");
 }
+.app-header#technical,
+.app-header#technical-darkyeasted,
+.app-header#technical-lightyeasted,
+.app-header#technical-patemorte {
+    --bg-icon: url("../img/icons/dough.png");
+}
 .app-header#rustic,
 .app-header#bread-pain-rustique,
 .app-header#bread-country,
