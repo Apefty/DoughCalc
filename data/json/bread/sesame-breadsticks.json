@@ -1,0 +1,38 @@
+{
+  "id": "bread-sesame-breadsticks",
+  "category": "bread",
+  "name": {
+    "uk": "Sesame Bread Sticks"
+  },
+  "description": {
+    "uk": "Hamelman (Master Recipe Index), Категорія 5 (Italian, Flatbreads & Pizza Doughs). Гідратація 62%, сіль 2%, 100% хлібне борошно. Масло 4% («Масло»/butter). Кунжут згаданий джерелом без %, тому не введений окремим полем (обвалювання ззовні). Дріжджі в цій категорії джерелом не деталізовані (немає стовпця Yeast% у таблиці) — орієнтовне значення нижче не з джерела, скоригуй за потреби. (тут 1%)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 62,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 4,
+      "min": 0,
+      "max": 10,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

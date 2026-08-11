@@ -2,6 +2,28 @@
 
 Усі помітні зміни проєкту фіксуються тут у хронологічному порядку.
 
+## [2026-08-11] — Fix: guard addEventListener calls
+- Fix: prevent console errors when page-specific DOM elements are missing
+Summary: Guarded event listener attachments and conditional DOM access in the recipe/preferment calculator to avoid "Cannot read properties of null (reading 'addEventListener')" errors on pages that don't include certain controls.
+Files changed: data/calc.js
+Cause: code attempted to attach listeners or manipulate nodes (preferment select, input sliders, flour-type add button, etc.) on pages where those elements are not present.
+Impact: eliminates runtime console errors on many recipe/technical pages and leaves existing interactive behavior unchanged on pages that include the elements.
+Verification: load several affected pages (e.g., technical/, sweet/, laminated/, enriched/, flatbread/*), reload, and confirm the console no longer shows the previous null-addEventListener errors and that interactive controls still function where present.
+
+- Summary: Guarded event listener attachments and conditional DOM access in data/calc.js to prevent "Cannot read properties of null (reading 'addEventListener')" runtime errors on pages that don't include certain interactive controls (preferment selects, sliders, flour-type add button).
+- Files changed: data/calc.js
+Restored preferment-related variables (currentPreData, rowPrePercent, preHr, preBreakdown, preTimeInput, etc.) to the outer scope so render() can access them.
+Kept the safety guards: only attach event listeners and build the preferment <select> when selectPreferment exists.
+Ensured applyRecipeDefaults() still runs (it populates the percentage inputs / sliders).
+Kept previous guards (input/add-flour-type listener) intact.
+
+Added an initial call to render() at the end of DoughCalc.initRecipePage so outputs (main-flour, main-water, out-total-dough, etc.) are computed once when the page is loaded, even if a preferment <select> isn't present.
+The call was inserted immediately after the nested render() function, before the end of the initRecipePage function:
+File: data\calc.js
+Inserted: render(); (with a short comment)
+Previously the code only invoked render() from the preferment-select code path (or via input events). Pages that don't include the preferment select (many recipe pages) never ran the initial render, so the outputs stayed at 0 until a user changed an input. The new unconditional initial render populates outputs using the inputs already present in the page markup (e.g., input-total value="1000").
+
+
 ## [2026-08-01] — Старт проєкту
 - Ініціалізація репозиторію, README з умовами використання
 - Перше завантаження базової структури (icons folder, перші файли)
@@ -43,7 +65,7 @@
 - Шарувате тісто (laminated)
 - Збагачене тісто (enriched) — окрім brioche, який вже в sweet
 - Пласке тісто (flatbread)
-- Технічне тісто (technical)
+- Декоративне тісто (technical)
 - У Солодкій випічці: Паска, Панетоне, Тарти
 
 **Відомий проблемний паттерн:** локальні `upd`-коміти користувача іноді відкочують нещодавні пуші, якщо локальна робоча копія відстає — рекомендовано робити `git pull` перед локальними правками.

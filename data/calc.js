@@ -271,7 +271,7 @@ DoughCalc.initPrefermentPage = function (data) {
     });
   });
 
-  input.addEventListener('input', render);
+  if (input) input.addEventListener('input', render);
   render();
 };
 
@@ -598,30 +598,33 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     }
   }
 
-  selectPreferment.addEventListener('change', function () {
-    var isNone = selectPreferment.value === 'none';
-    rowPrePercent.style.display = isNone ? 'none' : 'flex';
-    preHr.style.display = isNone ? 'none' : 'block';
-    preBreakdown.style.display = isNone ? 'none' : 'block';
-    loadSelectedPreferment();
-  });
-
-  applyRecipeDefaults();
-
-  buildPreferentOptions(function () {
-    if (recipeData.default_preferment) {
-      selectPreferment.value = recipeData.default_preferment;
+  if (selectPreferment) {
+    selectPreferment.addEventListener('change', function () {
       var isNone = selectPreferment.value === 'none';
-      rowPrePercent.style.display = isNone ? 'none' : 'flex';
-      preHr.style.display = isNone ? 'none' : 'block';
-      preBreakdown.style.display = isNone ? 'none' : 'block';
-    }
-    if (selectPreferment.value !== 'none') {
-      loadSelectedPreferment(); // fetches JSON, then calls render() itself
-    } else {
-      render();
-    }
-  });
+      if (rowPrePercent) rowPrePercent.style.display = isNone ? 'none' : 'flex';
+      if (preHr) preHr.style.display = isNone ? 'none' : 'block';
+      if (preBreakdown) preBreakdown.style.display = isNone ? 'none' : 'block';
+      loadSelectedPreferment();
+    });
+
+    buildPreferentOptions(function () {
+      if (recipeData.default_preferment) {
+        selectPreferment.value = recipeData.default_preferment;
+        var isNone = selectPreferment.value === 'none';
+        if (rowPrePercent) rowPrePercent.style.display = isNone ? 'none' : 'flex';
+        if (preHr) preHr.style.display = isNone ? 'none' : 'block';
+        if (preBreakdown) preBreakdown.style.display = isNone ? 'none' : 'block';
+      }
+      if (selectPreferment.value !== 'none') {
+        loadSelectedPreferment(); // fetches JSON, then calls render() itself
+      } else {
+        render();
+      }
+    });
+  }
+
+  // applyRecipeDefaults is called regardless of whether a preferment select exists
+  applyRecipeDefaults();
 
   ['input-total', 'input-flour', 'input-portions', 'input-portion-weight',
    'input-pre-percent', 'pct-hydration', 'pct-salt', 'pct-yeast', 'pct-oil',
@@ -758,6 +761,8 @@ function syncPair(numId, rangeId) {
       flourTypesWidget.setMainFlour(mainFlour);
     }
   }
+  // Initial render to populate fields on page load
+  render();
 };
 
 /* ----------------------------------------------------------
@@ -871,7 +876,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
     });
   }
 
-  addFlourTypeBtn.addEventListener('click', function () {
+  if (addFlourTypeBtn) addFlourTypeBtn.addEventListener('click', function () {
     flourTypes.push({ name: '', pct: 0 });
     recomputeBase();
     renderList();

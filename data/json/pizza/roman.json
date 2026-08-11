@@ -1,0 +1,45 @@
+{
+  "id": "roman-pizza",
+  "category": "pizza",
+  "name": {
+    "uk": "Римська піца (al taglio)"
+  },
+  "description": {
+    "uk": "Тонка й хрустка піца прямокутної форми на дуже високій гідратації й тривалій холодній ферментації. Випікається на деку, продається на вагу, звідси й назва \"al taglio\" — \"на відріз\"."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 78,
+      "min": 50,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.5,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "oil": {
+      "value": 3,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  "compatible_preferments": [
+    "sourdough",
+    "levain-stiff",
+    "levain-liquid",
+    "biga",
+    "poolish"
+  ],
+  "default_preferment": "poolish",
+  "default_preferment_percent": 30
+}
