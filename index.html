@@ -10,6 +10,64 @@
 <body>
 <div id="body-wrapper">
 
+<div id="drawer-overlay"></div>
+
+<aside id="side-drawer" aria-label="Бічне меню">
+  <div class="drawer-header">
+    <img src="img/icons/logo.png" alt="" class="drawer-logo">
+    <span class="drawer-title">Dough Calculator</span>
+    <button class="icon-btn" id="drawer-close-btn" aria-label="Закрити меню">
+      <span class="iconify" data-icon="tabler:x"></span>
+    </button>
+  </div>
+
+  <nav class="drawer-nav" aria-label="Розділи">
+    <a data-route="" class="drawer-link"><span class="iconify" data-icon="tabler:home"></span>Головна</a>
+    <a data-route="calculator" class="drawer-link"><span class="iconify" data-icon="tabler:calculator"></span>Калькулятор</a>
+    <a data-route="preferments" class="drawer-link"><span class="iconify" data-icon="tabler:flask"></span>Преферменти</a>
+    <a data-route="bread" class="drawer-link"><span class="iconify" data-icon="tabler:bread"></span>Хліб</a>
+    <a data-route="italian" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>Італійське тісто</a>
+    <a data-route="baguette" class="drawer-link"><span class="iconify" data-icon="tabler:baguette"></span>Багети</a>
+    <a data-route="sweet" class="drawer-link"><span class="iconify" data-icon="tabler:cake"></span>Солодка випічка</a>
+    <a data-route="laminated" class="drawer-link"><span class="iconify" data-icon="tabler:layers-intersect"></span>Шарувате тісто</a>
+    <a data-route="enriched" class="drawer-link"><span class="iconify" data-icon="tabler:egg"></span>Збагачене тісто</a>
+    <a data-route="flatbread" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>Пласке тісто</a>
+    <a data-route="technical" class="drawer-link"><span class="iconify" data-icon="tabler:certificate"></span>Декоративне тісто</a>
+  </nav>
+
+  <div class="drawer-divider"></div>
+
+  <div class="drawer-section">
+    <div class="drawer-field">
+      <label for="drawer-lang">Мова інтерфейсу</label>
+      <select id="drawer-lang">
+        <option value="uk">Українська</option>
+      </select>
+    </div>
+    <div class="drawer-field">
+      <label for="drawer-theme">Тема</label>
+      <select id="drawer-theme">
+        <option value="light">Світла</option>
+        <option value="dark">Темна</option>
+      </select>
+    </div>
+    <div class="drawer-field">
+      <label for="drawer-units">Одиниці виміру</label>
+      <select id="drawer-units">
+        <option value="g">Грами (г)</option>
+        <option value="oz">Унції (oz)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="drawer-divider"></div>
+
+  <nav class="drawer-nav" aria-label="Інше">
+    <a data-route="settings" class="drawer-link"><span class="iconify" data-icon="tabler:settings"></span>Налаштування</a>
+    <a data-route="about" class="drawer-link"><span class="iconify" data-icon="tabler:info-circle"></span>Про розробника</a>
+  </nav>
+</aside>
+
 <div id="content-area">
   <!-- cat.js loads the current route's fragment (pages/**/*.html) in here -->
 </div>

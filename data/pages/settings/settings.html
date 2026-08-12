@@ -1,0 +1,61 @@
+<header class="app-header" id="settings-page">
+  <a data-route="" class="icon-btn" aria-label="Назад">
+    <span class="iconify" data-icon="tabler:arrow-left"></span>
+  </a>
+  <div class="app-brand">
+    <h1 class="page-title">Налаштування</h1>
+  </div>
+  <span class="icon-btn"></span>
+</header>
+
+<main class="recipe-page">
+
+  <section class="card">
+    <div class="card-title-row"><span class="card-title">Вигляд</span></div>
+    <div class="field-row">
+      <label for="settings-theme" class="field-label">Тема</label>
+      <select id="settings-theme" class="value-box" style="border:none;">
+        <option value="light">Світла</option>
+        <option value="dark">Темна</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="settings-lang" class="field-label">Мова інтерфейсу</label>
+      <select id="settings-lang" class="value-box" style="border:none;">
+        <option value="uk">Українська</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row"><span class="card-title">Розрахунки</span></div>
+    <div class="field-row">
+      <label for="settings-units" class="field-label">Одиниці виміру</label>
+      <select id="settings-units" class="value-box" style="border:none;">
+        <option value="g">Грами (г)</option>
+        <option value="oz">Унції (oz)</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="settings-rounding" class="field-label">Округлення ваги</label>
+      <select id="settings-rounding" class="value-box" style="border:none;">
+        <option value="1">До цілих (1 г)</option>
+        <option value="0.1">До 0.1 г</option>
+        <option value="5">До 5 г</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row"><span class="card-title">Нагадування</span></div>
+    <div class="field-row">
+      <label for="settings-timers" class="field-label">Таймери/нагадування для замісу</label>
+      <input type="checkbox" id="settings-timers" style="width:20px;height:20px;">
+    </div>
+  </section>
+
+  <p style="padding:0 16px;color:var(--text-muted);font-size:13px;">
+    Одиниці виміру, округлення та нагадування поки що лише зберігаються — ще не підключені до самого розрахунку. Тема застосовується одразу.
+  </p>
+
+</main>

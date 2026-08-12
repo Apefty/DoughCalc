@@ -1421,6 +1421,11 @@ DoughCalc.routes = {
   'calculator': {
     file: 'data/pages/calculator/calculator.html',
     init: function () { DoughCalc.initCalculatorPage(); }
+  },
+
+  'settings': {
+    file: 'data/pages/settings/settings.html',
+    init: function () { DoughCalc.initSettingsPage(); }
   }
 };
 
