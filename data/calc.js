@@ -608,7 +608,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     });
 
     buildPreferentOptions(function () {
-      if (recipeData.default_preferment) {
+      if (recipeData && recipeData.default_preferment) {
         selectPreferment.value = recipeData.default_preferment;
         var isNone = selectPreferment.value === 'none';
         if (rowPrePercent) rowPrePercent.style.display = isNone ? 'none' : 'flex';
@@ -763,6 +763,122 @@ function syncPair(numId, rangeId) {
   }
   // Initial render to populate fields on page load
   render();
+};
+
+/* ----------------------------------------------------------
+   Calculator page (data/pages/calculator/calculator.html) —
+   a "category" dropdown filters which Baker's-Percentage fields
+   and which preferments are relevant, instead of showing all 9
+   fields + all 7 preferments at once for every dough type.
+
+   CALC_CATEGORIES maps each dropdown option to the ingredient
+   fields and preferment ids actually used by cards in that
+   section of the catalog (derived from the real recipe JSONs,
+   not guessed) — see /areas/dough-calculator.md for the audit.
+   ---------------------------------------------------------- */
+var CALC_CATEGORIES = [
+  { id: 'bread', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+    preferments: ['sourdough', 'levain-stiff', 'levain-liquid', 'biga', 'poolish', 'pf', 'opara'] },
+  { id: 'italian-pizza', fields: ['hydration', 'salt', 'yeast', 'oil'],
+    preferments: ['biga', 'levain-stiff', 'levain-liquid', 'pf', 'poolish', 'sourdough'] },
+  { id: 'italian-ciabatta', fields: ['hydration', 'salt', 'yeast', 'oil', 'candy'],
+    preferments: ['biga', 'levain-liquid', 'poolish'] },
+  { id: 'italian-focaccia', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'candy'],
+    preferments: ['levain-liquid', 'pf', 'poolish'] },
+  { id: 'italian-pasta', fields: ['hydration', 'salt', 'egg', 'milk', 'candy'],
+    preferments: [] },
+  { id: 'italian-batters', fields: ['salt', 'egg', 'milk'],
+    preferments: [] },
+  { id: 'baguette', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'butter', 'candy'],
+    preferments: ['levain-stiff', 'levain-liquid', 'pf', 'poolish', 'sourdough'] },
+  { id: 'sweet', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+    preferments: ['biga', 'lievito-madre', 'milk-levain', 'pf', 'poolish', 'sponge-liquid', 'sponge-short'] },
+  { id: 'laminated', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+    preferments: ['biga', 'pf', 'poolish'] },
+  { id: 'flatbread', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'butter'],
+    preferments: [] },
+  { id: 'enriched', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+    preferments: ['pf'] },
+  { id: 'technical', fields: ['hydration', 'salt', 'yeast', 'sugar', 'milk', 'butter'],
+    preferments: [] }
+];
+
+DoughCalc.initCalculatorPage = function () {
+  // Reuses the normal recipe-page wiring (entry modes, preferment
+  // fetch/breakdown, render math, flour-types widget) with no
+  // recipe data — a null recipeData means applyRecipeDefaults()
+  // is a no-op and the field values stay at whatever's in the HTML.
+  DoughCalc.initRecipePage(null, {});
+
+  var catSelect = document.getElementById('calc-category');
+  var selectPreferment = document.getElementById('select-preferment');
+  if (!catSelect) return;
+
+  function fieldGroups() {
+    return document.querySelectorAll('.pct-field-group');
+  }
+
+  function rebuildPreferments(ids) {
+    if (!selectPreferment) return;
+    selectPreferment.innerHTML = '<option value="none">Без преферменту</option>';
+    selectPreferment.disabled = !ids.length;
+    if (!ids.length) {
+      selectPreferment.value = 'none';
+      selectPreferment.dispatchEvent(new Event('change'));
+      return;
+    }
+    var opts = new Array(ids.length);
+    var remaining = ids.length;
+    ids.forEach(function (id, i) {
+      DoughCalc.fetchPreferment(id, function (data) {
+        opts[i] = { id: id, name: (data && data.name && data.name.uk) || id };
+        if (--remaining === 0) {
+          opts.forEach(function (o) {
+            var el = document.createElement('option');
+            el.value = o.id;
+            el.textContent = o.name;
+            selectPreferment.appendChild(el);
+          });
+          selectPreferment.value = 'none';
+          selectPreferment.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+  }
+
+  function applyCategory(catId) {
+    var cat = null;
+    for (var i = 0; i < CALC_CATEGORIES.length; i++) {
+      if (CALC_CATEGORIES[i].id === catId) { cat = CALC_CATEGORIES[i]; break; }
+    }
+    if (!cat) cat = CALC_CATEGORIES[0];
+
+    fieldGroups().forEach(function (group) {
+      var field = group.getAttribute('data-field');
+      var show = cat.fields.indexOf(field) > -1;
+      group.style.display = show ? '' : 'none';
+      if (!show) {
+        var pctInput = group.querySelector('input[type="number"]');
+        if (pctInput && parseFloat(pctInput.value) !== 0) {
+          pctInput.value = 0;
+          pctInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+      }
+    });
+
+    document.querySelectorAll('[data-field-out]').forEach(function (row) {
+      var field = row.getAttribute('data-field-out');
+      row.style.display = cat.fields.indexOf(field) > -1 ? '' : 'none';
+    });
+
+    rebuildPreferments(cat.preferments);
+  }
+
+  catSelect.addEventListener('change', function () {
+    applyCategory(catSelect.value);
+  });
+
+  applyCategory(catSelect.value);
 };
 
 /* ----------------------------------------------------------

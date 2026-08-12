@@ -1420,7 +1420,7 @@ DoughCalc.routes = {
 
   'calculator': {
     file: 'data/pages/calculator/calculator.html',
-    init: function () { DoughCalc.initRecipePage(); }
+    init: function () { DoughCalc.initCalculatorPage(); }
   }
 };
 

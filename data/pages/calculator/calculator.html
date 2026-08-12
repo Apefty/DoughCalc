@@ -12,6 +12,29 @@
 
   <section class="card">
     <div class="card-title-row">
+      <span class="card-title">Тип тіста</span>
+    </div>
+    <div class="field-row">
+      <label for="calc-category" class="field-label">Розділ</label>
+      <select id="calc-category" class="value-box" style="border:none;">
+        <option value="bread">Хліб</option>
+        <option value="italian-pizza">Італійське — Піца</option>
+        <option value="italian-ciabatta">Італійське — Чіабатта</option>
+        <option value="italian-focaccia">Італійське — Фокачча</option>
+        <option value="italian-pasta">Паста</option>
+        <option value="italian-batters">Рідке тісто</option>
+        <option value="baguette">Багети</option>
+        <option value="sweet">Солодка випічка</option>
+        <option value="laminated">Ламіноване</option>
+        <option value="flatbread">Пласке тісто</option>
+        <option value="enriched">Збагачене</option>
+        <option value="technical">Декоративне</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row">
       <span class="card-title">Метод розрахунку</span>
       <div class="segmented" id="entry-toggle">
         <button class="segmented-item is-active" data-entry="total">За тістом</button>
@@ -110,95 +133,113 @@
       <span class="card-title">Baker's Percentages</span>
     </div>
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon">
-        <span>Гідратація</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-hydration" value="73" step="1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="hydration">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon">
+          <span>Гідратація</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-hydration" value="73" step="1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-hydration" min="50" max="100" value="73" step="1" class="pct-slider pct-slider-water">
     </div>
-    <input type="range" id="rng-hydration" min="50" max="100" value="73" step="1" class="pct-slider pct-slider-water">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">
-        <span>Сіль</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-salt" value="2" step="0.1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="salt">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">
+          <span>Сіль</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-salt" value="2" step="0.1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-salt" min="0" max="4" value="2" step="0.1" class="pct-slider pct-slider-salt">
     </div>
-    <input type="range" id="rng-salt" min="0" max="4" value="2" step="0.1" class="pct-slider pct-slider-salt">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">
-        <span>Дріжджі (в основний заміс)</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-yeast" value="1" step="0.1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="yeast">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">
+          <span>Дріжджі (в основний заміс)</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-yeast" value="1" step="0.1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-yeast" min="0" max="3" value="1" step="0.1" class="pct-slider pct-slider-yeast">
     </div>
-    <input type="range" id="rng-yeast" min="0" max="3" value="1" step="0.1" class="pct-slider pct-slider-yeast">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">
-        <span>Олія</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-oil" value="0" step="0.1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="oil">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">
+          <span>Олія</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-oil" value="0" step="0.1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-oil" min="0" max="10" value="0" step="0.1" class="pct-slider pct-slider-oil">
     </div>
-    <input type="range" id="rng-oil" min="0" max="10" value="0" step="0.1" class="pct-slider pct-slider-oil">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">
-        <span>Молоко</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-milk" value="0" step="1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="milk">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">
+          <span>Молоко</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-milk" value="0" step="1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-milk" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-milk">
     </div>
-    <input type="range" id="rng-milk" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-milk">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">
-        <span>Яйця</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-egg" value="0" step="1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="egg">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">
+          <span>Яйця</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-egg" value="0" step="1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-egg" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-eggs">
     </div>
-    <input type="range" id="rng-egg" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-eggs">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon">
-        <span>Цукор</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-sugar" value="0" step="0.5" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="sugar">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon">
+          <span>Цукор</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-sugar" value="0" step="0.5" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-sugar" min="0" max="30" value="0" step="0.5" class="pct-slider pct-slider-sugar">
     </div>
-    <input type="range" id="rng-sugar" min="0" max="30" value="0" step="0.5" class="pct-slider pct-slider-sugar">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/butter.png" alt="" class="row-list-icon">
-        <span>Масло вершкове</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-butter" value="0" step="1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="butter">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/butter.png" alt="" class="row-list-icon">
+          <span>Масло вершкове</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-butter" value="0" step="1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-butter" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-butter">
     </div>
-    <input type="range" id="rng-butter" min="0" max="80" value="0" step="1" class="pct-slider pct-slider-butter">
 
-    <div class="field-row">
-      <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">
-        <span>Добавки</span></label>
-      <div class="value-box value-box-accent">
-        <input type="number" id="pct-candy" value="0" step="1" min="0">
-        <span class="value-unit">%</span>
+    <div class="pct-field-group" data-field="candy">
+      <div class="field-row">
+        <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">
+          <span>Добавки</span></label>
+        <div class="value-box value-box-accent">
+          <input type="number" id="pct-candy" value="0" step="1" min="0">
+          <span class="value-unit">%</span>
+        </div>
       </div>
+      <input type="range" id="rng-candy" min="0" max="70" value="0" step="1" class="pct-slider pct-slider-candy">
     </div>
-    <input type="range" id="rng-candy" min="0" max="70" value="0" step="1" class="pct-slider pct-slider-candy">
   </section>
 
   <section class="card">
@@ -214,39 +255,39 @@
         <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="hydration">
         <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
         <span class="row-list-value" id="main-water">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="salt">
         <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">Сіль</div>
         <span class="row-list-value" id="main-salt">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="yeast">
         <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">Дріжджі</div>
         <span class="row-list-value" id="main-yeast">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="oil">
         <div class="row-list-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">Олія</div>
         <span class="row-list-value" id="main-oil">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="milk">
         <div class="row-list-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">Молоко</div>
         <span class="row-list-value" id="main-milk">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="egg">
         <div class="row-list-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">Яйця</div>
         <span class="row-list-value" id="main-egg">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="sugar">
         <div class="row-list-label"><img src="img/icons/sugar.png" alt="" class="row-list-icon">Цукор</div>
         <span class="row-list-value" id="main-sugar">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="butter">
         <div class="row-list-label"><img src="img/icons/butter.png" alt="" class="row-list-icon">Масло вершкове</div>
         <span class="row-list-value" id="main-butter">0 <span class="unit">г</span></span>
       </div>
-      <div class="row-list-item">
+      <div class="row-list-item" data-field-out="candy">
         <div class="row-list-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">Добавки</div>
         <span class="row-list-value" id="main-candy">0 <span class="unit">г</span></span>
       </div>
