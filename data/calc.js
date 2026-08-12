@@ -771,37 +771,70 @@ function syncPair(numId, rangeId) {
    and which preferments are relevant, instead of showing all 9
    fields + all 7 preferments at once for every dough type.
 
-   CALC_CATEGORIES maps each dropdown option to the ingredient
-   fields and preferment ids actually used by cards in that
-   section of the catalog (derived from the real recipe JSONs,
-   not guessed) — see /areas/dough-calculator.md for the audit.
+   CALC_CATEGORIES maps each dropdown option to:
+   - default:  fields shown immediately for that category
+   - optional: fields NOT shown by default, but addable one at a
+     time via the "Додати інгредієнт" picker (same idea as the
+     flour-types "+" button) — click adds it, a small "×" on the
+     field removes it again
+   - labels:   per-category text override for a field's label
+     (e.g. "Молоко"→"Сухе молоко" for Декоративне), reusing the
+     established generic-field-relabel convention from recipe
+     pages, just applied at the category level here
+   - preferments: compatible preferment ids for the select
+
+   Base field set (used when a category doesn't list default+
+   optional explicitly): all 9 fields, all shown, no picker —
+   this keeps categories the user hasn't asked to narrow yet
+   (italian-pizza/ciabatta/focaccia, sweet, laminated, enriched)
+   behaving exactly as before.
    ---------------------------------------------------------- */
+var CALC_ALL_FIELDS = ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'];
+
 var CALC_CATEGORIES = [
-  { id: 'bread', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+  { id: 'bread',
+    default: ['hydration', 'salt', 'yeast'],
+    optional: ['oil', 'milk', 'egg', 'sugar', 'butter', 'candy'],
     preferments: ['sourdough', 'levain-stiff', 'levain-liquid', 'biga', 'poolish', 'pf', 'opara'] },
-  { id: 'italian-pizza', fields: ['hydration', 'salt', 'yeast', 'oil'],
+  { id: 'italian-pizza', default: ['hydration', 'salt', 'yeast', 'oil'], optional: [],
     preferments: ['biga', 'levain-stiff', 'levain-liquid', 'pf', 'poolish', 'sourdough'] },
-  { id: 'italian-ciabatta', fields: ['hydration', 'salt', 'yeast', 'oil', 'candy'],
+  { id: 'italian-ciabatta', default: ['hydration', 'salt', 'yeast', 'oil', 'candy'], optional: [],
     preferments: ['biga', 'levain-liquid', 'poolish'] },
-  { id: 'italian-focaccia', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'candy'],
+  { id: 'italian-focaccia', default: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'candy'], optional: [],
     preferments: ['levain-liquid', 'pf', 'poolish'] },
-  { id: 'italian-pasta', fields: ['hydration', 'salt', 'egg', 'milk', 'candy'],
+  { id: 'italian-pasta',
+    default: ['hydration', 'salt', 'egg', 'milk'], optional: [],
     preferments: [] },
-  { id: 'italian-batters', fields: ['salt', 'egg', 'milk'],
+  { id: 'italian-batters',
+    default: ['salt', 'egg', 'milk'],
+    optional: ['sugar', 'butter', 'oil'],
     preferments: [] },
-  { id: 'baguette', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'butter', 'candy'],
+  { id: 'baguette',
+    default: ['hydration', 'salt', 'yeast', 'butter'],
+    optional: ['oil', 'milk', 'candy'],
     preferments: ['levain-stiff', 'levain-liquid', 'pf', 'poolish', 'sourdough'] },
-  { id: 'sweet', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+  { id: 'sweet', default: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'], optional: [],
     preferments: ['biga', 'lievito-madre', 'milk-levain', 'pf', 'poolish', 'sponge-liquid', 'sponge-short'] },
-  { id: 'laminated', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+  { id: 'laminated', default: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'], optional: [],
     preferments: ['biga', 'pf', 'poolish'] },
-  { id: 'flatbread', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'butter'],
+  { id: 'flatbread',
+    default: ['hydration', 'salt', 'yeast'],
+    optional: ['oil', 'milk', 'sugar', 'butter'],
     preferments: [] },
-  { id: 'enriched', fields: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'],
+  { id: 'enriched', default: ['hydration', 'salt', 'yeast', 'oil', 'milk', 'sugar', 'egg', 'butter', 'candy'], optional: [],
     preferments: ['pf'] },
-  { id: 'technical', fields: ['hydration', 'salt', 'yeast', 'sugar', 'milk', 'butter'],
+  { id: 'technical',
+    default: ['hydration', 'salt', 'yeast', 'sugar', 'milk', 'butter'],
+    optional: ['candy'],
+    labels: { milk: 'Сухе молоко', candy: 'Цукровий сироп' },
     preferments: [] }
 ];
+
+var CALC_FIELD_LABELS = {
+  hydration: 'Гідратація', salt: 'Сіль', yeast: 'Дріжджі (в основний заміс)',
+  oil: 'Олія', milk: 'Молоко', sugar: 'Цукор', egg: 'Яйця',
+  butter: 'Масло вершкове', candy: 'Добавки'
+};
 
 DoughCalc.initCalculatorPage = function () {
   // Reuses the normal recipe-page wiring (entry modes, preferment
@@ -812,10 +845,49 @@ DoughCalc.initCalculatorPage = function () {
 
   var catSelect = document.getElementById('calc-category');
   var selectPreferment = document.getElementById('select-preferment');
+  var addSelect = document.getElementById('add-ingredient-select');
+  var addBtn = document.getElementById('add-ingredient-btn');
+  var rowAddIngredient = document.getElementById('row-add-ingredient');
   if (!catSelect) return;
 
-  function fieldGroups() {
-    return document.querySelectorAll('.pct-field-group');
+  function fieldGroup(field) {
+    return document.querySelector('.pct-field-group[data-field="' + field + '"]');
+  }
+  function outRow(field) {
+    return document.querySelector('[data-field-out="' + field + '"]');
+  }
+
+  function setFieldLabel(field, text) {
+    var group = fieldGroup(field);
+    if (group) {
+      var span = group.querySelector('.field-label span');
+      if (span) span.textContent = text;
+    }
+    var row = outRow(field);
+    if (row) {
+      var label = row.querySelector('.row-list-label');
+      if (label) label.lastChild.textContent = text;
+    }
+  }
+
+  function zeroField(field) {
+    var group = fieldGroup(field);
+    if (!group) return;
+    var pctInput = group.querySelector('input[type="number"]');
+    if (pctInput && parseFloat(pctInput.value) !== 0) {
+      pctInput.value = 0;
+      pctInput.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
+
+  function showField(field, show) {
+    var group = fieldGroup(field);
+    if (group) group.style.display = show ? '' : 'none';
+    var row = outRow(field);
+    if (row) row.style.display = show ? '' : 'none';
+    var removeBtn = group && group.querySelector('.field-remove-btn');
+    if (removeBtn) removeBtn.style.display = 'none';
+    if (!show) zeroField(field);
   }
 
   function rebuildPreferments(ids) {
@@ -846,31 +918,59 @@ DoughCalc.initCalculatorPage = function () {
     });
   }
 
+  var currentCat = null;
+  var addedOptional = []; // optional fields the user has manually added for the current category
+
+  function refreshAddSelect() {
+    if (!addSelect || !currentCat) return;
+    var remaining = currentCat.optional.filter(function (f) { return addedOptional.indexOf(f) === -1; });
+    addSelect.innerHTML = remaining.map(function (f) {
+      return '<option value="' + f + '">' + ((currentCat.labels && currentCat.labels[f]) || CALC_FIELD_LABELS[f]) + '</option>';
+    }).join('');
+    rowAddIngredient.style.display = remaining.length ? 'flex' : 'none';
+  }
+
+  function addOptionalField(field) {
+    if (!currentCat || currentCat.optional.indexOf(field) === -1) return;
+    if (addedOptional.indexOf(field) > -1) return;
+    addedOptional.push(field);
+    showField(field, true);
+    var group = fieldGroup(field);
+    var removeBtn = group && group.querySelector('.field-remove-btn');
+    if (removeBtn) {
+      removeBtn.style.display = '';
+      removeBtn.onclick = function () {
+        addedOptional = addedOptional.filter(function (f) { return f !== field; });
+        showField(field, false);
+        refreshAddSelect();
+      };
+    }
+    refreshAddSelect();
+  }
+
+  if (addBtn) {
+    addBtn.addEventListener('click', function () {
+      if (addSelect && addSelect.value) addOptionalField(addSelect.value);
+    });
+  }
+
   function applyCategory(catId) {
     var cat = null;
     for (var i = 0; i < CALC_CATEGORIES.length; i++) {
       if (CALC_CATEGORIES[i].id === catId) { cat = CALC_CATEGORIES[i]; break; }
     }
     if (!cat) cat = CALC_CATEGORIES[0];
+    currentCat = cat;
+    addedOptional = [];
 
-    fieldGroups().forEach(function (group) {
-      var field = group.getAttribute('data-field');
-      var show = cat.fields.indexOf(field) > -1;
-      group.style.display = show ? '' : 'none';
-      if (!show) {
-        var pctInput = group.querySelector('input[type="number"]');
-        if (pctInput && parseFloat(pctInput.value) !== 0) {
-          pctInput.value = 0;
-          pctInput.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-      }
+    CALC_ALL_FIELDS.forEach(function (field) {
+      setFieldLabel(field, (cat.labels && cat.labels[field]) || CALC_FIELD_LABELS[field]);
+      var used = cat.default.indexOf(field) > -1 || cat.optional.indexOf(field) > -1;
+      if (!used) { showField(field, false); return; }
+      showField(field, cat.default.indexOf(field) > -1);
     });
 
-    document.querySelectorAll('[data-field-out]').forEach(function (row) {
-      var field = row.getAttribute('data-field-out');
-      row.style.display = cat.fields.indexOf(field) > -1 ? '' : 'none';
-    });
-
+    refreshAddSelect();
     rebuildPreferments(cat.preferments);
   }
 
