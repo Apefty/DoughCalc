@@ -213,4 +213,30 @@ DoughCalc.initSettingsPage = function () {
       saveField('timers', timersCheckbox.checked);
     });
   }
+
+  // Update-check card — same pattern as "Les Grandes Sauces": only
+  // shown inside a native Capacitor app (window.Capacitor.isNativePlatform()).
+  // On plain web/PWA (DoughCalc's current state — no native wrapper yet)
+  // this card stays hidden and ota.js's checkForUpdate() no-ops anyway.
+  var updateCard = document.getElementById('update-card');
+  var isNativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+  if (updateCard && isNativeApp) updateCard.style.display = '';
 };
+
+function checkAppUpdateFromSettings() {
+  var statusEl = document.getElementById('settings-update-status');
+  var btnEl = document.getElementById('settings-update-btn');
+  if (!window.OTA || !window.OTA.checkForUpdate) return;
+  if (btnEl) btnEl.disabled = true;
+  window.OTA.checkForUpdate({
+    force: true,
+    onStatus: function (status) {
+      if (!statusEl) return;
+      if (status === 'checking') statusEl.textContent = 'Перевірка оновлень…';
+      else if (status === 'up_to_date') { statusEl.textContent = 'Вже встановлена остання версія.'; if (btnEl) btnEl.disabled = false; }
+      else if (status === 'downloading') statusEl.textContent = 'Завантаження оновлення…';
+      else if (status === 'updated') statusEl.textContent = 'Оновлення встановлено, перезапуск…';
+      else if (status === 'error') { statusEl.textContent = 'Помилка перевірки оновлення.'; if (btnEl) btnEl.disabled = false; }
+    }
+  });
+}
