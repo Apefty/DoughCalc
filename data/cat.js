@@ -239,7 +239,13 @@ DoughCalc.routes = {
     file: 'data/pages/bread/cracked-wheat.html',
     json: 'data/json/bread/cracked-wheat.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data);
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 65 },
+          { name: 'Цільнозернове борошно', pct: 25 },
+          { name: 'Тріщана пшениця', pct: 10 }
+        ]
+      });
     }
   },
   'bread/vermont-sourdough': {
