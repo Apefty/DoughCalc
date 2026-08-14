@@ -711,7 +711,13 @@ DoughCalc.routes = {
     file: 'data/pages/bread/five-grain-straight.html',
     json: 'data/json/bread/five-grain-straight.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data);
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 50 },
+          { name: 'Цільнозернове борошно', pct: 40 },
+          { name: 'Житнє борошно', pct: 10 }
+        ]
+      });
     }
   },
   'bread/whey': {
