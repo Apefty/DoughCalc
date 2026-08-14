@@ -1,0 +1,30 @@
+{
+  "id": "bread-rye-miche",
+  "category": "bread",
+  "name": {
+    "uk": "Rye Miche"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі). PFF 35% (Sourdough, ціложитнє борошно, вода 83%, культура 10%). Борошно 50% ціложитнє / 50% середнє житнє. 100% житній хліб. Гідратація 78%, сіль 2%. Дріжджів немає — чиста закваска."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 78,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sourdough"
+  ],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 35
+}

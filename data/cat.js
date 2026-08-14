@@ -303,6 +303,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/rye-miche': {
+    file: 'data/pages/bread/rye-miche.html',
+    json: 'data/json/bread/rye-miche.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Ціложитнє борошно', pct: 50 },
+          { name: 'Середнє житнє борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
