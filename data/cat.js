@@ -248,6 +248,30 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/danish-black-rye': {
+    file: 'data/pages/bread/danish-black-rye.html',
+    json: 'data/json/bread/danish-black-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Ціложитнє борошно', pct: 83 },
+          { name: 'Житні пластівці', pct: 17 }
+        ]
+      });
+    }
+  },
+  'bread/danish-spelt-rye': {
+    file: 'data/pages/bread/danish-spelt-rye.html',
+    json: 'data/json/bread/danish-spelt-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Ціложитнє борошно', pct: 75 },
+          { name: 'Цільне спельтове борошно', pct: 25 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
