@@ -5,17 +5,17 @@
     "uk": "Miche, Pointe-à-Callière"
   },
   "description": {
-    "uk": "Hamelman (Master Recipe Index), Категорія 2 (Ch.5). PFF 20% (рідкий левен), гідратація 80%, 100% цільнозернове борошно високого виходу (high-extraction). Сіль/дріжджі джерелом не деталізовані (загальне правило індексу: сіль 1.8–2.2%) — тут 2%/0%."
+    "uk": "Hamelman. Виправлено за повним джерелом (не зведеною таблицею): гідратація 82% (було 80%), сіль 1.8% (було 2%). Тип преферементу виправлено на ЩІЛЬНИЙ левен (Stiff Levain, борошно:вода:культура 100:60:20 — джерело прямо каже «STIFF-TEXTURED LEVAIN») — попередня картка мала рідкий левен, що не відповідає джерелу. Дріжджів немає."
   },
   "baker_percentages_default": {
     "hydration": {
-      "value": 80,
+      "value": 82,
       "min": 0,
       "max": 120,
       "step": 1
     },
     "salt": {
-      "value": 2,
+      "value": 1.8,
       "min": 0,
       "max": 4,
       "step": 0.1
@@ -29,8 +29,8 @@
   },
   "fixed_preferment": true,
   "compatible_preferments": [
-    "levain-liquid"
+    "levain-stiff"
   ],
-  "default_preferment": "levain-liquid",
+  "default_preferment": "levain-stiff",
   "default_preferment_percent": 20
 }
