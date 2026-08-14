@@ -272,6 +272,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/flaxseed-rye': {
+    file: 'data/pages/bread/flaxseed-rye.html',
+    json: 'data/json/bread/flaxseed-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 60 },
+          { name: 'Ціложитнє борошно', pct: 40 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',

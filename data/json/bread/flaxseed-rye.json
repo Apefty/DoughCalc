@@ -1,0 +1,48 @@
+{
+  "id": "bread-flaxseed-rye",
+  "category": "bread",
+  "name": {
+    "uk": "Flaxseed Rye with an Old Bread Soaker"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі). PFF 40% (Sourdough, ціложитнє борошно, вода 83%, культура 10%). Борошно 60% хлібне / 40% ціложитнє. Гідратація 80.3%, сіль 2%, дріжджі 1.3%. Насіння льону 10% (поле «Молоко» перейменовано), старий хліб (вимочений) 8% (поле «Добавки» перейменовано). Опційно: посипка з насіння на поверхні (45% льон/45% кунжут/10% кмин) — тільки текстом, без окремого поля."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 80.3,
+      "min": 0,
+      "max": 120,
+      "step": 0.1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1.3,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 10,
+      "min": 0,
+      "max": 25,
+      "step": 1
+    },
+    "candy": {
+      "value": 8,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sourdough"
+  ],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 40
+}
