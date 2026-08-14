@@ -328,6 +328,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/olive-levain': {
+    file: 'data/pages/bread/olive-levain.html',
+    json: 'data/json/bread/olive-levain.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 90 },
+          { name: 'Цільнозернове борошно', pct: 10 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',

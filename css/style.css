@@ -989,6 +989,9 @@ div#body-wrapper {
 .app-header#bread-speltmiche {
     --bg-icon: url("../img/icons/rye-bread.png");
 }
+.app-header#bread-olivelevain {
+    --bg-icon: url("../img/icons/wheat-bread.png");
+}
 
 .app-header#wholegrain {
  --bg-icon: url("../img/icons/wholegrain-bread.png"); }
