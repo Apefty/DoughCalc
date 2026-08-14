@@ -1442,7 +1442,12 @@ DoughCalc.routes = {
     file: 'data/pages/enriched/oatmeal.html',
     json: 'data/json/enriched/oatmeal.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data);
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 75 },
+          { name: 'Цільнозернове борошно', pct: 25 }
+        ]
+      });
     }
   },
   'enriched/oatmeal-cin-raisins': {
