@@ -457,8 +457,8 @@ DoughCalc.routes = {
     init: function (data) {
       DoughCalc.initRecipePage(data, {
         flourTypes: [
-          { name: 'Житнє борошно', pct: 30 },
-          { name: 'Хлібне борошно (clear flour)', pct: 70 }
+          { name: 'Житнє борошно', pct: 15 },
+          { name: 'Хлібне борошно (clear flour)', pct: 85 }
         ]
       });
     }
