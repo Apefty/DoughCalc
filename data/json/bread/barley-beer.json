@@ -1,0 +1,42 @@
+{
+  "id": "bread-barley-beer",
+  "category": "bread",
+  "name": {
+    "uk": "Barley and Beer Bread"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі). PFF 25% (Stiff Levain, борошно цільнозернове, вода 62%, культура 10%). 4 типи борошна/добавки в базі: цільнозернове 40%, хлібне 40%, житнє 12%, смажений мелений ячмінь 8% (ячмінь моделюється як тип борошна, аналогічно какао в шоколадному бісквіті). Рідина розділена на 2 поля: вода (hydration) 36% + лагер (пиво) 36% — поле «Молоко» перейменовано на «Пиво (лагер)». Сіль 1.8%. Дріжджів у джерелі немає взагалі — чиста закваска."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 36,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 36,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "candy": {
+      "value": 8,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 25
+}

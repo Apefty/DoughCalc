@@ -701,6 +701,20 @@ DoughCalc.routes = {
       DoughCalc.initRecipePage(data);
     }
   },
+  'bread/barley-beer': {
+    file: 'data/pages/bread/barley-beer.html',
+    json: 'data/json/bread/barley-beer.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 40 },
+          { name: 'Хлібне борошно', pct: 40 },
+          { name: 'Житнє борошно', pct: 12 },
+          { name: 'Смажений мелений ячмінь', pct: 8 }
+        ]
+      });
+    }
+  },
   'bread/french-bread': {
     file: 'data/pages/bread/french-bread.html',
     json: 'data/json/bread/french-bread.json',
