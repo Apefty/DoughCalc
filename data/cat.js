@@ -284,6 +284,13 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/khachapuri': {
+    file: 'data/pages/bread/khachapuri.html',
+    json: 'data/json/bread/khachapuri.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data);
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
