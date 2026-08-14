@@ -45,7 +45,7 @@
     </div>
     <div class="field-row" id="row-pre-percent">
       <label for="input-pre-percent" class="field-label">% від загального борошна</label>
-      <div class="value-box value-box-accent"><input type="number" id="input-pre-percent" value="30" step="1" min="0" max="100"><span class="value-unit">%</span></div>
+      <div class="value-box value-box-accent"><input type="number" id="input-pre-percent" value="35" step="1" min="0" max="100"><span class="value-unit">%</span></div>
     </div>
     <div class="hr" id="pre-hr"></div>
     <div class="row-list" id="pre-breakdown">
@@ -82,6 +82,21 @@
       <div class="value-box value-box-accent"><input type="number" id="pct-yeast"><span class="value-unit">%</span></div>
     </div>
     <input type="range" id="rng-yeast" class="pct-slider pct-slider-yeast">
+    <div class="field-row">
+      <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon"> Олія</label>
+      <div class="value-box value-box-accent"><input type="number" id="pct-oil"><span class="value-unit">%</span></div>
+    </div>
+    <input type="range" id="rng-oil" class="pct-slider pct-slider-oil">
+    <div class="field-row">
+      <label class="field-label"><img src="img/icons/milk.png" alt="" class="row-list-icon"> Мелена кава</label>
+      <div class="value-box value-box-accent"><input type="number" id="pct-milk"><span class="value-unit">%</span></div>
+    </div>
+    <input type="range" id="rng-milk" class="pct-slider pct-slider-milk">
+    <div class="field-row">
+      <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon"> Старий хліб</label>
+      <div class="value-box value-box-accent"><input type="number" id="pct-candy"><span class="value-unit">%</span></div>
+    </div>
+    <input type="range" id="rng-candy" class="pct-slider pct-slider-candy">
 
   </section>
 
@@ -117,6 +132,18 @@
       <div class="row-list-item">
         <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">Дріжджі (в основний заміс)</div>
         <span class="row-list-value" id="main-yeast">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">Олія</div>
+        <span class="row-list-value" id="main-oil">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">Мелена кава</div>
+        <span class="row-list-value" id="main-milk">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">Старий хліб</div>
+        <span class="row-list-value" id="main-candy">0 <span class="unit">г</span></span>
       </div>
 
     </div>
