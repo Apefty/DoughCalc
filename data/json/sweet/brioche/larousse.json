@@ -1,0 +1,56 @@
+{
+  "id": "brioche-larousse",
+  "category": "sweet",
+  "name": {
+    "uk": "Бріош (Larousse)"
+  },
+  "description": {
+    "uk": "Класична французька бріош за Larousse Gastronomique. 250г борошна/225г масла/7г свіжих дріжджів/1 ст.л. води (для дріжджів)/2 ст.л. холодного молока/1 ст.л. цукру/щіпка солі/2 яйця. Свіжі (пресовані) дріжджі — % вказано буквально від ваги. Варіант «standard brioche dough» з того ж джерела: те саме тісто, але масло зменшено до 175г (~70%)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 6,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "milk": {
+      "value": 12,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "salt": {
+      "value": 0.4,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 4.8,
+      "min": 0,
+      "max": 20,
+      "step": 0.5
+    },
+    "yeast": {
+      "value": 2.8,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "egg": {
+      "value": 44,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 90,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

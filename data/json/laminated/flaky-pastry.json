@@ -1,0 +1,38 @@
+{
+  "id": "laminated-flaky",
+  "category": "laminated",
+  "name": {
+    "uk": "Flaky Pastry"
+  },
+  "description": {
+    "uk": "Швидке шарувате тісто (rough puff метод): масло+смалець нарізаються разом, чвертями вмішуються в тісто з подальшим складанням у 3 прийоми. 225г борошна/75г масла/75г смальцю (або білого твердого жиру)/7-8 ст.л. холодної води. Сіль в джерелі не вказана — системний дефолт 2%. Поле «Крем-фреш»(oil) перейменовано на «Смалець/жир»."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 50,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 33.3,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "oil": {
+      "value": 33.3,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

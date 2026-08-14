@@ -1,0 +1,32 @@
+{
+  "id": "laminated-puff-classic",
+  "category": "laminated",
+  "name": {
+    "uk": "Puff Pastry (класичний метод)"
+  },
+  "description": {
+    "uk": "Класичне французьке листкове тісто (detrempe + beurrage), 6+ обертань. 500г борошна/1.5 ч.л. солі/~300мл води/500г масла (блок для ламінації, 100% від борошна)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 60,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.8,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 100,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

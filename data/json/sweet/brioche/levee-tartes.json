@@ -1,0 +1,50 @@
+{
+  "id": "brioche-levee-tartes",
+  "category": "sweet",
+  "name": {
+    "uk": "Pâte Levée pour Tartes (Larousse)"
+  },
+  "description": {
+    "uk": "Дріжджове бріошеве тісто для тартів і флан — легша версія бріошевого тіста. 250г борошна/7г свіжих дріжджів/½ ч.л. солі/2 ч.л. цукру/2 яйця/100г масла/6 ст.л. молока."
+  },
+  "baker_percentages_default": {
+    "milk": {
+      "value": 36,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "salt": {
+      "value": 1.2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 3.2,
+      "min": 0,
+      "max": 20,
+      "step": 0.5
+    },
+    "yeast": {
+      "value": 2.8,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "egg": {
+      "value": 44,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "butter": {
+      "value": 40,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

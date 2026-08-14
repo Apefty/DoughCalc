@@ -1,0 +1,47 @@
+{
+  "id": "sweet-almond-dough",
+  "category": "sweet",
+  "name": {
+    "uk": "Мигдальне пісочне тісто (Larousse)"
+  },
+  "description": {
+    "uk": "Насичене мигдальне пісочне тісто, вихід ~250г. 110г борошна/1 яйце (55г)/40г цукрової пудри/2 ст.л. мигдального борошна (~14г)/0.5г солі/60г масла. Поле «Добавки»(candy) перейменовано на «Мигдальне борошно». НЕ плутати з наявним sweet/brioche/sweet-dough.json (Bertinet, дріжджове тісто) — це інший, недріжджовий рецепт."
+  },
+  "baker_percentages_default": {
+    "egg": {
+      "value": 50,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "sugar": {
+      "value": 36.4,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "candy": {
+      "value": 12.7,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    },
+    "salt": {
+      "value": 0.45,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 54.5,
+      "min": 0,
+      "max": 90,
+      "step": 1
+    }
+  },
+  "compatible_preferments": [
+    "none"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

@@ -1,0 +1,38 @@
+{
+  "id": "laminated-puff-2",
+  "category": "laminated",
+  "name": {
+    "uk": "Puff Pastry (компактний рецепт)"
+  },
+  "description": {
+    "uk": "Компактний рецепт листкового тіста, вихід ~800г, охолодження 6 год. 350г борошна/35г масла кімнатної т° (в тісто) + 250г холодного масла (блок для ламінації)/1.5 ч.л. солі/130мл води. Поле «Крем-фреш»(oil) перейменовано на «Масло для ламінації»."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 37.1,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.6,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 10,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    },
+    "oil": {
+      "value": 71.4,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}

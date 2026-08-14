@@ -1,0 +1,47 @@
+{
+  "id": "sweet-chocolate-sponge",
+  "category": "sweet",
+  "name": {
+    "uk": "Шоколадний бісквіт (Larousse)"
+  },
+  "description": {
+    "uk": "Шоколадне бісквітне тісто. Базове борошно = борошно+какао (180г+30г=210г, типи борошна 85.7%/14.3%). 11г розпушувача — поле «Дріжджі»(yeast) перейменовано на «Розпушувач». 7.5г ванільного цукру — поле «Добавки»(candy) перейменовано на «Ванільний цукор». 6 яєць (~330г)/100г масла/100г цукру."
+  },
+  "baker_percentages_default": {
+    "yeast": {
+      "value": 5.2,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    },
+    "egg": {
+      "value": 157.1,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    "butter": {
+      "value": 47.6,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "sugar": {
+      "value": 47.6,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    "candy": {
+      "value": 3.6,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  "compatible_preferments": [
+    "none"
+  ],
+  "default_preferment": "none",
+  "default_preferment_percent": 0
+}

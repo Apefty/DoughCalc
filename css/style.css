@@ -1196,6 +1196,22 @@ div#body-wrapper {
 .app-header#tart {
     --bg-icon: url("../img/icons/tart.png");
 }
+.app-header#sweet-foncer,
+.app-header#sweet-shortcrust {
+    --bg-icon: url("../img/icons/tart.png");
+}
+.app-header#brioche-larousse,
+.app-header#brioche-levee-tartes {
+    --bg-icon: url("../img/icons/brioche.png");
+}
+.app-header#sweet-almond-dough {
+    --bg-icon: url("../img/icons/tart.png");
+}
+.app-header#sweet-choux,
+.app-header#sweet-genoise,
+.app-header#sweet-chocolate-sponge {
+    --bg-icon: url("../img/icons/sweet.png");
+}
 
 /* laminated */
 .app-header#laminated {
@@ -1209,6 +1225,11 @@ div#body-wrapper {
     --bg-icon: url("../img/icons/laminated.png");
 }
 .app-header#feuillete-ferrandi {
+    --bg-icon: url("../img/icons/laminated.png");
+}
+.app-header#laminated-flaky,
+.app-header#laminated-puff-classic,
+.app-header#laminated-puff-2 {
     --bg-icon: url("../img/icons/laminated.png");
 }
 

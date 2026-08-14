@@ -1417,6 +1417,68 @@ DoughCalc.routes = {
     json: 'data/json/sweet/sucree.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'sweet/tart/foncer': {
+    file: 'data/pages/sweet/foncer.html',
+    json: 'data/json/sweet/foncer.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/tart/shortcrust': {
+    file: 'data/pages/sweet/shortcrust.html',
+    json: 'data/json/sweet/shortcrust.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/brioche/larousse': {
+    file: 'data/pages/sweet/brioche/larousse.html',
+    json: 'data/json/sweet/brioche/larousse.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/brioche/levee-tartes': {
+    file: 'data/pages/sweet/brioche/levee-tartes.html',
+    json: 'data/json/sweet/brioche/levee-tartes.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/almond-dough': {
+    file: 'data/pages/sweet/almond-dough.html',
+    json: 'data/json/sweet/almond-dough.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/choux': {
+    file: 'data/pages/sweet/choux.html',
+    json: 'data/json/sweet/choux.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/genoise': {
+    file: 'data/pages/sweet/genoise.html',
+    json: 'data/json/sweet/genoise.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'sweet/chocolate-sponge': {
+    file: 'data/pages/sweet/chocolate-sponge.html',
+    json: 'data/json/sweet/chocolate-sponge.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Пшеничне борошно', pct: 85.7 },
+          { name: 'Какао-порошок', pct: 14.3 }
+        ]
+      });
+    }
+  },
+  'laminated/flaky-pastry': {
+    file: 'data/pages/laminated/flaky-pastry.html',
+    json: 'data/json/laminated/flaky-pastry.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/puff-pastry-classic': {
+    file: 'data/pages/laminated/puff-pastry-classic.html',
+    json: 'data/json/laminated/puff-pastry-classic.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
+  'laminated/puff-pastry-2': {
+    file: 'data/pages/laminated/puff-pastry-2.html',
+    json: 'data/json/laminated/puff-pastry-2.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
 
   'calculator': {
     file: 'data/pages/calculator/calculator.html',
