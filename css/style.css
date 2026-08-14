@@ -964,6 +964,9 @@ div#body-wrapper {
 .app-header#bread-barleybeer {
     --bg-icon: url("../img/icons/rye-bread.png");
 }
+.app-header#bread-borodinsky {
+    --bg-icon: url("../img/icons/rye-bread.png");
+}
 
 .app-header#wholegrain {
  --bg-icon: url("../img/icons/wholegrain-bread.png"); }

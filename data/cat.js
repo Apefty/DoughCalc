@@ -716,6 +716,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/borodinsky': {
+    file: 'data/pages/bread/borodinsky.html',
+    json: 'data/json/bread/borodinsky.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Ціложитнє борошно', pct: 50 },
+          { name: 'Середнє житнє борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'bread/french-bread': {
     file: 'data/pages/bread/french-bread.html',
     json: 'data/json/bread/french-bread.json',
