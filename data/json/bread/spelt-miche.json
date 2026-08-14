@@ -1,0 +1,36 @@
+{
+  "id": "bread-spelt-miche",
+  "category": "bread",
+  "name": {
+    "uk": "Spelt Miche with Roasted Buckwheat"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі). PFF 8% (Sourdough, ціложитнє борошно, вода 83%, культура «Mature Culture, Stiff» 10% — назва компонента «stiff», але за співвідношенням вода:борошно 83% це відповідає стандартному системному преферементу «Sourdough», а не Stiff Levain). Борошно 3 типи: 50% цільне спельтове / 35% хлібне / 15% ціложитнє. Гідратація 83%, сіль 2.1%. Смажена гречка (соакер, окріп) 10% (поле «Добавки» перейменовано). Дріжджів немає — чиста закваска."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 83,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2.1,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "candy": {
+      "value": 10,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "sourdough"
+  ],
+  "default_preferment": "sourdough",
+  "default_preferment_percent": 8
+}

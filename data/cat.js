@@ -315,6 +315,19 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/spelt-miche': {
+    file: 'data/pages/bread/spelt-miche.html',
+    json: 'data/json/bread/spelt-miche.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільне спельтове борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 35 },
+          { name: 'Ціложитнє борошно', pct: 15 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
