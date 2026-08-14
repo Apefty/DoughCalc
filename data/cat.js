@@ -291,6 +291,18 @@ DoughCalc.routes = {
       DoughCalc.initRecipePage(data);
     }
   },
+  'bread/lithuanian-rye': {
+    file: 'data/pages/bread/lithuanian-rye.html',
+    json: 'data/json/bread/lithuanian-rye.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Ціложитнє борошно', pct: 66.2 },
+          { name: 'Хлібне борошно', pct: 33.8 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
