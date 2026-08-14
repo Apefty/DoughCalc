@@ -728,6 +728,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/busy-farmer': {
+    file: 'data/pages/bread/busy-farmer.html',
+    json: 'data/json/bread/busy-farmer.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 50 },
+          { name: 'Хлібне борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'bread/french-bread': {
     file: 'data/pages/bread/french-bread.html',
     json: 'data/json/bread/french-bread.json',
