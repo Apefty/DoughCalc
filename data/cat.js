@@ -401,6 +401,18 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/pain-de-lodeve': {
+    file: 'data/pages/bread/pain-de-lodeve.html',
+    json: 'data/json/bread/pain-de-lodeve.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Пшеничне борошно Type 65', pct: 96.6 },
+          { name: 'Цільножитнє борошно', pct: 3.4 }
+        ]
+      });
+    }
+  },
   'bread/pal-mixed-starters': {
     file: 'data/pages/bread/pal-mixed-starters.html',
     json: 'data/json/bread/pal-mixed-starters.json',

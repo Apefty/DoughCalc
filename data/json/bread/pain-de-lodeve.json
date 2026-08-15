@@ -1,0 +1,42 @@
+{
+  "id": "bread-pain-de-lodeve",
+  "category": "bread",
+  "name": {
+    "uk": "Pain de Lodève"
+  },
+  "description": {
+    "uk": "Hamelman/Nihei. Новий рецепт (не було в каталозі). PFF 19.2% (Stiff Levain, побудований у 2 етапи Refresher→Levain, борошно Type 65 76%/цільножитнє 24%, вода 53.5%, культура 10% в Refresher). Борошно 96.6% пшеничне Type 65 / 3.4% цільножитнє. Дуже волога, ліниво формована буханка (couche, без формування). Гідратація 83.9%, сіль 2.1%, дріжджі 0.2%, солодовий сироп 0.2% (поле «Молоко» перейменовано)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 83.9,
+      "min": 0,
+      "max": 120,
+      "step": 0.1
+    },
+    "salt": {
+      "value": 2.1,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 0.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 0.2,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 19.2
+}
