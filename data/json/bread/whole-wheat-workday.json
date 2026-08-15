@@ -1,0 +1,36 @@
+{
+  "id": "bread-whole-wheat-workday",
+  "category": "bread",
+  "name": {
+    "uk": "100% Whole-Wheat \"Workday\" Bread"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі). PFF 6% (Stiff Levain, цільнозернове борошно, вода 65%, культура 10% — навмисно низька закваска для довгого повільного бродіння протягом робочого дня). 100% цільнозернове борошно. Гідратація 80%, сіль 2%, мед 3% (поле «Цукор»). Дріжджів немає — чиста закваска."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 80,
+      "min": 0,
+      "max": 120,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "sugar": {
+      "value": 3,
+      "min": 0,
+      "max": 10,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 6
+}

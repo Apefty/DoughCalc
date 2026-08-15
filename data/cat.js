@@ -335,6 +335,17 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/whole-wheat-workday': {
+    file: 'data/pages/bread/whole-wheat-workday.html',
+    json: 'data/json/bread/whole-wheat-workday.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 100 }
+        ]
+      });
+    }
+  },
   'bread/vermont-sourdough': {
     file: 'data/pages/bread/vermont-sourdough.html',
     json: 'data/json/bread/vermont-sourdough.json',
