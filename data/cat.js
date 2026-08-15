@@ -882,7 +882,12 @@ DoughCalc.routes = {
     file: 'data/pages/bread/whey.html',
     json: 'data/json/bread/whey.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data);
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Хлібне борошно', pct: 85 },
+          { name: 'Житнє борошно', pct: 15 }
+        ]
+      });
     }
   },
   'bread/ww-pecans-raisins': {
