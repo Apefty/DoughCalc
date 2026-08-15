@@ -413,6 +413,17 @@ DoughCalc.routes = {
       });
     }
   },
+  'bread/whole-wheat-sandwich': {
+    file: 'data/pages/bread/whole-wheat-sandwich.html',
+    json: 'data/json/bread/whole-wheat-sandwich.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільнозернове борошно', pct: 100 }
+        ]
+      });
+    }
+  },
   'bread/pal-mixed-starters': {
     file: 'data/pages/bread/pal-mixed-starters.html',
     json: 'data/json/bread/pal-mixed-starters.json',

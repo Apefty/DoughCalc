@@ -920,7 +920,8 @@ div#body-wrapper {
 .app-header#bread-semolinadurum,
 .app-header#bread-semolinasoaker,
 .app-header#bread-fivegrainstraight,
-.app-header#bread-hazelnutfigrosemary {
+.app-header#bread-hazelnutfigrosemary,
+.app-header#bread-wholewheatsandwich {
     --bg-icon: url("../img/icons/rustic-bread.png");
 }
 .app-header#rye {

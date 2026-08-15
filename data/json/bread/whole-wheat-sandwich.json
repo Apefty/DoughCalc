@@ -1,0 +1,56 @@
+{
+  "id": "bread-whole-wheat-sandwich",
+  "category": "bread",
+  "name": {
+    "uk": "100% Whole-Wheat Sandwich Loaf"
+  },
+  "description": {
+    "uk": "Hamelman. Новий рецепт (не було в каталозі; відрізняється від наявного bread/whole-wheat.json, яке пряме тісто на pâte fermentée без молока/яєць). Пряме тісто без преферементу, 100% цільнозернове борошно. Молоко 40%, яйця 20%, вода 15%, сіль 2%, дріжджі 1%, мед 12%, смажена горіхова олія (або масло) 6%. Варіації з джерела (текстом): збільшення меду до 15-20% дає солодке тісто; ламінування маслом як у Feuilletée дає циннамон-роли; розкачане тонко й підсушене — крекери."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 15,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 1,
+      "min": 0,
+      "max": 3,
+      "step": 0.1
+    },
+    "milk": {
+      "value": 40,
+      "min": 0,
+      "max": 60,
+      "step": 1
+    },
+    "egg": {
+      "value": 20,
+      "min": 0,
+      "max": 40,
+      "step": 1
+    },
+    "sugar": {
+      "value": 12,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    },
+    "oil": {
+      "value": 6,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": []
+}
