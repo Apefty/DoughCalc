@@ -3,16 +3,15 @@
   "category": "bread",
   "name": { "uk": "Сільський хліб (Rustic Bread, Hamelman)" },
   "description": {
-    "uk": "Hamelman. Легка домішка житнього борошна. Сіль/дріжджі в основний заміс не вказані джерелом (стандарт джерела: сіль 1.8-2.2% за замовчуванням) — тут 2% та 0% відповідно, уточни за потреби."
+    "uk": "Hamelman. Виправлено за повним джерелом (не зведеною таблицею) — попередня картка мала зовсім іншу формулу. Тип преферементу виправлено на pâte fermentée (солоний, борошно:вода:сіль:дріжджі 100:60:1.8:0.5) — джерело каже «PRE-FERMENT» із сіллю, це не poolish. PFF 50% (було 25%). Борошно 3 типи: 80% хлібне / 10% житнє / 10% цільнозернове (було лише 100% хлібне з легкою домішкою). Гідратація 71%, сіль 1.8%, дріжджі 0.6%. Поле «Крем-фреш»(oil) з попередньої версії видалено — олія в рецепті відсутня."
   },
   "baker_percentages_default": {
-    "hydration": { "value": 70, "min": 50, "max": 100, "step": 1 },
-    "salt": { "value": 2, "min": 0, "max": 4, "step": 0.1 },
-    "yeast": { "value": 0, "min": 0, "max": 3, "step": 0.1 },
-    "oil": { "value": 0, "min": 0, "max": 10, "step": 0.1 }
+    "hydration": { "value": 71, "min": 50, "max": 100, "step": 1 },
+    "salt": { "value": 1.8, "min": 0, "max": 4, "step": 0.1 },
+    "yeast": { "value": 0.6, "min": 0, "max": 3, "step": 0.1 }
   },
   "fixed_preferment": true,
-  "compatible_preferments": ["poolish"],
-  "default_preferment": "poolish",
-  "default_preferment_percent": 25
+  "compatible_preferments": ["pf"],
+  "default_preferment": "pf",
+  "default_preferment_percent": 50
 }
