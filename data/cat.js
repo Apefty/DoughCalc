@@ -1246,13 +1246,7 @@ DoughCalc.routes = {
     file: 'data/pages/italian/ciabatta/overnight-autolyse.html',
     json: 'data/json/italian/ciabatta/overnight-autolyse.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data, {
-        flourTypes: [
-          { name: 'Хлібне борошно', pct: 80 },
-          { name: 'Житнє борошно', pct: 10 },
-          { name: 'Цільнозернове борошно', pct: 10 }
-        ]
-      });
+      DoughCalc.initRecipePage(data);
     }
   },
 
