@@ -1248,6 +1248,9 @@ div#body-wrapper {
 .app-header#sweet-chocolate-sponge {
     --bg-icon: url("../img/icons/sweet.png");
 }
+.app-header#sweet-panforte {
+    --bg-icon: url("../img/icons/candy.png");
+}
 
 /* laminated */
 .app-header#laminated {

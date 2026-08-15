@@ -1636,6 +1636,11 @@ DoughCalc.routes = {
     json: 'data/json/sweet/genoise.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'sweet/panforte': {
+    file: 'data/pages/sweet/panforte.html',
+    json: 'data/json/sweet/panforte.json',
+    init: function (data) { DoughCalc.initRecipePage(data); }
+  },
   'sweet/chocolate-sponge': {
     file: 'data/pages/sweet/chocolate-sponge.html',
     json: 'data/json/sweet/chocolate-sponge.json',
