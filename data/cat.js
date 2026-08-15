@@ -180,12 +180,7 @@ DoughCalc.routes = {
     file: 'data/pages/bread/sunflower-pf.html',
     json: 'data/json/bread/sunflower-pf.json',
     init: function (data) {
-      DoughCalc.initRecipePage(data, {
-        flourTypes: [
-          { name: 'Хлібне борошно', pct: 95 },
-          { name: 'Житнє борошно', pct: 5 }
-        ]
-      });
+      DoughCalc.initRecipePage(data);
     }
   },
   'bread/corn': {
