@@ -5,34 +5,38 @@
     "uk": "Pizza Dough (Hamelman)"
   },
   "description": {
-    "uk": "Hamelman (Master Recipe Index), Категорія 5 (Italian, Flatbreads & Pizza Doughs). Гідратація 65%, сіль 2%, оливкова олія 2%. Дріжджі в цій категорії джерелом не деталізовані (немає стовпця Yeast% у таблиці) — орієнтовне значення нижче не з джерела, скоригуй за потреби. (тут 0.4%)."
+    "uk": "Hamelman. Виправлено за повним джерелом (не зведеною таблицею) — попередня версія не мала преферементу взагалі. PFF 20% (Biga, борошно:вода:дріжджі 100:60:0.2). Гідратація 68% (було 65%), сіль 1.8% (було 2%), дріжджі 1.3% (було 0.4%), олія extra-virgin 5% (було 2%)."
   },
   "baker_percentages_default": {
     "hydration": {
-      "value": 65,
+      "value": 68,
       "min": 0,
       "max": 200,
       "step": 1
     },
     "salt": {
-      "value": 2,
+      "value": 1.8,
       "min": 0,
       "max": 4,
       "step": 0.1
     },
     "yeast": {
-      "value": 0.4,
+      "value": 1.3,
       "min": 0,
       "max": 3,
       "step": 0.1
     },
     "oil": {
-      "value": 2,
+      "value": 5,
       "min": 0,
       "max": 10,
       "step": 0.5
     }
   },
   "fixed_preferment": true,
-  "compatible_preferments": []
+  "compatible_preferments": [
+    "biga"
+  ],
+  "default_preferment": "biga",
+  "default_preferment_percent": 20
 }

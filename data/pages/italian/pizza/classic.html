@@ -38,6 +38,42 @@
   </section>
 
   <section class="card">
+    <div class="card-title-row">
+      <span class="card-title">Преферемент</span>
+    </div>
+    <div class="field-row">
+      <label for="select-preferment" class="field-label">Тип</label>
+      <select id="select-preferment" class="value-box" style="border:none;"></select>
+    </div>
+    <div class="field-row" id="row-pre-percent">
+      <label for="input-pre-percent" class="field-label">% від загального борошна</label>
+      <div class="value-box value-box-accent">
+        <input type="number" id="input-pre-percent" value="20" step="1" min="0" max="100">
+        <span class="value-unit">%</span>
+      </div>
+    </div>
+    <div class="hr" id="pre-hr"></div>
+    <div class="row-list" id="pre-breakdown">
+      <div class="row-list-header">
+        <span>Склад преферменту</span>
+        <span>Вага</span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
+        <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
+        <span class="row-list-value" id="pre-water">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">Дріжджі/закваска</div>
+        <span class="row-list-value" id="pre-third">0 <span class="unit">г</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
     <div class="card-title-row"><span class="card-title">Baker's Percentages</span></div>
     <div class="field-row">
       <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Гідратація</label>
