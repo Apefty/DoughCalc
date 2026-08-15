@@ -5,7 +5,7 @@
     "uk": "Fougasse (Olives)"
   },
   "description": {
-    "uk": "Hamelman (Master Recipe Index), Категорія 5 (Italian, Flatbreads & Pizza Doughs). Гідратація 68%, сіль 2%. Січені оливки 20% — у полі «Добавки» (candy). Дріжджі в цій категорії джерелом не деталізовані (немає стовпця Yeast% у таблиці) — орієнтовне значення нижче не з джерела, скоригуй за потреби. (тут 0.6%)."
+    "uk": "Hamelman. Виправлено за повним джерелом (не зведеною таблицею) — формула виявилась зовсім іншою. PFF 28% (pâte fermentée). Борошно 90% хлібне / 10% цільнозернове (було 100% хлібне). Гідратація 68% підтверджена, сіль 1.5% (було 2% — джерело явно каже, що сіль занижена через солоність оливок), дріжджі 1.8% (було 0.6%). Оливки без кісточок (Niçoise) 8% (було 20%, поле «Добавки» перейменовано). Додано олія extra-virgin 5% (поле «Крем-фреш»)."
   },
   "baker_percentages_default": {
     "hydration": {
@@ -15,24 +15,34 @@
       "step": 1
     },
     "salt": {
-      "value": 2,
+      "value": 1.5,
       "min": 0,
       "max": 4,
       "step": 0.1
     },
     "yeast": {
-      "value": 0.6,
+      "value": 1.8,
       "min": 0,
       "max": 3,
       "step": 0.1
     },
     "candy": {
-      "value": 20,
+      "value": 8,
       "min": 0,
       "max": 30,
       "step": 1
+    },
+    "oil": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
     }
   },
   "fixed_preferment": true,
-  "compatible_preferments": []
+  "compatible_preferments": [
+    "pf"
+  ],
+  "default_preferment": "pf",
+  "default_preferment_percent": 28
 }
