@@ -133,12 +133,10 @@ DoughCalc.initDrawer = function () {
       var p = DoughCalc.loadPrefs();
       p.lang = langSelect.value;
       DoughCalc.savePrefs(p);
-      // Notify server preview by setting a lang cookie and reloading
-      try {
-        fetch('/set-lang?lang=' + encodeURIComponent(langSelect.value), { credentials: 'same-origin' })
-          .then(function () { location.reload(); })
-          .catch(function () { /* ignore fetch errors */ });
-      } catch (e) { /* ignore */ }
+      // Re-fetch the current route so the new language takes effect
+      // immediately — no server round-trip needed, this is a static
+      // per-locale file fetch (see DoughCalc.fetchLocalizedHtml in cat.js).
+      DoughCalc.navigate(location.hash.slice(1) || '');
     });
   }
   if (themeSelect) {
@@ -200,12 +198,8 @@ DoughCalc.initSettingsPage = function () {
       saveField('lang', langSelect.value);
       var drawerLang = document.getElementById('drawer-lang');
       if (drawerLang) drawerLang.value = langSelect.value;
-      // Notify server preview by setting a lang cookie and reloading
-      try {
-        fetch('/set-lang?lang=' + encodeURIComponent(langSelect.value), { credentials: 'same-origin' })
-          .then(function () { location.reload(); })
-          .catch(function () { /* ignore fetch errors */ });
-      } catch (e) { /* ignore */ }
+      // Re-render the settings page itself in the new language.
+      DoughCalc.navigate('settings');
     });
   }
   if (unitsSelect) {

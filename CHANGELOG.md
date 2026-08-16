@@ -168,3 +168,20 @@ If you want, I can:
 - Or prepare a build step to pre-render templates for static hosts,
 - Or create a small client-side fallback script to make Live Server show translated text.
 
+
+## [2026-08-16] — Localization: build-time pre-render replaces server/client-substitution approach
+
+Rewired the previous commit's i18n work so it works with zero server dependency, on any target (GitHub Pages, Netlify, and the native Android/Windows wrapper alike) — the prior approach assumed a persistent Node process (Handlebars SSR) or a runtime DOM-substitution script, neither of which fits this app's fetch-based SPA routing.
+
+Changes:
+- `scripts/prerender.js` — rewritten. Compiles any `data/pages/**/*.html` that contains `{{lang.KEY}}` placeholders into a locale-suffixed sibling file (e.g. `biga.en.html`) for every non-default locale, and overwrites the original bare filename with the default-locale (`uk`) render. Pages with no placeholders are left untouched — no build step needed for them yet.
+- `data/cat.js` — `navigate()` now calls `DoughCalc.fetchLocalizedHtml()`, which fetches `<slug>.<lang>.html` when the active language isn't the default, falling back to the plain `<slug>.html` if no translated variant exists yet (404). This is a static-file fetch, same on every host.
+- `data/app.js` — language-select handlers no longer call a `/set-lang` server route (doesn't exist on static hosts). They save the pref and call `DoughCalc.navigate()` to re-fetch the current route in the new language immediately.
+- `data/lang/ua.js` → renamed `uk.js` (and `ua.json` → `uk.json`) — the UI's language `<select>` already used `uk` as the option value (correct ISO 639-1 code for Ukrainian; `ua` is the *country* code). Locale files now match.
+- `index.html`, `data/pages/settings/settings.html` — added the missing `<option value="en">English</option>` to both language selects (previously Ukrainian-only, no way to actually pick English).
+- Removed: `js/i18n-client.js` (client-side runtime substitution, superseded by build-time pre-render), `data/pages/preferments/biga_backup.html` (stray copy left over from the manual conversion).
+- `package.json` — added the `handlebars` dependency that `scripts/prerender.js` requires directly (was missing; only `express-handlebars` was listed).
+
+`server/system.js` + `server/i18n.js` (Express + Handlebars preview server) are kept as-is, purely as an optional local dev-preview convenience — not part of the production pipeline. Run `npm run build` (`node scripts/prerender.js`) before committing any newly-translated page so the static variants are up to date; no server needs to run at deploy time or runtime.
+
+Only `preferments/biga` has translations so far (proof of concept from the prior commit) — the rest of the ~100+ recipe pages fall back to Ukrainian until translated.

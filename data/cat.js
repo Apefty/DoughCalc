@@ -1680,6 +1680,38 @@ DoughCalc.routes = {
   }
 };
 
+/* Locale-aware page loading. Pages are pre-rendered at build time
+   (scripts/prerender.js) into locale-suffixed siblings next to the
+   source file, e.g. data/pages/preferments/biga.html (default: uk)
+   plus biga.en.html. This works identically on GitHub Pages, Netlify,
+   and inside the native Android/Windows wrapper, since it's just a
+   static-file fetch — no server-side rendering involved at runtime.
+   Only pages that have actually been translated get a locale variant;
+   everything else has no .en.html sibling yet and silently falls back
+   to the default-language file. */
+DoughCalc.DEFAULT_LOCALE = 'uk';
+DoughCalc.currentLocale = function () {
+  var prefs = DoughCalc.loadPrefs ? DoughCalc.loadPrefs() : {};
+  return (prefs && prefs.lang) || DoughCalc.DEFAULT_LOCALE;
+};
+DoughCalc.localizedFile = function (file) {
+  var locale = DoughCalc.currentLocale();
+  if (locale === DoughCalc.DEFAULT_LOCALE) return file;
+  return file.replace(/\.html$/, '.' + locale + '.html');
+};
+DoughCalc.fetchLocalizedHtml = function (file) {
+  var localizedPath = DoughCalc.localizedFile(file);
+  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + localizedPath)).then(function (res) {
+    if (res.ok) return res.text();
+    if (localizedPath === file) throw new Error('Failed to load ' + file);
+    // No translated variant for this page yet — fall back to default-language file.
+    return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + file)).then(function (fallbackRes) {
+      if (!fallbackRes.ok) throw new Error('Failed to load ' + file);
+      return fallbackRes.text();
+    });
+  });
+};
+
 DoughCalc.navigate = function (route) {
   var contentArea = document.getElementById('content-area');
   var r = DoughCalc.routes[route];
@@ -1689,10 +1721,7 @@ DoughCalc.navigate = function (route) {
     return;
   }
 
-  var htmlPromise = fetch(DoughCalc.withCacheBust(DoughCalc.BASE + r.file)).then(function (res) {
-    if (!res.ok) throw new Error('Failed to load ' + r.file);
-    return res.text();
-  });
+  var htmlPromise = DoughCalc.fetchLocalizedHtml(r.file);
   var jsonPromise = r.json
     ? fetch(DoughCalc.withCacheBust(DoughCalc.BASE + r.json)).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; })
     : Promise.resolve(null);

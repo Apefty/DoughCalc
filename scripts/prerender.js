@@ -5,7 +5,7 @@ const Handlebars = require('handlebars');
 const ROOT = path.join(__dirname, '..');
 const PAGES_DIR = path.join(ROOT, 'data', 'pages');
 const LANG_DIR = path.join(ROOT, 'data', 'lang');
-const BUILD_DIR = path.join(ROOT, 'build');
+const DEFAULT_LOCALE = 'uk'; // matches <option value="uk"> already in the UI (ISO 639-1 for Ukrainian)
 
 function loadLocale(code) {
   const file = path.join(LANG_DIR, `${code}.js`);
@@ -23,7 +23,7 @@ function choosePluralForm(value, locale, n) {
   if (typeof value !== 'string' || !value.includes('||')) return value;
   const parts = value.split('||');
   try {
-    const pr = new Intl.PluralRules(locale || 'en');
+    const pr = new Intl.PluralRules(locale || DEFAULT_LOCALE);
     const category = pr.select(Number(n));
     let idx;
     if (category === 'one') idx = 0;
@@ -38,7 +38,6 @@ function choosePluralForm(value, locale, n) {
   }
 }
 
-// Register t helper
 Handlebars.registerHelper('t', function (key, options) {
   const params = (options && options.hash) ? options.hash : {};
   const root = (options && options.data && options.data.root) ? options.data.root : {};
@@ -46,8 +45,7 @@ Handlebars.registerHelper('t', function (key, options) {
   const raw = lang[key];
   if (raw === undefined) return key;
   let chosen = raw;
-  if (params && params.n !== undefined) chosen = choosePluralForm(raw, root.__locale || 'en', params.n);
-  // simple interpolation
+  if (params && params.n !== undefined) chosen = choosePluralForm(raw, root.__locale || DEFAULT_LOCALE, params.n);
   if (params) {
     Object.keys(params).forEach(k => {
       chosen = chosen.split(`{${k}}`).join(params[k]);
@@ -65,53 +63,57 @@ function walkDir(dir, cb) {
   });
 }
 
-function relPath(file) {
-  return path.relative(PAGES_DIR, file).replace(/\\/g, '/');
-}
-
-function ensureDir(file) {
-  const d = path.dirname(file);
-  fs.mkdirSync(d, { recursive: true });
+// Only pages actually authored with {{lang.KEY}} placeholders need
+// per-locale output. Untouched pages keep their raw literal Ukrainian
+// text and are fetched as-is by cat.js (no build step needed for them).
+function hasLangPlaceholders(src) {
+  return /\{\{\s*lang\.[A-Z0-9_]+\s*\}\}/.test(src);
 }
 
 function prerender() {
   const locales = fs.readdirSync(LANG_DIR).filter(f => f.endsWith('.js')).map(f => path.basename(f, '.js'));
-  // write JSON versions
-  locales.forEach(code => {
-    const obj = loadLocale(code);
-    writeJSON(code, obj);
-  });
 
-  // collect pages
+  // Refresh the .json mirrors (kept for any tooling/inspection that wants
+  // plain JSON dictionaries; not required by the runtime SPA anymore).
+  locales.forEach(code => writeJSON(code, loadLocale(code)));
+
   const pages = [];
-  walkDir(PAGES_DIR, file => {
-    if (file.endsWith('.html')) pages.push(file);
-  });
+  walkDir(PAGES_DIR, file => { if (file.endsWith('.html')) pages.push(file); });
 
+  let converted = 0;
   pages.forEach(file => {
     const tplSrc = fs.readFileSync(file, 'utf8');
+    if (!hasLangPlaceholders(tplSrc)) return; // leave untouched pages alone
+    converted++;
     const tpl = Handlebars.compile(tplSrc);
-    const rel = relPath(file);
+    const dir = path.dirname(file);
+    const base = path.basename(file, '.html');
+
     locales.forEach(code => {
-      const en = loadLocale('en');
+      const en = loadLocale(DEFAULT_LOCALE);
       const loc = loadLocale(code);
       const merged = Object.assign({}, en, loc);
       const ctx = { lang: merged, __locale: code };
       const html = tpl(ctx);
-      const outPath = path.join(BUILD_DIR, code, rel);
-      ensureDir(outPath);
-      fs.writeFileSync(outPath, html, 'utf8');
-      console.log('Wrote', outPath);
-      // also write top-level build copy for default language (en)
-      if (code === 'en') {
-        const outDefault = path.join(BUILD_DIR, rel);
-        ensureDir(outDefault);
-        fs.writeFileSync(outDefault, html, 'utf8');
-        console.log('Wrote default', outDefault);
+
+      if (code === DEFAULT_LOCALE) {
+        // The default locale overwrites the original bare filename —
+        // cat.js fetches that directly for the default locale, never a
+        // suffixed variant, so writing biga.uk.html too would just be
+        // a dead duplicate.
+        fs.writeFileSync(file, html, 'utf8');
+        console.log('Wrote (default)', path.relative(ROOT, file));
+      } else {
+        // Locale-suffixed variant, e.g. biga.en.html — fetched by cat.js
+        // when the active language differs from the default.
+        const outPath = path.join(dir, `${base}.${code}.html`);
+        fs.writeFileSync(outPath, html, 'utf8');
+        console.log('Wrote', path.relative(ROOT, outPath));
       }
     });
   });
+
+  console.log(`Prerender complete. ${converted} page(s) had {{lang.*}} placeholders and were compiled for ${locales.length} locale(s).`);
 }
 
 prerender();
-console.log('Prerender complete.');
