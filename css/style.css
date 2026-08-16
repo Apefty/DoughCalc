@@ -1225,6 +1225,7 @@ div#body-wrapper {
     --bg-icon: url("../img/icons/enriched.png");
 }
 .app-header#sweet-pretzels,
+.app-header#sweet-pretzelsspelt,
 .app-header#sweet-bagels,
 .app-header#sweet-bialys {
     --bg-icon: url("../img/icons/bread.png");

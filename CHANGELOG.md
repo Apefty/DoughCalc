@@ -185,3 +185,15 @@ Changes:
 `server/system.js` + `server/i18n.js` (Express + Handlebars preview server) are kept as-is, purely as an optional local dev-preview convenience — not part of the production pipeline. Run `npm run build` (`node scripts/prerender.js`) before committing any newly-translated page so the static variants are up to date; no server needs to run at deploy time or runtime.
 
 Only `preferments/biga` has translations so far (proof of concept from the prior commit) — the rest of the ~100+ recipe pages fall back to Ukrainian until translated.
+
+## [2026-08-16] — Checklist pass: pizza / pretzels / stollen / tarte flambée
+
+Continuing the alphabetical screenshot-vs-catalog check through `./temp`.
+
+- `italian/pizza/biga.json` — verified already correct (hyd68/salt1.8/yeast1.3/oil5, PFF20% biga), no changes.
+- `sweet/pretzels.json` — FIXED: was built from a summary table lacking hydration/salt/yeast columns (Cat.6 estimate). Full source gives hyd54% (was 55%), salt2% (was 1.8%), yeast2% (was 1.5%), butter5% (confirmed), no sugar in this recipe — the "sugar" field is now relabeled to "Солодовий порошок" (diastatic malt powder, 0.2%) instead of the guessed 2% sugar.
+- `sweet/pretzels-spelt.json` (NEW, "Spelt Pretzels with Levain") — firm levain PFF15%, 50/50 whole-spelt/white-spelt, hyd58%/salt2%/yeast2%/butter5%, malt-powder 0.2% (sugar-relabel, same convention as base pretzels card). Distinct dough from the base Pretzels recipe, not a variant of the same card.
+- `sweet/stollen.json` — FIXED: was built from a summary table (Cat.6, only Butter/Egg/Sugar/PFF% given, rest estimated). Full source is a 16-ingredient enriched holiday bread — far more components than the 9 available fields, so several are grouped by category (mirroring the source's own final-dough table, which already lumps the soaked fruits into one line): preferment added (Short Sponge, PFF50%, was `compatible_preferments:[]`); hydration field relabeled "Молоко" 50% (the dough's only liquid, no water); egg field = whole eggs + yolks combined 12.8%; oil field relabeled "Сухофрукти й цукати" (currants+golden raisins+candied peel) 72.2%; milk field relabeled "Ром, ваніль, цедра" 12.9%; candy field = roasted almonds 27.8% (was 50%, wrongly lumped with dried fruit); sugar 10% (was 15%); salt 1% (was 1.8%); butter 50% (was 45%). Marzipan filling stays unmodeled (no %, it's a rolled-in filling).
+- `bread/tarte-flambee.json` + `data/pages/bread/tarte-flambee.html` — found to be an inert orphan pair (identical to the wired-in `flatbread/tarte-flambee.json`, not referenced by any route in `cat.js`), matching the known stale-branch-merge orphan pattern from earlier sessions. Left in place, not deleted, consistent with how the other orphans were handled.
+
+**Still to check next:** `bagels*`, `levain.jpg` (mother-culture, likely out of scope per earlier precedent), `temp/proportions-reference.txt` (unreviewed reference doc, not a recipe).

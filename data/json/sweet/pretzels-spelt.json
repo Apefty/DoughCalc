@@ -1,0 +1,48 @@
+{
+  "id": "sweet-pretzels-spelt",
+  "category": "sweet",
+  "name": {
+    "uk": "Spelt Pretzels with Levain"
+  },
+  "description": {
+    "uk": "Hamelman. Кренделі на твердій закваске (Firm Levain), 50% цільнозернового спельти + 50% білого спельти. Автор пропонує 3 варіанти борошна: 100% цільна спельта (щільніше), 50/50 (обраний тут варіант, легше), або 100% біле борошно. Поле «Цукор» перейменовано на «Солодовий порошок» (diastatic malt powder, 0.2%) — цукру в рецепті немає. Дозрілий тісто занурюють в 3% розчин лугу (лай) перед випіканням — технологія обробки поверхні, не змодельована. Не ретардувати сформовані кренделі на ніч (на відміну від базового рецепту Pretzels)."
+  },
+  "baker_percentages_default": {
+    "hydration": {
+      "value": 58,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    "salt": {
+      "value": 2,
+      "min": 0,
+      "max": 4,
+      "step": 0.1
+    },
+    "yeast": {
+      "value": 2,
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    },
+    "butter": {
+      "value": 5,
+      "min": 0,
+      "max": 15,
+      "step": 0.5
+    },
+    "sugar": {
+      "value": 0.2,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  "fixed_preferment": true,
+  "compatible_preferments": [
+    "levain-stiff"
+  ],
+  "default_preferment": "levain-stiff",
+  "default_preferment_percent": 15
+}

@@ -38,9 +38,37 @@
   </section>
 
   <section class="card">
+    <div class="card-title-row"><span class="card-title">Преферемент</span></div>
+    <div class="field-row">
+      <label for="select-preferment" class="field-label">Тип</label>
+      <select id="select-preferment" class="value-box" style="border:none;"></select>
+    </div>
+    <div class="field-row" id="row-pre-percent">
+      <label for="input-pre-percent" class="field-label">% від загального борошна</label>
+      <div class="value-box value-box-accent"><input type="number" id="input-pre-percent" value="50" step="1" min="0" max="100"><span class="value-unit">%</span></div>
+    </div>
+    <div class="hr" id="pre-hr"></div>
+    <div class="row-list" id="pre-breakdown">
+      <div class="row-list-header"><span>Склад преферменту</span><span>Вага</span></div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
+        <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Молоко</div>
+        <span class="row-list-value" id="pre-water">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">Дріжджі/закваска</div>
+        <span class="row-list-value" id="pre-third">0 <span class="unit">г</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
     <div class="card-title-row"><span class="card-title">Baker's Percentages</span></div>
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Гідратація</label>
+      <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon"> Молоко</label>
       <div class="value-box value-box-accent"><input type="number" id="pct-hydration"><span class="value-unit">%</span></div>
     </div>
     <input type="range" id="rng-hydration" class="pct-slider pct-slider-hydration">
@@ -60,7 +88,7 @@
     </div>
     <input type="range" id="rng-butter" class="pct-slider pct-slider-butter">
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon"> Яйця</label>
+      <label class="field-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon"> Яйця + жовтки</label>
       <div class="value-box value-box-accent"><input type="number" id="pct-egg"><span class="value-unit">%</span></div>
     </div>
     <input type="range" id="rng-egg" class="pct-slider pct-slider-egg">
@@ -70,7 +98,17 @@
     </div>
     <input type="range" id="rng-sugar" class="pct-slider pct-slider-sugar">
     <div class="field-row">
-      <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon"> Сухофрукти/горіхи</label>
+      <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon"> Сухофрукти й цукати</label>
+      <div class="value-box value-box-accent"><input type="number" id="pct-oil"><span class="value-unit">%</span></div>
+    </div>
+    <input type="range" id="rng-oil" class="pct-slider pct-slider-oil">
+    <div class="field-row">
+      <label class="field-label"><img src="img/icons/milk.png" alt="" class="row-list-icon"> Ром, ваніль, цедра</label>
+      <div class="value-box value-box-accent"><input type="number" id="pct-milk"><span class="value-unit">%</span></div>
+    </div>
+    <input type="range" id="rng-milk" class="pct-slider pct-slider-milk">
+    <div class="field-row">
+      <label class="field-label"><img src="img/icons/candy.png" alt="" class="row-list-icon"> Смажений мигдаль</label>
       <div class="value-box value-box-accent"><input type="number" id="pct-candy"><span class="value-unit">%</span></div>
     </div>
     <input type="range" id="rng-candy" class="pct-slider pct-slider-candy">
@@ -98,7 +136,7 @@
         <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Гідратація</div>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Молоко</div>
         <span class="row-list-value" id="main-water">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
@@ -114,7 +152,7 @@
         <span class="row-list-value" id="main-butter">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">Яйця</div>
+        <div class="row-list-label"><img src="img/icons/eggs.png" alt="" class="row-list-icon">Яйця + жовтки</div>
         <span class="row-list-value" id="main-egg">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
@@ -122,7 +160,15 @@
         <span class="row-list-value" id="main-sugar">0 <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">Сухофрукти/горіхи</div>
+        <div class="row-list-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">Сухофрукти й цукати</div>
+        <span class="row-list-value" id="main-oil">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/milk.png" alt="" class="row-list-icon">Ром, ваніль, цедра</div>
+        <span class="row-list-value" id="main-milk">0 <span class="unit">г</span></span>
+      </div>
+      <div class="row-list-item">
+        <div class="row-list-label"><img src="img/icons/candy.png" alt="" class="row-list-icon">Смажений мигдаль</div>
         <span class="row-list-value" id="main-candy">0 <span class="unit">г</span></span>
       </div>
     </div>

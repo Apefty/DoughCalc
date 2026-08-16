@@ -1430,6 +1430,18 @@ DoughCalc.routes = {
     json: 'data/json/sweet/pretzels.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
+  'sweet/pretzels-spelt': {
+    file: 'data/pages/sweet/pretzels-spelt.html',
+    json: 'data/json/sweet/pretzels-spelt.json',
+    init: function (data) {
+      DoughCalc.initRecipePage(data, {
+        flourTypes: [
+          { name: 'Цільне спельтове борошно', pct: 50 },
+          { name: 'Біле спельтове борошно', pct: 50 }
+        ]
+      });
+    }
+  },
   'sweet/beesting': {
     file: 'data/pages/sweet/beesting.html',
     json: 'data/json/sweet/beesting.json',
