@@ -12,5 +12,35 @@
   DURATION: 'Тривалість',
   TEMPERATURE: 'Температура',
   USED_IN: 'Використовується в',
-  ITEM_COUNT: '{n} предмет||{n} предмети||{n} предметів'
+  ITEM_COUNT: '{n} предмет||{n} предмети||{n} предметів',
+
+  // Shared recipe-page chrome (used across all recipe cards)
+  BACK: 'Назад',
+  ENTRY_MODE: 'Режим вводу',
+  BY_DOUGH: 'За тістом',
+  BY_FLOUR: 'За борошном',
+  PORTIONS: 'Порції',
+  TOTAL_DOUGH_WEIGHT: 'Загальна вага тіста',
+  UNITS_COUNT: 'Кількість заготовок',
+  WEIGHT_PER_UNIT: 'Вага 1 заготовки',
+  HYDRATION: 'Гідратація',
+  SALT: 'Сіль',
+  YEAST_MAIN: 'Дріжджі (в основний заміс)',
+  FLOUR_TYPES: 'Типи борошна',
+  ADD_TYPE: 'Додати тип',
+  SUM_SHARES: 'Сума часток',
+  MAIN_MIX: 'Основний заміс',
+  INGREDIENT: 'Інгредієнт',
+  LINKS: 'Посилання',
+  YOUTUBE_VIDEO: 'Youtube video',
+  RECIPE_LINK: 'Recipe',
+
+  // Preferment card (recipes that consume a preferment)
+  PREFERMENT: 'Преферемент',
+  TYPE: 'Тип',
+  PCT_OF_FLOUR: '% від загального борошна',
+  PREFERMENT_COMPOSITION: 'Склад преферменту',
+  YEAST_OR_STARTER: 'Дріжджі/закваска',
+  UNIT_G: 'г',
+  UNIT_PCS: 'шт'
 };

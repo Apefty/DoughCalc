@@ -208,3 +208,16 @@ Fixed by separating source from build output:
 - Recovered `biga.hbs.html`'s original placeholders from commit `dba71e1` (the last point they existed before being overwritten).
 
 Going forward: new translated pages should be authored as `<name>.hbs.html`, not by editing `<name>.html` directly — the latter gets clobbered on the next `npm run build`.
+
+## [2026-08-16] — i18n pilot: 2 more pages converted (hand-mixed-white, whole-wheat)
+
+Testing the `.hbs.html` approach on real recipe pages beyond `biga`, per plan (pilot first, decide on full rollout after).
+
+- `bread/hand-mixed-white.hbs.html` (NEW source) — simplest case: no preferment card, single flour type. All shared UI chrome keyed.
+- `bread/whole-wheat.hbs.html` (NEW source) — adds the preferment-card chrome (Тип/% від загального борошна/Склад преферменту/Дріжджі/закваска) on top of the base chrome.
+- 22 new shared keys added to `data/lang/uk.js` + `en.js`: `BACK, ENTRY_MODE, BY_DOUGH, BY_FLOUR, PORTIONS, TOTAL_DOUGH_WEIGHT, UNITS_COUNT, WEIGHT_PER_UNIT, HYDRATION, SALT, YEAST_MAIN, FLOUR_TYPES, ADD_TYPE, SUM_SHARES, MAIN_MIX, INGREDIENT, LINKS, YOUTUBE_VIDEO, RECIPE_LINK, PREFERMENT, TYPE, PCT_OF_FLOUR, PREFERMENT_COMPOSITION, YEAST_OR_STARTER, UNIT_G, UNIT_PCS`. These cover the chrome shared by essentially every recipe page (not just these 2), so they're ready for reuse once we scale up.
+- **Recipe-specific relabeled fields (e.g. "Мед" on whole-wheat) intentionally left untranslated** — that's a separate, much larger task (every card has its own relabeled-field vocabulary) and out of scope for this chrome-only pilot.
+- Found and worked around a Handlebars gotcha: `{{lang.KEY}}` HTML-escapes apostrophes (`Baker's` → `Baker&#x27;s`), so "Baker's Percentages" (identical in both languages anyway) was kept hardcoded rather than keyed, to avoid a spurious diff in the default-locale output.
+- **Verified zero regression:** the default-locale (`uk`) compiled output for both pages is byte-for-byte identical to the pre-conversion files (`git diff` empty).
+
+Not yet decided: whether/how to scale to the remaining ~98 pages (manual per-page keying like this, or a safer scoped automation). `scripts/convert-i18n.ps1` + `scripts/mappings.csv` (the original blind-regex approach) are NOT used for this — global regex replace would corrupt substrings like "борошно" inside flourType names in `cat.js`.
