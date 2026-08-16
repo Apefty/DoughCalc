@@ -39,7 +39,7 @@ DoughCalc.routes = {
     init: function () { DoughCalc.initPrefermentsCatalog(); }
   },
   'preferments/biga': {
-    file: 'data/pages/preferments/biga.html',
+    file: 'data/pages/preferments/biga.hbs.html',
     json: 'data/json/pre/biga.json',
     init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
@@ -196,7 +196,7 @@ DoughCalc.routes = {
     }
   },
   'bread/whole-wheat': {
-    file: 'data/pages/bread/whole-wheat.html',
+    file: 'data/pages/bread/whole-wheat.hbs.html',
     json: 'data/json/bread/whole-wheat.json',
     init: function (data) {
       DoughCalc.initRecipePage(data, {
@@ -825,7 +825,7 @@ DoughCalc.routes = {
     }
   },
   'bread/hand-mixed-white': {
-    file: 'data/pages/bread/hand-mixed-white.html',
+    file: 'data/pages/bread/hand-mixed-white.hbs.html',
     json: 'data/json/bread/hand-mixed-white.json',
     init: function (data) {
       DoughCalc.initRecipePage(data);
@@ -1692,34 +1692,42 @@ DoughCalc.routes = {
   }
 };
 
-/* Locale-aware page loading. Pages are pre-rendered at build time
-   (scripts/prerender.js) into locale-suffixed siblings next to the
-   source file, e.g. data/pages/preferments/biga.html (default: uk)
-   plus biga.en.html. This works identically on GitHub Pages, Netlify,
-   and inside the native Android/Windows wrapper, since it's just a
-   static-file fetch — no server-side rendering involved at runtime.
-   Only pages that have actually been translated get a locale variant;
-   everything else has no .en.html sibling yet and silently falls back
-   to the default-language file. */
-DoughCalc.DEFAULT_LOCALE = 'uk';
+/* Locale-aware page loading. A translated page has exactly ONE source
+   file: data/pages/.../slug.hbs.html, authored with {{lang.KEY}}
+   placeholders. There is no build step and no per-locale copies —
+   Handlebars (vendored at js/vendor/handlebars.min.js, no CDN
+   dependency) compiles the template right in the browser, using
+   whichever language dictionary (data/lang/<code>.json) is currently
+   active. Switching language just means re-fetching a different JSON
+   file and recompiling — same static-file-only approach, so it works
+   identically on GitHub Pages, Netlify, and inside the native
+   Android/Windows wrapper. Pages that haven't been translated yet are
+   still plain slug.html — fetched and used as-is, no compile step. */
+DoughCalc.DEFAULT_LOCALE = 'ua';
 DoughCalc.currentLocale = function () {
   var prefs = DoughCalc.loadPrefs ? DoughCalc.loadPrefs() : {};
   return (prefs && prefs.lang) || DoughCalc.DEFAULT_LOCALE;
 };
-DoughCalc.localizedFile = function (file) {
-  var locale = DoughCalc.currentLocale();
-  if (locale === DoughCalc.DEFAULT_LOCALE) return file;
-  return file.replace(/\.html$/, '.' + locale + '.html');
+DoughCalc.langCache = {};
+DoughCalc.getLangDict = function (locale) {
+  if (DoughCalc.langCache[locale]) return Promise.resolve(DoughCalc.langCache[locale]);
+  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + 'data/lang/' + locale + '.json')).then(function (res) {
+    if (!res.ok) throw new Error('Failed to load language file: ' + locale);
+    return res.json();
+  }).then(function (dict) {
+    DoughCalc.langCache[locale] = dict;
+    return dict;
+  });
 };
-DoughCalc.fetchLocalizedHtml = function (file) {
-  var localizedPath = DoughCalc.localizedFile(file);
-  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + localizedPath)).then(function (res) {
-    if (res.ok) return res.text();
-    if (localizedPath === file) throw new Error('Failed to load ' + file);
-    // No translated variant for this page yet — fall back to default-language file.
-    return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + file)).then(function (fallbackRes) {
-      if (!fallbackRes.ok) throw new Error('Failed to load ' + file);
-      return fallbackRes.text();
+DoughCalc.fetchPageHtml = function (file) {
+  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + file)).then(function (res) {
+    if (!res.ok) throw new Error('Failed to load ' + file);
+    return res.text();
+  }).then(function (rawText) {
+    if (!/\.hbs\.html$/.test(file)) return rawText; // plain page, not yet translated — no compile needed
+    return DoughCalc.getLangDict(DoughCalc.currentLocale()).then(function (dict) {
+      var tpl = Handlebars.compile(rawText);
+      return tpl({ lang: dict });
     });
   });
 };
@@ -1733,7 +1741,7 @@ DoughCalc.navigate = function (route) {
     return;
   }
 
-  var htmlPromise = DoughCalc.fetchLocalizedHtml(r.file);
+  var htmlPromise = DoughCalc.fetchPageHtml(r.file);
   var jsonPromise = r.json
     ? fetch(DoughCalc.withCacheBust(DoughCalc.BASE + r.json)).then(function (res) { return res.ok ? res.json() : null; }).catch(function () { return null; })
     : Promise.resolve(null);

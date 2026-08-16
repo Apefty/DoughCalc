@@ -221,3 +221,13 @@ Testing the `.hbs.html` approach on real recipe pages beyond `biga`, per plan (p
 - **Verified zero regression:** the default-locale (`uk`) compiled output for both pages is byte-for-byte identical to the pre-conversion files (`git diff` empty).
 
 Not yet decided: whether/how to scale to the remaining ~98 pages (manual per-page keying like this, or a safer scoped automation). `scripts/convert-i18n.ps1` + `scripts/mappings.csv` (the original blind-regex approach) are NOT used for this — global regex replace would corrupt substrings like "борошно" inside flourType names in `cat.js`.
+
+## [2026-08-16] — i18n architecture pivot: client-side Handlebars compile (one file per page)
+
+User feedback on the previous approach, all addressed:
+
+1. **"Baker's Percentages" was left untranslated** — fixed, now a real key (`BAKERS_PERCENTAGES`: "Пекарські відсотки" / "Baker's Percentages"), rendered via `{{{lang.BAKERS_PERCENTAGES}}}` (triple-stache — avoids Handlebars HTML-escaping the apostrophe in the English value).
+2. **Locale code `uk` was wrong — should be `ua`.** Renamed `data/lang/uk.js`/`uk.json` back to `ua.js`/`ua.json`, `<option value="uk">`→`<option value="ua">` in both language selects, `DoughCalc.DEFAULT_LOCALE` → `'ua'`.
+3. **Three files per translated page (`.hbs.html` + `.html` + `.en.html`) was not what was wanted — should be one template, data loaded from configs.** Rearchitected: Handlebars now compiles **in the browser**, at request time, instead of at build time in Node. `js/vendor/handlebars.min.js` (89KB, self-hosted from the npm package's browser dist — no CDN dependency, works offline in the native wrapper) is loaded alongside `cat.js`. `DoughCalc.fetchPageHtml()` fetches the raw `.hbs.html` text plus the current locale's `data/lang/<code>.json`, and calls `Handlebars.compile()` client-side. **A translated page is now exactly one file, forever** — switching language just re-fetches a different JSON and recompiles the same template; there's no build step and no per-locale copies to keep in sync.
+- `scripts/prerender.js` deleted, replaced by `scripts/sync-lang-json.js` — its only remaining job is mirroring `data/lang/*.js` (CommonJS, used by the optional local-preview server) into `.json` (fetched by the browser). Run after editing any `data/lang/*.js` file. `package.json`'s `build` script updated to match; the `handlebars` Node dependency was dropped (compilation is client-side now, using the vendored file, not the npm package).
+- Verified: rendering `whole-wheat.hbs.html` with the `ua` dictionary reproduces the pre-i18n original file exactly, except for the now-translated "Пекарські відсотки" heading (previously hardcoded English) — confirmed via diff against the original file from git history.

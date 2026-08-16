@@ -38,5 +38,6 @@
   "PREFERMENT_COMPOSITION": "Preferment composition",
   "YEAST_OR_STARTER": "Yeast/starter",
   "UNIT_G": "g",
-  "UNIT_PCS": "pcs"
+  "UNIT_PCS": "pcs",
+  "BAKERS_PERCENTAGES": "Baker's Percentages"
 }

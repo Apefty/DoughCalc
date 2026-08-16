@@ -42,5 +42,6 @@
   PREFERMENT_COMPOSITION: 'Склад преферменту',
   YEAST_OR_STARTER: 'Дріжджі/закваска',
   UNIT_G: 'г',
-  UNIT_PCS: 'шт'
+  UNIT_PCS: 'шт',
+  BAKERS_PERCENTAGES: 'Пекарські відсотки'
 };
