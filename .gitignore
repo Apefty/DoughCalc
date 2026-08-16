@@ -1,1 +1,28 @@
-data/json/proportions).txt
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json
+.env
+
+# Editor/OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Backups created by conversion script
+*.bak
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+
+# Ignore local runtime PID files
+pids/
+*.pid
+
+# Ignore npm global
+jspm_packages/

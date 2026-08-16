@@ -116,3 +116,55 @@ sweet/tart/sucree → data/pages/sweet/sucree.html
 - sweet/panettone flour-type widget now responds to the add button.
 - #laminated now loads the laminated menu page and #laminated/croissant loads its recipe page correctly.
 - #sweet/tart now opens and #sweet/tart/brisee loads correctly.
+## [2026-08-16] — Localization migration, preview server and tooling
+
+Summary:
+- Added an Express + Handlebars preview server and i18n middleware to support server-side rendering of language keys and a t() helper for interpolation/plurals.
+- Added an automated PowerShell script to batch-replace literal strings with {{lang.KEY}} placeholders using a CSV mapping (with dry-run and backups).
+- Converted one example page (data/pages/preferments/biga.html) to use language keys and added corresponding translations in data/lang/en.js and data/lang/ua.js.
+
+Files added:
+- server/system.js                         — preview server (express + express-handlebars), registers i18n helpers and /set-lang route
+- server/i18n.js                           — locale loader, middleware, Handlebars helper registration, plural/interpolation support
+- package.json                             — minimal manifest and npm start script
+- scripts/convert-i18n.ps1                 — PowerShell mapping replacement script (creates .bak backups)
+- scripts/mappings.csv                      — example mappings CSV
+
+Files modified:
+- data/pages/preferments/biga.html        — replaced hard-coded labels with {{lang.KEY}} placeholders for preview
+- data/lang/en.js                          — added English strings for new keys
+- data/lang/ua.js                          — added Ukrainian strings for new keys (and ITEM_COUNT plural test)
+- data/app.js                              — settings/drawer: language selectors now call /set-lang?lang=XX to notify server and reload
+- README.md                                — added preview server and conversion instructions
+
+Files removed:
+- server/app.js                             — removed (renamed to server/system.js)
+
+Other files created/updated:
+- .gitignore                                — Node + local-ignore entries
+
+Notes:
+- The preview server runs on a Node process and renders the Handlebars templates on the server. Use http://localhost:3000/preferments/biga (add ?lang=ua) to preview.
+- The scripts/convert-i18n.ps1 script performs literal replacements; run with -WhatIf first and inspect .bak files before committing.
+
+Technical detail about static hosts (GitHub Pages / Netlify):
+- GitHub Pages and Netlify (static site mode) do NOT run a persistent Node/Express process to render Handlebars templates at request time. If you deploy this repository to a static-only host, the raw Handlebars templates ({{lang.KEY}}) will be served unchanged.
+
+Recommended options to publish with Handlebars rendering working:
+1) Deploy to a Node-capable host (recommended for server-side rendering):
+   - Render, Railway, Heroku, VPS: run npm install && npm start, the server will handle dynamic rendering and /set-lang cookie behavior.
+
+2) Pre-render templates at build time (Static Site Generation):
+   - Create a build step that loads your locale files and compiles Handlebars templates into static HTML per locale. Commit the generated HTML to the branch used by GitHub Pages/Netlify. This works well if sites are mostly static.
+
+3) Use serverless functions or On-Demand Builders (advanced):
+   - Netlify Functions, Vercel Serverless Functions or Netlify On-Demand Builders can run Node code per request to render templates. This requires wiring endpoints and routing and may incur higher complexity/latency.
+
+4) Client-side i18n fallback:
+   - Keep templates static and use a small client-side script that loads the appropriate data/lang/*.js and replaces data-i18n or placeholders in DOM. This avoids server changes but pushes translation to client and requires additional JS.
+
+If you want, I can:
+- Initialize a local git commit including all changes (I will not push to any remote unless you ask),
+- Or prepare a build step to pre-render templates for static hosts,
+- Or create a small client-side fallback script to make Live Server show translated text.
+

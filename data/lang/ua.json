@@ -1,0 +1,16 @@
+{
+  "BIGA": "Біга",
+  "CALCULATION": "Розрахунок",
+  "FLOUR_WEIGHT": "Вага борошна",
+  "COMPOSITION": "Склад",
+  "WEIGHT": "Вага",
+  "FLOUR": "Борошно",
+  "WATER": "Вода",
+  "YEAST": "Дріжджі",
+  "TOTAL_PREFERMENT_WEIGHT": "Загальна вага преферменту",
+  "FERMENTATION": "Ферментація",
+  "DURATION": "Тривалість",
+  "TEMPERATURE": "Температура",
+  "USED_IN": "Використовується в",
+  "ITEM_COUNT": "{n} предмет||{n} предмети||{n} предметів"
+}

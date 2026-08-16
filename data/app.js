@@ -133,6 +133,12 @@ DoughCalc.initDrawer = function () {
       var p = DoughCalc.loadPrefs();
       p.lang = langSelect.value;
       DoughCalc.savePrefs(p);
+      // Notify server preview by setting a lang cookie and reloading
+      try {
+        fetch('/set-lang?lang=' + encodeURIComponent(langSelect.value), { credentials: 'same-origin' })
+          .then(function () { location.reload(); })
+          .catch(function () { /* ignore fetch errors */ });
+      } catch (e) { /* ignore */ }
     });
   }
   if (themeSelect) {
@@ -194,6 +200,12 @@ DoughCalc.initSettingsPage = function () {
       saveField('lang', langSelect.value);
       var drawerLang = document.getElementById('drawer-lang');
       if (drawerLang) drawerLang.value = langSelect.value;
+      // Notify server preview by setting a lang cookie and reloading
+      try {
+        fetch('/set-lang?lang=' + encodeURIComponent(langSelect.value), { credentials: 'same-origin' })
+          .then(function () { location.reload(); })
+          .catch(function () { /* ignore fetch errors */ });
+      } catch (e) { /* ignore */ }
     });
   }
   if (unitsSelect) {

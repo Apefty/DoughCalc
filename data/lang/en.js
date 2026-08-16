@@ -1,0 +1,16 @@
+﻿module.exports = {
+  BIGA: 'Biga',
+  CALCULATION: 'Calculation',
+  FLOUR_WEIGHT: 'Flour weight',
+  COMPOSITION: 'Composition',
+  WEIGHT: 'Weight',
+  FLOUR: 'Flour',
+  WATER: 'Water',
+  YEAST: 'Yeast',
+  TOTAL_PREFERMENT_WEIGHT: 'Total preferment weight',
+  FERMENTATION: 'Fermentation',
+  DURATION: 'Duration',
+  TEMPERATURE: 'Temperature',
+  USED_IN: 'Used in',
+  ITEM_COUNT: '{n} item||{n} items'
+};

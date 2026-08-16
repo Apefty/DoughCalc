@@ -1,0 +1,19 @@
+original,key
+Біга,BIGA
+Розрахунок,CALCULATION
+Вага борошна,FLOUR_WEIGHT
+Склад,COMPOSITION
+Вага,WEIGHT
+Борошно,FLOUR
+Вода,WATER
+Дріжджі,YEAST
+Загальна вага преферменту,TOTAL_PREFERMENT_WEIGHT
+Ферментація,FERMENTATION
+Тривалість,DURATION
+Температура,TEMPERATURE
+Використовується в,USED_IN
+Преферемент,PREFERMENT
+Порції,PORTIONS
+Борошно - ,FLOUR_LABEL
+Вага 1 заготовки,WEIGHT_PER_UNIT
+Кількість заготовок,UNITS_COUNT
