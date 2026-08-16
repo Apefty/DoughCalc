@@ -54,66 +54,52 @@ Handlebars.registerHelper('t', function (key, options) {
   return new Handlebars.SafeString(chosen);
 });
 
-function walkDir(dir, cb) {
+// Source templates live as <name>.hbs.html — this file is the one you
+// hand-edit with {{lang.KEY}} placeholders and it is NEVER written to
+// by this script. Build output goes to sibling compiled files:
+//   <name>.html       — default-locale (uk) compiled render, fetched
+//                        directly by cat.js for the default language
+//   <name>.<code>.html — compiled render for every other locale
+function findTemplates(dir, cb) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   entries.forEach(e => {
     const full = path.join(dir, e.name);
-    if (e.isDirectory()) walkDir(full, cb);
-    else cb(full);
+    if (e.isDirectory()) findTemplates(full, cb);
+    else if (e.name.endsWith('.hbs.html')) cb(full);
   });
-}
-
-// Only pages actually authored with {{lang.KEY}} placeholders need
-// per-locale output. Untouched pages keep their raw literal Ukrainian
-// text and are fetched as-is by cat.js (no build step needed for them).
-function hasLangPlaceholders(src) {
-  return /\{\{\s*lang\.[A-Z0-9_]+\s*\}\}/.test(src);
 }
 
 function prerender() {
   const locales = fs.readdirSync(LANG_DIR).filter(f => f.endsWith('.js')).map(f => path.basename(f, '.js'));
 
   // Refresh the .json mirrors (kept for any tooling/inspection that wants
-  // plain JSON dictionaries; not required by the runtime SPA anymore).
+  // plain JSON dictionaries; not required by the runtime SPA itself).
   locales.forEach(code => writeJSON(code, loadLocale(code)));
 
-  const pages = [];
-  walkDir(PAGES_DIR, file => { if (file.endsWith('.html')) pages.push(file); });
+  const templates = [];
+  findTemplates(PAGES_DIR, file => templates.push(file));
 
-  let converted = 0;
-  pages.forEach(file => {
-    const tplSrc = fs.readFileSync(file, 'utf8');
-    if (!hasLangPlaceholders(tplSrc)) return; // leave untouched pages alone
-    converted++;
+  templates.forEach(templateFile => {
+    const tplSrc = fs.readFileSync(templateFile, 'utf8');
     const tpl = Handlebars.compile(tplSrc);
-    const dir = path.dirname(file);
-    const base = path.basename(file, '.html');
+    const dir = path.dirname(templateFile);
+    const base = path.basename(templateFile, '.hbs.html');
 
     locales.forEach(code => {
-      const en = loadLocale(DEFAULT_LOCALE);
+      const defaultLang = loadLocale(DEFAULT_LOCALE);
       const loc = loadLocale(code);
-      const merged = Object.assign({}, en, loc);
+      const merged = Object.assign({}, defaultLang, loc);
       const ctx = { lang: merged, __locale: code };
       const html = tpl(ctx);
 
-      if (code === DEFAULT_LOCALE) {
-        // The default locale overwrites the original bare filename —
-        // cat.js fetches that directly for the default locale, never a
-        // suffixed variant, so writing biga.uk.html too would just be
-        // a dead duplicate.
-        fs.writeFileSync(file, html, 'utf8');
-        console.log('Wrote (default)', path.relative(ROOT, file));
-      } else {
-        // Locale-suffixed variant, e.g. biga.en.html — fetched by cat.js
-        // when the active language differs from the default.
-        const outPath = path.join(dir, `${base}.${code}.html`);
-        fs.writeFileSync(outPath, html, 'utf8');
-        console.log('Wrote', path.relative(ROOT, outPath));
-      }
+      const outName = (code === DEFAULT_LOCALE) ? `${base}.html` : `${base}.${code}.html`;
+      const outPath = path.join(dir, outName);
+      fs.writeFileSync(outPath, html, 'utf8');
+      console.log('Wrote', path.relative(ROOT, outPath));
     });
   });
 
-  console.log(`Prerender complete. ${converted} page(s) had {{lang.*}} placeholders and were compiled for ${locales.length} locale(s).`);
+  console.log(`Prerender complete. ${templates.length} template(s) compiled for ${locales.length} locale(s).`);
 }
 
 prerender();
