@@ -39,7 +39,7 @@ DoughCalc.routes = {
     init: function () { DoughCalc.initPrefermentsCatalog(); }
   },
   'preferments/biga': {
-    file: 'data/pages/preferments/biga.hbs.html',
+    file: 'data/pages/preferments/biga.html',
     json: 'data/json/pre/biga.json',
     init: function (data) { DoughCalc.initPrefermentPage(data); }
   },
@@ -196,7 +196,7 @@ DoughCalc.routes = {
     }
   },
   'bread/whole-wheat': {
-    file: 'data/pages/bread/whole-wheat.hbs.html',
+    file: 'data/pages/bread/whole-wheat.html',
     json: 'data/json/bread/whole-wheat.json',
     init: function (data) {
       DoughCalc.initRecipePage(data, {
@@ -825,7 +825,7 @@ DoughCalc.routes = {
     }
   },
   'bread/hand-mixed-white': {
-    file: 'data/pages/bread/hand-mixed-white.hbs.html',
+    file: 'data/pages/bread/hand-mixed-white.html',
     json: 'data/json/bread/hand-mixed-white.json',
     init: function (data) {
       DoughCalc.initRecipePage(data);
@@ -1692,17 +1692,20 @@ DoughCalc.routes = {
   }
 };
 
-/* Locale-aware page loading. A translated page has exactly ONE source
-   file: data/pages/.../slug.hbs.html, authored with {{lang.KEY}}
-   placeholders. There is no build step and no per-locale copies —
-   Handlebars (vendored at js/vendor/handlebars.min.js, no CDN
-   dependency) compiles the template right in the browser, using
+/* Locale-aware page loading. Every card is a single file, forever:
+   data/pages/.../slug.html. Cards not yet converted are plain HTML;
+   converted ones contain {{lang.KEY}} placeholders. There is no build
+   step and no per-locale copies — Handlebars (vendored at
+   js/vendor/handlebars.min.js, no CDN dependency) compiles the
+   fetched text right in the browser on every navigation, using
    whichever language dictionary (data/lang/<code>.json) is currently
-   active. Switching language just means re-fetching a different JSON
-   file and recompiling — same static-file-only approach, so it works
+   active. A page with no {{ }} syntax just compiles to itself
+   unchanged, so plain (not-yet-converted) pages work identically to
+   before — no extension convention, no renaming, ever. Switching
+   language just means re-fetching a different JSON file and
+   recompiling — same static-file-only approach, so it works
    identically on GitHub Pages, Netlify, and inside the native
-   Android/Windows wrapper. Pages that haven't been translated yet are
-   still plain slug.html — fetched and used as-is, no compile step. */
+   Android/Windows wrapper. */
 DoughCalc.DEFAULT_LOCALE = 'ua';
 DoughCalc.currentLocale = function () {
   var prefs = DoughCalc.loadPrefs ? DoughCalc.loadPrefs() : {};
@@ -1724,7 +1727,6 @@ DoughCalc.fetchPageHtml = function (file) {
     if (!res.ok) throw new Error('Failed to load ' + file);
     return res.text();
   }).then(function (rawText) {
-    if (!/\.hbs\.html$/.test(file)) return rawText; // plain page, not yet translated — no compile needed
     return DoughCalc.getLangDict(DoughCalc.currentLocale()).then(function (dict) {
       var tpl = Handlebars.compile(rawText);
       return tpl({ lang: dict });
