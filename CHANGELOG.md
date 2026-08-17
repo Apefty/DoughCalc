@@ -241,3 +241,14 @@ Scanned all 251 card files, extracted every unique untranslated string, drafted 
 - 9 preferment-page titles (Левен, Опара, Молочний левен, Левіто Мадре, Зальцзауер, Фруктовий стартер, Замочування, Заварка, Дезем) turned out to be exact-text duplicates of already-existing keys (`LEVAIN`, `OPARA`, etc.) — reused instead of creating redundant keys.
 - Flagged 2 spelling/wording inconsistencies for the user to resolve later (not silently fixed): "Пулиш" (page title) vs "Пуліш" (existing `POLISH` key value); "Закваска" (`SOURDOUGH` key) vs "Закваска (Sourdough)" (page title, has an extra parenthetical).
 - **No card HTML touched this commit** — dictionaries are now comprehensive and ready; card-by-card `{{lang.KEY}}` conversion is a separate, explicitly-gated next step.
+
+## [2026-08-17] — i18n: Преферменти section fully converted (16/16 pages)
+
+First full section converted end-to-end per "go section by section, top to bottom" plan. All static HTML in `data/pages/preferments/` now uses `{{lang.KEY}}` — pref.html (hub) + 15 preferment pages (biga was already done; +14 more this batch: desem, detmolder, levain, lievito-madre, milk-levain, opara, pf, pie-de-masa, poolish, raisin-juice, salzsauer, soakers, sourdough, sponge, zavarka).
+
+- 13 new keys added: `CLASSIC/LIQUID/SHORT` (sponge tabs, reusable elsewhere), `SOURDOUGH_BUILD`, `MIX`, `YIELD`, `UNIT_ML`, `DETMOLDER_REFRESH/BASIC/FULL`, `GENERAL`, `BARLEY`, `SOAKER_RICE_NOTE` (long descriptive paragraph, rendered via triple-stache `{{{ }}}` — contains an apostrophe in "об'єм").
+- `pf.html`/`pie-de-masa.html` titles ("Pâte fermentée", "Pie de Masa") intentionally left un-keyed — already-Latin proper terms, identical in both languages.
+- Compile-tested all 16 files against both `ua.json`/`en.json` — zero leftover `{{`, zero errors.
+- Dictionary: 285 → 298 keys.
+
+**Known gap, flagged not fixed:** the preferments hub page's menu-card titles/subtitles (`.menu-card-title`/`.menu-card-sub`) and several `initPrefermentPage`/`initPrefermentsCatalog` strings in `calc.js` ('Закваска'/'Дріжджі' third-ingredient label, '% гідратації' pill text, 'Материнська культура + білди (Stiff/Liquid)', 'N варіанти') are **JS-generated at runtime**, not static HTML — Handlebars template substitution doesn't reach them. These need a JS-level i18n call (`calc.js` reading `DoughCalc.getLangDict()` itself) — a different, separate mechanism from the `{{lang.KEY}}` approach, out of scope for this pass.

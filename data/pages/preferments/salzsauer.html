@@ -1,9 +1,9 @@
 <header class="app-header" id="salzsauer">
-  <a data-route="preferments" class="icon-btn" aria-label="Назад">
+  <a data-route="preferments" class="icon-btn" aria-label="{{lang.BACK}}">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
-    <h1 class="page-title">Зальцзауер</h1>
+    <h1 class="page-title">{{lang.SALZSAUER}}</h1>
   </div>
   <span class="icon-btn"></span>
 </header>
@@ -17,18 +17,18 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Розрахунок</span>
+      <span class="card-title">{{lang.CALCULATION}}</span>
       <div class="segmented" id="mode-toggle">
-        <button class="segmented-item is-active" data-mode="flour">За борошном</button>
-        <button class="segmented-item" data-mode="total">За тістом</button>
+        <button class="segmented-item is-active" data-mode="flour">{{lang.BY_FLOUR}}</button>
+        <button class="segmented-item" data-mode="total">{{lang.BY_DOUGH}}</button>
       </div>
     </div>
 
     <div class="field-row">
-      <label for="input-weight" class="field-label" id="input-label">Вага борошна</label>
+      <label for="input-weight" class="field-label" id="input-label">{{lang.FLOUR_WEIGHT}}</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-weight" value="300" step="1" min="0">
-        <span class="value-unit">г</span>
+        <span class="value-unit">{{lang.UNIT_G}}</span>
       </div>
     </div>
 
@@ -36,44 +36,44 @@
 
     <div class="row-list">
       <div class="row-list-header">
-        <span>Склад</span>
-        <span>Вага</span>
+        <span>{{lang.COMPOSITION}}</span>
+        <span>{{lang.WEIGHT}}</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
-        <span class="row-list-value" id="out-flour">– <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">{{lang.FLOUR}}</div>
+        <span class="row-list-value" id="out-flour">– <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
-        <span class="row-list-value" id="out-water">– <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">{{lang.WATER}}</div>
+        <span class="row-list-value" id="out-water">– <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label" id="third-label"><img src="img/icons/starter.png" alt="" class="row-list-icon" id="third-icon">Закваска</div>
-        <span class="row-list-value" id="out-third">– <span class="unit">г</span></span>
+        <div class="row-list-label" id="third-label"><img src="img/icons/starter.png" alt="" class="row-list-icon" id="third-icon">{{lang.SOURDOUGH}}</div>
+        <span class="row-list-value" id="out-third">– <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">Сіль</div>
-        <span class="row-list-value" id="out-salt">– <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">{{lang.SALT}}</div>
+        <span class="row-list-value" id="out-salt">– <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
     </div>
 
     <div class="summary-box">
-      <span>Загальна вага преферменту</span><br>
-      <strong id="out-total">– г</strong>
+      <span>{{lang.TOTAL_PREFERMENT_WEIGHT}}</span><br>
+      <strong id="out-total">– {{lang.UNIT_G}}</strong>
     </div>
   </section>
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Ферментація</span>
+      <span class="card-title">{{lang.FERMENTATION}}</span>
     </div>
     <div class="row-list">
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/hourglass.png" alt="" class="row-list-icon">Тривалість</div>
+        <div class="row-list-label"><img src="img/icons/hourglass.png" alt="" class="row-list-icon">{{lang.DURATION}}</div>
         <span class="row-list-value" id="ferment-duration"></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/temperature.png" alt="" class="row-list-icon">Температура</div>
+        <div class="row-list-label"><img src="img/icons/temperature.png" alt="" class="row-list-icon">{{lang.TEMPERATURE}}</div>
         <span class="row-list-value" id="ferment-temp"></span>
       </div>
     </div>
@@ -81,7 +81,7 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Використовується в</span>
+      <span class="card-title">{{lang.USED_IN}}</span>
     </div>
     <div class="tag-row" id="used-in-tags"></div>
   </section>
