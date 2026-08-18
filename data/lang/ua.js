@@ -673,4 +673,21 @@ module.exports = {
   CROISSANT_TWOTONE_CHOC_SUB: 'Частина тіста з какао',
   CROISSANT_GARLIC_HERB_SUB: 'Пікантний варіант',
   CROISSANT_FLAKY_ROLLS_SUB: 'Найпростіший варіант',
+
+  // Enriched section recipe titles (batch, 2026-08-18)
+  BERNE_BROT: 'Берн-брот (Berne Brot)',
+  BUTTERMILK_BREAD: 'Хліб на маслянці',
+  CHALLAH: 'Хала (Challah)',
+  OATMEAL_CIN_RAISINS_BREAD: 'Вівсяний з корицею й родзинками',
+  OATMEAL_BREAD: 'Вівсяний хліб',
+  PULLMAN_BREAD: 'Пульман (формовий хліб)',
+
+  // Enriched hub card subtitles (batch, 2026-08-18)
+  CHALLAH_SUB: 'Пряме здобне тісто: олія, яйця, цукор',
+  BERNE_BROT_SUB: 'Пряме тісто на молоці, з маслом',
+  PULLMAN_BREAD_SUB: 'Формовий хліб, молочний порошок+масло',
+  TOAST_BREAD_SUB: 'Формовий тостовий хліб, з маслом',
+  OATMEAL_BREAD_SUB: 'Пряме тісто, вівсянка+масло+мед',
+  OATMEAL_CIN_RAISINS_BREAD_SUB: 'Пряме тісто, вівсянка+родзинки+кориця',
+  BUTTERMILK_BREAD_SUB: 'На кисляку, PF, цільнозернове',
 };

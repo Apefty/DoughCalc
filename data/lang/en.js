@@ -673,4 +673,21 @@ module.exports = {
   CROISSANT_TWOTONE_CHOC_SUB: 'Part of the dough with cocoa',
   CROISSANT_GARLIC_HERB_SUB: 'Savory variant',
   CROISSANT_FLAKY_ROLLS_SUB: 'The simplest variant',
+
+  // Enriched section recipe titles (batch, 2026-08-18)
+  BERNE_BROT: 'Berne Brot',
+  BUTTERMILK_BREAD: 'Buttermilk Bread',
+  CHALLAH: 'Challah',
+  OATMEAL_CIN_RAISINS_BREAD: 'Oatmeal w/ Cin/Raisins',
+  OATMEAL_BREAD: 'Oatmeal Bread',
+  PULLMAN_BREAD: 'Pullman Bread',
+
+  // Enriched hub card subtitles (batch, 2026-08-18)
+  CHALLAH_SUB: 'Straight enriched dough: oil, eggs, sugar',
+  BERNE_BROT_SUB: 'Straight dough on milk, with butter',
+  PULLMAN_BREAD_SUB: 'Pan bread, milk powder+butter',
+  TOAST_BREAD_SUB: 'Pan toast bread, with butter',
+  OATMEAL_BREAD_SUB: 'Straight dough, oats+butter+honey',
+  OATMEAL_CIN_RAISINS_BREAD_SUB: 'Straight dough, oats+raisins+cinnamon',
+  BUTTERMILK_BREAD_SUB: 'On buttermilk, PF, whole-grain',
 };
