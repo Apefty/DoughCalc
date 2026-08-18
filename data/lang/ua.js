@@ -690,4 +690,22 @@ module.exports = {
   OATMEAL_BREAD_SUB: 'Пряме тісто, вівсянка+масло+мед',
   OATMEAL_CIN_RAISINS_BREAD_SUB: 'Пряме тісто, вівсянка+родзинки+кориця',
   BUTTERMILK_BREAD_SUB: 'На кисляку, PF, цільнозернове',
+
+  // Flatbread section recipe titles (batch, 2026-08-18)
+  FLATBREAD_CASSONI: 'Кассоні / тісто консум (Hazan)',
+  FLATBREAD_GRISSINI: 'Грісіні',
+  FLATBREAD_LAVASH: 'Лаваш',
+  FLATBREAD_PIADINA: 'П’ядина (Hazan)',
+  FLATBREAD_SESAME_BREADSTICKS: 'Кунжутні хлібні палички',
+  FLATBREAD_SOCCA: 'Сокка',
+  FLATBREAD_TARTE_FLAMBEE: 'Тарт Фламбе',
+
+  // Flatbread hub card subtitles (batch, 2026-08-18)
+  FLATBREAD_TARTE_FLAMBEE_SUB: 'Ельзаський тонкий пиріг-основа',
+  FLATBREAD_SESAME_BREADSTICKS_SUB: 'Хлібні палички з маслом і кунжутом',
+  FLATBREAD_GRISSINI_SUB: 'Хрусткі італійські палички, олія 8%',
+  FLATBREAD_LAVASH_SUB: 'Тонкий коржовий хліб, масло+цукор',
+  FLATBREAD_SOCCA_SUB: 'Млинець з нутового борошна, 150% гідр.',
+  FLATBREAD_PIADINA_SUB: 'Романьольська, на соді',
+  FLATBREAD_CASSONI_SUB: 'Фаршировані коржики, на розпушувачі',
 };

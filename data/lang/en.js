@@ -690,4 +690,22 @@ module.exports = {
   OATMEAL_BREAD_SUB: 'Straight dough, oats+butter+honey',
   OATMEAL_CIN_RAISINS_BREAD_SUB: 'Straight dough, oats+raisins+cinnamon',
   BUTTERMILK_BREAD_SUB: 'On buttermilk, PF, whole-grain',
+
+  // Flatbread section recipe titles (batch, 2026-08-18)
+  FLATBREAD_CASSONI: 'Cassoni / Consum Dough (Hazan)',
+  FLATBREAD_GRISSINI: 'Grissini',
+  FLATBREAD_LAVASH: 'Lavash',
+  FLATBREAD_PIADINA: 'Piadina (Hazan)',
+  FLATBREAD_SESAME_BREADSTICKS: 'Sesame Bread Sticks',
+  FLATBREAD_SOCCA: 'Socca',
+  FLATBREAD_TARTE_FLAMBEE: 'Tarte Flambée',
+
+  // Flatbread hub card subtitles (batch, 2026-08-18)
+  FLATBREAD_TARTE_FLAMBEE_SUB: 'Alsatian thin flatbread base',
+  FLATBREAD_SESAME_BREADSTICKS_SUB: 'Bread sticks with butter and sesame',
+  FLATBREAD_GRISSINI_SUB: 'Crisp Italian sticks, 8% oil',
+  FLATBREAD_LAVASH_SUB: 'Thin flatbread, butter+sugar',
+  FLATBREAD_SOCCA_SUB: 'Chickpea-flour pancake, 150% hydration',
+  FLATBREAD_PIADINA_SUB: 'Romagnola-style, leavened with soda',
+  FLATBREAD_CASSONI_SUB: 'Stuffed flatbreads, baking-powder leavened',
 };
