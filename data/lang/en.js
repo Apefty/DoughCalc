@@ -657,4 +657,20 @@ module.exports = {
   BRIOCHE_SUB: 'Enriched sweet dough',
   PASKA_SUB: 'Easter sweet bread',
   TARTS_SUB: 'Shortcrust (pâte sucrée/sablée)',
+
+  // Laminated section recipe titles (batch, 2026-08-18)
+  LAMINATED_FLAKY_PASTRY: 'Flaky Pastry',
+  CROISSANT_FLAKY_ROLLS: 'Petits Pains Feuilletés',
+
+  // Laminated hub card subtitles (batch, 2026-08-18)
+  CROISSANT_SUB: '4 variants, lamination butter',
+  FEUILLETE_SUB: 'Laminated brioche dough',
+  FEUILLETE_FERRANDI_SUB: 'Much more lamination butter',
+  LAMINATED_FLAKY_PASTRY_SUB: 'Quick flaky pastry, butter+lard',
+  PUFF_PASTRY_CLASSIC_SUB: 'Detrempe + beurrage, butter 1:1 to flour',
+  PUFF_PASTRY_COMPACT_SUB: 'Yield ~800g, less butter',
+  STANDARD_SUB: 'Classic laminated yeasted dough',
+  CROISSANT_TWOTONE_CHOC_SUB: 'Part of the dough with cocoa',
+  CROISSANT_GARLIC_HERB_SUB: 'Savory variant',
+  CROISSANT_FLAKY_ROLLS_SUB: 'The simplest variant',
 };

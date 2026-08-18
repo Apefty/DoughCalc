@@ -657,4 +657,20 @@ module.exports = {
   BRIOCHE_SUB: 'Збагачене здобне тісто',
   PASKA_SUB: 'Великодня здоба',
   TARTS_SUB: 'Пісочне тісто (pâte sucrée/sablée)',
+
+  // Laminated section recipe titles (batch, 2026-08-18)
+  LAMINATED_FLAKY_PASTRY: 'Листкове тісто',
+  CROISSANT_FLAKY_ROLLS: 'Petits Pains Feuilletés',
+
+  // Laminated hub card subtitles (batch, 2026-08-18)
+  CROISSANT_SUB: '4 варіанти, масло для ламінації',
+  FEUILLETE_SUB: 'Ламіноване бріошеве тісто',
+  FEUILLETE_FERRANDI_SUB: 'Значно більше масла для ламінації',
+  LAMINATED_FLAKY_PASTRY_SUB: 'Швидке шарувате тісто, масло+смалець',
+  PUFF_PASTRY_CLASSIC_SUB: 'Detrempe + beurrage, масло 1:1 до борошна',
+  PUFF_PASTRY_COMPACT_SUB: 'Вихід ~800г, менше масла',
+  STANDARD_SUB: 'Класичне листкове дріжджове тісто',
+  CROISSANT_TWOTONE_CHOC_SUB: 'Частина тіста з какао',
+  CROISSANT_GARLIC_HERB_SUB: 'Пікантний варіант',
+  CROISSANT_FLAKY_ROLLS_SUB: 'Найпростіший варіант',
 };
