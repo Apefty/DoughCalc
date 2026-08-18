@@ -561,4 +561,32 @@ module.exports = {
   FOCACCIA_SUB: '7 variations, from Ligurian to Bertinet',
   PASTA_SUB: 'Egg, green, Apulian, buckwheat (Hazan)',
   BATTER_SUB: 'Crespelle, pancakes (Hazan)',
+
+  // Baguette section recipe titles (batch, 2026-08-18)
+  BAGUETTE_BACON_ROLLS: 'Bacon Rolls',
+  BAGUETTE_CHOC_VIENNA: 'Chocolate Chip Vienna',
+  BAGUETTE_MARCHAND_DU_VIN: 'Marchand du Vin',
+  BAGUETTE_PF: 'Pâte fermentée',
+  BAGUETTE_POINTAGE_EN_BAC: 'Pointage en Bac',
+  BAGUETTE_RUSTIC_SOURDOUGH: 'Rustic Sourdough',
+  BAGUETTE_SOURDOUGH_LIQUID_LEVAIN: 'Sourdough (Liquid Levain)',
+  BAGUETTE_UNKNEADED: 'Unkneaded Six-fold',
+  BAGUETTE_VIENNA: 'Vienna Baguettes',
+  BAGUETTE_WHITE_DOUGH: 'White Dough (Bertinet)',
+
+  // Baguette hub card subtitles (batch, 2026-08-18)
+  TRADITIONAL_SUB: 'Straight dough, no preferment',
+  BAGUETTE_POINTAGE_EN_BAC_SUB: 'Straight dough with cold retard',
+  BAGUETTE_UNKNEADED_SUB: 'Minimal kneading, structure via folding',
+  BAGUETTE_WHITE_DOUGH_SUB: 'Basic straight dough',
+  BAGUETTE_PF_SUB: '25% preferment flour',
+  POOLISH_NAME_SUB: '33% preferment flour',
+  TRADITIONAL_POOLISH_SUB: 'T65, 16.7% preferment',
+  MULTISEED_POOLISH_SUB: 'Poolish + toasted seeds',
+  BAGUETTE_VIENNA_SUB: 'Enriched, butter + milk powder',
+  BAGUETTE_CHOC_VIENNA_SUB: 'Enriched, butter + chocolate chips',
+  BAGUETTE_SOURDOUGH_LIQUID_LEVAIN_SUB: 'Hamelman, 15% preferment',
+  BAGUETTE_RUSTIC_SOURDOUGH_SUB: 'T80, stiff levain, no commercial yeast',
+  BAGUETTE_MARCHAND_DU_VIN_SUB: 'Stiff levain + a bit of yeast',
+  BAGUETTE_BACON_ROLLS_SUB: 'Liquid levain, no commercial yeast',
 };

@@ -561,4 +561,32 @@ module.exports = {
   FOCACCIA_SUB: '7 варіантів, від Ligurian до Bertinet',
   PASTA_SUB: 'Яєчна, зелена, апулійська, гречана (Hazan)',
   BATTER_SUB: 'Креспелле, млинці (Hazan)',
+
+  // Baguette section recipe titles (batch, 2026-08-18)
+  BAGUETTE_BACON_ROLLS: 'Багетні булочки з беконом',
+  BAGUETTE_CHOC_VIENNA: 'Віденська з шоколадною крихтою',
+  BAGUETTE_MARCHAND_DU_VIN: 'Marchand du Vin',
+  BAGUETTE_PF: 'Pâte fermentée',
+  BAGUETTE_POINTAGE_EN_BAC: 'Pointage en Bac',
+  BAGUETTE_RUSTIC_SOURDOUGH: 'Сільський на заквасці',
+  BAGUETTE_SOURDOUGH_LIQUID_LEVAIN: 'На заквасці (рідкий левен)',
+  BAGUETTE_UNKNEADED: 'Без замісу, шестикратне складання',
+  BAGUETTE_VIENNA: 'Віденські багети',
+  BAGUETTE_WHITE_DOUGH: 'Біле тісто (Bertinet)',
+
+  // Baguette hub card subtitles (batch, 2026-08-18)
+  TRADITIONAL_SUB: 'Пряме тісто, без преферменту',
+  BAGUETTE_POINTAGE_EN_BAC_SUB: 'Пряме тісто з холодною ретардацією',
+  BAGUETTE_UNKNEADED_SUB: 'Малозамішане, структура через складання',
+  BAGUETTE_WHITE_DOUGH_SUB: 'Базове пряме тісто',
+  BAGUETTE_PF_SUB: '25% преферментованого борошна',
+  POOLISH_NAME_SUB: '33% преферментованого борошна',
+  TRADITIONAL_POOLISH_SUB: 'T65, 16.7% преферменту',
+  MULTISEED_POOLISH_SUB: 'Пулиш + підсмажене насіння',
+  BAGUETTE_VIENNA_SUB: 'Здобне, масло + молочний порошок',
+  BAGUETTE_CHOC_VIENNA_SUB: 'Здобне, масло + шоколадні краплі',
+  BAGUETTE_SOURDOUGH_LIQUID_LEVAIN_SUB: 'Hamelman, 15% преферменту',
+  BAGUETTE_RUSTIC_SOURDOUGH_SUB: 'T80, щільний левен, без дріжджів',
+  BAGUETTE_MARCHAND_DU_VIN_SUB: 'Щільний левен + трохи дріжджів',
+  BAGUETTE_BACON_ROLLS_SUB: 'Рідкий левен, без дріжджів',
 };

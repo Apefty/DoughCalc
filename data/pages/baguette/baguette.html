@@ -1,126 +1,126 @@
 <header class="app-header" id="baguette">
-  <a data-route="" class="icon-btn" aria-label="Назад">
+  <a data-route="" class="icon-btn" aria-label="{{lang.BACK}}">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
-    <h1 class="page-title">Багети</h1>
+    <h1 class="page-title">{{lang.BAGUETTES}}</h1>
   </div>
   <span class="icon-btn"></span>
 </header>
 
 <main class="menu">
 
-  <nav class="menu-grid" aria-label="Багети">
+  <nav class="menu-grid" aria-label="{{lang.BAGUETTES}}">
 
     <a data-route="baguette/tradition" class="menu-card" data-baguette="tradition">
       <img src="img/icons/baguette2.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Традиційні</span>
-        <span class="menu-card-sub">Пряме тісто, без преферменту</span>
+        <span class="menu-card-title">{{lang.TRADITIONAL}}</span>
+        <span class="menu-card-sub">{{lang.TRADITIONAL_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/pointage-en-bac" class="menu-card" data-baguette="pointage-en-bac">
       <img src="img/icons/baguette.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Pointage en Bac</span>
-        <span class="menu-card-sub">Пряме тісто з холодною ретардацією</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_POINTAGE_EN_BAC}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_POINTAGE_EN_BAC_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/unkneaded" class="menu-card" data-baguette="unkneaded">
       <img src="img/icons/baguette.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Unkneaded Six-fold</span>
-        <span class="menu-card-sub">Малозамішане, структура через складання</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_UNKNEADED}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_UNKNEADED_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/white-dough" class="menu-card" data-baguette="white-dough">
       <img src="img/icons/baguette.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">White Dough (Bertinet)</span>
-        <span class="menu-card-sub">Базове пряме тісто</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_WHITE_DOUGH}} (Bertinet)</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_WHITE_DOUGH_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/pf" class="menu-card" data-baguette="pf">
       <img src="img/icons/pf.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Pâte fermentée</span>
-        <span class="menu-card-sub">25% преферментованого борошна</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_PF}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_PF_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/poolish" class="menu-card" data-baguette="poolish">
       <img src="img/icons/poolish.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Пулиш (Hamelman)</span>
-        <span class="menu-card-sub">33% преферментованого борошна</span>
+        <span class="menu-card-title">{{lang.POOLISH_NAME}} (Hamelman)</span>
+        <span class="menu-card-sub">{{lang.POOLISH_NAME_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/traditional-poolish" class="menu-card" data-baguette="traditional-poolish">
       <img src="img/icons/poolish.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Традиційний пулиш (Ferrandi)</span>
-        <span class="menu-card-sub">T65, 16.7% преферменту</span>
+        <span class="menu-card-title">{{lang.TRADITIONAL_POOLISH}} (Ferrandi)</span>
+        <span class="menu-card-sub">{{lang.TRADITIONAL_POOLISH_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/multiseed-poolish" class="menu-card" data-baguette="multiseed-poolish">
       <img src="img/icons/poolish.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Мультизлаковий пулиш (Ferrandi)</span>
-        <span class="menu-card-sub">Пулиш + підсмажене насіння</span>
+        <span class="menu-card-title">{{lang.MULTISEED_POOLISH}} (Ferrandi)</span>
+        <span class="menu-card-sub">{{lang.MULTISEED_POOLISH_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/vienna" class="menu-card" data-baguette="vienna">
       <img src="img/icons/pf.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Vienna Baguettes (Ferrandi)</span>
-        <span class="menu-card-sub">Здобне, масло + молочний порошок</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_VIENNA}} (Ferrandi)</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_VIENNA_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/choc-vienna" class="menu-card" data-baguette="choc-vienna">
       <img src="img/icons/pf.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Chocolate Chip Vienna</span>
-        <span class="menu-card-sub">Здобне, масло + шоколадні краплі</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_CHOC_VIENNA}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_CHOC_VIENNA_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/sourdough" class="menu-card" data-baguette="sourdough">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Sourdough (Liquid Levain)</span>
-        <span class="menu-card-sub">Hamelman, 15% преферменту</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_SOURDOUGH_LIQUID_LEVAIN}} (Liquid Levain)</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_SOURDOUGH_LIQUID_LEVAIN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/rustic-sourdough" class="menu-card" data-baguette="rustic-sourdough">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Rustic Sourdough (Ferrandi)</span>
-        <span class="menu-card-sub">T80, щільний левен, без дріжджів</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_RUSTIC_SOURDOUGH}} (Ferrandi)</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_RUSTIC_SOURDOUGH_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/marchand-du-vin" class="menu-card" data-baguette="marchand-du-vin">
       <img src="img/icons/levain.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Marchand du Vin</span>
-        <span class="menu-card-sub">Щільний левен + трохи дріжджів</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_MARCHAND_DU_VIN}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_MARCHAND_DU_VIN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette/bacon-rolls" class="menu-card" data-baguette="bacon-rolls">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Bacon Rolls / Mini Baguettes</span>
-        <span class="menu-card-sub">Рідкий левен, без дріжджів</span>
+        <span class="menu-card-title">{{lang.BAGUETTE_BACON_ROLLS}} / Mini Baguettes</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_BACON_ROLLS_SUB}}</span>
       </div>
     </a>
 
