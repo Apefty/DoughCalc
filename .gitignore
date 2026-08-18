@@ -26,3 +26,5 @@ pids/
 
 # Ignore npm global
 jspm_packages/
+__pycache__/
+node_modules/
