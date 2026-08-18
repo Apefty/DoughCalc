@@ -1,126 +1,126 @@
 <header class="app-header" id="pizza">
-  <a data-route="italian" class="icon-btn" aria-label="Назад">
+  <a data-route="italian" class="icon-btn" aria-label="{{lang.BACK}}">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
-    <h1 class="page-title">Піца</h1>
+    <h1 class="page-title">{{lang.PIZZA_HUB}}</h1>
   </div>
   <span class="icon-btn"></span>
 </header>
 
 <main class="menu">
 
-  <nav class="menu-grid" aria-label="Піца, багети">
+  <nav class="menu-grid" aria-label="{{lang.PIZZA_HUB}}">
 
     <a data-route="italian/pizza/neapolitan" class="menu-card" data-pizza="neapolitan">
       <img src="img/icons/neapolitan.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Неаполітанська піца</span>
-        <span class="menu-card-sub">60–65% гідратації, коротка випічка</span>
+        <span class="menu-card-title">{{lang.PIZZA_NEAPOLITAN}}</span>
+        <span class="menu-card-sub">{{lang.PIZZA_NEAPOLITAN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/roman" class="menu-card" data-pizza="roman">
       <img src="img/icons/roman-pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Римська піца (al taglio)</span>
-        <span class="menu-card-sub">Висока гідратація, тонка й хрустка</span>
+        <span class="menu-card-title">{{lang.PIZZA_ROMAN}} (al taglio)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_ROMAN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/sicilian" class="menu-card" data-pizza="sicilian">
       <img src="img/icons/sicilian-pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Сицилійська піца</span>
-        <span class="menu-card-sub">Товста, пориста, випікається у формі</span>
+        <span class="menu-card-title">{{lang.PIZZA_SICILIAN}}</span>
+        <span class="menu-card-sub">{{lang.PIZZA_SICILIAN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/same-day" class="menu-card" data-pizza="same-day">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Same-Day Straight (Forkish)</span>
-        <span class="menu-card-sub">Пряме тісто, того ж дня</span>
+        <span class="menu-card-title">{{lang.PIZZA_SAME_DAY}} (Forkish)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_SAME_DAY_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/overnight-straight" class="menu-card" data-pizza="overnight-straight">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Overnight Straight (Forkish)</span>
-        <span class="menu-card-sub">Пряме тісто, нічна ферментація</span>
+        <span class="menu-card-title">{{lang.PIZZA_OVERNIGHT_STRAIGHT}} (Forkish)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_OVERNIGHT_STRAIGHT_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/bertinet" class="menu-card" data-pizza="bertinet">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Bertinet Pizza (Olive Dough)</span>
-        <span class="menu-card-sub">Багато олії прямо в тісті</span>
+        <span class="menu-card-title">{{lang.PIZZA_BERTINET}} (Olive Dough)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_BERTINET_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/alsatian-ham" class="menu-card" data-pizza="alsatian-ham">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Alsatian/Ham Pizza (Ferrandi)</span>
-        <span class="menu-card-sub">Tarte Flambée, розтягується дуже тонко</span>
+        <span class="menu-card-title">{{lang.PIZZA_ALSATIAN_HAM}} (Ferrandi)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_ALSATIAN_HAM_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/poolish-overnight" class="menu-card" data-pizza="poolish-overnight">
       <img src="img/icons/poolish.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Overnight with Poolish (Forkish)</span>
-        <span class="menu-card-sub">Пулиш 50%, гідратація 75%</span>
+        <span class="menu-card-title">{{lang.PIZZA_POOLISH_OVERNIGHT}} (Forkish)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_POOLISH_OVERNIGHT_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/poolish-variation" class="menu-card" data-pizza="poolish-variation">
       <img src="img/icons/poolish.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Poolish Variation (Forkish)</span>
-        <span class="menu-card-sub">Пулиш 50%, гідратація 70%</span>
+        <span class="menu-card-title">{{lang.PIZZA_POOLISH_VARIATION}} (Forkish)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_POOLISH_VARIATION_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/biga" class="menu-card" data-pizza="biga">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Biga-based Pizza (Hamelman)</span>
-        <span class="menu-card-sub">Щільна біга 20%, з олією</span>
+        <span class="menu-card-title">{{lang.PIZZA_BIGA}} (Hamelman)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_BIGA_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/pissaladiere" class="menu-card" data-pizza="pissaladiere">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Pissaladière (Hamelman)</span>
-        <span class="menu-card-sub">На pâte fermentée, з цільнозерновим</span>
+        <span class="menu-card-title">{{lang.PIZZA_PISSALADIERE}} (Hamelman)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_PISSALADIERE_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/levain-overnight" class="menu-card" data-pizza="levain-overnight">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Overnight with Levain (Forkish)</span>
-        <span class="menu-card-sub">На натуральній заквасці, 10%</span>
+        <span class="menu-card-title">{{lang.PIZZA_LEVAIN_OVERNIGHT}} (Forkish)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_LEVAIN_OVERNIGHT_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/classic" class="menu-card" data-pizza="classic">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Pizza Dough (Hamelman)</span>
-        <span class="menu-card-sub">Базове тісто, 65%, з оливковою олією</span>
+        <span class="menu-card-title">{{lang.PIZZA_CLASSIC_HAMELMAN}} (Hamelman)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_CLASSIC_HAMELMAN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian/pizza/hazan" class="menu-card" data-pizza="hazan">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Basic Pizza Dough (Hazan)</span>
-        <span class="menu-card-sub">67% гідратації, з олією</span>
+        <span class="menu-card-title">{{lang.PIZZA_HAZAN}} (Hazan)</span>
+        <span class="menu-card-sub">{{lang.PIZZA_HAZAN_SUB}}</span>
       </div>
     </a>
 

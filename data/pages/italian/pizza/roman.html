@@ -1,9 +1,9 @@
 <header class="app-header" id="roman">
-  <a data-route="italian/pizza" class="icon-btn" aria-label="Назад">
+  <a data-route="italian/pizza" class="icon-btn" aria-label="{{lang.BACK}}">
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
-    <h1 class="page-title">Римська піца</h1>
+    <h1 class="page-title">{{lang.PIZZA_ROMAN}}</h1>
   </div>
   <span class="icon-btn"></span>
 </header>
@@ -12,68 +12,61 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Метод розрахунку</span>
+      <span class="card-title">{{lang.ENTRY_MODE}}</span>
       <div class="segmented" id="entry-toggle">
-        <button class="segmented-item is-active" data-entry="total">За тістом</button>
-        <button class="segmented-item" data-entry="flour">За борошном</button>
-        <button class="segmented-item" data-entry="portions">Порції</button>
+        <button class="segmented-item is-active" data-entry="total">{{lang.BY_DOUGH}}</button>
+        <button class="segmented-item" data-entry="flour">{{lang.BY_FLOUR}}</button>
+        <button class="segmented-item" data-entry="portions">{{lang.PORTIONS}}</button>
       </div>
     </div>
 
     <div class="field-row" id="row-total">
-      <label for="input-total" class="field-label">Загальна вага тіста</label>
+      <label for="input-total" class="field-label">{{lang.TOTAL_DOUGH_WEIGHT}}</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-total" value="1000" step="10" min="0">
-        <span class="value-unit">г</span>
+        <span class="value-unit">{{lang.UNIT_G}}</span>
       </div>
     </div>
 
     <div class="field-row" id="row-flour" style="display:none">
-      <label for="input-flour" class="field-label">Вага борошна</label>
+      <label for="input-flour" class="field-label">{{lang.FLOUR_WEIGHT}}</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-flour" value="600" step="10" min="0">
-        <span class="value-unit">г</span>
+        <span class="value-unit">{{lang.UNIT_G}}</span>
       </div>
     </div>
 
     <div class="field-row" id="row-portions" style="display:none">
-      <label for="input-portions" class="field-label">Кількість заготовок</label>
+      <label for="input-portions" class="field-label">{{lang.UNITS_COUNT}}</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-portions" value="4" step="1" min="1">
-        <span class="value-unit">шт</span>
+        <span class="value-unit">{{lang.UNIT_PCS}}</span>
       </div>
     </div>
 
     <div class="field-row" id="row-portion-weight" style="display:none">
-      <label for="input-portion-weight" class="field-label">Вага 1 заготовки</label>
+      <label for="input-portion-weight" class="field-label">{{lang.WEIGHT_PER_UNIT}}</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-portion-weight" value="280" step="10" min="0">
-        <span class="value-unit">г</span>
+        <span class="value-unit">{{lang.UNIT_G}}</span>
       </div>
     </div>
   </section>
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Преферемент</span>
+      <span class="card-title">{{lang.PREFERMENT}}</span>
     </div>
 
     <div class="field-row">
-      <label for="select-preferment" class="field-label">Тип</label>
-      <select id="select-preferment" class="value-box" style="border:none;">
-        <option value="none">Без преферменту</option>
-        <option value="sourdough">Закваска (Sourdough)</option>
-        <option value="levain-stiff">Левен (щільний)</option>
-        <option value="levain-liquid">Левен (рідкий)</option>
-        <option value="biga">Біга</option>
-        <option value="poolish" selected>Пулиш</option>
-      </select>
+      <label for="select-preferment" class="field-label">{{lang.TYPE}}</label>
+      <select id="select-preferment" class="value-box" style="border:none;"></select>
     </div>
 
     <div class="field-row" id="row-pre-percent">
-      <label for="input-pre-percent" class="field-label">% від загального борошна
+      <label for="input-pre-percent" class="field-label">{{lang.PCT_OF_FLOUR}}
         <span class="info-icon" tabindex="0">?
-          <span class="tooltip-bubble">Це відсоток лише борошна в преферменті від загального борошна рецепта — не відсоток від ваги тіста чи преферменту. Через рівні частки борошно:вода:закваска (наприклад, 100:100:100 для Закваски) повна вага преферменту може бути в кілька разів більшою за цей відсоток.</span>
+          <span class="tooltip-bubble">{{lang.PCT_OF_FLOUR_TOOLTIP}}</span>
         </span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-pre-percent" value="30" step="1" min="0" max="100">
@@ -85,32 +78,32 @@
 
     <div class="row-list" id="pre-breakdown">
       <div class="row-list-header">
-        <span>Склад преферменту</span>
-        <span>Вага</span>
+        <span>{{lang.PREFERMENT_COMPOSITION}}</span>
+        <span>{{lang.WEIGHT}}</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
-        <span class="row-list-value" id="pre-flour">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">{{lang.FLOUR}}</div>
+        <span class="row-list-value" id="pre-flour">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
-        <span class="row-list-value" id="pre-water">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">{{lang.WATER}}</div>
+        <span class="row-list-value" id="pre-water">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">Дріжджі/закваска</div>
-        <span class="row-list-value" id="pre-third">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="pre-third-icon">{{lang.YEAST_OR_STARTER}}</div>
+        <span class="row-list-value" id="pre-third">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
     </div>
   </section>
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Baker's Percentages</span>
+      <span class="card-title">{{{lang.BAKERS_PERCENTAGES}}}</span>
     </div>
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/water.png" alt="" class="row-list-icon">
-        <span> Гідратація</span></label>
+        <span> {{lang.HYDRATION}}</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-hydration">
         <span class="value-unit">%</span>
@@ -120,7 +113,7 @@
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">
-        <span> Сіль</span></label>
+        <span> {{lang.SALT}}</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-salt">
         <span class="value-unit">%</span>
@@ -130,7 +123,7 @@
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">
-        <span> Дріжджі (в основний заміс)</span></label>
+        <span> {{lang.YEAST_MAIN}}</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-yeast">
         <span class="value-unit">%</span>
@@ -140,7 +133,7 @@
 
     <div class="field-row">
       <label class="field-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">
-        <span> Олія</span></label>
+        <span> {{lang.OIL}}</span></label>
       <div class="value-box value-box-accent">
         <input type="number" id="pct-oil">
         <span class="value-unit">%</span>
@@ -151,52 +144,52 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Типи борошна</span>
-      <button class="icon-btn" id="add-flour-type" aria-label="Додати тип" style="width:32px;height:32px;">
+      <span class="card-title">{{lang.FLOUR_TYPES}}</span>
+      <button class="icon-btn" id="add-flour-type" aria-label="{{lang.ADD_TYPE}}" style="width:32px;height:32px;">
         <span class="iconify" data-icon="tabler:plus"></span>
       </button>
     </div>
     <div id="flour-types-list"></div>
     <div class="summary-box" id="flour-sum-box" style="margin-top:12px;">
-      <span>Сума часток</span><br>
+      <span>{{lang.SUM_SHARES}}</span><br>
       <strong id="flour-sum">100%</strong>
     </div>
   </section>
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">Основний заміс</span>
+      <span class="card-title">{{lang.MAIN_MIX}}</span>
     </div>
     <div class="row-list">
       <div class="row-list-header">
-        <span>Інгредієнт</span>
-        <span>Вага</span>
+        <span>{{lang.INGREDIENT}}</span>
+        <span>{{lang.WEIGHT}}</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
-        <span class="row-list-value" id="main-flour">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">{{lang.FLOUR}}</div>
+        <span class="row-list-value" id="main-flour">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
-        <span class="row-list-value" id="main-water">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">{{lang.WATER}}</div>
+        <span class="row-list-value" id="main-water">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">Сіль</div>
-        <span class="row-list-value" id="main-salt">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/salt.png" alt="" class="row-list-icon">{{lang.SALT}}</div>
+        <span class="row-list-value" id="main-salt">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">Дріжджі</div>
-        <span class="row-list-value" id="main-yeast">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon">{{lang.YEAST}}</div>
+        <span class="row-list-value" id="main-yeast">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">Олія</div>
-        <span class="row-list-value" id="main-oil">0 <span class="unit">г</span></span>
+        <div class="row-list-label"><img src="img/icons/oil.png" alt="" class="row-list-icon">{{lang.OIL}}</div>
+        <span class="row-list-value" id="main-oil">0 <span class="unit">{{lang.UNIT_G}}</span></span>
       </div>
     </div>
 
     <div class="summary-box">
-      <span>Загальна вага тіста</span><br>
-      <strong id="out-total-dough">0 г</strong>
+      <span>{{lang.TOTAL_DOUGH_WEIGHT}}</span><br>
+      <strong id="out-total-dough">0 {{lang.UNIT_G}}</strong>
     </div>
   </section>
 
