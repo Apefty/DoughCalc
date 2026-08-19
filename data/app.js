@@ -54,6 +54,39 @@ DoughCalc.renderYouTube = function (ytValue) {
   main.appendChild(section);
 };
 
+// Shows/hides + pre-fills the "Посилання" (Youtube video / Recipe)
+// card based on optional "yt" / "recipe_link" JSON fields — same
+// silent-hide philosophy as renderPhoto above: if neither field is
+// present, the whole card is removed instead of showing two empty,
+// purposeless inputs. If only one is present, only that field's row
+// is kept.
+DoughCalc.renderLinks = function (data) {
+  var main = document.querySelector('#content-area main');
+  if (!main) return;
+  var ytInput = document.getElementById('link-youtube');
+  var recipeInput = document.getElementById('link-recipe');
+  if (!ytInput && !recipeInput) return; // page has no links card at all
+
+  var card = ytInput ? ytInput.closest('.card') : recipeInput.closest('.card');
+  var hasYt = !!(data && data.yt);
+  var hasRecipe = !!(data && data.recipe_link);
+
+  if (!hasYt && !hasRecipe) {
+    if (card) card.remove();
+    return;
+  }
+  if (ytInput) {
+    ytInput.value = hasYt ? data.yt : '';
+    var ytRow = ytInput.closest('.field-row');
+    if (ytRow) ytRow.style.display = hasYt ? '' : 'none';
+  }
+  if (recipeInput) {
+    recipeInput.value = hasRecipe ? data.recipe_link : '';
+    var recipeRow = recipeInput.closest('.field-row');
+    if (recipeRow) recipeRow.style.display = hasRecipe ? '' : 'none';
+  }
+};
+
 // Accepted photo file extensions for DoughCalc.renderPhoto below.
 DoughCalc.PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
 
@@ -86,7 +119,7 @@ DoughCalc.renderPhoto = function (photoValue) {
 
   var img = section.querySelector('img');
   img.onerror = function () { section.remove(); };
-  img.src = DoughCalc.withCacheBust(DoughCalc.BASE + photoValue);
+  img.src = photoValue;
 
   // Insert right where the "links" (Youtube/Recipe) block lives —
   // before it if that section is already in the fragment, otherwise

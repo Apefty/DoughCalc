@@ -1,15 +1,8 @@
 {
-  "name": "doughcalc-localized-server",
+  "name": "doughcalc",
   "version": "0.1.0",
-  "description": "Minimal Express + Handlebars server to preview localized templates",
-  "main": "server/system.js",
+  "description": "DoughCalc — localized (UK/EN) bread & pastry baker's-percentage calculator PWA",
   "scripts": {
-    "start": "node server/system.js",
     "build": "node scripts/sync-lang-json.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "express-handlebars": "^7.0.7",
-    "cookie-parser": "^1.4.6"
   }
 }
