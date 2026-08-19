@@ -653,5 +653,6 @@
   "WEIGHT_PREFIX": "Weight: ",
   "FLOUR_TYPE_NAME_PLACEHOLDER": "Type name",
   "FLOUR_TYPE_AUTO_TOOLTIP": "Automatic: remainder from other flour types",
-  "DRY_MILK": "Dry milk"
+  "DRY_MILK": "Dry milk",
+  "PHOTO": "Photo"
 }

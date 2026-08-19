@@ -54,6 +54,56 @@ DoughCalc.renderYouTube = function (ytValue) {
   main.appendChild(section);
 };
 
+// Accepted photo file extensions for DoughCalc.renderPhoto below.
+DoughCalc.PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
+
+// Appends a "Фото" card with the recipe/preferment's photo (declared
+// as an optional "photo": "img/photos/<file>.<ext>" field in the
+// page's JSON, same convention as the "yt" field above) to the
+// current fragment's <main>. Removes any leftover photo card from a
+// previous page first. Validates the extension against
+// PHOTO_EXTENSIONS and silently no-ops on an invalid/missing value;
+// if the referenced file 404s at runtime the card also removes
+// itself (img.onerror) rather than showing a broken-image icon.
+DoughCalc.renderPhoto = function (photoValue) {
+  var existing = document.getElementById('photo-section');
+  if (existing) existing.remove();
+
+  if (!photoValue || typeof photoValue !== 'string') return;
+  var ext = (photoValue.split('.').pop() || '').toLowerCase();
+  if (DoughCalc.PHOTO_EXTENSIONS.indexOf(ext) === -1) return;
+
+  var main = document.querySelector('#content-area main');
+  if (!main) return;
+
+  var dict = DoughCalc.getLangDictSync();
+  var section = document.createElement('section');
+  section.className = 'card';
+  section.id = 'photo-section';
+  section.innerHTML =
+    '<div class="card-title-row"><span class="card-title">' + (dict.PHOTO || 'Фото') + '</span></div>' +
+    '<div class="recipe-photo-wrap"><img class="recipe-photo" alt="" loading="lazy"></div>';
+
+  var img = section.querySelector('img');
+  img.onerror = function () { section.remove(); };
+  img.src = DoughCalc.withCacheBust(DoughCalc.BASE + photoValue);
+
+  // Insert right where the "links" (Youtube/Recipe) block lives —
+  // before it if that section is already in the fragment, otherwise
+  // at the end of <main> (its usual position).
+  var linksSection = Array.prototype.find.call(
+    main.querySelectorAll('.card'),
+    function (card) {
+      return !!card.querySelector('#link-youtube, #link-recipe');
+    }
+  );
+  if (linksSection) {
+    linksSection.parentNode.insertBefore(section, linksSection);
+  } else {
+    main.appendChild(section);
+  }
+};
+
 // Note: the page JSON itself is now fetched once by cat.js's
 // navigate() (in parallel with the HTML fragment) and passed to
 // both the route's init() and here as DoughCalc.renderYouTube(data.yt) —

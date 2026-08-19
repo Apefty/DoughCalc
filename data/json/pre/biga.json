@@ -20,5 +20,6 @@
     "duration_note_uk": "12–16 год",
     "temperature_note_uk": "21°C"
   },
-  "used_in": ["pizza", "bread", "baguette"]
+  "used_in": ["pizza", "bread", "baguette"],
+  "photo": "img/photos/biga.jpg"
 }

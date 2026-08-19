@@ -717,6 +717,23 @@ div#body-wrapper {
   border: none;
 }
 
+/* ---------- Recipe/preferment photo ---------- */
+
+.recipe-photo-wrap {
+  width: 100%;
+  border-radius: var(--radius-14);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.recipe-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: cover;
+}
+
 /* ---------- Baker sliders ---------- */
 
 .pct-slider{

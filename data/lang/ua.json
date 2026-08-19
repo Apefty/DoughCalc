@@ -653,5 +653,6 @@
   "WEIGHT_PREFIX": "Вага: ",
   "FLOUR_TYPE_NAME_PLACEHOLDER": "Назва типу",
   "FLOUR_TYPE_AUTO_TOOLTIP": "Автоматично: залишок від інших типів борошна",
-  "DRY_MILK": "Сухе молоко"
+  "DRY_MILK": "Сухе молоко",
+  "PHOTO": "Фото"
 }

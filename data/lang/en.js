@@ -741,4 +741,7 @@ module.exports = {
   FLOUR_TYPE_AUTO_TOOLTIP: 'Automatic: remainder from other flour types',
   DRY_MILK: 'Dry milk',
   SUGAR_SYRUP: 'Sugar syrup',
+
+  // Photo card (2026-08-19)
+  PHOTO: 'Photo',
 };

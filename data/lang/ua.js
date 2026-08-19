@@ -741,4 +741,7 @@ module.exports = {
   FLOUR_TYPE_AUTO_TOOLTIP: 'Автоматично: залишок від інших типів борошна',
   DRY_MILK: 'Сухе молоко',
   SUGAR_SYRUP: 'Цукровий сироп',
+
+  // Photo card (2026-08-19)
+  PHOTO: 'Фото',
 };
