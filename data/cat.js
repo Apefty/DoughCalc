@@ -31,7 +31,8 @@ DoughCalc.withCacheBust = function (url) {
 
 DoughCalc.routes = {
   '': {
-    file: 'data/pages/home.html'
+    file: 'data/pages/home.html',
+    init: function () { DoughCalc.initHomeSearch(); }
   },
 
   'preferments': {

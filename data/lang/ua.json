@@ -629,5 +629,8 @@
   "FLATBREAD_LAVASH_SUB": "Тонкий коржовий хліб, масло+цукор",
   "FLATBREAD_SOCCA_SUB": "Млинець з нутового борошна, 150% гідр.",
   "FLATBREAD_PIADINA_SUB": "Романьольська, на соді",
-  "FLATBREAD_CASSONI_SUB": "Фаршировані коржики, на розпушувачі"
+  "FLATBREAD_CASSONI_SUB": "Фаршировані коржики, на розпушувачі",
+  "SEARCH_PLACEHOLDER": "Пошук рецептів...",
+  "SEARCH_NO_RESULTS": "Нічого не знайдено",
+  "SEARCH_CLOSE": "Очистити пошук"
 }

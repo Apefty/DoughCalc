@@ -708,4 +708,9 @@ module.exports = {
   FLATBREAD_SOCCA_SUB: 'Chickpea-flour pancake, 150% hydration',
   FLATBREAD_PIADINA_SUB: 'Romagnola-style, leavened with soda',
   FLATBREAD_CASSONI_SUB: 'Stuffed flatbreads, baking-powder leavened',
+
+  // Home search UI (2026-08-19)
+  SEARCH_PLACEHOLDER: 'Search recipes...',
+  SEARCH_NO_RESULTS: 'No results found',
+  SEARCH_CLOSE: 'Clear search',
 };

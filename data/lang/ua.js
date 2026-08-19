@@ -708,4 +708,9 @@ module.exports = {
   FLATBREAD_SOCCA_SUB: 'Млинець з нутового борошна, 150% гідр.',
   FLATBREAD_PIADINA_SUB: 'Романьольська, на соді',
   FLATBREAD_CASSONI_SUB: 'Фаршировані коржики, на розпушувачі',
+
+  // Home search UI (2026-08-19)
+  SEARCH_PLACEHOLDER: 'Пошук рецептів...',
+  SEARCH_NO_RESULTS: 'Нічого не знайдено',
+  SEARCH_CLOSE: 'Очистити пошук',
 };

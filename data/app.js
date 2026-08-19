@@ -162,6 +162,95 @@ DoughCalc.initDrawer = function () {
 
 document.addEventListener('DOMContentLoaded', DoughCalc.initDrawer);
 
+/* ==========================================================
+   Home search — filters the static data/search-index.json
+   (route + section + title-dict-key per card, built from
+   DoughCalc.routes) against the currently active language
+   dictionary. Lives only in home.html's fragment; UI pattern
+   adapted from the Les Grandes Sauces project's search box.
+   ========================================================== */
+DoughCalc.escapeHtml = function (s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+};
+
+DoughCalc.searchIndexCache = null;
+DoughCalc.loadSearchIndex = function () {
+  if (DoughCalc.searchIndexCache) return Promise.resolve(DoughCalc.searchIndexCache);
+  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + 'data/search-index.json')).then(function (res) {
+    if (!res.ok) throw new Error('Failed to load search index');
+    return res.json();
+  }).then(function (list) {
+    DoughCalc.searchIndexCache = list;
+    return list;
+  });
+};
+
+DoughCalc.initHomeSearch = function () {
+  var input = document.getElementById('home-search-input');
+  var clearBtn = document.getElementById('home-search-clear');
+  var resultsBox = document.getElementById('search-results');
+  if (!input || !resultsBox) return;
+
+  document.body.classList.remove('search-active');
+  resultsBox.classList.remove('is-open');
+  resultsBox.innerHTML = '';
+  input.value = '';
+  if (clearBtn) clearBtn.style.display = 'none';
+
+  function render(query) {
+    query = (query || '').trim().toLowerCase();
+    if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+
+    if (!query) {
+      document.body.classList.remove('search-active');
+      resultsBox.classList.remove('is-open');
+      resultsBox.innerHTML = '';
+      return;
+    }
+
+    Promise.all([DoughCalc.loadSearchIndex(), DoughCalc.getLangDict(DoughCalc.currentLocale())])
+      .then(function (results) {
+        // Guard against a stale response landing after the query changed again.
+        if (input.value.trim().toLowerCase() !== query) return;
+
+        var index = results[0], dict = results[1];
+        var matches = index.filter(function (e) {
+          var name = e.titleKey ? (dict[e.titleKey] || '') : (e.title || '');
+          return name.toLowerCase().indexOf(query) > -1;
+        }).slice(0, 30);
+
+        document.body.classList.add('search-active');
+        resultsBox.classList.add('is-open');
+
+        if (!matches.length) {
+          resultsBox.innerHTML = '<div class="search-no-results">' + DoughCalc.escapeHtml(dict.SEARCH_NO_RESULTS || '') + '</div>';
+          return;
+        }
+
+        resultsBox.innerHTML = matches.map(function (e) {
+          var name = e.titleKey ? (dict[e.titleKey] || '') : (e.title || '');
+          var section = e.sectionKey ? (dict[e.sectionKey] || '') : '';
+          return '<a class="search-result-item" data-route="' + e.route + '">'
+            + '<div>'
+            + '<div class="search-result-name">' + DoughCalc.escapeHtml(name) + '</div>'
+            + (section ? '<div class="search-result-path">' + DoughCalc.escapeHtml(section) + '</div>' : '')
+            + '</div></a>';
+        }).join('');
+      });
+  }
+
+  input.addEventListener('input', function () { render(input.value); });
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      render('');
+      input.focus();
+    });
+  }
+};
+
 // Settings page (data/pages/settings/settings.html) — same
 // prefs object as the drawer, so a change on either screen
 // stays in sync (both round-trip through localStorage).

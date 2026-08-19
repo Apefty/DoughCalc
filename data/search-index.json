@@ -1,0 +1,1177 @@
+[
+{
+"route": "preferments",
+"sectionKey": "PREFERMENTS",
+"titleKey": "PREFERMENTS"
+},
+{
+"route": "preferments/biga",
+"sectionKey": "PREFERMENTS",
+"titleKey": "BIGA"
+},
+{
+"route": "preferments/poolish",
+"sectionKey": "PREFERMENTS",
+"titleKey": "POOLISH_NAME"
+},
+{
+"route": "preferments/pf",
+"sectionKey": "PREFERMENTS",
+"title": "Pâte fermentée"
+},
+{
+"route": "preferments/levain",
+"sectionKey": "PREFERMENTS",
+"titleKey": "LEVAIN"
+},
+{
+"route": "preferments/milk-levain",
+"sectionKey": "PREFERMENTS",
+"titleKey": "MILK_LEVAIN"
+},
+{
+"route": "preferments/opara",
+"sectionKey": "PREFERMENTS",
+"titleKey": "OPARA"
+},
+{
+"route": "preferments/lievito-madre",
+"sectionKey": "PREFERMENTS",
+"titleKey": "LEVITO_MADRE"
+},
+{
+"route": "preferments/sponge",
+"sectionKey": "PREFERMENTS",
+"titleKey": "SPONGE_NAME"
+},
+{
+"route": "preferments/sourdough",
+"sectionKey": "PREFERMENTS",
+"titleKey": "SOURDOUGH_NAME"
+},
+{
+"route": "preferments/desem",
+"sectionKey": "PREFERMENTS",
+"titleKey": "DEZEM"
+},
+{
+"route": "preferments/detmolder",
+"sectionKey": "PREFERMENTS",
+"titleKey": "DETMOLDER_METHOD"
+},
+{
+"route": "preferments/zavarka",
+"sectionKey": "PREFERMENTS",
+"titleKey": "ZAVARKA"
+},
+{
+"route": "preferments/salzsauer",
+"sectionKey": "PREFERMENTS",
+"titleKey": "SALZSAUER"
+},
+{
+"route": "preferments/pie-de-masa",
+"sectionKey": "PREFERMENTS",
+"title": "Pie de Masa"
+},
+{
+"route": "preferments/raisin-juice",
+"sectionKey": "PREFERMENTS",
+"titleKey": "FRUIT_STARTER"
+},
+{
+"route": "preferments/soakers",
+"sectionKey": "PREFERMENTS",
+"titleKey": "SOAKER"
+},
+{
+"route": "bread",
+"sectionKey": "BREAD",
+"titleKey": "BREAD_HUB"
+},
+{
+"route": "bread/wheat",
+"sectionKey": "BREAD",
+"titleKey": "WHITE_BREAD"
+},
+{
+"route": "bread/rye",
+"sectionKey": "BREAD",
+"titleKey": "RYE_BREAD"
+},
+{
+"route": "bread/sourdough-bread",
+"sectionKey": "BREAD",
+"titleKey": "SOURDOUGH_BREAD"
+},
+{
+"route": "bread/wholegrain",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_GRAIN_BREAD"
+},
+{
+"route": "bread/pan",
+"sectionKey": "BREAD",
+"titleKey": "PAN_LOAF"
+},
+{
+"route": "bread/rustic",
+"sectionKey": "BREAD",
+"titleKey": "RUSTIC_BREAD"
+},
+{
+"route": "bread/pain-rustique",
+"sectionKey": "BREAD",
+"titleKey": "PAIN_RUSTIQUE"
+},
+{
+"route": "bread/country",
+"sectionKey": "BREAD",
+"titleKey": "COUNTRY_BREAD"
+},
+{
+"route": "bread/honey-spelt",
+"sectionKey": "BREAD",
+"titleKey": "HONEY_SPELT_BREAD"
+},
+{
+"route": "bread/five-grain-pf",
+"sectionKey": "BREAD",
+"titleKey": "GRAIN_5_PF_BREAD"
+},
+{
+"route": "bread/sunflower-pf",
+"sectionKey": "BREAD",
+"titleKey": "SUNFLOWER_PF_BREAD"
+},
+{
+"route": "bread/corn",
+"sectionKey": "BREAD",
+"titleKey": "CORN_BREAD"
+},
+{
+"route": "bread/whole-wheat",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_WHEAT_PF_BREAD"
+},
+{
+"route": "bread/whole-wheat-multigrain",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_GRAIN_MULTIGRAIN_BREAD"
+},
+{
+"route": "bread/ww-multigrain-soaker",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_GRAIN_BREAD_WITH_MULTIGRAIN_SOAKER"
+},
+{
+"route": "bread/cracked-wheat",
+"sectionKey": "BREAD",
+"titleKey": "CRACKED_WHEAT_BREAD"
+},
+{
+"route": "bread/danish-black-rye",
+"sectionKey": "BREAD",
+"titleKey": "DANISH_BLACK_RYE_BREAD"
+},
+{
+"route": "bread/danish-spelt-rye",
+"sectionKey": "BREAD",
+"titleKey": "DANISH_SPELT_RYE_BREAD"
+},
+{
+"route": "bread/flaxseed-rye",
+"sectionKey": "BREAD",
+"titleKey": "FLAXSEED_RYE_OLD_BREAD_SOAKER"
+},
+{
+"route": "bread/khachapuri",
+"sectionKey": "BREAD",
+"titleKey": "KHACHAPURI_BREAD"
+},
+{
+"route": "bread/lithuanian-rye",
+"sectionKey": "BREAD",
+"titleKey": "LITOVSKY_RYE_BREAD"
+},
+{
+"route": "bread/rye-miche",
+"sectionKey": "BREAD",
+"titleKey": "RYE_MICHE_BREAD"
+},
+{
+"route": "bread/spelt-miche",
+"sectionKey": "BREAD",
+"titleKey": "SPELT_MICHE_BREAD"
+},
+{
+"route": "bread/olive-levain",
+"sectionKey": "BREAD",
+"titleKey": "OLIVE_LEVAIN_BREAD"
+},
+{
+"route": "bread/whole-wheat-workday",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_WHEAT_WORKDAY_BREAD"
+},
+{
+"route": "bread/vermont-sourdough",
+"sectionKey": "BREAD",
+"titleKey": "VERMONT_SOURDOUGH_BREAD"
+},
+{
+"route": "bread/vermont-sourdough-ww",
+"sectionKey": "BREAD",
+"titleKey": "VERMONT_SOURDOUGH_WW_BREAD"
+},
+{
+"route": "bread/vermont-sourdough-increased-wg",
+"sectionKey": "BREAD",
+"titleKey": "VERMONT_SOURDOUGH_INCREASED_WG_BREAD"
+},
+{
+"route": "bread/pain-au-levain",
+"sectionKey": "BREAD",
+"titleKey": "PAIN_AU_LEVAIN_BREAD"
+},
+{
+"route": "bread/pain-au-levain-ww",
+"sectionKey": "BREAD",
+"titleKey": "PAIN_AU_LEVAIN_WW_BREAD"
+},
+{
+"route": "bread/pain-de-lodeve",
+"sectionKey": "BREAD",
+"titleKey": "PAIN_DE_LODEVE_BREAD"
+},
+{
+"route": "bread/whole-wheat-sandwich",
+"sectionKey": "BREAD",
+"titleKey": "WHOLEGRAIN_SANDWICH_LOAF_BREAD"
+},
+{
+"route": "bread/pal-mixed-starters",
+"sectionKey": "BREAD",
+"titleKey": "PAL_MIXED_STARTERS_BREAD"
+},
+{
+"route": "bread/miche-pointe-a-calliere",
+"sectionKey": "BREAD",
+"titleKey": "MICHE_POINT_AU_CALIER_BREAD"
+},
+{
+"route": "bread/mixed-flour-miche",
+"sectionKey": "BREAD",
+"titleKey": "MICHE_MIXED_FLOUR_BREAD"
+},
+{
+"route": "bread/whole-wheat-levain",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_WHEAT_LEVAIN_BREAD"
+},
+{
+"route": "bread/durum",
+"sectionKey": "BREAD",
+"titleKey": "DURUM_BREAD"
+},
+{
+"route": "bread/harvest",
+"sectionKey": "BREAD",
+"titleKey": "HARVEST_BREAD"
+},
+{
+"route": "bread/five-grain-levain",
+"sectionKey": "BREAD",
+"titleKey": "GRAIN_5_LEVAIN_BREAD"
+},
+{
+"route": "bread/sourdough-seed",
+"sectionKey": "BREAD",
+"titleKey": "SOURDOUGH_SEED_BREAD"
+},
+{
+"route": "bread/rye-caraway-40",
+"sectionKey": "BREAD",
+"titleKey": "CARAWAY_40_RYE_BREAD"
+},
+{
+"route": "bread/whole-rye-whole-wheat",
+"sectionKey": "BREAD",
+"titleKey": "WHOLE_RYE_WHOLE_WHEAT_BREAD"
+},
+{
+"route": "bread/deli-rye",
+"sectionKey": "BREAD",
+"titleKey": "DELI_RYE_BREAD"
+},
+{
+"route": "bread/sourdough-rye-walnuts",
+"sectionKey": "BREAD",
+"titleKey": "SOURDOUGH_RYE_WALNUTS_BREAD"
+},
+{
+"route": "bread/3stage-rye-90",
+"sectionKey": "BREAD",
+"titleKey": "RYE_3STAGE_90"
+},
+{
+"route": "bread/3stage-rye-80",
+"sectionKey": "BREAD",
+"titleKey": "RYE_3STAGE_80"
+},
+{
+"route": "bread/3stage-rye-70",
+"sectionKey": "BREAD",
+"titleKey": "RYE_3STAGE_70"
+},
+{
+"route": "bread/rye-raisins-walnuts",
+"sectionKey": "BREAD",
+"titleKey": "RYE_RAISINS_WALNUTS_BREAD"
+},
+{
+"route": "bread/quarkbrot",
+"sectionKey": "BREAD",
+"titleKey": "QUARKBROT_BREAD"
+},
+{
+"route": "bread/rye-sourdough-66",
+"sectionKey": "BREAD",
+"titleKey": "RYE_66_SOURDOUGH"
+},
+{
+"route": "bread/flaxseed",
+"sectionKey": "BREAD",
+"titleKey": "FLAXSEED_BREAD"
+},
+{
+"route": "bread/rye-flour-soaker-80",
+"sectionKey": "BREAD",
+"titleKey": "RYE_80_FLOUR_SOAKER"
+},
+{
+"route": "bread/rye-soaker-ww-70",
+"sectionKey": "BREAD",
+"titleKey": "RYE_70_SOAKER_WW"
+},
+{
+"route": "bread/vollkornbrot",
+"sectionKey": "BREAD",
+"titleKey": "VOLLKORNBROT_BREAD"
+},
+{
+"route": "bread/vollkornbrot-flax",
+"sectionKey": "BREAD",
+"titleKey": "VOLLKORNBROT_FLAX_BREAD"
+},
+{
+"route": "bread/vollkornbrot-currants",
+"sectionKey": "BREAD",
+"titleKey": "VOLLKORNBROT_CURRANTS_BREAD"
+},
+{
+"route": "bread/horst-bandel-pumpernickel",
+"sectionKey": "BREAD",
+"titleKey": "HORST_BANDEL_PUMPERNICKEL"
+},
+{
+"route": "bread/flax-rye-old-bread",
+"sectionKey": "BREAD",
+"titleKey": "FLAX_RYE_OLD_BREAD"
+},
+{
+"route": "bread/black-bread",
+"sectionKey": "BREAD",
+"titleKey": "BLACK_BREAD"
+},
+{
+"route": "bread/5grain-sourdough-rye",
+"sectionKey": "BREAD",
+"titleKey": "GRAIN_5_SOURDOUGH_RYE_BREAD"
+},
+{
+"route": "bread/sunflower-seed-rye",
+"sectionKey": "BREAD",
+"titleKey": "SUNFLOWER_RYE_BREAD"
+},
+{
+"route": "bread/beer-bread",
+"sectionKey": "BREAD",
+"titleKey": "BEER_BREAD"
+},
+{
+"route": "bread/rye-sourdough-65",
+"sectionKey": "BREAD",
+"titleKey": "RYE_65_SOURDOUGH"
+},
+{
+"route": "bread/rye-firm-white-levain-65",
+"sectionKey": "BREAD",
+"titleKey": "RYE_65_FIRM_WHITE_LEVAIN"
+},
+{
+"route": "bread/rye-no-acidified-65",
+"sectionKey": "BREAD",
+"titleKey": "RYE_65_NO_ACIDIFIED"
+},
+{
+"route": "bread/hand-mixed-white",
+"sectionKey": "BREAD",
+"titleKey": "HAND_MIXED_WHITE_BREAD"
+},
+{
+"route": "bread/barley-beer",
+"sectionKey": "BREAD",
+"titleKey": "BARLEY_BEER_BREAD"
+},
+{
+"route": "bread/borodinsky",
+"sectionKey": "BREAD",
+"titleKey": "BORODINSKY_BREAD"
+},
+{
+"route": "bread/busy-farmer",
+"sectionKey": "BREAD",
+"titleKey": "BUSY_FARMER_BREAD"
+},
+{
+"route": "bread/french-bread",
+"sectionKey": "BREAD",
+"titleKey": "FRENCH_BREAD"
+},
+{
+"route": "bread/five-grain-straight",
+"sectionKey": "BREAD",
+"titleKey": "GRAIN_5_BREAD"
+},
+{
+"route": "bread/whey",
+"sectionKey": "BREAD",
+"titleKey": "WHEY_BREAD"
+},
+{
+"route": "bread/ww-pecans-raisins",
+"sectionKey": "BREAD",
+"titleKey": "WW_PECANS_RAISINS_BREAD"
+},
+{
+"route": "bread/hazelnut-fig-rosemary",
+"sectionKey": "BREAD",
+"titleKey": "HAZELNUT_FIG_ROSEMARY_BREAD"
+},
+{
+"route": "bread/german-farmers",
+"sectionKey": "BREAD",
+"titleKey": "GERMAN_FARMERS_BREAD"
+},
+{
+"route": "italian/pizza/classic",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_CLASSIC_HAMELMAN"
+},
+{
+"route": "italian/focaccia/hamelman",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_HAMELMAN"
+},
+{
+"route": "italian/focaccia/fougasse-olives",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_FOUGASSE_OLIVES"
+},
+{
+"route": "italian/pasta",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PASTA"
+},
+{
+"route": "italian/pasta/yellow",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PASTA_YELLOW"
+},
+{
+"route": "italian/pasta/green",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PASTA_GREEN_SPINACH"
+},
+{
+"route": "italian/pasta/apulian-orecchiette",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PASTA_APULIAN_ORECCHIETTE"
+},
+{
+"route": "italian/pasta/buckwheat-pizzoccheri",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PASTA_BUCKWHEAT_PIZZOCCHERI"
+},
+{
+"route": "italian/batters",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "BATTER"
+},
+{
+"route": "italian/batters/crespelle",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "BATTERS_CRESPELLE"
+},
+{
+"route": "italian/pizza/hazan",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_HAZAN"
+},
+{
+"route": "italian/focaccia/sfinciuni",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_SFINCIUNI"
+},
+{
+"route": "italian/focaccia/genovese-hazan",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_GENOVESE_HAZAN"
+},
+{
+"route": "italian/focaccia/crescentina",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_CRESCENTINA"
+},
+{
+"route": "italian/focaccia/focaccette",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCETTE_HAZAN"
+},
+{
+"route": "bread/mantovana",
+"sectionKey": "BREAD",
+"titleKey": "MANTOVANA_BREAD"
+},
+{
+"route": "bread/pane-integrale",
+"sectionKey": "BREAD",
+"titleKey": "PANE_INTEGRALE_BREAD"
+},
+{
+"route": "bread/pane-di-grano-duro",
+"sectionKey": "BREAD",
+"titleKey": "PANE_DI_GRANO_DURO_BREAD"
+},
+{
+"route": "bread/apulia-olive",
+"sectionKey": "BREAD",
+"titleKey": "APULIA_OLIVE_BREAD"
+},
+{
+"route": "flatbread/piadina",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_PIADINA"
+},
+{
+"route": "flatbread/cassoni",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_CASSONI"
+},
+{
+"route": "sweet/pasta-frolla",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_PASTA_FROLLA"
+},
+{
+"route": "sweet/pastry-fritters",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_PASTRY_FRITTERS"
+},
+{
+"route": "bread/semolina",
+"sectionKey": "BREAD",
+"titleKey": "SEMOLINA_BREAD"
+},
+{
+"route": "bread/semolina-durum",
+"sectionKey": "BREAD",
+"titleKey": "SEMOLINA_DURUM_BREAD"
+},
+{
+"route": "bread/semolina-soaker",
+"sectionKey": "BREAD",
+"titleKey": "SEMOLINA_SOAKER_FENNEL_BREAD"
+},
+{
+"route": "bread/additions",
+"sectionKey": "BREAD",
+"titleKey": "BREAD_WITH_ADDITIONS"
+},
+{
+"route": "italian",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "ITALIAN_DOUGH"
+},
+{
+"route": "italian/pizza",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_HUB"
+},
+{
+"route": "italian/pizza/neapolitan",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_NEAPOLITAN"
+},
+{
+"route": "italian/pizza/roman",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_ROMAN"
+},
+{
+"route": "italian/pizza/sicilian",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_SICILIAN"
+},
+{
+"route": "italian/pizza/same-day",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_SAME_DAY"
+},
+{
+"route": "italian/pizza/overnight-straight",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_OVERNIGHT_STRAIGHT"
+},
+{
+"route": "italian/pizza/bertinet",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_BERTINET"
+},
+{
+"route": "italian/pizza/alsatian-ham",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_ALSATIAN_HAM"
+},
+{
+"route": "italian/pizza/poolish-overnight",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_POOLISH_OVERNIGHT"
+},
+{
+"route": "italian/pizza/poolish-variation",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_POOLISH_VARIATION"
+},
+{
+"route": "italian/pizza/biga",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_BIGA"
+},
+{
+"route": "italian/pizza/pissaladiere",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_PISSALADIERE"
+},
+{
+"route": "italian/pizza/levain-overnight",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "PIZZA_LEVAIN_OVERNIGHT"
+},
+{
+"route": "italian/ciabatta",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA"
+},
+{
+"route": "italian/ciabatta/stiff-biga",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_STIFF_BIGA"
+},
+{
+"route": "italian/ciabatta/poolish",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_POOLISH"
+},
+{
+"route": "italian/ciabatta/olive-wheat-germ",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_OLIVE_WHEATGERM"
+},
+{
+"route": "italian/ciabatta/walnut-raisin",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_WALNUT_RAISIN"
+},
+{
+"route": "italian/ciabatta/levain",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_LEVAIN"
+},
+{
+"route": "italian/ciabatta/overnight-autolyse",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "OVERNIGHT_AUTOLYSE"
+},
+{
+"route": "italian/focaccia",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA"
+},
+{
+"route": "italian/focaccia/ciabatta-style",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "CIABATTA_STYLE_HAMELMAN"
+},
+{
+"route": "italian/focaccia/genovese",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_GENOVESE_FORKISH"
+},
+{
+"route": "italian/focaccia/olive-dough",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_OLIVE_DOUGH_BERTINET"
+},
+{
+"route": "italian/focaccia/olive-anchovy",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_OLIVE_ANCHOVY"
+},
+{
+"route": "italian/focaccia/ferrandi",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_FERRANDI"
+},
+{
+"route": "italian/focaccia/pissaladiere",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_PISSALADIERE"
+},
+{
+"route": "italian/focaccia/spanish-cocas",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_SPANISH_COCAS"
+},
+{
+"route": "italian/focaccia/zucchini",
+"sectionKey": "ITALIAN_DOUGH",
+"titleKey": "FOCACCIA_ZUCCHINI"
+},
+{
+"route": "baguette",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTES"
+},
+{
+"route": "baguette/tradition",
+"sectionKey": "BAGUETTES",
+"titleKey": "TRADITIONAL"
+},
+{
+"route": "baguette/pointage-en-bac",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_POINTAGE_EN_BAC"
+},
+{
+"route": "baguette/unkneaded",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_UNKNEADED"
+},
+{
+"route": "baguette/white-dough",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_WHITE_DOUGH"
+},
+{
+"route": "baguette/pf",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_PF"
+},
+{
+"route": "baguette/poolish",
+"sectionKey": "BAGUETTES",
+"titleKey": "POOLISH_NAME"
+},
+{
+"route": "baguette/traditional-poolish",
+"sectionKey": "BAGUETTES",
+"titleKey": "TRADITIONAL_POOLISH"
+},
+{
+"route": "baguette/multiseed-poolish",
+"sectionKey": "BAGUETTES",
+"titleKey": "MULTISEED_POOLISH"
+},
+{
+"route": "baguette/vienna",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_VIENNA"
+},
+{
+"route": "baguette/choc-vienna",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_CHOC_VIENNA"
+},
+{
+"route": "baguette/sourdough",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_SOURDOUGH_LIQUID_LEVAIN"
+},
+{
+"route": "baguette/rustic-sourdough",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_RUSTIC_SOURDOUGH"
+},
+{
+"route": "baguette/marchand-du-vin",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_MARCHAND_DU_VIN"
+},
+{
+"route": "baguette/bacon-rolls",
+"sectionKey": "BAGUETTES",
+"titleKey": "BAGUETTE_BACON_ROLLS"
+},
+{
+"route": "laminated",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "LAMINATED_DOUGH"
+},
+{
+"route": "laminated/croissant",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "CROISSANT"
+},
+{
+"route": "laminated/croissant/standard",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "STANDARD"
+},
+{
+"route": "laminated/croissant/choc",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "CROISSANT_TWOTONE_CHOC"
+},
+{
+"route": "laminated/croissant/garlic-herb",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "CROISSANT_GARLIC_HERB"
+},
+{
+"route": "laminated/croissant/flaky-rolls",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "CROISSANT_FLAKY_ROLLS"
+},
+{
+"route": "laminated/feuillete",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "FEUILLETE"
+},
+{
+"route": "laminated/feuillete-ferrandi",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "FEUILLETE_FERRANDI"
+},
+{
+"route": "sweet",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_BAKING"
+},
+{
+"route": "sweet/tart",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TARTS"
+},
+{
+"route": "sweet/brioche",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE"
+},
+{
+"route": "sweet/brioche/standard",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "STANDARD_HAMELMAN"
+},
+{
+"route": "sweet/brioche/vendee",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRAIDED_VENDEE"
+},
+{
+"route": "sweet/brioche/gache",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_GACHE"
+},
+{
+"route": "sweet/brioche/cardamom",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "CARDAMOM_ROLLS"
+},
+{
+"route": "sweet/brioche/pandoro",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_PANDORO"
+},
+{
+"route": "sweet/brioche/ferrandi-dough",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_DOUGH_FERRANDI"
+},
+{
+"route": "sweet/brioche/sweet-dough",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_DOUGH_BERTINET"
+},
+{
+"route": "sweet/brioche/milk-rolls",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "MILK_ROLLS"
+},
+{
+"route": "sweet/brioche/vegan",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "VEGAN_BRIOCHE"
+},
+{
+"route": "sweet/paska",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA"
+},
+{
+"route": "sweet/paska/podilska",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA_PODILSKA"
+},
+{
+"route": "sweet/paska/zvychayna",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA_ZVYCHAYNA"
+},
+{
+"route": "sweet/paska/svyatkova",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA_SVYATKOVA"
+},
+{
+"route": "sweet/paska/pokutska",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA_POKUTSKA"
+},
+{
+"route": "sweet/paska/grecka",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PASKA_GRECKA"
+},
+{
+"route": "sweet/panettone",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "PANETTONE"
+},
+{
+"route": "sweet/kolomba",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "KOLOMBA"
+},
+{
+"route": "sweet/brioche/savory",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_SAVORY"
+},
+{
+"route": "sweet/stollen",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_STOLLEN"
+},
+{
+"route": "sweet/pretzels",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_PRETZELS"
+},
+{
+"route": "sweet/pretzels-spelt",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_PRETZELS_SPELT"
+},
+{
+"route": "sweet/beesting",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_BEESTING"
+},
+{
+"route": "sweet/hot-cross-buns",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_HOT_CROSS_BUNS"
+},
+{
+"route": "sweet/soft-butter-rolls",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_SOFT_BUTTER_ROLLS"
+},
+{
+"route": "sweet/bagels",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_BAGELS"
+},
+{
+"route": "sweet/bialys",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_BIALYS"
+},
+{
+"route": "enriched",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "ENRICHED_DOUGH"
+},
+{
+"route": "enriched/challah",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "CHALLAH"
+},
+{
+"route": "enriched/berne-brot",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "BERNE_BROT"
+},
+{
+"route": "enriched/pullman",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "PULLMAN_BREAD"
+},
+{
+"route": "enriched/toast",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "TOAST_BREAD"
+},
+{
+"route": "enriched/oatmeal",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "OATMEAL_BREAD"
+},
+{
+"route": "enriched/oatmeal-cin-raisins",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "OATMEAL_CIN_RAISINS_BREAD"
+},
+{
+"route": "enriched/buttermilk",
+"sectionKey": "ENRICHED_DOUGH",
+"titleKey": "BUTTERMILK_BREAD"
+},
+{
+"route": "flatbread",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD"
+},
+{
+"route": "flatbread/tarte-flambee",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_TARTE_FLAMBEE"
+},
+{
+"route": "flatbread/sesame-breadsticks",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_SESAME_BREADSTICKS"
+},
+{
+"route": "flatbread/grissini",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_GRISSINI"
+},
+{
+"route": "flatbread/lavash",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_LAVASH"
+},
+{
+"route": "flatbread/socca",
+"sectionKey": "FLATBREAD",
+"titleKey": "FLATBREAD_SOCCA"
+},
+{
+"route": "technical",
+"sectionKey": "DECORATIVE_DOUGH",
+"title": "Декоративне тісто"
+},
+{
+"route": "technical/dark-yeasted",
+"sectionKey": "DECORATIVE_DOUGH",
+"title": "Dark Yeasted Decorative Dough"
+},
+{
+"route": "technical/light-yeasted",
+"sectionKey": "DECORATIVE_DOUGH",
+"title": "Light Yeasted Decorative Dough"
+},
+{
+"route": "technical/pate-morte",
+"sectionKey": "DECORATIVE_DOUGH",
+"title": "Pâte Morte"
+},
+{
+"route": "sweet/tart/brisee",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TART_BRISEE"
+},
+{
+"route": "sweet/tart/sablee",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TART_SABLEE"
+},
+{
+"route": "sweet/tart/sucree",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TART_SUCREE"
+},
+{
+"route": "sweet/tart/foncer",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TART_FONCER"
+},
+{
+"route": "sweet/tart/shortcrust",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "TART_SHORTCRUST"
+},
+{
+"route": "sweet/brioche/larousse",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_LAROUSSE"
+},
+{
+"route": "sweet/brioche/levee-tartes",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "BRIOCHE_LEVEE_TARTES"
+},
+{
+"route": "sweet/almond-dough",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "ALMOND_SHORTCRUST"
+},
+{
+"route": "sweet/choux",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "CHOUX_PASTRY"
+},
+{
+"route": "sweet/genoise",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "GENOISE_LAROUSSE"
+},
+{
+"route": "sweet/panforte",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "SWEET_PANFORTE"
+},
+{
+"route": "sweet/chocolate-sponge",
+"sectionKey": "SWEET_BAKING",
+"titleKey": "CHOCOLATE_SPONGE_LAROUSSE"
+},
+{
+"route": "laminated/flaky-pastry",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "LAMINATED_FLAKY_PASTRY"
+},
+{
+"route": "laminated/puff-pastry-classic",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "PUFF_PASTRY_CLASSIC"
+},
+{
+"route": "laminated/puff-pastry-2",
+"sectionKey": "LAMINATED_DOUGH",
+"titleKey": "PUFF_PASTRY_COMPACT"
+}
+]
