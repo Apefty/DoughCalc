@@ -723,4 +723,22 @@ module.exports = {
   DARK_YEASTED_DOUGH_SUB: 'Dark decorative dough, with cocoa',
   LIGHT_YEASTED_DOUGH_SUB: 'Light decorative dough',
   PATE_MORTE_SUB: '"Dead" dough, no yeast, on sugar syrup',
+
+  // calc.js runtime UI chrome strings (2026-08-19)
+  UNIT_H: 'hr',
+  FERMENT_TIME: 'Fermentation Time',
+  FERMENT_TIME_PREFERMENT: 'Preferment Fermentation Time',
+  NO_PREFERMENT: 'No Preferment',
+  MASTER_PLUS_BUILDS: 'Mother Culture + Builds (Stiff/Liquid)',
+  BUILDS_COUNT_SUFFIX: ' variants',
+  YEAST_BY_FERMENTATION_TIME: 'yeast by fermentation time',
+  THIRD_STARTER_GENITIVE: 'starter',
+  THIRD_YEAST_GENITIVE: 'yeast',
+  HYDRATION_PCT_SUFFIX: 'hydration',
+  PREFERMENT_WEIGHT: 'Preferment Weight',
+  WEIGHT_PREFIX: 'Weight: ',
+  FLOUR_TYPE_NAME_PLACEHOLDER: 'Type name',
+  FLOUR_TYPE_AUTO_TOOLTIP: 'Automatic: remainder from other flour types',
+  DRY_MILK: 'Dry milk',
+  SUGAR_SYRUP: 'Sugar syrup',
 };

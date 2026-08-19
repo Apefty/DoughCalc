@@ -1713,6 +1713,15 @@ DoughCalc.currentLocale = function () {
   return (prefs && prefs.lang) || DoughCalc.DEFAULT_LOCALE;
 };
 DoughCalc.langCache = {};
+/* Synchronous accessor — safe to call from calc.js's render/init
+   functions because navigate() always awaits getLangDict() (inside
+   fetchPageHtml) before calling a route's init callback, so by the
+   time any recipe/preferment page's JS runs, the current locale's
+   dict is guaranteed to already be in langCache. Returns {} if
+   called before any page has loaded (shouldn't happen in practice). */
+DoughCalc.getLangDictSync = function () {
+  return DoughCalc.langCache[DoughCalc.currentLocale()] || {};
+};
 DoughCalc.getLangDict = function (locale) {
   if (DoughCalc.langCache[locale]) return Promise.resolve(DoughCalc.langCache[locale]);
   return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + 'data/lang/' + locale + '.json')).then(function (res) {
