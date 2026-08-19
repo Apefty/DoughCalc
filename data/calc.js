@@ -43,13 +43,28 @@ DoughCalc.PREFERMENT_PATHS = {
 };
 
 /* UI labels for used_in / route sections (chrome, not recipe data —
-   shared across every preferment page instead of copy-pasted). */
+   shared across every preferment page instead of copy-pasted).
+   Resolved from the live language dict at call time (see
+   DoughCalc.sectionLabel below) — this object is now only the
+   Ukrainian fallback used if the dict hasn't loaded for some reason. */
 DoughCalc.SECTION_LABELS = {
   preferments: 'Преферменти',
   bread: 'Хліб',
   pizza: 'Піца',
   baguette: 'Багети',
   sweet: 'Солодка випічка'
+};
+DoughCalc.SECTION_LABEL_KEYS = {
+  preferments: 'PREFERMENTS',
+  bread: 'BREAD',
+  pizza: 'PIZZA_HUB',
+  baguette: 'BAGUETTES',
+  sweet: 'SWEET_BAKING'
+};
+DoughCalc.sectionLabel = function (key) {
+  var dict = DoughCalc.getLangDictSync();
+  var dictKey = DoughCalc.SECTION_LABEL_KEYS[key];
+  return (dictKey && dict[dictKey]) || DoughCalc.SECTION_LABELS[key] || key;
 };
 
 DoughCalc._preferentCache = {};
@@ -108,9 +123,10 @@ DoughCalc.initPrefermentsCatalog = function () {
       var subEl = card.querySelector('.menu-card-sub');
       if (titleEl) titleEl.textContent = (data.name && data.name.uk) || '';
       if (subEl) {
+        var dict = DoughCalc.getLangDictSync();
         subEl.textContent = data.hydration != null
-          ? data.hydration + '% гідратації' + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
-          : (data.master ? 'Материнська культура + білди (Stiff/Liquid)' : (data.builds ? data.builds.length + ' варіанти' : ''));
+          ? data.hydration + '% ' + (dict.HYDRATION_PCT_SUFFIX || 'гідратації') + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
+          : (data.master ? (dict.MASTER_PLUS_BUILDS || 'Материнська культура + білди (Stiff/Liquid)') : (data.builds ? data.builds.length + (dict.BUILDS_COUNT_SUFFIX || ' варіанти') : ''));
       }
     });
   });
@@ -134,9 +150,10 @@ DoughCalc.initPrefermentsCatalog = function () {
    ---------------------------------------------------------- */
 DoughCalc.initPrefermentPage = function (data) {
   if (!data) return;
+  var dict = DoughCalc.getLangDictSync();
   var ratio = DoughCalc._ratioOf(data);
   var isStarter = data.mode === 'starter';
-  var thirdName = isStarter ? 'Закваска' : 'Дріжджі';
+  var thirdName = isStarter ? (dict.SOURDOUGH || 'Закваска') : (dict.YEAST || 'Дріжджі');
   var formula = data.yeast_formula; // e.g. poolish: { constant, time_range_hours, default_hours }
   /* Some builds have no fermentation agent at all — scalds, soakers,
      raisin-juice stages, Detmolder's Grundsauer/Vollsauer (which use
@@ -147,10 +164,10 @@ DoughCalc.initPrefermentPage = function (data) {
   var hasThird = !!(data.ratio && (data.ratio.yeast != null || data.ratio.starter != null)) || !!formula;
 
   var thirdPillText = formula
-    ? 'дріжджі за часом ферментації'
-    : (ratio.third + '% ' + (isStarter ? 'закваски' : 'дріжджів'));
+    ? (dict.YEAST_BY_FERMENTATION_TIME || 'дріжджі за часом ферментації')
+    : (ratio.third + '% ' + (isStarter ? (dict.THIRD_STARTER_GENITIVE || 'закваски') : (dict.THIRD_YEAST_GENITIVE || 'дріжджів')));
   dcSetHTML('hero-pills',
-    '<span class="pill pill-accent">' + data.hydration + '% гідратації</span>' +
+    '<span class="pill pill-accent">' + data.hydration + '% ' + (dict.HYDRATION_PCT_SUFFIX || 'гідратації') + '</span>' +
     (hasThird ? '<span class="pill">' + thirdPillText + '</span>' : ''));
   dcSetHTML('hero-desc', (data.description && data.description.uk) || '');
 
@@ -186,7 +203,7 @@ DoughCalc.initPrefermentPage = function (data) {
   }
   var inputLabelEl = document.getElementById('input-label');
   if (inputLabelEl && data.first_ingredient) {
-    inputLabelEl.textContent = 'Вага: ' + data.first_ingredient.uk;
+    inputLabelEl.textContent = (dict.WEIGHT_PREFIX || 'Вага: ') + data.first_ingredient.uk;
   }
 
   if (data.fermentation) {
@@ -197,7 +214,7 @@ DoughCalc.initPrefermentPage = function (data) {
   var tagsEl = document.getElementById('used-in-tags');
   if (tagsEl && data.used_in) {
     tagsEl.innerHTML = data.used_in.map(function (key) {
-      var label = DoughCalc.SECTION_LABELS[key] || key;
+      var label = DoughCalc.sectionLabel(key);
       return '<a href="#' + key + '" class="tag" data-route="' + key + '">' + label + '</a>';
     }).join('');
   }
@@ -218,8 +235,8 @@ DoughCalc.initPrefermentPage = function (data) {
     if (hrEl) {
       hrEl.insertAdjacentHTML('beforebegin',
         '<div class="field-row">' +
-          '<label for="input-ferment-time" class="field-label">Час ферментації</label>' +
-          '<div class="value-box value-box-accent"><span id="ferment-time-display">' + formula.default_hours + '</span><span class="value-unit">год</span></div>' +
+          '<label for="input-ferment-time" class="field-label">' + (dict.FERMENT_TIME || 'Час ферментації') + '</label>' +
+          '<div class="value-box value-box-accent"><span id="ferment-time-display">' + formula.default_hours + '</span><span class="value-unit">' + (dict.UNIT_H || 'год') + '</span></div>' +
         '</div>' +
         '<input type="range" id="input-ferment-time" min="' + range[0] + '" max="' + range[1] + '" step="1" value="' + formula.default_hours + '" style="width:100%;margin:0 0 16px;">'
       );
@@ -251,12 +268,12 @@ DoughCalc.initPrefermentPage = function (data) {
     }
     var salt = saltRatio ? flour * (saltRatio / ratio.flour) : 0;
 
-    dcSetHTML('out-flour', Math.round(flour) + ' <span class="unit">г</span>');
-    dcSetHTML('out-water', Math.round(water) + ' <span class="unit">мл</span>');
-    dcSetHTML('out-third', (Math.round(third * 10) / 10) + ' <span class="unit">г</span>');
-    if (saltRatio) dcSetHTML('out-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
+    dcSetHTML('out-flour', Math.round(flour) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('out-water', Math.round(water) + ' <span class="unit">' + (dict.UNIT_ML || 'мл') + '</span>');
+    dcSetHTML('out-third', (Math.round(third * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    if (saltRatio) dcSetHTML('out-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
     var totalEl = document.getElementById('out-total');
-    if (totalEl) totalEl.textContent = Math.round(flour + water + third + salt) + ' г';
+    if (totalEl) totalEl.textContent = Math.round(flour + water + third + salt) + ' ' + (dict.UNIT_G || 'г');
   }
 
   buttons.forEach(function (btn) {
@@ -265,8 +282,8 @@ DoughCalc.initPrefermentPage = function (data) {
       btn.classList.add('is-active');
       mode = btn.getAttribute('data-mode');
       label.textContent = mode === 'flour'
-        ? (data.first_ingredient ? 'Вага: ' + data.first_ingredient.uk : 'Вага борошна')
-        : 'Вага преферменту';
+        ? (data.first_ingredient ? (dict.WEIGHT_PREFIX || 'Вага: ') + data.first_ingredient.uk : (dict.FLOUR_WEIGHT || 'Вага борошна'))
+        : (dict.PREFERMENT_WEIGHT || 'Вага преферменту');
       render();
     });
   });
@@ -420,6 +437,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   }
   options = options || {};
   var onFlourChange = options.onFlourChange;
+  var dict = DoughCalc.getLangDictSync();
 
   /* hero-desc is optional markup — only recipe pages that include a
      <p id="hero-desc"> get the description filled in; pages without
@@ -469,8 +487,8 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     if (!preTimeRow) {
       rowPrePercent.insertAdjacentHTML('afterend',
         '<div class="field-row" id="row-pre-ferment-time" style="display:none;">' +
-          '<label for="input-pre-ferment-time" class="field-label">Час ферментації преферменту</label>' +
-          '<div class="value-box value-box-accent"><span id="pre-ferment-time-display"></span><span class="value-unit">год</span></div>' +
+          '<label for="input-pre-ferment-time" class="field-label">' + (dict.FERMENT_TIME_PREFERMENT || 'Час ферментації преферменту') + '</label>' +
+          '<div class="value-box value-box-accent"><span id="pre-ferment-time-display"></span><span class="value-unit">' + (dict.UNIT_H || 'год') + '</span></div>' +
         '</div>' +
         '<input type="range" id="input-pre-ferment-time" style="width:100%;margin:0 0 16px;display:none;">'
       );
@@ -499,7 +517,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     if (key === 'none') { currentPreData = null; ensurePreTimeRow(null); render(); return; }
     DoughCalc.fetchPreferment(key, function (data) {
       currentPreData = data;
-      var thirdLabel = data && data.mode === 'starter' ? 'Закваска' : 'Дріжджі';
+      var thirdLabel = data && data.mode === 'starter' ? (dict.SOURDOUGH || 'Закваска') : (dict.YEAST || 'Дріжджі');
       var labelEl = document.querySelector('#pre-breakdown .row-list-item:nth-child(3) .row-list-label');
       if (labelEl) labelEl.lastChild.textContent = thirdLabel;
       ensurePreTimeRow(data && data.yeast_formula);
@@ -526,7 +544,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
 
     selectPreferment.innerHTML = (fixed && ids.length)
       ? ''
-      : '<option value="none">Без преферменту</option>';
+      : '<option value="none">' + (dict.NO_PREFERMENT || 'Без преферменту') + '</option>';
 
     if (!ids.length) {
       selectPreferment.disabled = fixed;
@@ -826,15 +844,36 @@ var CALC_CATEGORIES = [
   { id: 'technical',
     default: ['hydration', 'salt', 'yeast', 'sugar', 'milk', 'butter'],
     optional: ['candy'],
-    labels: { milk: 'Сухе молоко', candy: 'Цукровий сироп' },
+    labelsFn: technicalCategoryLabels,
     preferments: [] }
 ];
 
-var CALC_FIELD_LABELS = {
+var CALC_FIELD_LABELS_UA = {
   hydration: 'Гідратація', salt: 'Сіль', yeast: 'Дріжджі (в основний заміс)',
   oil: 'Олія', milk: 'Молоко', sugar: 'Цукор', egg: 'Яйця',
   butter: 'Масло вершкове', candy: 'Добавки'
 };
+/* Dict keys corresponding to each generic field — resolved at call
+   time (not module-load time, when the dict may not be loaded yet). */
+var CALC_FIELD_LABEL_KEYS = {
+  hydration: 'HYDRATION', salt: 'SALT', yeast: 'YEAST_MAIN',
+  oil: 'OIL', milk: 'MILK', sugar: 'SUGAR', egg: 'EGGS',
+  butter: 'BUTTER', candy: 'ADDITIONS'
+};
+function calcFieldLabel(field) {
+  var dict = DoughCalc.getLangDictSync();
+  var key = CALC_FIELD_LABEL_KEYS[field];
+  return (key && dict[key]) || CALC_FIELD_LABELS_UA[field] || field;
+}
+/* technical category's milk/candy relabel (Сухе молоко / Цукровий
+   сироп) — a function for the same load-order reason as above. */
+function technicalCategoryLabels() {
+  var dict = DoughCalc.getLangDictSync();
+  return {
+    milk: dict.DRY_MILK || 'Сухе молоко',
+    candy: dict.SUGAR_SYRUP || 'Цукровий сироп'
+  };
+}
 
 DoughCalc.initCalculatorPage = function () {
   // Reuses the normal recipe-page wiring (entry modes, preferment
@@ -892,7 +931,7 @@ DoughCalc.initCalculatorPage = function () {
 
   function rebuildPreferments(ids) {
     if (!selectPreferment) return;
-    selectPreferment.innerHTML = '<option value="none">Без преферменту</option>';
+    selectPreferment.innerHTML = '<option value="none">' + (dict.NO_PREFERMENT || 'Без преферменту') + '</option>';
     selectPreferment.disabled = !ids.length;
     if (!ids.length) {
       selectPreferment.value = 'none';
@@ -925,7 +964,8 @@ DoughCalc.initCalculatorPage = function () {
     if (!addSelect || !currentCat) return;
     var remaining = currentCat.optional.filter(function (f) { return addedOptional.indexOf(f) === -1; });
     addSelect.innerHTML = remaining.map(function (f) {
-      return '<option value="' + f + '">' + ((currentCat.labels && currentCat.labels[f]) || CALC_FIELD_LABELS[f]) + '</option>';
+      var catLabels = currentCat.labelsFn ? currentCat.labelsFn() : currentCat.labels;
+      return '<option value="' + f + '">' + ((catLabels && catLabels[f]) || calcFieldLabel(f)) + '</option>';
     }).join('');
     rowAddIngredient.style.display = remaining.length ? 'flex' : 'none';
   }
@@ -964,7 +1004,8 @@ DoughCalc.initCalculatorPage = function () {
     addedOptional = [];
 
     CALC_ALL_FIELDS.forEach(function (field) {
-      setFieldLabel(field, (cat.labels && cat.labels[field]) || CALC_FIELD_LABELS[field]);
+      var catLabels = cat.labelsFn ? cat.labelsFn() : cat.labels;
+      setFieldLabel(field, (catLabels && catLabels[field]) || calcFieldLabel(field));
       var used = cat.default.indexOf(field) > -1 || cat.optional.indexOf(field) > -1;
       if (!used) { showField(field, false); return; }
       showField(field, cat.default.indexOf(field) > -1);
@@ -991,7 +1032,8 @@ DoughCalc.initCalculatorPage = function () {
    current main-mix flour weight.
    ---------------------------------------------------------- */
 DoughCalc.initFlourTypes = function (initialTypes) {
-  var flourTypes = initialTypes || [{ name: 'Борошно', pct: 100 }];
+  var dict = DoughCalc.getLangDictSync();
+  var flourTypes = initialTypes || [{ name: dict.FLOUR || 'Борошно', pct: 100 }];
   var flourTypesList = document.getElementById('flour-types-list');
   var flourSumEl = document.getElementById('flour-sum');
   var addFlourTypeBtn = document.getElementById('add-flour-type');
@@ -1017,7 +1059,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
       var nameInput = document.createElement('input');
       nameInput.type = 'text';
       nameInput.className = 'flour-type-name';
-      nameInput.placeholder = 'Назва типу';
+      nameInput.placeholder = dict.FLOUR_TYPE_NAME_PLACEHOLDER || 'Назва типу';
       nameInput.value = ft.name;
       nameInput.addEventListener('input', function () {
         flourTypes[idx].name = nameInput.value;
@@ -1034,7 +1076,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
       if (idx === 0) {
         pctInput.readOnly = true;
         pctInput.tabIndex = -1;
-        pctInput.title = 'Автоматично: залишок від інших типів борошна';
+        pctInput.title = dict.FLOUR_TYPE_AUTO_TOOLTIP || 'Автоматично: залишок від інших типів борошна';
         pctBox.classList.add('flour-type-pct-box-locked');
       } else {
         pctInput.addEventListener('input', function () {
@@ -1058,7 +1100,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
 
       var removeBtn = document.createElement('button');
       removeBtn.className = 'flour-type-remove';
-      removeBtn.setAttribute('aria-label', 'Видалити');
+      removeBtn.setAttribute('aria-label', dict.REMOVE || 'Видалити');
       removeBtn.innerHTML = '<span class="iconify" data-icon="tabler:x"></span>';
       removeBtn.addEventListener('click', function () {
         if (idx === 0) return; // base flour can't be removed

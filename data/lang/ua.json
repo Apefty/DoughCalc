@@ -638,5 +638,21 @@
   "PATE_MORTE": "Pâte Morte",
   "DARK_YEASTED_DOUGH_SUB": "Темне декоративне тісто, з какао",
   "LIGHT_YEASTED_DOUGH_SUB": "Світле декоративне тісто",
-  "PATE_MORTE_SUB": "«Мертве» тісто без дріжджів, на цукровому сиропі"
+  "PATE_MORTE_SUB": "«Мертве» тісто без дріжджів, на цукровому сиропі",
+  "UNIT_H": "год",
+  "FERMENT_TIME": "Час ферментації",
+  "FERMENT_TIME_PREFERMENT": "Час ферментації преферменту",
+  "NO_PREFERMENT": "Без преферменту",
+  "MASTER_PLUS_BUILDS": "Материнська культура + білди (Stiff/Liquid)",
+  "BUILDS_COUNT_SUFFIX": " варіанти",
+  "YEAST_BY_FERMENTATION_TIME": "дріжджі за часом ферментації",
+  "THIRD_STARTER_GENITIVE": "закваски",
+  "THIRD_YEAST_GENITIVE": "дріжджів",
+  "HYDRATION_PCT_SUFFIX": "гідратації",
+  "PREFERMENT_WEIGHT": "Вага преферменту",
+  "WEIGHT_PREFIX": "Вага: ",
+  "FLOUR_TYPE_NAME_PLACEHOLDER": "Назва типу",
+  "FLOUR_TYPE_AUTO_TOOLTIP": "Автоматично: залишок від інших типів борошна",
+  "DRY_MILK": "Сухе молоко",
+  "PHOTO": "Фото"
 }
