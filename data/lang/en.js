@@ -713,4 +713,14 @@ module.exports = {
   SEARCH_PLACEHOLDER: 'Search recipes...',
   SEARCH_NO_RESULTS: 'No results found',
   SEARCH_CLOSE: 'Clear search',
+
+  // Technical section recipe titles (batch, 2026-08-19)
+  DARK_YEASTED_DOUGH: 'Dark Yeasted Decorative Dough',
+  LIGHT_YEASTED_DOUGH: 'Light Yeasted Decorative Dough',
+  PATE_MORTE: 'Pâte Morte',
+
+  // Technical hub card subtitles (batch, 2026-08-19)
+  DARK_YEASTED_DOUGH_SUB: 'Dark decorative dough, with cocoa',
+  LIGHT_YEASTED_DOUGH_SUB: 'Light decorative dough',
+  PATE_MORTE_SUB: '"Dead" dough, no yeast, on sugar syrup',
 };

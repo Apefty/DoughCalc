@@ -713,4 +713,14 @@ module.exports = {
   SEARCH_PLACEHOLDER: 'Пошук рецептів...',
   SEARCH_NO_RESULTS: 'Нічого не знайдено',
   SEARCH_CLOSE: 'Очистити пошук',
+
+  // Technical section recipe titles (batch, 2026-08-19)
+  DARK_YEASTED_DOUGH: 'Темне дріжджове декоративне тісто',
+  LIGHT_YEASTED_DOUGH: 'Світле дріжджове декоративне тісто',
+  PATE_MORTE: 'Pâte Morte',
+
+  // Technical hub card subtitles (batch, 2026-08-19)
+  DARK_YEASTED_DOUGH_SUB: 'Темне декоративне тісто, з какао',
+  LIGHT_YEASTED_DOUGH_SUB: 'Світле декоративне тісто',
+  PATE_MORTE_SUB: '«Мертве» тісто без дріжджів, на цукровому сиропі',
 };

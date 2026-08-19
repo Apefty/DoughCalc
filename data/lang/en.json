@@ -632,5 +632,11 @@
   "FLATBREAD_CASSONI_SUB": "Stuffed flatbreads, baking-powder leavened",
   "SEARCH_PLACEHOLDER": "Search recipes...",
   "SEARCH_NO_RESULTS": "No results found",
-  "SEARCH_CLOSE": "Clear search"
+  "SEARCH_CLOSE": "Clear search",
+  "DARK_YEASTED_DOUGH": "Dark Yeasted Decorative Dough",
+  "LIGHT_YEASTED_DOUGH": "Light Yeasted Decorative Dough",
+  "PATE_MORTE": "Pâte Morte",
+  "DARK_YEASTED_DOUGH_SUB": "Dark decorative dough, with cocoa",
+  "LIGHT_YEASTED_DOUGH_SUB": "Light decorative dough",
+  "PATE_MORTE_SUB": "\"Dead\" dough, no yeast, on sugar syrup"
 }

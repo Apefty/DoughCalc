@@ -632,5 +632,11 @@
   "FLATBREAD_CASSONI_SUB": "Фаршировані коржики, на розпушувачі",
   "SEARCH_PLACEHOLDER": "Пошук рецептів...",
   "SEARCH_NO_RESULTS": "Нічого не знайдено",
-  "SEARCH_CLOSE": "Очистити пошук"
+  "SEARCH_CLOSE": "Очистити пошук",
+  "DARK_YEASTED_DOUGH": "Темне дріжджове декоративне тісто",
+  "LIGHT_YEASTED_DOUGH": "Світле дріжджове декоративне тісто",
+  "PATE_MORTE": "Pâte Morte",
+  "DARK_YEASTED_DOUGH_SUB": "Темне декоративне тісто, з какао",
+  "LIGHT_YEASTED_DOUGH_SUB": "Світле декоративне тісто",
+  "PATE_MORTE_SUB": "«Мертве» тісто без дріжджів, на цукровому сиропі"
 }
