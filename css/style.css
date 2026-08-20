@@ -1643,6 +1643,13 @@ body.search-active main.menu > nav.menu-grid {
   cursor: pointer;
   color: var(--text-muted);
   padding: 0;
+}
+/* Push the toggle to the card's right edge — only on the favorites
+   list (.menu-card). Inside .app-brand it sits right after the <h1>
+   instead, so it must NOT get this margin there — a blanket
+   margin-left:auto on .favorite-btn used to leak into the header and
+   shove the whole back-arrow+title row off to the right. */
+.menu-card .favorite-btn {
   margin-left: auto;
 }
 .favorite-btn .iconify {
