@@ -425,6 +425,29 @@ DoughCalc.initSettingsPage = function () {
   if (updateCard && isNativeApp) updateCard.style.display = '';
 };
 
+// Favorites page (data/pages/favorites/favorites.html). There's no
+// "add to favorites" control on card pages yet — this just reads
+// prefs.favorites (an array of route strings) if/when that starts
+// getting populated, so the page already works the moment that
+// piece lands, with no further changes here.
+DoughCalc.initFavoritesPage = function () {
+  var empty = document.getElementById('favorites-empty');
+  var grid = document.getElementById('favorites-grid');
+  if (!empty || !grid) return;
+
+  var favorites = DoughCalc.loadPrefs().favorites || [];
+  if (!favorites.length) {
+    empty.style.display = '';
+    grid.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.style.display = '';
+  // Card rendering will come with the "add to favorites" feature —
+  // each entry is currently just a bare route string with no title/
+  // icon/subtitle to render yet.
+};
+
 function checkAppUpdateFromSettings() {
   var statusEl = document.getElementById('settings-update-status');
   var btnEl = document.getElementById('settings-update-btn');

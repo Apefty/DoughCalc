@@ -1602,7 +1602,27 @@ body.theme-dark {
   text-align: center;
 }
 /* When search results are open, hide the regular menu grid so the
-   results list fully replaces it (same pattern as Sauces' #sr/#hm). */
-body.search-active #home-menu-body {
+   results list fully replaces it (same pattern as Sauces' #sr/#hm).
+   home.html wraps its grid in #home-menu-body; hub pages (bread.html,
+   italian.html, etc.) have no such wrapper — their <nav class="menu-grid">
+   is a direct child of <main class="menu">, so it's targeted separately. */
+body.search-active #home-menu-body,
+body.search-active main.menu > nav.menu-grid {
   display: none;
+}
+
+/* Favorites page placeholder — shown until favoriting a recipe is
+   wired up (star/heart toggle on card pages, stored in prefs). */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
 }

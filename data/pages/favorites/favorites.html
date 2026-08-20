@@ -1,0 +1,22 @@
+<header class="app-header" id="favorites">
+  <a data-route="" class="icon-btn" aria-label="{{lang.BACK}}">
+    <span class="iconify" data-icon="tabler:arrow-left"></span>
+  </a>
+  <div class="app-brand">
+    <h1 class="page-title">{{lang.FAVORITES}}</h1>
+  </div>
+  <button class="icon-btn" id="menu-btn" aria-label="{{lang.MENU}}">
+    <span class="iconify" data-icon="tabler:menu-2"></span>
+  </button>
+</header>
+
+<main class="menu">
+
+  <div id="favorites-empty" class="empty-state">
+    <span class="iconify" data-icon="tabler:heart" style="font-size:48px;color:var(--text-muted);"></span>
+    <p>{{lang.FAVORITES_EMPTY}}</p>
+  </div>
+
+  <nav id="favorites-grid" class="menu-grid" aria-label="{{lang.FAVORITES}}"></nav>
+
+</main>

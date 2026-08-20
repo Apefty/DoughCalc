@@ -37,7 +37,7 @@ DoughCalc.routes = {
 
   'preferments': {
     file: 'data/pages/preferments/pref.html',
-    init: function () { DoughCalc.initPrefermentsCatalog(); }
+    init: function () { DoughCalc.initPrefermentsCatalog(); DoughCalc.initHomeSearch(); }
   },
   'preferments/biga': {
     file: 'data/pages/preferments/biga.html',
@@ -143,7 +143,7 @@ DoughCalc.routes = {
     }
   },
 
-  'bread': { file: 'data/pages/bread/bread.html' },
+  'bread': { file: 'data/pages/bread/bread.html', init: function () { DoughCalc.initHomeSearch(); } },
   'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/rye': { file: 'data/pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/sourdough-bread': { file: 'data/pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function (data) { DoughCalc.initRecipePage(data); } },
@@ -1115,7 +1115,7 @@ DoughCalc.routes = {
   },
   'bread/additions': { file: 'data/pages/bread/additions.html', json: 'data/json/bread/additions.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
-  'italian': { file: 'data/pages/italian/italian.html' },
+  'italian': { file: 'data/pages/italian/italian.html', init: function () { DoughCalc.initHomeSearch(); } },
 
   'italian/pizza': { file: 'data/pages/italian/pizza/pizza.html' },
   'italian/pizza/neapolitan': {
@@ -1319,7 +1319,7 @@ DoughCalc.routes = {
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
-  'baguette': { file: 'data/pages/baguette/baguette.html' },
+  'baguette': { file: 'data/pages/baguette/baguette.html', init: function () { DoughCalc.initHomeSearch(); } },
   'baguette/tradition': { file: 'data/pages/baguette/tradition.html', json: 'data/json/baguette/tradition.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'baguette/pointage-en-bac': { file: 'data/pages/baguette/pointage-en-bac.html', json: 'data/json/baguette/pointage-en-bac.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'baguette/unkneaded': { file: 'data/pages/baguette/unkneaded.html', json: 'data/json/baguette/unkneaded.json', init: function (data) { DoughCalc.initRecipePage(data); } },
@@ -1335,7 +1335,7 @@ DoughCalc.routes = {
   'baguette/marchand-du-vin': { file: 'data/pages/baguette/marchand-du-vin.html', json: 'data/json/baguette/marchand-du-vin.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'baguette/bacon-rolls': { file: 'data/pages/baguette/bacon-rolls.html', json: 'data/json/baguette/bacon-rolls.json', init: function (data) { DoughCalc.initRecipePage(data); } },
 
-  'laminated': { file: 'data/pages/laminated/laminated.html' },
+  'laminated': { file: 'data/pages/laminated/laminated.html', init: function () { DoughCalc.initHomeSearch(); } },
   'laminated/croissant': { file: 'data/pages/laminated/croissant.html' },
   'laminated/croissant/standard': {
     file: 'data/pages/laminated/croissant/standard.html',
@@ -1368,7 +1368,7 @@ DoughCalc.routes = {
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
 
-  'sweet': { file: 'data/pages/sweet/sweet.html' },
+  'sweet': { file: 'data/pages/sweet/sweet.html', init: function () { DoughCalc.initHomeSearch(); } },
   'sweet/tart': { file: 'data/pages/sweet/tart.html' },
   'sweet/brioche': { file: 'data/pages/sweet/brioche.html' },
   'sweet/brioche/standard': { file: 'data/pages/sweet/brioche/standard.html', json: 'data/json/sweet/brioche/standard.json', init: function (data) { DoughCalc.initRecipePage(data); } },
@@ -1468,7 +1468,7 @@ DoughCalc.routes = {
     json: 'data/json/sweet/bialys.json',
     init: function (data) { DoughCalc.initRecipePage(data); }
   },
-  'enriched': { file: 'data/pages/enriched/enriched.html' },
+  'enriched': { file: 'data/pages/enriched/enriched.html', init: function () { DoughCalc.initHomeSearch(); } },
   'enriched/challah': {
     file: 'data/pages/enriched/challah.html',
     json: 'data/json/enriched/challah.json',
@@ -1528,7 +1528,7 @@ DoughCalc.routes = {
       });
     }
   },
-  'flatbread': { file: 'data/pages/flatbread/flatbread.html' },
+  'flatbread': { file: 'data/pages/flatbread/flatbread.html', init: function () { DoughCalc.initHomeSearch(); } },
   'flatbread/tarte-flambee': {
     file: 'data/pages/flatbread/tarte-flambee.html',
     json: 'data/json/flatbread/tarte-flambee.json',
@@ -1568,7 +1568,7 @@ DoughCalc.routes = {
       });
     }
   },
-  'technical': { file: 'data/pages/technical/technical.html' },
+  'technical': { file: 'data/pages/technical/technical.html', init: function () { DoughCalc.initHomeSearch(); } },
   'technical/dark-yeasted': {
     file: 'data/pages/technical/dark-yeasted.html',
     json: 'data/json/technical/dark-yeasted.json',
@@ -1685,6 +1685,11 @@ DoughCalc.routes = {
   'calculator': {
     file: 'data/pages/calculator/calculator.html',
     init: function () { DoughCalc.initCalculatorPage(); }
+  },
+
+  'favorites': {
+    file: 'data/pages/favorites/favorites.html',
+    init: function () { DoughCalc.initFavoritesPage(); }
   },
 
   'settings': {

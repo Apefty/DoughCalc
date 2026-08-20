@@ -31,6 +31,8 @@ SETTINGS: 'Налаштування',
 ABOUT: 'Про додаток',
 RECIPES: 'Рецепти',
 PROFILES: 'Профілі',
+FAVORITES: 'Обране',
+FAVORITES_EMPTY: 'Ще немає обраних рецептів',
 
   // Preferment types
   PREFERMENT: 'Преферемент',

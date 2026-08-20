@@ -24,6 +24,8 @@ DoughCalc.LANG.en = {
   ABOUT: 'About',
   RECIPES: 'Recipes',
   PROFILES: 'Profiles',
+  FAVORITES: 'Favorites',
+  FAVORITES_EMPTY: 'No favorites yet',
 
   // Preferment types
   PREFERMENT: 'Preferment',
