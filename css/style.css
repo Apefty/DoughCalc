@@ -95,13 +95,37 @@ div#body-wrapper {
 * ---------- Header ---------- */
 .app-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 16px 18px;
+  row-gap: 6px;
   /* margin-top: 20px; */
 }
 
 .app-header > *:last-child {
   margin-left: auto;
+}
+
+/* Burger moves to its own row, top-left; back arrow drops to a second row
+   ahead of the title, and the title shifts right away from the arrow.
+   Scoped to .app-header only — #menu-btn id is reused by the separate
+   .home-header component and must not be affected here. */
+.app-header > #menu-btn {
+  order: -1;
+  flex: 1 0 100%;
+  aspect-ratio: auto;
+  height: 48px;
+  justify-content: flex-start;
+  margin-left: 0 !important;
+}
+
+.app-header > a.icon-btn {
+  order: 1;
+}
+
+.app-header > .app-brand {
+  order: 2;
+  margin-left: 14px;
 }
 /* .app-header {
   display: flex;
