@@ -1626,3 +1626,28 @@ body.search-active main.menu > nav.menu-grid {
   margin: 0;
   font-size: 14px;
 }
+
+/* Favorite toggle — sits next to a card page's <h1> (inside
+   .app-brand) or, on the favorites list itself, inside a .menu-card
+   (there it's a <span role="button">, not a real <button>, since
+   nesting a <button> inside the card's <a> isn't valid HTML). */
+.favorite-btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0;
+  margin-left: auto;
+}
+.favorite-btn .iconify {
+  font-size: 20px;
+}
+.favorite-btn[aria-pressed="true"] {
+  color: var(--accent);
+}

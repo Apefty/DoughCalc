@@ -1772,6 +1772,7 @@ DoughCalc.navigate = function (route) {
       var html = results[0], data = results[1];
       contentArea.innerHTML = html;
       if (typeof r.init === 'function') r.init(data);
+      DoughCalc.initFavoriteToggle(contentArea); // picks up the button on whichever page just loaded, if present
       if (data && data.yt) DoughCalc.renderYouTube(data.yt);
       if (data && data.photo) DoughCalc.renderPhoto(data.photo);
       DoughCalc.renderLinks(data);
@@ -1789,12 +1790,12 @@ DoughCalc.updateBottomNav = function (route) {
   var items = document.querySelectorAll('.bottom-nav-item');
   var section = route === '' ? 'home'
     : (route.indexOf('/') > -1 ? route.split('/')[0] : route);
-  var activeKey = (section === 'home') ? 'home'
-    : (['preferments', 'bread', 'italian', 'baguette', 'sweet'].indexOf(section) > -1) ? 'recipes'
-    : section;
-
+  // Recipe hubs (preferments/bread/italian/etc.) have no bottom-nav
+  // tab of their own — nothing highlights while browsing one, same
+  // as calculator sub-pages/settings/etc. Only exact matches
+  // (home/calculator/favorites/about) light up.
   items.forEach(function (item) {
-    item.classList.toggle('is-active', item.getAttribute('data-nav') === activeKey);
+    item.classList.toggle('is-active', item.getAttribute('data-nav') === section);
   });
 };
 

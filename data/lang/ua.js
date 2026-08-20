@@ -33,6 +33,8 @@ RECIPES: 'Рецепти',
 PROFILES: 'Профілі',
 FAVORITES: 'Обране',
 FAVORITES_EMPTY: 'Ще немає обраних рецептів',
+FAVORITE_ADD: 'Додати в обране',
+FAVORITE_REMOVE: 'Прибрати з обраного',
 
   // Preferment types
   PREFERMENT: 'Преферемент',

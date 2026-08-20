@@ -425,11 +425,86 @@ DoughCalc.initSettingsPage = function () {
   if (updateCard && isNativeApp) updateCard.style.display = '';
 };
 
-// Favorites page (data/pages/favorites/favorites.html). There's no
-// "add to favorites" control on card pages yet — this just reads
-// prefs.favorites (an array of route strings) if/when that starts
-// getting populated, so the page already works the moment that
-// piece lands, with no further changes here.
+/* ----------------------------------------------------------
+   Favorites — storage + toggle button (shared across every page)
+
+   prefs.favorites is a plain array of route strings (the same
+   strings used as data-route / location.hash — e.g. "preferments/biga",
+   "bread/durum"). Lives in the same localStorage blob as theme/lang/
+   units, via the existing loadPrefs()/savePrefs().
+
+   The toggle button itself: any element matching [data-favorite-toggle]
+   containing a nested .iconify icon. Two ways it's used:
+   - On a card page (biga.html etc.): no data-route attribute — the
+     button always refers to *this* page, so the route is read from
+     location.hash at click time.
+   - On the favorites list (favorites.html, rendered below): each
+     card's button carries its own data-route, since the list shows
+     many different routes on one page.
+   ---------------------------------------------------------- */
+DoughCalc.isFavorite = function (route) {
+  var favs = DoughCalc.loadPrefs().favorites || [];
+  return favs.indexOf(route) > -1;
+};
+
+DoughCalc.toggleFavorite = function (route) {
+  var prefs = DoughCalc.loadPrefs();
+  var favs = prefs.favorites || [];
+  var i = favs.indexOf(route);
+  if (i > -1) favs.splice(i, 1); else favs.push(route);
+  prefs.favorites = favs;
+  DoughCalc.savePrefs(prefs);
+  return i === -1; // true if the route is now favorited, false if just removed
+};
+
+DoughCalc._setFavoriteBtnState = function (btn, isFav) {
+  btn.setAttribute('aria-pressed', isFav ? 'true' : 'false');
+  var icon = btn.querySelector('.iconify');
+  if (icon) icon.setAttribute('data-icon', isFav ? 'tabler:heart-filled' : 'tabler:heart');
+};
+
+/* Wires up every [data-favorite-toggle] button found under `root`
+   (defaults to the whole document). Called once per navigation from
+   cat.js's navigate(), scoped to the freshly-inserted #content-area,
+   so it picks up the button on whichever page just loaded — no
+   per-route wiring needed in cat.js's route table. Works for a real
+   <button> (card pages) as well as a <span role="button"> (the
+   favorites list below, where the toggle sits inside a .menu-card
+   <a> — nesting a real <button> inside an <a> isn't valid HTML). */
+DoughCalc.initFavoriteToggle = function (root) {
+  (root || document).querySelectorAll('[data-favorite-toggle]').forEach(function (btn) {
+    if (btn._favoriteWired) return; // avoid double-binding if called twice on the same element
+    btn._favoriteWired = true;
+    var ownRoute = btn.getAttribute('data-route');
+    var route = ownRoute != null ? ownRoute : (location.hash.slice(1) || '');
+    DoughCalc._setFavoriteBtnState(btn, DoughCalc.isFavorite(route));
+
+    function activate(e) {
+      e.preventDefault();
+      e.stopPropagation(); // in case the toggle sits inside a clickable card <a>
+      var nowFav = DoughCalc.toggleFavorite(route);
+      DoughCalc._setFavoriteBtnState(btn, nowFav);
+      // Unfavoriting from within the favorites list itself — refresh
+      // it so the card disappears immediately instead of waiting for
+      // the next visit.
+      if (!nowFav && (location.hash.slice(1) || '') === 'favorites') {
+        DoughCalc.initFavoritesPage();
+      }
+    }
+    btn.addEventListener('click', activate);
+    if (btn.tagName !== 'BUTTON') {
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') activate(e);
+      });
+    }
+  });
+};
+
+// Favorites page (data/pages/favorites/favorites.html). Renders each
+// favorited route as a .menu-card, using data/search-index.json for
+// the title/section (the same index the search box uses) — so any
+// route that's favoritable is already guaranteed to have a display
+// name here, with no separate data file to keep in sync.
 DoughCalc.initFavoritesPage = function () {
   var empty = document.getElementById('favorites-empty');
   var grid = document.getElementById('favorites-grid');
@@ -439,13 +514,35 @@ DoughCalc.initFavoritesPage = function () {
   if (!favorites.length) {
     empty.style.display = '';
     grid.style.display = 'none';
+    grid.innerHTML = '';
     return;
   }
   empty.style.display = 'none';
   grid.style.display = '';
-  // Card rendering will come with the "add to favorites" feature —
-  // each entry is currently just a bare route string with no title/
-  // icon/subtitle to render yet.
+
+  Promise.all([DoughCalc.loadSearchIndex(), DoughCalc.getLangDict(DoughCalc.currentLocale())])
+    .then(function (results) {
+      var index = results[0], dict = results[1];
+      var byRoute = {};
+      index.forEach(function (e) { byRoute[e.route] = e; });
+
+      grid.innerHTML = favorites.map(function (route) {
+        var e = byRoute[route];
+        var title = e ? (e.titleKey ? (dict[e.titleKey] || route) : (e.title || route)) : route;
+        var section = e && e.sectionKey ? (dict[e.sectionKey] || '') : '';
+        return '<a data-route="' + route + '" class="menu-card">'
+          + '<div class="menu-card-text">'
+          + '<span class="menu-card-title">' + DoughCalc.escapeHtml(title) + '</span>'
+          + (section ? '<span class="menu-card-sub">' + DoughCalc.escapeHtml(section) + '</span>' : '')
+          + '</div>'
+          + '<span class="favorite-btn" data-favorite-toggle data-route="' + route + '" role="button" tabindex="0" aria-label="' + DoughCalc.escapeHtml(dict.FAVORITE_REMOVE || '') + '">'
+          + '<span class="iconify" data-icon="tabler:heart-filled"></span>'
+          + '</span>'
+          + '</a>';
+      }).join('');
+
+      DoughCalc.initFavoriteToggle(grid);
+    });
 };
 
 function checkAppUpdateFromSettings() {
