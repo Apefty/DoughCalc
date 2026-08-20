@@ -92,7 +92,7 @@ div#body-wrapper {
  padding-top: 20px;
 }  
   
-* ---------- Header ---------- */
+/* ---------- Header ---------- */
 .app-header {
   display: flex;
   flex-wrap: wrap;
