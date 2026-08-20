@@ -1,8 +1,5 @@
 {
   "name": "doughcalc",
   "version": "0.1.0",
-  "description": "DoughCalc — localized (UK/EN) bread & pastry baker's-percentage calculator PWA",
-  "scripts": {
-    "build": "node scripts/sync-lang-json.js"
-  }
+  "description": "DoughCalc — localized (UK/EN) bread & pastry baker's-percentage calculator PWA. No build step: data/lang/*.js is loaded directly as a <script> and data/pages/**/*.html is compiled client-side with the vendored Handlebars."
 }

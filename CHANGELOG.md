@@ -2,6 +2,15 @@
 
 Усі помітні зміни проєкту фіксуються тут у хронологічному порядку.
 
+## [2026-08-20] — i18n: drop the .json mirror, one .js file per locale, no build step
+- Fix: static shell (side drawer, bottom nav, `<title>`) never rendered `{{lang.KEY}}` — it's not fetched through `DoughCalc.fetchPageHtml()`, so Handlebars never touched it.
+- Change: `data/lang/{ua,en}.js` are no longer CommonJS (`module.exports`) mirrored into `.json` by a sync script — they're now loaded directly as `<script>` tags in `index.html` and assign to `DoughCalc.LANG.<code>`. Each locale is exactly one file, edited directly, no compile/sync step ever.
+Files changed: index.html, data/app.js, data/cat.js, data/lang/ua.js, data/lang/en.js, package.json
+Removed: data/lang/ua.json, data/lang/en.json, scripts/sync-lang-json.js
+Cause: the shell's placeholders were added assuming they'd be compiled like routed pages, but index.html is loaded directly by the browser, not fetched+compiled. Separately, `data/lang/ua.json`/`en.json` had drifted out of sync with their `.js` source (hand-edited directly at some point) — `RESIPES` typo, several keys only in `.json` — which the two-file setup made easy to do by accident.
+Impact: side drawer, bottom nav, and tab title now localize correctly and update live on language switch; editing a dictionary is a one-file change with no follow-up build step.
+Verification: loaded index.html and every route in a real Chrome instance (Playwright), confirmed no leftover `{{lang.*}}` text anywhere on the page and that switching the language `<select>` updates the shell and the current routed page immediately.
+
 ## [2026-08-11] — Fix: guard addEventListener calls
 - Fix: prevent console errors when page-specific DOM elements are missing
 Summary: Guarded event listener attachments and conditional DOM access in the recipe/preferment calculator to avoid "Cannot read properties of null (reading 'addEventListener')" errors on pages that don't include certain controls.

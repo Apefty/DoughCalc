@@ -1,4 +1,29 @@
-module.exports = {
+// Loaded directly as a <script> (see index.html) — a plain global
+// assignment, not a CommonJS module, so the browser can use it
+// as-is with no bundler, fetch, or build/sync step. This file is
+// the single source of truth for English strings.
+window.DoughCalc = window.DoughCalc || {};
+DoughCalc.LANG = DoughCalc.LANG || {};
+DoughCalc.LANG.en = {
+  //Menu
+  SITE_TITLE: 'Dough Calculator',
+  HOME: 'Home',
+  ITALIAN: 'Italian Dough',
+  BAGUETTE: 'Baguette',
+  SWEET: 'Sweet Baking',
+  LAMINATED: 'Laminated Dough',
+  ENRICHED: 'Enriched Dough',
+  TECHNICAL: 'Technical Dough',
+  LANGUAGE: 'Language',
+  LANGUAGE_UA: 'Ukrainian',
+  LANGUAGE_EN: 'English',
+  THEME_LIGHT: 'Light',
+  THEME_DARK: 'Dark',
+  UNITS_GRAMS: 'Grams',
+  UNITS_OUNCES: 'Ounces',
+  ABOUT: 'About',
+  RECIPES: 'Recipes',
+  PROFILES: 'Profiles',
 
   // Preferment types
   PREFERMENT: 'Preferment',

@@ -1,9 +1,16 @@
-module.exports = {
+// Loaded directly as a <script> (see index.html) — a plain global
+// assignment, not a CommonJS module, so the browser can use it
+// as-is with no bundler, fetch, or build/sync step. This file is
+// the single source of truth for Ukrainian strings.
+window.DoughCalc = window.DoughCalc || {};
+DoughCalc.LANG = DoughCalc.LANG || {};
+DoughCalc.LANG.ua = {
 //Menu
 SITE_TITLE: 'Калькулятор хлібопекарських рецептів',
 HOME: 'Головна',
 CALCULATOR: 'Калькулятор',
 PREFERMENTS: 'Преферменти',
+PREFERMENTS_SUB: 'Пулиш, біга, левіто мадре, пате ферменте ...',
 ITALIAN: 'Італійське тісто',
 BAGUETTE: 'Багети',
 SWEET: 'Солодка випічка',
@@ -12,11 +19,17 @@ ENRICHED: 'Збагачене тісто',
 FLATBREAD: 'Пласке тісто',
 TECHNICAL: 'Декоративне тісто',
 LANGUAGE: 'Мова',
+LANGUAGE_UA: 'Українська',
+LANGUAGE_EN: 'English',
 THEME: 'Тема',
+THEME_LIGHT: 'Світла',
+THEME_DARK: 'Темна',
 UNITS: 'Одиниці виміру',
+UNITS_GRAMS: 'Грами',
+UNITS_OUNCES: 'Унції',
 SETTINGS: 'Налаштування',
 ABOUT: 'Про додаток',
-RESIPES: 'Рецепти',
+RECIPES: 'Рецепти',
 PROFILES: 'Профілі',
 
   // Preferment types

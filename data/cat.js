@@ -1699,38 +1699,42 @@ DoughCalc.routes = {
    step and no per-locale copies — Handlebars (vendored at
    js/vendor/handlebars.min.js, no CDN dependency) compiles the
    fetched text right in the browser on every navigation, using
-   whichever language dictionary (data/lang/<code>.json) is currently
-   active. A page with no {{ }} syntax just compiles to itself
-   unchanged, so plain (not-yet-converted) pages work identically to
-   before — no extension convention, no renaming, ever. Switching
-   language just means re-fetching a different JSON file and
-   recompiling — same static-file-only approach, so it works
-   identically on GitHub Pages, Netlify, and inside the native
-   Android/Windows wrapper. */
+   whichever language dictionary is currently active. A page with no
+   {{ }} syntax just compiles to itself unchanged, so plain
+   (not-yet-converted) pages work identically to before — no extension
+   convention, no renaming, ever.
+
+   The dictionaries themselves are data/lang/<code>.js — loaded as
+   plain <script> tags in index.html (see DoughCalc.LANG.<code>), one
+   file per language, nothing else. No fetch, no JSON mirror, no
+   sync/build step: the .js file a translator edits is the exact file
+   the browser runs. Switching language is just swapping which
+   already-loaded object getLangDict() reads from and recompiling the
+   current page — still purely static files, so it works identically
+   on GitHub Pages, Netlify, and inside the native Android/Windows
+   wrapper. */
 DoughCalc.DEFAULT_LOCALE = 'ua';
 DoughCalc.currentLocale = function () {
   var prefs = DoughCalc.loadPrefs ? DoughCalc.loadPrefs() : {};
   return (prefs && prefs.lang) || DoughCalc.DEFAULT_LOCALE;
 };
-DoughCalc.langCache = {};
 /* Synchronous accessor — safe to call from calc.js's render/init
    functions because navigate() always awaits getLangDict() (inside
    fetchPageHtml) before calling a route's init callback, so by the
    time any recipe/preferment page's JS runs, the current locale's
-   dict is guaranteed to already be in langCache. Returns {} if
-   called before any page has loaded (shouldn't happen in practice). */
+   dict is guaranteed to already be available. Returns {} if the
+   locale's <script> hasn't loaded (shouldn't happen in practice —
+   both data/lang/*.js files are loaded up front in index.html). */
 DoughCalc.getLangDictSync = function () {
-  return DoughCalc.langCache[DoughCalc.currentLocale()] || {};
+  return (DoughCalc.LANG && DoughCalc.LANG[DoughCalc.currentLocale()]) || {};
 };
+/* Returns a Promise for API compatibility with callers written for
+   the old fetch-based version (fetchPageHtml chains off this with
+   .then()) — but resolves immediately, since data/lang/<code>.js is
+   a synchronous <script> already loaded before app code runs. */
 DoughCalc.getLangDict = function (locale) {
-  if (DoughCalc.langCache[locale]) return Promise.resolve(DoughCalc.langCache[locale]);
-  return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + 'data/lang/' + locale + '.json')).then(function (res) {
-    if (!res.ok) throw new Error('Failed to load language file: ' + locale);
-    return res.json();
-  }).then(function (dict) {
-    DoughCalc.langCache[locale] = dict;
-    return dict;
-  });
+  var dict = (DoughCalc.LANG && DoughCalc.LANG[locale]) || {};
+  return Promise.resolve(dict);
 };
 DoughCalc.fetchPageHtml = function (file) {
   return fetch(DoughCalc.withCacheBust(DoughCalc.BASE + file)).then(function (res) {

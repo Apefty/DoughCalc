@@ -171,6 +171,26 @@ DoughCalc.applyTheme = function (theme) {
   document.body.classList.toggle('theme-dark', theme === 'dark');
 };
 
+// Localizes the persistent shell (side drawer, bottom nav, <title>) —
+// the parts of index.html that live outside #content-area. Unlike
+// routed pages (data/pages/**/*.html), this markup is never fetched
+// through DoughCalc.fetchPageHtml, so it never passes through
+// Handlebars.compile(); {{lang.KEY}} placeholders here would just
+// render as literal text. Instead these elements carry a plain
+// data-i18n="KEY" attribute (with the default Ukrainian text already
+// in place as a no-JS/no-flash fallback), and this function fills
+// them in from the language dict — once on load, and again whenever
+// the language switcher changes.
+DoughCalc.localizeShell = function () {
+  return DoughCalc.getLangDict(DoughCalc.currentLocale()).then(function (dict) {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+  });
+};
+document.addEventListener('DOMContentLoaded', DoughCalc.localizeShell);
+
 DoughCalc.initDrawer = function () {
   var overlay = document.getElementById('drawer-overlay');
   var drawer = document.getElementById('side-drawer');
@@ -220,6 +240,10 @@ DoughCalc.initDrawer = function () {
       // immediately — no server round-trip needed, this is a static
       // per-locale file fetch (see DoughCalc.fetchLocalizedHtml in cat.js).
       DoughCalc.navigate(location.hash.slice(1) || '');
+      // Routed content is handled by navigate() above; the persistent
+      // shell (drawer/bottom-nav/title) needs its own pass since it's
+      // never re-fetched.
+      DoughCalc.localizeShell();
     });
   }
   if (themeSelect) {
