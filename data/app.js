@@ -114,7 +114,7 @@ DoughCalc.renderPhoto = function (photoValue) {
   section.className = 'card';
   section.id = 'photo-section';
   section.innerHTML =
-    '<div class="card-title-row"><span class="card-title">' + (dict.PHOTO || 'Фото') + '</span></div>' +
+/*     '<div class="card-title-row"><span class="card-title">' + (dict.PHOTO || 'Фото') + '</span></div>' + */
     '<div class="recipe-photo-wrap"><img class="recipe-photo" alt="" loading="lazy"></div>';
 
   var img = section.querySelector('img');

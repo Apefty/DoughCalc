@@ -92,7 +92,7 @@ div#body-wrapper {
  padding-top: 20px;
 }  
   
-* ---------- Header ---------- */
+/* ---------- Header ---------- */
 .app-header {
   display: flex;
   flex-wrap: wrap;
@@ -115,6 +115,7 @@ div#body-wrapper {
   flex: 1 0 100%;
   aspect-ratio: auto;
   height: 48px;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-left: 0 !important;
 }
@@ -1386,14 +1387,20 @@ div#body-wrapper {
 }
 
 #side-drawer {
+  --drawer-left: max(25px, calc(50vw - 300px));
+  --drawer-top: max(25px, calc(50vw - 300px));
   position: fixed;
   top: 0;
-  left: 0;
+  /* Align with #content-area: 5px wrapper border + 20px inner padding.
+     On wide screens, the wrapper is centered and capped at 650px. */
+  left: var(--drawer-left);
   bottom: 0;
   width: min(300px, 84vw);
   background: var(--card);
   z-index: 91;
-  transform: translateX(-100%);
+  /* Include its horizontal offset so the closed drawer is fully off-screen. */
+  /* transform: translateX(calc(-100% - var(--drawer-left))); */
+  transform: translateY(calc(-100% - var(--drawer-top)));
   transition: transform .25s ease;
   overflow-y: auto;
   box-shadow: 2px 0 24px rgba(0,0,0,.15);

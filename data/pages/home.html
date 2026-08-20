@@ -1,20 +1,20 @@
 <header class="home-header" id="home">
   <div class="home-btn-group">
-      <button class="home-icon-btn" id="back-btn" aria-label="Назад" style="display:none">
+      <button class="home-icon-btn" id="back-btn" aria-label="{{lang.BACK}}" style="display:none">
         <span class="iconify" data-icon="tabler:arrow-left"></span>
       </button>
-      <button class="home-icon-btn" id="menu-btn" aria-label="Меню">
+      <button class="home-icon-btn" id="menu-btn" aria-label="{{lang.MENU}}">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <button class="home-icon-btn" id="settings-btn" data-route="settings" aria-label="Налаштування">
+      <button class="home-icon-btn" id="settings-btn" data-route="settings" aria-label="{{lang.SETTINGS}}">
         <span class="iconify" data-icon="tabler:settings"></span>
       </button>
   </div>
 
   <div class="home-brand">
-    <h1>Dough Calculator</h1>
+    <h1>{{lang.SITE_TITLE}}</h1>
     <img src="img/icons/logo.png" alt="" class="home-logo">
   </div>
 
@@ -39,86 +39,86 @@
     <a data-route="preferments" class="menu-card" data-cat="preferments">
       <img src="img/icons/prefs.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Преферменти</span>
-        <span class="menu-card-sub">Пулиш, біга, левайн, пате ферменте ...</span>
+        <span class="menu-card-title">{{lang.PREFERMENTS}}</span>
+        <span class="menu-card-sub">{{lang.PREFERMENTS_SUB}}</span>
       </div>
     </a>
 
     <a data-route="bread" class="menu-card" data-cat="bread">
       <img src="img/icons/bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Хліб</span>
-        <span class="menu-card-sub">Дріжджовий та заквасочний</span>
+        <span class="menu-card-title">{{lang.BREAD}}</span>
+        <span class="menu-card-sub">{{lang.BREAD_SUB}}</span>
       </div>
     </a>
 
     <a data-route="italian" class="menu-card" data-cat="italian">
       <img src="img/icons/pizza.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Італійське тісто</span>
-        <span class="menu-card-sub">Піца, чіабатта, фокачча</span>
+        <span class="menu-card-title">{{lang.ITALIAN}}</span>
+        <span class="menu-card-sub">{{lang.ITALIAN_SUB}}</span>
       </div>
     </a>
 
     <a data-route="baguette" class="menu-card" data-cat="baguette">
       <img src="img/icons/baguette.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Багети</span>
-        <span class="menu-card-sub">класичні французькі багети</span>
+        <span class="menu-card-title">{{lang.BAGUETTE}}</span>
+        <span class="menu-card-sub">{{lang.BAGUETTE_SUB}}</span>
       </div>
     </a>
 
     <a data-route="sweet" class="menu-card" data-cat="sweet">
       <img src="img/icons/sweet.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Солодка випічка</span>
-        <span class="menu-card-sub">Бріош, паска, панетоне, тарти ...</span>
+        <span class="menu-card-title">{{lang.SWEET}}</span>
+        <span class="menu-card-sub">{{lang.SWEET_SUB}}</span>
       </div>
     </a>
 
     <a href="#calculator" class="menu-card menu-card-accent" data-cat="calculator">
       <img src="img/icons/calculator.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Калькулятор</span>
-        <span class="menu-card-sub">Швидкий розрахунок без рецепту</span>
+        <span class="menu-card-title">{{lang.CALCULATOR}}</span>
+        <span class="menu-card-sub">{{lang.CALCULATOR_SUB}}</span>
       </div>
     </a>
 
   </nav>
 
-  <div class="menu-divider"><span>Ще</span></div>
+  <div class="menu-divider"><span>{{lang.MORE}}</span></div>
 
   <nav class="menu-grid menu-grid-secondary" aria-label="Додаткові розділи">
 
     <a data-route="laminated" class="menu-card" data-cat="laminated">
       <img src="img/icons/laminated.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Шарувате тісто</span>
-        <span class="menu-card-sub">Круасани, данська випічка</span>
+        <span class="menu-card-title">{{lang.LAMINATED}}</span>
+        <span class="menu-card-sub">{{lang.LAMINATED_SUB}}</span>
       </div>
     </a>
 
     <a data-route="enriched" class="menu-card" data-cat="enriched">
       <img src="img/icons/enriched.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Збагачене тісто</span>
-        <span class="menu-card-sub">Здоба з яйцями, маслом, молоком</span>
+        <span class="menu-card-title">{{lang.ENRICHED}}</span>
+        <span class="menu-card-sub">{{lang.ENRICHED_SUB}}</span>
       </div>
     </a>
 
     <a data-route="flatbread" class="menu-card" data-cat="flatbread">
       <img src="img/icons/flatbread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Пласке тісто</span>
-        <span class="menu-card-sub">Лаваш, піта</span>
+        <span class="menu-card-title">{{lang.FLATBREAD}}</span>
+        <span class="menu-card-sub">{{lang.FLATBREAD_SUB}}</span>
       </div>
     </a>
 
     <a data-route="technical" class="menu-card" data-cat="technical">
       <img src="img/icons/dough.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
-        <span class="menu-card-title">Декоративне тісто</span>
-        <span class="menu-card-sub">Тісто для декоративних виробів тривалого зберігання. З дріжджового та без дріжджового тіста на основі цукрового сиропу та житнього борошна.</span>
+        <span class="menu-card-title">{{lang.TECHNICAL}}</span>
+        <span class="menu-card-sub">{{lang.TECHNICAL_SUB}}</span>
       </div>
     </a>
 

@@ -1,4 +1,23 @@
 module.exports = {
+//Menu
+SITE_TITLE: 'Калькулятор хлібопекарських рецептів',
+HOME: 'Головна',
+CALCULATOR: 'Калькулятор',
+PREFERMENTS: 'Преферменти',
+ITALIAN: 'Італійське тісто',
+BAGUETTE: 'Багети',
+SWEET: 'Солодка випічка',
+LAMINATED: 'Шарувате тісто',
+ENRICHED: 'Збагачене тісто',
+FLATBREAD: 'Пласке тісто',
+TECHNICAL: 'Декоративне тісто',
+LANGUAGE: 'Мова',
+THEME: 'Тема',
+UNITS: 'Одиниці виміру',
+SETTINGS: 'Налаштування',
+ABOUT: 'Про додаток',
+RESIPES: 'Рецепти',
+PROFILES: 'Профілі',
 
   // Preferment types
   PREFERMENT: 'Преферемент',
@@ -744,4 +763,6 @@ module.exports = {
 
   // Photo card (2026-08-19)
   PHOTO: 'Фото',
+
+
 };

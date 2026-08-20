@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dough Calculator</title>
+<title>{{lang.SITE_TITLE}}</title>
 <link rel="stylesheet" href="css/style.css">
 <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
 </head>
@@ -15,48 +15,48 @@
 <aside id="side-drawer" aria-label="Бічне меню">
   <div class="drawer-header">
     <img src="img/icons/logo.png" alt="" class="drawer-logo">
-    <span class="drawer-title">Dough Calculator</span>
+    <span class="drawer-title">{{lang.SITE_TITLE}}</span>
     <button class="icon-btn" id="drawer-close-btn" aria-label="Закрити меню">
       <span class="iconify" data-icon="tabler:x"></span>
     </button>
   </div>
 
   <nav class="drawer-nav" aria-label="Розділи">
-    <a data-route="" class="drawer-link"><span class="iconify" data-icon="tabler:home"></span>Головна</a>
-    <a data-route="calculator" class="drawer-link"><span class="iconify" data-icon="tabler:calculator"></span>Калькулятор</a>
-    <a data-route="preferments" class="drawer-link"><span class="iconify" data-icon="tabler:flask"></span>Преферменти</a>
-    <a data-route="bread" class="drawer-link"><span class="iconify" data-icon="tabler:bread"></span>Хліб</a>
-    <a data-route="italian" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>Італійське тісто</a>
-    <a data-route="baguette" class="drawer-link"><span class="iconify" data-icon="tabler:baguette"></span>Багети</a>
-    <a data-route="sweet" class="drawer-link"><span class="iconify" data-icon="tabler:cake"></span>Солодка випічка</a>
-    <a data-route="laminated" class="drawer-link"><span class="iconify" data-icon="tabler:layers-intersect"></span>Шарувате тісто</a>
-    <a data-route="enriched" class="drawer-link"><span class="iconify" data-icon="tabler:egg"></span>Збагачене тісто</a>
-    <a data-route="flatbread" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>Пласке тісто</a>
-    <a data-route="technical" class="drawer-link"><span class="iconify" data-icon="tabler:certificate"></span>Декоративне тісто</a>
+    <a data-route="" class="drawer-link"><span class="iconify" data-icon="tabler:home"></span>{{lang.HOME}}</a>
+    <a data-route="calculator" class="drawer-link"><span class="iconify" data-icon="tabler:calculator"></span>{{lang.CALCULATOR}}</a>
+    <a data-route="preferments" class="drawer-link"><span class="iconify" data-icon="tabler:flask"></span>{{lang.PREFERMENTS}}</a>
+    <a data-route="bread" class="drawer-link"><span class="iconify" data-icon="tabler:bread"></span>{{lang.BREAD}}</a>
+    <a data-route="italian" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>{{lang.ITALIAN}}</a>
+    <a data-route="baguette" class="drawer-link"><span class="iconify" data-icon="tabler:baguette"></span>{{lang.BAGUETTE}}</a>
+    <a data-route="sweet" class="drawer-link"><span class="iconify" data-icon="tabler:cake"></span>{{lang.SWEET}}</a>
+    <a data-route="laminated" class="drawer-link"><span class="iconify" data-icon="tabler:layers-intersect"></span>{{lang.LAMINATED}}</a>
+    <a data-route="enriched" class="drawer-link"><span class="iconify" data-icon="tabler:egg"></span>{{lang.ENRICHED}}</a>
+    <a data-route="flatbread" class="drawer-link"><span class="iconify" data-icon="tabler:pizza"></span>{{lang.FLATBREAD}}</a>
+    <a data-route="technical" class="drawer-link"><span class="iconify" data-icon="tabler:certificate"></span>{{lang.TECHNICAL}}</a>
   </nav>
 
   <div class="drawer-divider"></div>
 
   <div class="drawer-section">
     <div class="drawer-field">
-      <label for="drawer-lang">Мова інтерфейсу</label>
+      <label for="drawer-lang">{{lang.LANGUAGE}}</label>
       <select id="drawer-lang">
-        <option value="ua">Українська</option>
-        <option value="en">English</option>
+        <option value="ua">{{lang.LANGUAGE_UA}}</option>
+        <option value="en">{{lang.LANGUAGE_EN}}</option>
       </select>
     </div>
     <div class="drawer-field">
-      <label for="drawer-theme">Тема</label>
+      <label for="drawer-theme">{{lang.THEME}}</label>
       <select id="drawer-theme">
-        <option value="light">Світла</option>
-        <option value="dark">Темна</option>
+        <option value="light">{{lang.THEME_LIGHT}}</option>
+        <option value="dark">{{lang.THEME_DARK}}</option>
       </select>
     </div>
     <div class="drawer-field">
-      <label for="drawer-units">Одиниці виміру</label>
+      <label for="drawer-units">{{lang.UNITS}}</label>
       <select id="drawer-units">
-        <option value="g">Грами (г)</option>
-        <option value="oz">Унції (oz)</option>
+        <option value="g">{{lang.UNITS_GRAMS}}</option>
+        <option value="oz">{{lang.UNITS_OUNCES}}</option>
       </select>
     </div>
   </div>
@@ -64,8 +64,8 @@
   <div class="drawer-divider"></div>
 
   <nav class="drawer-nav" aria-label="Інше">
-    <a data-route="settings" class="drawer-link"><span class="iconify" data-icon="tabler:settings"></span>Налаштування</a>
-    <a data-route="about" class="drawer-link"><span class="iconify" data-icon="tabler:info-circle"></span>Про розробника</a>
+    <a data-route="settings" class="drawer-link"><span class="iconify" data-icon="tabler:settings"></span>{{lang.SETTINGS}}</a>
+    <a data-route="about" class="drawer-link"><span class="iconify" data-icon="tabler:info-circle"></span>{{lang.ABOUT}}</a>
   </nav>
 </aside>
 
@@ -76,23 +76,23 @@
 <nav class="bottom-nav" aria-label="Нижня навігація">
   <a data-route="" data-nav="home" class="bottom-nav-item">
     <span class="iconify" data-icon="tabler:home"></span>
-    <span>Home</span>
+    <span>{{lang.HOME}}</span>
   </a>
   <a data-route="calculator" data-nav="calculator" class="bottom-nav-item">
     <span class="iconify" data-icon="tabler:calculator"></span>
-    <span>Калькулятор</span>
+    <span>{{lang.CALCULATOR}}</span>
   </a>
   <a data-route="recipes" data-nav="recipes" class="bottom-nav-item">
     <span class="iconify" data-icon="tabler:notebook"></span>
-    <span>Рецепти</span>
+    <span>{{lang.RECIPES}}</span>
   </a>
   <a data-route="profiles" data-nav="profiles" class="bottom-nav-item">
     <span class="iconify" data-icon="tabler:user"></span>
-    <span>Профілі</span>
+    <span>{{lang.PROFILES}}</span>
   </a>
   <a data-route="about" data-nav="about" class="bottom-nav-item">
     <span class="iconify" data-icon="tabler:info-circle"></span>
-    <span>Про додаток</span>
+    <span>{{lang.ABOUT}}</span>
   </a>
 </nav>
 </div>

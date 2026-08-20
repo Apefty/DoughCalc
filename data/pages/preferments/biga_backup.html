@@ -3,11 +3,9 @@
     <span class="iconify" data-icon="tabler:arrow-left"></span>
   </a>
   <div class="app-brand">
-    <h1 class="page-title">{{lang.BIGA}}</h1>
+    <h1 class="page-title">Біга</h1>
   </div>
-  <button class="icon-btn" id="menu-btn" aria-label="{{lang.MENU}}">
-    <span class="iconify" data-icon="tabler:menu-2"></span>
-  </button>
+  <span class="icon-btn"></span>
 </header>
 
 <main class="recipe-page">
@@ -19,7 +17,7 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">{{lang.CALCULATION}}</span>
+      <span class="card-title">Розрахунок</span>
       <div class="segmented" id="mode-toggle">
         <button class="segmented-item is-active" data-mode="flour">За борошном</button>
         <button class="segmented-item" data-mode="total">За тістом</button>
@@ -27,7 +25,7 @@
     </div>
 
     <div class="field-row">
-      <label for="input-weight" class="field-label" id="input-label">{{lang.FLOUR_WEIGHT}}</label>
+      <label for="input-weight" class="field-label" id="input-label">Вага борошна</label>
       <div class="value-box value-box-accent">
         <input type="number" id="input-weight" value="300" step="1" min="0">
         <span class="value-unit">г</span>
@@ -38,40 +36,40 @@
 
     <div class="row-list">
       <div class="row-list-header">
-        <span>{{lang.COMPOSITION}}</span>
-        <span>{{lang.WEIGHT}}</span>
+        <span>Склад</span>
+        <span>Вага</span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">{{lang.FLOUR}}</div>
+        <div class="row-list-label"><img src="img/icons/flour.png" alt="" class="row-list-icon">Борошно</div>
         <span class="row-list-value" id="out-flour">– <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">{{lang.WATER}}</div>
+        <div class="row-list-label"><img src="img/icons/water.png" alt="" class="row-list-icon">Вода</div>
         <span class="row-list-value" id="out-water">– <span class="unit">г</span></span>
       </div>
       <div class="row-list-item">
-        <div class="row-list-label" id="third-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="third-icon">{{lang.YEAST}}</div>
+        <div class="row-list-label" id="third-label"><img src="img/icons/yeast.png" alt="" class="row-list-icon" id="third-icon">Дріжджі</div>
         <span class="row-list-value" id="out-third">– <span class="unit">г</span></span>
       </div>
     </div>
 
     <div class="summary-box">
-      <span>{{lang.TOTAL_PREFERMENT_WEIGHT}}</span><br>
+      <span>Загальна вага преферменту</span><br>
       <strong id="out-total">– г</strong>
     </div>
   </section>
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">{{lang.FERMENTATION}}</span>
+      <span class="card-title">Ферментація</span>
     </div>
     <div class="row-list">
       <div class="row-list-item">
-              <div class="row-list-label"><img src="img/icons/hourglass.png" alt="" class="row-list-icon">{{lang.DURATION}}</div>
+        <div class="row-list-label"><img src="img/icons/hourglass.png" alt="" class="row-list-icon">Тривалість</div>
         <span class="row-list-value" id="ferment-duration"></span>
       </div>
       <div class="row-list-item">
-      <div class="row-list-label"><img src="img/icons/temperature.png" alt="" class="row-list-icon">{{lang.TEMPERATURE}}</div>
+        <div class="row-list-label"><img src="img/icons/temperature.png" alt="" class="row-list-icon">Температура</div>
         <span class="row-list-value" id="ferment-temp"></span>
       </div>
     </div>
@@ -79,21 +77,9 @@
 
   <section class="card">
     <div class="card-title-row">
-      <span class="card-title">{{lang.USED_IN}}</span>
+      <span class="card-title">Використовується в</span>
     </div>
     <div class="tag-row" id="used-in-tags"></div>
-  </section>
-
-  <section class="card">
-    <!-- <div class="card-title-row"><span class="card-title">{{lang.LINKS}}</span></div> -->
-    <div class="field-row">
-      <label for="link-youtube" class="field-label">{{lang.YOUTUBE_VIDEO}}</label>
-      <div class="value-box"><input type="url" id="link-youtube" placeholder="https://..."></div>
-    </div>
-    <div class="field-row">
-      <label for="link-recipe" class="field-label">{{lang.RECIPE_LINK}}</label>
-      <div class="value-box"><input type="url" id="link-recipe" placeholder="https://..."></div>
-    </div>
   </section>
 
 </main>
