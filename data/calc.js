@@ -889,6 +889,8 @@ DoughCalc.initCalculatorPage = function () {
   var rowAddIngredient = document.getElementById('row-add-ingredient');
   if (!catSelect) return;
 
+  var dict = DoughCalc.getLangDictSync();
+
   function fieldGroup(field) {
     return document.querySelector('.pct-field-group[data-field="' + field + '"]');
   }
