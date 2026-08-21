@@ -425,6 +425,41 @@ DoughCalc.initSettingsPage = function () {
   if (updateCard && isNativeApp) updateCard.style.display = '';
 };
 
+/* About page (data/pages/about/about.html). Static app-info + a
+   "Оновлення" card. The GitHub Releases link is always shown (works
+   identically on plain web/PWA and inside the native wrapper); the
+   in-app check-for-updates button/status below it follows the exact
+   same native-only-visibility rule as the settings page's update-card
+   above (window.Capacitor.isNativePlatform()) since ota.js's
+   checkForUpdate() no-ops on plain web anyway. Unlike the settings
+   version, this one is i18n-aware (About was written after the i18n
+   pass landed, so it's born converted rather than needing a
+   follow-up fix — see the i18n entries for calc.js/calculator.html). */
+DoughCalc.initAboutPage = function () {
+  var updateCard = document.getElementById('about-update-card');
+  var isNativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+  if (updateCard && isNativeApp) updateCard.style.display = '';
+};
+
+function checkAppUpdateFromAbout() {
+  var statusEl = document.getElementById('about-update-status');
+  var btnEl = document.getElementById('about-update-btn');
+  var dict = DoughCalc.getLangDictSync();
+  if (!window.OTA || !window.OTA.checkForUpdate) return;
+  if (btnEl) btnEl.disabled = true;
+  window.OTA.checkForUpdate({
+    force: true,
+    onStatus: function (status) {
+      if (!statusEl) return;
+      if (status === 'checking') statusEl.textContent = dict.ABOUT_UPDATE_CHECKING || '';
+      else if (status === 'up_to_date') { statusEl.textContent = dict.ABOUT_UPDATE_UP_TO_DATE || ''; if (btnEl) btnEl.disabled = false; }
+      else if (status === 'downloading') statusEl.textContent = dict.ABOUT_UPDATE_DOWNLOADING || '';
+      else if (status === 'updated') statusEl.textContent = dict.ABOUT_UPDATE_UPDATED || '';
+      else if (status === 'error') { statusEl.textContent = dict.ABOUT_UPDATE_ERROR || ''; if (btnEl) btnEl.disabled = false; }
+    }
+  });
+}
+
 /* ----------------------------------------------------------
    Favorites — storage + toggle button (shared across every page)
 

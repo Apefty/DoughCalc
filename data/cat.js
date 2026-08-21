@@ -1695,6 +1695,11 @@ DoughCalc.routes = {
   'settings': {
     file: 'data/pages/settings/settings.html',
     init: function () { DoughCalc.initSettingsPage(); }
+  },
+
+  'about': {
+    file: 'data/pages/about/about.html',
+    init: function () { DoughCalc.initAboutPage(); }
   }
 };
 

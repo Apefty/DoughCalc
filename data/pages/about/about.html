@@ -1,0 +1,47 @@
+<header class="app-header" id="about-page">
+  <a data-route="" class="icon-btn" aria-label="{{lang.BACK}}">
+    <span class="iconify" data-icon="tabler:arrow-left"></span>
+  </a>
+  <div class="app-brand">
+    <h1 class="page-title">{{lang.ABOUT}}</h1>
+    <button class="favorite-btn" data-favorite-toggle aria-label="{{lang.FAVORITE_ADD}}" aria-pressed="false">
+      <span class="iconify" data-icon="tabler:heart"></span>
+    </button>
+  </div>
+  <button class="icon-btn" id="menu-btn" aria-label="{{lang.MENU}}">
+    <span class="iconify" data-icon="tabler:menu-2"></span>
+  </button>
+</header>
+
+<main class="recipe-page">
+
+  <section class="card" style="text-align:center;">
+    <img src="img/icons/logo.png" alt="" style="width:64px;height:64px;margin-bottom:10px;">
+    <div class="card-title" style="font-size:19px;">{{lang.SITE_TITLE}}</div>
+    <p style="color:var(--text-muted);font-size:14px;margin:8px 0 0;">{{lang.ABOUT_TAGLINE}}</p>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row"><span class="card-title">{{lang.ABOUT_UPDATES_TITLE}}</span></div>
+    <div class="field-row">
+      <a href="https://github.com/Apefty/DoughCalc/releases" target="_blank" rel="noopener" class="field-label" style="color:var(--accent);text-decoration:none;">{{lang.ABOUT_RELEASES_LINK}}</a>
+      <span class="iconify" data-icon="tabler:external-link" style="color:var(--text-muted);"></span>
+    </div>
+
+    <div id="about-update-card" style="display:none;margin-top:10px;">
+      <div class="field-row">
+        <button class="segmented-item" id="about-update-btn" style="flex:1;" onclick="checkAppUpdateFromAbout()">{{lang.ABOUT_UPDATE_CHECK_BTN}}</button>
+      </div>
+      <div id="about-update-status" style="padding:4px 0;color:var(--text-muted);font-size:13px;"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title-row"><span class="card-title">{{lang.ABOUT_LINKS_TITLE}}</span></div>
+    <div class="field-row">
+      <a href="https://github.com/Apefty/DoughCalc" target="_blank" rel="noopener" class="field-label" style="color:var(--accent);text-decoration:none;">{{lang.ABOUT_REPO_LINK}}</a>
+      <span class="iconify" data-icon="tabler:brand-github" style="color:var(--text-muted);"></span>
+    </div>
+  </section>
+
+</main>

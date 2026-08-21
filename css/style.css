@@ -1506,6 +1506,10 @@ body.theme-dark {
     --bg-icon: url("../img/icons/prefs.png");
 }
 
+.app-header#about-page {
+    --bg-icon: url("../img/icons/logo.png");
+}
+
 /* ==========================================================
    Home search box — adapted from the Les Grandes Sauces
    project's .search-box/.si/.sclr pattern, home.html only.

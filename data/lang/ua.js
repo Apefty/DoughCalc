@@ -800,5 +800,17 @@ FAVORITE_REMOVE: 'Прибрати з обраного',
   // Photo card (2026-08-19)
   PHOTO: 'Фото',
 
+  // About page (2026-08-22)
+  ABOUT_TAGLINE: 'Калькулятор пекарських відсотків для хліба та випічки — преферменти, тісто, ламінування та інше.',
+  ABOUT_UPDATES_TITLE: 'Оновлення',
+  ABOUT_RELEASES_LINK: 'Список змін на GitHub',
+  ABOUT_UPDATE_CHECK_BTN: 'Перевірити оновлення',
+  ABOUT_UPDATE_CHECKING: 'Перевірка оновлень…',
+  ABOUT_UPDATE_UP_TO_DATE: 'Встановлена остання версія.',
+  ABOUT_UPDATE_DOWNLOADING: 'Завантаження оновлення…',
+  ABOUT_UPDATE_UPDATED: 'Оновлення встановлено, перезапуск…',
+  ABOUT_UPDATE_ERROR: 'Помилка перевірки оновлення.',
+  ABOUT_LINKS_TITLE: 'Посилання',
+  ABOUT_REPO_LINK: 'Вихідний код на GitHub',
 
 };

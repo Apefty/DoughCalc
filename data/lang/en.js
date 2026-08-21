@@ -792,4 +792,17 @@ DoughCalc.LANG.en = {
 
   // Photo card (2026-08-19)
   PHOTO: 'Photo',
+
+  // About page (2026-08-22)
+  ABOUT_TAGLINE: 'A baker\'s-percentage calculator for bread and pastry — preferments, doughs, laminating, and more.',
+  ABOUT_UPDATES_TITLE: 'Updates',
+  ABOUT_RELEASES_LINK: 'Release notes on GitHub',
+  ABOUT_UPDATE_CHECK_BTN: 'Check for updates',
+  ABOUT_UPDATE_CHECKING: 'Checking for updates…',
+  ABOUT_UPDATE_UP_TO_DATE: 'You have the latest version.',
+  ABOUT_UPDATE_DOWNLOADING: 'Downloading update…',
+  ABOUT_UPDATE_UPDATED: 'Update installed, restarting…',
+  ABOUT_UPDATE_ERROR: 'Update check failed.',
+  ABOUT_LINKS_TITLE: 'Links',
+  ABOUT_REPO_LINK: 'Source code on GitHub',
 };
