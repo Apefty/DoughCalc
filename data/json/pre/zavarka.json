@@ -1,17 +1,27 @@
 {
   "id": "zavarka",
   "category": "preferments",
-  "name": { "uk": "Заварка (Zavarka)", "en": "Scald" },
+  "name": {
+    "uk": "Заварка (Zavarka)",
+    "en": "Scald"
+  },
   "description": {
     "uk": "Заварка житнього борошна окропом — поширена у російських та балтійських житніх хлібах (наприклад, Бородинському). Желатинізує крохмаль жита, даючи гладку текстуру і легку природну солодкість через ферментну активацію. Сама по собі не є ферментом — заварку зазвичай зброджують разом із заквасочним білдом перед фінальним тістом. У складніших рецептах (Бородинський) до заварки також додають червоний житній солод (~20%) і кмин/аніс (~0.8%) на 220% окропу — тут враховано лише базове співвідношення борошно:окріп.",
     "en": "Rye flour scald with boiling water, common in Russian/Baltic rye breads (e.g. Borodinsky). Gelatinizes rye starch for a smooth crumb and subtle sweetness. Not a ferment on its own — usually fermented together with a sourdough build."
   },
   "mode": "none",
-  "ratio": { "flour": 100, "water": 100 },
+  "ratio": {
+    "flour": 100,
+    "water": 100
+  },
   "hydration": 100,
   "fermentation": {
     "duration_note_uk": "не є самостійним ферментом — зброджується разом із заквасочним білдом",
-    "temperature_note_uk": "заварюється окропом, потім охолоджується перед додаванням закваски"
+    "duration_note_en": "isn't a standalone ferment — it's fermented together with the sourdough build",
+    "temperature_note_uk": "заварюється окропом, потім охолоджується перед додаванням закваски",
+    "temperature_note_en": "scalded with boiling water, then cooled before adding the starter"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

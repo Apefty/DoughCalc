@@ -1,19 +1,33 @@
 {
   "id": "sponge-short",
   "category": "preferments",
-  "name": { "uk": "Короткий (Short Sponge)", "en": "Short Sponge" },
+  "name": {
+    "uk": "Короткий (Short Sponge)",
+    "en": "Short Sponge"
+  },
   "description": {
     "uk": "Короткий спонж на теплому молоці — з рецепту Pan d'Oro Джеффрі Гамельмана. Дає дріжджам максимально «розігнатись» і набрати сили ще до того, як їм доведеться підіймати важке тісто з великою кількістю масла й яєць.",
     "en": "Short warm-milk sponge from Jeffrey Hamelman's Pan d'Oro — lets the yeast activate and gain maximum strength before lifting heavily enriched butter/egg dough."
   },
   "mode": "yeast",
-  "liquid_ingredient": { "uk": "Молоко", "icon": "milk" },
-  "ratio": { "flour": 100, "water": 65, "yeast": 6 },
+  "liquid_ingredient": {
+    "uk": "Молоко",
+    "icon": "milk"
+  },
+  "ratio": {
+    "flour": 100,
+    "water": 65,
+    "yeast": 6
+  },
   "hydration": 65,
   "fermentation": {
     "duration_hours": 1,
     "duration_note_uk": "1 год",
-    "temperature_note_uk": "28°C (82°F), температура тіста після замісу"
+    "duration_note_en": "1 hour",
+    "temperature_note_uk": "28°C (82°F), температура тіста після замісу",
+    "temperature_note_en": "28°C (82°F), dough temperature right after mixing"
   },
-  "used_in": ["sweet"]
+  "used_in": [
+    "sweet"
+  ]
 }

@@ -1,16 +1,28 @@
 {
   "id": "levain-stiff",
   "category": "preferments",
-  "name": { "uk": "Левен щільний", "en": "Stiff Levain" },
+  "name": {
+    "uk": "Левен щільний",
+    "en": "Stiff Levain"
+  },
   "description": {
     "uk": "Побудова від материнської закваски (levain-chef) на низькій гідратації — 50%. Прохолодніша ферментація (13–18°C) сприяє розвитку оцтової кислоти: гострий, кисло-«оцтовий» смак і аромат, додає тісту силу. Використовується для традиційного Pain au Levain, ситних міш-хлібів, житніх заквасок і рустикальних багетів."
   },
   "mode": "starter",
-  "ratio": { "flour": 100, "water": 50, "starter": 37.5 },
+  "ratio": {
+    "flour": 100,
+    "water": 50,
+    "starter": 37.5
+  },
   "hydration": 50,
   "fermentation": {
     "duration_note_uk": "5+ год (довше — за прохолоднішої кімнати)",
-    "temperature_note_uk": "13–18°C, прохолодне місце"
+    "duration_note_en": "5+ hours (longer in a cooler room)",
+    "temperature_note_uk": "13–18°C, прохолодне місце",
+    "temperature_note_en": "13–18°C, cool place"
   },
-  "used_in": ["bread", "baguette"]
+  "used_in": [
+    "bread",
+    "baguette"
+  ]
 }

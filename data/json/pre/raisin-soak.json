@@ -20,7 +20,9 @@
   "hydration": 250,
   "fermentation": {
     "duration_note_uk": "5–6 днів замочування",
-    "temperature_note_uk": "24–27°C (75–80°F)"
+    "duration_note_en": "5–6 days of soaking",
+    "temperature_note_uk": "24–27°C (75–80°F)",
+    "temperature_note_en": "24–27°C (75–80°F)"
   },
   "used_in": [
     "bread",

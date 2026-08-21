@@ -1,16 +1,28 @@
 {
   "id": "salzsauer",
   "category": "preferments",
-  "name": { "uk": "Зальцзауер (Salzsauer)", "en": "Salt-Sour" },
+  "name": {
+    "uk": "Зальцзауер (Salzsauer)",
+    "en": "Salt-Sour"
+  },
   "description": {
     "uk": "Німецька техніка: до 2% солі додається прямо в заквасочний білд. Сіль пригнічує активність мікроорганізмів (передусім молочнокислих бактерій), завдяки чому закваска лишається стабільною й життєздатною до 48 год при кімнатній температурі без перекисання. У теплішу пору можна знизити дозу солі до 0.2–0.3% — лише щоб запобігти перезрілості."
   },
   "mode": "starter",
-  "ratio": { "flour": 100, "water": 60, "starter": 20, "salt": 2 },
+  "ratio": {
+    "flour": 100,
+    "water": 60,
+    "starter": 20,
+    "salt": 2
+  },
   "hydration": 60,
   "fermentation": {
     "duration_note_uk": "стабільна до 48 год завдяки солі (без солі перезріла б значно швидше)",
-    "temperature_note_uk": "кімнатна температура"
+    "duration_note_en": "stable for up to 48 hours thanks to the salt (without salt it would over-ferment much faster)",
+    "temperature_note_uk": "кімнатна температура",
+    "temperature_note_en": "room temperature"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

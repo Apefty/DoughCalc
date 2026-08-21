@@ -19,7 +19,16 @@
   "fermentation": {
     "duration_hours": 14,
     "duration_note_uk": "12–16 год",
-    "temperature_note_uk": "21°C"
+    "duration_note_en": "12–16 hours",
+    "temperature_note_uk": "21°C",
+    "temperature_note_en": "21°C"
   },
-  "used_in": ["bread", "baguette", "ciabatta", "sandwich", "buttermilk", "potato bread"]
+  "used_in": [
+    "bread",
+    "baguette",
+    "ciabatta",
+    "sandwich",
+    "buttermilk",
+    "potato bread"
+  ]
 }

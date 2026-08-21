@@ -1,19 +1,33 @@
 {
   "id": "milk-levain",
   "category": "preferments",
-  "name": { "uk": "Молочний левен (Milk Levain)", "en": "Milk Levain" },
+  "name": {
+    "uk": "Молочний левен (Milk Levain)",
+    "en": "Milk Levain"
+  },
   "description": {
     "uk": "Гібридний старт-тер, що поєднує технічні переваги щільного й рідкого левену — дає значну силу тіста, притаманну щільному левену, разом із багатим молочним ароматом рідкого. Готовий рідкий левен збивають із теплим молоком до пінистого стану, тоді вмішують борошно до тугої кульки. Використовується, наприклад, у Cardamom Brioche Buns.",
     "en": "Hybrid starter combining stiff-levain dough strength with liquid-levain milky character. Whisk warm milk into liquid levain until frothy, then knead in flour to a tight ball."
   },
   "mode": "starter",
-  "liquid_ingredient": { "uk": "Молоко", "icon": "milk" },
-  "ratio": { "flour": 100, "water": 30, "starter": 150 },
+  "liquid_ingredient": {
+    "uk": "Молоко",
+    "icon": "milk"
+  },
+  "ratio": {
+    "flour": 100,
+    "water": 30,
+    "starter": 150
+  },
   "hydration": 30,
   "fermentation": {
     "duration_hours": 3,
     "duration_note_uk": "3 год, до появи тріщин на поверхні",
-    "temperature_note_uk": "35°C (95°F)"
+    "duration_note_en": "3 hours, until cracks appear on the surface",
+    "temperature_note_uk": "35°C (95°F)",
+    "temperature_note_en": "35°C (95°F)"
   },
-  "used_in": ["sweet"]
+  "used_in": [
+    "sweet"
+  ]
 }

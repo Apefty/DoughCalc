@@ -1,17 +1,28 @@
 {
   "id": "lievito-madre",
   "category": "preferments",
-  "name": { "uk": "Левіто Мадре", "en": "Lievito Madre" },
+  "name": {
+    "uk": "Левіто Мадре",
+    "en": "Lievito Madre"
+  },
   "description": {
     "uk": "Італійська густа материнська закваска низької гідратації, традиційна основа для панетоне, паски та іншої здоби. Будується періодичним освіженням існуючої мадре."
   },
   "mode": "starter",
-  "ratio": { "flour": 100, "water": 50, "starter": 100 },
+  "ratio": {
+    "flour": 100,
+    "water": 50,
+    "starter": 100
+  },
   "hydration": 50,
   "fermentation": {
     "duration_hours": 4,
     "duration_note_uk": "3–4 год",
-    "temperature_note_uk": "26–28°C, тепле місце"
+    "duration_note_en": "3–4 hours",
+    "temperature_note_uk": "26–28°C, тепле місце",
+    "temperature_note_en": "26–28°C, warm place"
   },
-  "used_in": ["sweet"]
+  "used_in": [
+    "sweet"
+  ]
 }

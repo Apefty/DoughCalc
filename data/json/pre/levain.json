@@ -1,7 +1,10 @@
 {
   "id": "levain",
   "category": "preferments",
-  "name": { "uk": "Левен", "en": "Levain" },
+  "name": {
+    "uk": "Левен",
+    "en": "Levain"
+  },
   "master": {
     "description": {
       "uk": "Levain-chef (материнська закваска) — симбіотична культура диких дріжджів і молочнокислих бактерій, яку пекар підтримує довгостроково регулярними підживленнями. На відміну від комерційних дріжджів (моно­культури), вона одночасно і піднімає тісто, і формує складні органічні кислоти, які визначають смак і текстуру хліба. Із master напряму в тісто не додають — з неї беруть частину, щоб за 8–16 год до замісу побудувати конкретний «білд» — щільний (Stiff) чи рідкий (Liquid) — під потрібний профіль смаку."
@@ -9,13 +12,30 @@
     "starter_recipe": {
       "yield_g": 190,
       "active_time_note_uk": "5 хв",
+      "active_time_note_en": "5 min",
       "fermentation_note_uk": "24–48 год за кімнатної температури, до першого підживлення",
+      "fermentation_note_en": "24–48 hours at room temperature, until the first feeding",
       "ingredients": [
-        { "name_uk": "Мед", "amount_g": 5 },
-        { "name_uk": "Вода (45°C)", "amount_g": 100 },
-        { "name_uk": "Житнє або цільнозернове борошно", "amount_g": 85 }
+        {
+          "name_uk": "Мед",
+          "name_en": "Honey",
+          "amount_g": 5
+        },
+        {
+          "name_uk": "Вода (45°C)",
+          "name_en": "Water (45°C)",
+          "amount_g": 100
+        },
+        {
+          "name_uk": "Житнє або цільнозернове борошно",
+          "name_en": "Rye or whole wheat flour",
+          "amount_g": 85
+        }
       ]
     }
   },
-  "builds": ["levain-stiff", "levain-liquid"]
+  "builds": [
+    "levain-stiff",
+    "levain-liquid"
+  ]
 }

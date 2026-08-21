@@ -17,12 +17,23 @@
   "yeast_formula": {
     "type": "water_time",
     "constant": 0.04,
-    "time_range_hours": [1, 18],
+    "time_range_hours": [
+      1,
+      18
+    ],
     "default_hours": 10
   },
   "fermentation": {
     "duration_note_uk": "1–18 год",
-    "temperature_note_uk": "21–24°C"
+    "duration_note_en": "1–18 hours",
+    "temperature_note_uk": "21–24°C",
+    "temperature_note_en": "21–24°C"
   },
-  "used_in": ["pizza", "bread", "baguette", "croissant", "ciabatta"]
+  "used_in": [
+    "pizza",
+    "bread",
+    "baguette",
+    "croissant",
+    "ciabatta"
+  ]
 }

@@ -1,17 +1,27 @@
 {
   "id": "detmolder-vollsauer",
   "category": "preferments",
-  "name": { "uk": "3. Повна кисла (Vollsauer)", "en": "Full Sour" },
+  "name": {
+    "uk": "3. Повна кисла (Vollsauer)",
+    "en": "Full Sour"
+  },
   "description": {
     "uk": "Третя, фінальна фаза — тепла, волога, на 100% гідратації, вбирає всю масу основної кислої (Grundsauer) цілком. Коротка ферментація (3–4 год) сприяє молочній кислоті — м'якша, гладка кислинка."
   },
   "mode": "yeast",
-  "ratio": { "flour": 100, "water": 100 },
+  "ratio": {
+    "flour": 100,
+    "water": 100
+  },
   "hydration": 100,
   "fermentation": {
     "duration_hours": 3.5,
     "duration_note_uk": "3–4 год — вбирає всю масу попередньої фази (Grundsauer)",
-    "temperature_note_uk": "тепла, волога"
+    "duration_note_en": "3–4 hours — absorbs the entire previous stage (Grundsauer)",
+    "temperature_note_uk": "тепла, волога",
+    "temperature_note_en": "warm, humid"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

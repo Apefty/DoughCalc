@@ -1,17 +1,28 @@
 {
   "id": "opara",
   "category": "preferments",
-  "name": { "uk": "Опара", "en": "Opara" },
+  "name": {
+    "uk": "Опара",
+    "en": "Opara"
+  },
   "description": {
     "uk": "Рідкий преферемент слов'янської традиції, близький до пулиш за гідратацією, але з коротшою ферментацією. Дає тісту стабільність і м'який кисло-солодкий смак."
   },
   "mode": "yeast",
-  "ratio": { "flour": 100, "water": 100, "yeast": 0.5 },
+  "ratio": {
+    "flour": 100,
+    "water": 100,
+    "yeast": 0.5
+  },
   "hydration": 100,
   "fermentation": {
     "duration_hours": 4,
     "duration_note_uk": "3–4 год кімнатної (або 8–12 год холод.)",
-    "temperature_note_uk": "24–26°C"
+    "duration_note_en": "3–4 hours at room temp (or 8–12 hours cold)",
+    "temperature_note_uk": "24–26°C",
+    "temperature_note_en": "24–26°C"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

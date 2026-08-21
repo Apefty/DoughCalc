@@ -1,17 +1,27 @@
 {
   "id": "detmolder-grundsauer",
   "category": "preferments",
-  "name": { "uk": "2. Основна кисла (Grundsauer)", "en": "Basic Sour" },
+  "name": {
+    "uk": "2. Основна кисла (Grundsauer)",
+    "en": "Basic Sour"
+  },
   "description": {
     "uk": "Друга фаза — щільна паста, що вбирає всю масу освіження (Anfrischsauer) цілком. Прохолодне дозрівання до 24 год розвиває оцтову кислоту — гострий, кисло-«оцтовий» смак."
   },
   "mode": "yeast",
-  "ratio": { "flour": 100, "water": 62 },
+  "ratio": {
+    "flour": 100,
+    "water": 62
+  },
   "hydration": 62,
   "fermentation": {
     "duration_hours": 24,
     "duration_note_uk": "до 24 год — вбирає всю масу попередньої фази (Anfrischsauer)",
-    "temperature_note_uk": "прохолодна температура (для оцтової кислоти)"
+    "duration_note_en": "up to 24 hours — absorbs the entire previous stage (Anfrischsauer)",
+    "temperature_note_uk": "прохолодна температура (для оцтової кислоти)",
+    "temperature_note_en": "cool temperature (favors acetic acid)"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

@@ -20,7 +20,9 @@
   "hydration": 200,
   "fermentation": {
     "duration_note_uk": "кілька годин",
-    "temperature_note_uk": "кімнатна температура"
+    "duration_note_en": "a few hours",
+    "temperature_note_uk": "кімнатна температура",
+    "temperature_note_en": "room temperature"
   },
   "used_in": [
     "bread"

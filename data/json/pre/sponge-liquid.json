@@ -1,19 +1,33 @@
 {
   "id": "sponge-liquid",
   "category": "preferments",
-  "name": { "uk": "Рідкий (для збагачених тіст)", "en": "Liquid Sponge" },
+  "name": {
+    "uk": "Рідкий (для збагачених тіст)",
+    "en": "Liquid Sponge"
+  },
   "description": {
     "uk": "Рідкий спонж на молоці для збагачених тіст (наприклад, Gâche Brioche) — додає легкість, характер і смак готовому виробу. Збивається до гладкості й ферментується при кімнатній температурі.",
     "en": "Liquid milk-based sponge for enriched doughs (e.g. Gâche Brioche) — adds lightness, character and flavour. Whisked smooth and fermented at room temperature."
   },
   "mode": "yeast",
-  "liquid_ingredient": { "uk": "Молоко", "icon": "milk" },
-  "ratio": { "flour": 100, "water": 62.5, "yeast": 4 },
+  "liquid_ingredient": {
+    "uk": "Молоко",
+    "icon": "milk"
+  },
+  "ratio": {
+    "flour": 100,
+    "water": 62.5,
+    "yeast": 4
+  },
   "hydration": 62.5,
   "fermentation": {
     "duration_hours": 3,
     "duration_note_uk": "3 год",
-    "temperature_note_uk": "кімнатна температура (21-24°C)"
+    "duration_note_en": "3 hours",
+    "temperature_note_uk": "кімнатна температура (21-24°C)",
+    "temperature_note_en": "room temperature (21–24°C)"
   },
-  "used_in": ["sweet"]
+  "used_in": [
+    "sweet"
+  ]
 }

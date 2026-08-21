@@ -1,19 +1,30 @@
 {
   "id": "sponge-classic",
   "category": "preferments",
-  "name": { "uk": "Класичний (Flying Sponge)", "en": "Flying Sponge" },
+  "name": {
+    "uk": "Класичний (Flying Sponge)",
+    "en": "Flying Sponge"
+  },
   "description": {
     "uk": "Старовинний швидкий спонж (колись поширений в Австрії та Англії), який традиційно застосовують для хліба з семоліни (дурум). Містить усі дріжджі рецепта — тому й «летючий»: дозріває менш ніж за годину. Не дає переваг довгої ферментації, але надає випічці легкості й глибшого смаку борошна. Іноді додають ~5% цукру чи меду для активації дріжджів. Соли не містить.",
     "en": "Flying Sponge — traditional fast sponge once common in Austria and England, used for Semolina (Durum) bread. Contains all the yeast for the recipe, ripens in under an hour, and is ready when on the verge of collapse."
   },
   "mode": "yeast",
-  "ratio": { "flour": 100, "water": 70, "yeast": 4 },
+  "ratio": {
+    "flour": 100,
+    "water": 70,
+    "yeast": 4
+  },
   "hydration": 70,
   "pre_fermented_flour_pct": 40,
   "fermentation": {
     "duration_hours": 1.25,
     "duration_note_uk": "~1 год (до 1¼ год), до готовності на межі осідання",
-    "temperature_note_uk": "25–26°C (78–80°F), тепле місце"
+    "duration_note_en": "~1 hour (up to 1¼ hours), ready just as it starts to collapse",
+    "temperature_note_uk": "25–26°C (78–80°F), тепле місце",
+    "temperature_note_en": "25–26°C (78–80°F), warm place"
   },
-  "used_in": ["bread"]
+  "used_in": [
+    "bread"
+  ]
 }

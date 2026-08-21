@@ -7,7 +7,6 @@
   },
   "description": {
     "uk": "Біга (Biga) — це загальний італійський термін, що означає префермент. Вона може бути густою, із гідратацією 50–60%, або практично не відрізнятися від пуліша (poolish), якщо готується зі 100% гідратацією та невеликою кількістю дріжджів.\nУ будь-якому випадку біга не містить солі — лише борошно, воду та невелику кількість дріжджів.\nКількість дріжджів визначається температурою навколишнього середовища та тривалістю дозрівання біги до замішування остаточного тіста.\nЯк і у випадку з пулішем, вміст дріжджів у бізі зазвичай становить 0,08–1% від маси борошна..",
-
     "en": "Biga is a general Italian term for a preferment. It can be thick with a hydration level of 50–60%, or nearly indistinguishable from poolish if made with 100% hydration and a small amount of yeast.\nIn any case, biga does not contain salt — only flour, water, and a small amount of yeast.\nThe amount of yeast is determined by the ambient temperature and the duration of fermentation before incorporating into the final dough.\nAs with poolish, the yeast content in biga typically ranges from 0.08–1% of the flour weight."
   },
   "mode": "yeast",
@@ -20,8 +19,14 @@
   "fermentation": {
     "duration_hours": 16,
     "duration_note_uk": "12–16 год",
-    "temperature_note_uk": "21°C"
+    "duration_note_en": "12–16 hours",
+    "temperature_note_uk": "21°C",
+    "temperature_note_en": "21°C"
   },
-  "used_in": ["pizza", "bread", "baguette"],
+  "used_in": [
+    "pizza",
+    "bread",
+    "baguette"
+  ],
   "photo": "img/photos/biga.jpg"
 }

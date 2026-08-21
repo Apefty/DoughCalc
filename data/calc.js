@@ -6,6 +6,31 @@
 
 window.DoughCalc = window.DoughCalc || {};
 
+/* ----------------------------------------------------------
+   Locale-aware data field readers.
+
+   Every recipe/preferment JSON stores translated text in one of two
+   shapes:
+   - a nested object, e.g. name: { uk: '...', en: '...' }
+   - a flat pair of suffixed keys, e.g. duration_note_uk / duration_note_en
+
+   Every read of these used to be hardcoded to .uk / _uk regardless of
+   the active language — these two helpers are the fix, used
+   everywhere below instead of reaching into .uk / _uk directly.
+   Both fall back to Ukrainian if the current locale's translation is
+   missing from a given data file (better a Ukrainian string than a
+   blank one). ---------------------------------------------------------- */
+DoughCalc.pickLocalized = function (obj) {
+  if (!obj) return '';
+  var locale = DoughCalc.currentLocale();
+  return obj[locale] || obj.uk || '';
+};
+DoughCalc.pickSuffixed = function (obj, base) {
+  if (!obj) return '';
+  var locale = DoughCalc.currentLocale();
+  return obj[base + '_' + locale] || obj[base + '_uk'] || '';
+};
+
 /* Where to fetch each preferment's data/json/pre/*.json (content —
    ratio, hydration, description, fermentation, used_in — lives only
    in those files now; this is just a path map, not data). */
@@ -121,11 +146,11 @@ DoughCalc.initPrefermentsCatalog = function () {
       if (!data) return;
       var titleEl = card.querySelector('.menu-card-title');
       var subEl = card.querySelector('.menu-card-sub');
-      if (titleEl) titleEl.textContent = (data.name && data.name.uk) || '';
+      if (titleEl) titleEl.textContent = DoughCalc.pickLocalized(data.name);
       if (subEl) {
         var dict = DoughCalc.getLangDictSync();
         subEl.textContent = data.hydration != null
-          ? data.hydration + '% ' + (dict.HYDRATION_PCT_SUFFIX || 'гідратації') + (data.fermentation && data.fermentation.duration_note_uk ? ', ' + data.fermentation.duration_note_uk : '')
+          ? data.hydration + '% ' + (dict.HYDRATION_PCT_SUFFIX || 'гідратації') + (data.fermentation && DoughCalc.pickSuffixed(data.fermentation, 'duration_note') ? ', ' + DoughCalc.pickSuffixed(data.fermentation, 'duration_note') : '')
           : (data.master ? (dict.MASTER_PLUS_BUILDS || 'Материнська культура + білди (Stiff/Liquid)') : (data.builds ? data.builds.length + (dict.BUILDS_COUNT_SUFFIX || ' варіанти') : ''));
       }
     });
@@ -169,7 +194,7 @@ DoughCalc.initPrefermentPage = function (data) {
   dcSetHTML('hero-pills',
     '<span class="pill pill-accent">' + data.hydration + '% ' + (dict.HYDRATION_PCT_SUFFIX || 'гідратації') + '</span>' +
     (hasThird ? '<span class="pill">' + thirdPillText + '</span>' : ''));
-  dcSetHTML('hero-desc', (data.description && data.description.uk) || '');
+  dcSetHTML('hero-desc', DoughCalc.pickLocalized(data.description));
 
   var thirdRowEl = document.getElementById('third-row');
   if (thirdRowEl) thirdRowEl.style.display = hasThird ? 'flex' : 'none';
@@ -189,7 +214,7 @@ DoughCalc.initPrefermentPage = function (data) {
   if (waterLabelEl && data.liquid_ingredient) {
     var waterIcon = document.getElementById('water-icon');
     if (waterIcon && data.liquid_ingredient.icon) waterIcon.src = 'img/icons/' + data.liquid_ingredient.icon + '.png';
-    waterLabelEl.lastChild.textContent = (data.liquid_ingredient.uk) || waterLabelEl.lastChild.textContent;
+    waterLabelEl.lastChild.textContent = DoughCalc.pickLocalized(data.liquid_ingredient) || waterLabelEl.lastChild.textContent;
   }
 
   /* Optional: the first ingredient isn't always flour (e.g. raisins
@@ -199,16 +224,16 @@ DoughCalc.initPrefermentPage = function (data) {
   if (flourLabelEl && data.first_ingredient) {
     var flourIcon = document.getElementById('flour-icon');
     if (flourIcon && data.first_ingredient.icon) flourIcon.src = 'img/icons/' + data.first_ingredient.icon + '.png';
-    flourLabelEl.lastChild.textContent = (data.first_ingredient.uk) || flourLabelEl.lastChild.textContent;
+    flourLabelEl.lastChild.textContent = DoughCalc.pickLocalized(data.first_ingredient) || flourLabelEl.lastChild.textContent;
   }
   var inputLabelEl = document.getElementById('input-label');
   if (inputLabelEl && data.first_ingredient) {
-    inputLabelEl.textContent = (dict.WEIGHT_PREFIX || 'Вага: ') + data.first_ingredient.uk;
+    inputLabelEl.textContent = (dict.WEIGHT_PREFIX || 'Вага: ') + DoughCalc.pickLocalized(data.first_ingredient);
   }
 
   if (data.fermentation) {
-    dcSetHTML('ferment-duration', data.fermentation.duration_note_uk || '');
-    dcSetHTML('ferment-temp', data.fermentation.temperature_note_uk || '');
+    dcSetHTML('ferment-duration', DoughCalc.pickSuffixed(data.fermentation, 'duration_note'));
+    dcSetHTML('ferment-temp', DoughCalc.pickSuffixed(data.fermentation, 'temperature_note'));
   }
 
   var tagsEl = document.getElementById('used-in-tags');
@@ -282,7 +307,7 @@ DoughCalc.initPrefermentPage = function (data) {
       btn.classList.add('is-active');
       mode = btn.getAttribute('data-mode');
       label.textContent = mode === 'flour'
-        ? (data.first_ingredient ? (dict.WEIGHT_PREFIX || 'Вага: ') + data.first_ingredient.uk : (dict.FLOUR_WEIGHT || 'Вага борошна'))
+        ? (data.first_ingredient ? (dict.WEIGHT_PREFIX || 'Вага: ') + DoughCalc.pickLocalized(data.first_ingredient) : (dict.FLOUR_WEIGHT || 'Вага борошна'))
         : (dict.PREFERMENT_WEIGHT || 'Вага преферменту');
       render();
     });
@@ -308,19 +333,19 @@ DoughCalc.initPrefermentPage = function (data) {
    ---------------------------------------------------------- */
 DoughCalc.initLevainPage = function (masterData) {
   if (!masterData) return;
-  dcSetHTML('master-desc', (masterData.master && masterData.master.description && masterData.master.description.uk) || '');
+  dcSetHTML('master-desc', DoughCalc.pickLocalized(masterData.master && masterData.master.description));
 
   var sr = masterData.master && masterData.master.starter_recipe;
   if (sr) {
     var listEl = document.getElementById('starter-recipe-list');
     if (listEl && sr.ingredients) {
       listEl.innerHTML = sr.ingredients.map(function (ing) {
-        return '<div class="row-list-item"><div class="row-list-label">' + ing.name_uk + '</div>' +
-          '<span class="row-list-value">' + ing.amount_g + ' <span class="unit">г</span></span></div>';
+        return '<div class="row-list-item"><div class="row-list-label">' + DoughCalc.pickSuffixed(ing, 'name') + '</div>' +
+          '<span class="row-list-value">' + ing.amount_g + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span></span></div>';
       }).join('');
     }
-    dcSetHTML('starter-recipe-yield', sr.yield_g + ' г');
-    dcSetHTML('starter-recipe-ferment', sr.fermentation_note_uk || '');
+    dcSetHTML('starter-recipe-yield', sr.yield_g + ' ' + (dict.UNIT_G || 'г'));
+    dcSetHTML('starter-recipe-ferment', DoughCalc.pickSuffixed(sr, 'fermentation_note'));
   }
 
   var tabs = document.querySelectorAll('#levain-tabs .segmented-item');
@@ -442,8 +467,8 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   /* hero-desc is optional markup — only recipe pages that include a
      <p id="hero-desc"> get the description filled in; pages without
      it (not yet migrated) are unaffected. */
-  if (recipeData && recipeData.description && recipeData.description.uk) {
-    dcSetHTML('hero-desc', recipeData.description.uk);
+  if (recipeData && recipeData.description) {
+    dcSetHTML('hero-desc', DoughCalc.pickLocalized(recipeData.description));
   }
 
   var entryButtons = document.querySelectorAll('#entry-toggle .segmented-item');
@@ -556,7 +581,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     var remaining = ids.length;
     ids.forEach(function (id, i) {
       DoughCalc.fetchPreferment(id, function (data) {
-        opts[i] = { id: id, name: (data && data.name && data.name.uk) || id };
+        opts[i] = { id: id, name: DoughCalc.pickLocalized(data && data.name) || id };
         if (--remaining === 0) {
           opts.forEach(function (o) {
             var el = document.createElement('option');
@@ -760,19 +785,19 @@ function syncPair(numId, rangeId) {
     var mainFlour = Math.max(flour - preFlour, 0);
     var mainWater = Math.max(water - preWater, 0);
 
-    dcSetHTML('main-flour', Math.round(mainFlour) + ' <span class="unit">г</span>');
-    dcSetHTML('main-water', Math.round(mainWater) + ' <span class="unit">мл</span>');
-    dcSetHTML('main-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-yeast', (Math.round(yeast * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-oil', (Math.round(oil * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-milk', (Math.round(milk * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-sugar', (Math.round(sugar * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-egg', (Math.round(egg * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-butter', (Math.round(butter * 10) / 10) + ' <span class="unit">г</span>');
-    dcSetHTML('main-candy', (Math.round(candy * 10) / 10) + ' <span class="unit">г</span>');
+    dcSetHTML('main-flour', Math.round(mainFlour) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-water', Math.round(mainWater) + ' <span class="unit">' + (dict.UNIT_ML || 'мл') + '</span>');
+    dcSetHTML('main-salt', (Math.round(salt * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-yeast', (Math.round(yeast * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-oil', (Math.round(oil * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-milk', (Math.round(milk * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-sugar', (Math.round(sugar * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-egg', (Math.round(egg * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-butter', (Math.round(butter * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
+    dcSetHTML('main-candy', (Math.round(candy * 10) / 10) + ' <span class="unit">' + (dict.UNIT_G || 'г') + '</span>');
 
     var totalEl = document.getElementById('out-total-dough');
-    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + milk + sugar + egg + butter + candy) + ' г';
+    if (totalEl) totalEl.textContent = Math.round(flour + water + salt + yeast + oil + milk + sugar + egg + butter + candy) + ' ' + (dict.UNIT_G || 'г');
 
     if (typeof onFlourChange === 'function') onFlourChange(mainFlour);
     if (flourTypesWidget && typeof flourTypesWidget.setMainFlour === 'function') {
@@ -944,7 +969,7 @@ DoughCalc.initCalculatorPage = function () {
     var remaining = ids.length;
     ids.forEach(function (id, i) {
       DoughCalc.fetchPreferment(id, function (data) {
-        opts[i] = { id: id, name: (data && data.name && data.name.uk) || id };
+        opts[i] = { id: id, name: DoughCalc.pickLocalized(data && data.name) || id };
         if (--remaining === 0) {
           opts.forEach(function (o) {
             var el = document.createElement('option');
@@ -1132,7 +1157,7 @@ DoughCalc.initFlourTypes = function (initialTypes) {
     var weightEls = flourTypesList.querySelectorAll('.flour-type-weight');
     flourTypes.forEach(function (ft, idx) {
       var w = currentMainFlour * (ft.pct / 100);
-      weightEls[idx].textContent = Math.round(w) + ' г';
+      weightEls[idx].textContent = Math.round(w) + ' ' + (dict.UNIT_G || 'г');
     });
   }
 

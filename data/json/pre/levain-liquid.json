@@ -1,16 +1,28 @@
 {
   "id": "levain-liquid",
   "category": "preferments",
-  "name": { "uk": "Левен рідкий", "en": "Liquid Levain" },
+  "name": {
+    "uk": "Левен рідкий",
+    "en": "Liquid Levain"
+  },
   "description": {
     "uk": "Побудова від материнської закваски (levain-chef) на високій гідратації — 100%, консистенція рідкого тіста. Тепліша ферментація (25–32°C) сприяє розвитку молочної кислоти: м'якший, вершково-йогуртовий аромат без різкої кислинки. Використовується у Vermont Sourdough, повсякденних хлібах на заквасці та багетах із кремовим м'якушем."
   },
   "mode": "starter",
-  "ratio": { "flour": 100, "water": 100, "starter": 50 },
+  "ratio": {
+    "flour": 100,
+    "water": 100,
+    "starter": 50
+  },
   "hydration": 100,
   "fermentation": {
     "duration_note_uk": "5+ год (залежно від температури приміщення)",
-    "temperature_note_uk": "25–32°C, тепле місце"
+    "duration_note_en": "5+ hours (depending on room temperature)",
+    "temperature_note_uk": "25–32°C, тепле місце",
+    "temperature_note_en": "25–32°C, warm place"
   },
-  "used_in": ["bread", "baguette"]
+  "used_in": [
+    "bread",
+    "baguette"
+  ]
 }
