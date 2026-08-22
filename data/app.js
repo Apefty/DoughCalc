@@ -580,6 +580,133 @@ DoughCalc.initFavoritesPage = function () {
     });
 };
 
+/* Bread hub sort (data/pages/bread/bread.html, route 'bread' only —
+   see the memory/architecture note for why only this hub: flour type
+   and grain count only meaningfully vary within Bread, and every
+   card there already carries data-flour/data-grain/data-preferment
+   set by hand alongside the JSON at authoring time). Reorders the
+   .menu-card elements inside #bread-menu-grid in place; independent
+   of DoughCalc.initHomeSearch()'s own show/hide-on-search behavior.
+   Preferment-group order is alphabetical by each preferment's own
+   localized name, fetched via the existing DoughCalc.fetchPreferment
+   cache (calc.js) — the same source of truth the recipe pages'
+   preferment dropdown already uses, so labels can't drift. */
+DoughCalc.BREAD_FLOUR_ORDER = ['wheat', 'rye', 'spelt', 'durum'];
+
+DoughCalc.initBreadSort = function () {
+  var select = document.getElementById('bread-sort-select');
+  var grid = document.getElementById('bread-menu-grid');
+  if (!select || !grid) return;
+
+  function cards() {
+    return Array.prototype.slice.call(grid.querySelectorAll('.menu-card'));
+  }
+  function titleOf(card) {
+    var el = card.querySelector('.menu-card-title');
+    return el ? el.textContent.trim() : '';
+  }
+  function locale() {
+    return (DoughCalc.currentLocale && DoughCalc.currentLocale()) || 'uk';
+  }
+  function clearDividers() {
+    Array.prototype.slice.call(grid.querySelectorAll('.menu-card-group-divider'))
+      .forEach(function (d) { d.remove(); });
+  }
+  function render(list, groupKeyFn) {
+    clearDividers();
+    var lastKey = null;
+    list.forEach(function (card, i) {
+      if (groupKeyFn) {
+        var key = groupKeyFn(card);
+        if (i > 0 && key !== lastKey) {
+          var hr = document.createElement('div');
+          hr.className = 'menu-card-group-divider';
+          grid.appendChild(hr);
+        }
+        lastKey = key;
+      }
+      grid.appendChild(card);
+    });
+  }
+
+  function sortAlpha(dir) {
+    var list = cards().sort(function (a, b) {
+      return titleOf(a).localeCompare(titleOf(b), locale());
+    });
+    if (dir === 'za') list.reverse();
+    render(list, null);
+  }
+
+  function sortByFlour() {
+    var order = DoughCalc.BREAD_FLOUR_ORDER;
+    var list = cards().sort(function (a, b) {
+      var fa = order.indexOf(a.getAttribute('data-flour'));
+      var fb = order.indexOf(b.getAttribute('data-flour'));
+      if (fa !== fb) return fa - fb;
+      return titleOf(a).localeCompare(titleOf(b), locale());
+    });
+    render(list, null);
+  }
+
+  function sortByGrain() {
+    var list = cards().sort(function (a, b) {
+      var ga = parseInt(a.getAttribute('data-grain'), 10) || 0;
+      var gb = parseInt(b.getAttribute('data-grain'), 10) || 0;
+      if (ga !== gb) return ga - gb;
+      return titleOf(a).localeCompare(titleOf(b), locale());
+    });
+    render(list, null);
+  }
+
+  function sortByPreferment() {
+    var dict = DoughCalc.getLangDictSync();
+    var specialLabels = {
+      any: dict.SORT_PREFERMENT_ANY || 'Без фіксованого преферементу',
+      multi: dict.SORT_PREFERMENT_MULTI || 'Багатоетапні',
+      none: dict.SORT_PREFERMENT_NONE || 'Без преферементу'
+    };
+    var ids = [];
+    cards().forEach(function (c) {
+      var id = c.getAttribute('data-preferment');
+      if (ids.indexOf(id) === -1) ids.push(id);
+    });
+    var names = {};
+    ids.forEach(function (id) { if (specialLabels[id]) names[id] = specialLabels[id]; });
+    var realIds = ids.filter(function (id) { return !specialLabels[id]; });
+
+    function finish() {
+      var list = cards().sort(function (a, b) {
+        var na = names[a.getAttribute('data-preferment')] || a.getAttribute('data-preferment');
+        var nb = names[b.getAttribute('data-preferment')] || b.getAttribute('data-preferment');
+        if (na !== nb) return na.localeCompare(nb, locale());
+        return titleOf(a).localeCompare(titleOf(b), locale());
+      });
+      render(list, function (c) { return c.getAttribute('data-preferment'); });
+    }
+
+    var remaining = realIds.length;
+    if (!remaining) { finish(); return; }
+    realIds.forEach(function (id) {
+      DoughCalc.fetchPreferment(id, function (data) {
+        names[id] = (data && DoughCalc.pickLocalized(data.name)) || id;
+        if (--remaining === 0) finish();
+      });
+    });
+  }
+
+  function applySort() {
+    var mode = select.value;
+    if (mode === 'za') sortAlpha('za');
+    else if (mode === 'flour') sortByFlour();
+    else if (mode === 'grain') sortByGrain();
+    else if (mode === 'preferment') sortByPreferment();
+    else sortAlpha('az');
+  }
+
+  select.addEventListener('change', applySort);
+  applySort();
+};
+
 function checkAppUpdateFromSettings() {
   var statusEl = document.getElementById('settings-update-status');
   var btnEl = document.getElementById('settings-update-btn');

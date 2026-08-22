@@ -813,4 +813,15 @@ FAVORITE_REMOVE: 'Прибрати з обраного',
   ABOUT_LINKS_TITLE: 'Посилання',
   ABOUT_REPO_LINK: 'Вихідний код на GitHub',
 
+  // Bread hub sort (2026-08-22)
+  SORT_LABEL: 'Сортування',
+  SORT_AZ: 'А-Я',
+  SORT_ZA: 'Я-А',
+  SORT_FLOUR: 'За борошном',
+  SORT_PREFERMENT: 'За преферементом',
+  SORT_GRAIN: 'За к-стю зернових',
+  SORT_PREFERMENT_ANY: 'Без фіксованого преферементу',
+  SORT_PREFERMENT_MULTI: 'Багатоетапні',
+  SORT_PREFERMENT_NONE: 'Без преферементу',
+
 };

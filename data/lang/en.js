@@ -805,4 +805,15 @@ DoughCalc.LANG.en = {
   ABOUT_UPDATE_ERROR: 'Update check failed.',
   ABOUT_LINKS_TITLE: 'Links',
   ABOUT_REPO_LINK: 'Source code on GitHub',
+
+  // Bread hub sort (2026-08-22)
+  SORT_LABEL: 'Sort',
+  SORT_AZ: 'A-Z',
+  SORT_ZA: 'Z-A',
+  SORT_FLOUR: 'By flour',
+  SORT_PREFERMENT: 'By preferment',
+  SORT_GRAIN: 'By grain count',
+  SORT_PREFERMENT_ANY: 'No fixed preferment',
+  SORT_PREFERMENT_MULTI: 'Multi-stage',
+  SORT_PREFERMENT_NONE: 'No preferment',
 };

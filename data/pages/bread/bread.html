@@ -19,12 +19,22 @@
 </div>
 <div id="search-results" class="search-results"></div>
 
+<div class="bread-sort-wrap">
+  <label for="bread-sort-select" class="bread-sort-label">{{lang.SORT_LABEL}}</label>
+  <select id="bread-sort-select" class="bread-sort-select">
+    <option value="az">{{lang.SORT_AZ}}</option>
+    <option value="za">{{lang.SORT_ZA}}</option>
+    <option value="flour">{{lang.SORT_FLOUR}}</option>
+    <option value="preferment">{{lang.SORT_PREFERMENT}}</option>
+    <option value="grain">{{lang.SORT_GRAIN}}</option>
+  </select>
+</div>
 
 <main class="menu">
 
-  <nav class="menu-grid" aria-label="{{lang.BREAD_HUB}}">
+  <nav class="menu-grid" id="bread-menu-grid" aria-label="{{lang.BREAD_HUB}}">
 
-    <a data-route="bread/wheat" class="menu-card" data-bread="wheat">
+    <a data-route="bread/wheat" class="menu-card" data-bread="wheat" data-flour="wheat" data-grain="1" data-preferment="any">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHITE_BREAD}}</span>
@@ -32,7 +42,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye" class="menu-card" data-bread="rye">
+    <a data-route="bread/rye" class="menu-card" data-bread="rye" data-flour="rye" data-grain="2" data-preferment="any">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_BREAD}}</span>
@@ -40,7 +50,7 @@
       </div>
     </a>
 
-    <a data-route="bread/sourdough-bread" class="menu-card" data-bread="sourdough-bread">
+    <a data-route="bread/sourdough-bread" class="menu-card" data-bread="sourdough-bread" data-flour="wheat" data-grain="1" data-preferment="any">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SOURDOUGH_BREAD}}</span>
@@ -48,7 +58,7 @@
       </div>
     </a>
 
-    <a data-route="bread/wholegrain" class="menu-card" data-bread="wholegrain">
+    <a data-route="bread/wholegrain" class="menu-card" data-bread="wholegrain" data-flour="wheat" data-grain="1" data-preferment="any">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_GRAIN_BREAD}}</span>
@@ -56,7 +66,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pan" class="menu-card" data-bread="pan">
+    <a data-route="bread/pan" class="menu-card" data-bread="pan" data-flour="wheat" data-grain="1" data-preferment="any">
       <img src="img/icons/pan-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAN_LOAF}}</span>
@@ -64,7 +74,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rustic" class="menu-card" data-bread="rustic">
+    <a data-route="bread/rustic" class="menu-card" data-bread="rustic" data-flour="wheat" data-grain="2" data-preferment="pf">
       <img src="img/icons/rustic-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RUSTIC_BREAD}} (Hamelman)</span>
@@ -72,7 +82,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pain-rustique" class="menu-card" data-bread="pain-rustique">
+    <a data-route="bread/pain-rustique" class="menu-card" data-bread="pain-rustique" data-flour="wheat" data-grain="1" data-preferment="poolish">
       <img src="img/icons/rustic-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAIN_RUSTIQUE}} (Hamelman)</span>
@@ -80,7 +90,7 @@
       </div>
     </a>
 
-    <a data-route="bread/country" class="menu-card" data-bread="country">
+    <a data-route="bread/country" class="menu-card" data-bread="country" data-flour="wheat" data-grain="1" data-preferment="pf">
       <img src="img/icons/rustic-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.COUNTRY_BREAD}} (Hamelman)</span>
@@ -88,7 +98,7 @@
       </div>
     </a>
 
-    <a data-route="bread/honey-spelt" class="menu-card" data-bread="honey-spelt">
+    <a data-route="bread/honey-spelt" class="menu-card" data-bread="honey-spelt" data-flour="spelt" data-grain="1" data-preferment="poolish">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.HONEY_SPELT_BREAD}} (Hamelman)</span>
@@ -96,7 +106,7 @@
       </div>
     </a>
 
-    <a data-route="bread/five-grain-pf" class="menu-card" data-bread="five-grain-pf">
+    <a data-route="bread/five-grain-pf" class="menu-card" data-bread="five-grain-pf" data-flour="wheat" data-grain="5" data-preferment="pf">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.GRAIN_5_PF_BREAD}} (Hamelman)</span>
@@ -104,7 +114,7 @@
       </div>
     </a>
 
-    <a data-route="bread/sunflower-pf" class="menu-card" data-bread="sunflower-pf">
+    <a data-route="bread/sunflower-pf" class="menu-card" data-bread="sunflower-pf" data-flour="wheat" data-grain="1" data-preferment="pf">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SUNFLOWER_PF_BREAD}} (Hamelman)</span>
@@ -112,7 +122,7 @@
       </div>
     </a>
 
-    <a data-route="bread/corn" class="menu-card" data-bread="corn">
+    <a data-route="bread/corn" class="menu-card" data-bread="corn" data-flour="wheat" data-grain="2" data-preferment="poolish">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.CORN_BREAD}} (Hamelman)</span>
@@ -120,7 +130,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-wheat" class="menu-card" data-bread="whole-wheat">
+    <a data-route="bread/whole-wheat" class="menu-card" data-bread="whole-wheat" data-flour="wheat" data-grain="1" data-preferment="pf">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_WHEAT_PF_BREAD}} (Hamelman)</span>
@@ -128,7 +138,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-wheat-multigrain" class="menu-card" data-bread="whole-wheat-multigrain">
+    <a data-route="bread/whole-wheat-multigrain" class="menu-card" data-bread="whole-wheat-multigrain" data-flour="wheat" data-grain="5" data-preferment="levain-liquid">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_GRAIN_MULTIGRAIN_BREAD}} (Hamelman)</span>
@@ -136,7 +146,7 @@
       </div>
     </a>
 
-    <a data-route="bread/ww-multigrain-soaker" class="menu-card" data-bread="ww-multigrain-soaker">
+    <a data-route="bread/ww-multigrain-soaker" class="menu-card" data-bread="ww-multigrain-soaker" data-flour="wheat" data-grain="5" data-preferment="pf">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_GRAIN_BREAD_WITH_MULTIGRAIN_SOAKER}} (Hamelman)</span>
@@ -144,7 +154,7 @@
       </div>
     </a>
 
-    <a data-route="bread/cracked-wheat" class="menu-card" data-bread="cracked-wheat">
+    <a data-route="bread/cracked-wheat" class="menu-card" data-bread="cracked-wheat" data-flour="wheat" data-grain="1" data-preferment="pf">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.CRACKED_WHEAT_BREAD}} (Hamelman)</span>
@@ -152,7 +162,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vermont-sourdough" class="menu-card" data-bread="vermont-sourdough">
+    <a data-route="bread/vermont-sourdough" class="menu-card" data-bread="vermont-sourdough" data-flour="wheat" data-grain="2" data-preferment="levain-liquid">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VERMONT_SOURDOUGH_BREAD}} (Hamelman)</span>
@@ -160,7 +170,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vermont-sourdough-ww" class="menu-card" data-bread="vermont-sourdough-ww">
+    <a data-route="bread/vermont-sourdough-ww" class="menu-card" data-bread="vermont-sourdough-ww" data-flour="wheat" data-grain="1" data-preferment="levain-liquid">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VERMONT_SOURDOUGH_WW_BREAD}} (Hamelman)</span>
@@ -168,7 +178,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vermont-sourdough-increased-wg" class="menu-card" data-bread="vermont-sourdough-increased-wg">
+    <a data-route="bread/vermont-sourdough-increased-wg" class="menu-card" data-bread="vermont-sourdough-increased-wg" data-flour="wheat" data-grain="1" data-preferment="levain-liquid">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VERMONT_SOURDOUGH_INCREASED_WG_BREAD}} (Hamelman)</span>
@@ -176,7 +186,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pain-au-levain" class="menu-card" data-bread="pain-au-levain">
+    <a data-route="bread/pain-au-levain" class="menu-card" data-bread="pain-au-levain" data-flour="wheat" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAIN_AU_LEVAIN_BREAD}} (Hamelman)</span>
@@ -184,7 +194,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pain-au-levain-ww" class="menu-card" data-bread="pain-au-levain-ww">
+    <a data-route="bread/pain-au-levain-ww" class="menu-card" data-bread="pain-au-levain-ww" data-flour="wheat" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAIN_AU_LEVAIN_WW_BREAD}} (Hamelman)</span>
@@ -192,7 +202,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pain-de-lodeve" class="menu-card" data-bread="pain-de-lodeve">
+    <a data-route="bread/pain-de-lodeve" class="menu-card" data-bread="pain-de-lodeve" data-flour="wheat" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAIN_DE_LODEVE_BREAD}} (Hamelman/Nihei)</span>
@@ -200,7 +210,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-wheat-sandwich" class="menu-card" data-bread="whole-wheat-sandwich">
+    <a data-route="bread/whole-wheat-sandwich" class="menu-card" data-bread="whole-wheat-sandwich" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLEGRAIN_SANDWICH_LOAF_BREAD}} (Hamelman)</span>
@@ -208,7 +218,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pal-mixed-starters" class="menu-card" data-bread="pal-mixed-starters">
+    <a data-route="bread/pal-mixed-starters" class="menu-card" data-bread="pal-mixed-starters" data-flour="wheat" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PAL_MIXED_STARTERS_BREAD}} (Hamelman)</span>
@@ -216,7 +226,7 @@
       </div>
     </a>
 
-    <a data-route="bread/miche-pointe-a-calliere" class="menu-card" data-bread="miche-pointe-a-calliere">
+    <a data-route="bread/miche-pointe-a-calliere" class="menu-card" data-bread="miche-pointe-a-calliere" data-flour="wheat" data-grain="1" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.MICHE_POINT_AU_CALIER_BREAD}} (Hamelman)</span>
@@ -224,7 +234,7 @@
       </div>
     </a>
 
-    <a data-route="bread/mixed-flour-miche" class="menu-card" data-bread="mixed-flour-miche">
+    <a data-route="bread/mixed-flour-miche" class="menu-card" data-bread="mixed-flour-miche" data-flour="wheat" data-grain="3" data-preferment="sourdough">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.MICHE_MIXED_FLOUR_BREAD}} (Hamelman)</span>
@@ -232,7 +242,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-wheat-levain" class="menu-card" data-bread="whole-wheat-levain">
+    <a data-route="bread/whole-wheat-levain" class="menu-card" data-bread="whole-wheat-levain" data-flour="wheat" data-grain="1" data-preferment="levain-liquid">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_WHEAT_LEVAIN_BREAD}} (Hamelman)</span>
@@ -240,7 +250,7 @@
       </div>
     </a>
 
-    <a data-route="bread/durum" class="menu-card" data-bread="durum">
+    <a data-route="bread/durum" class="menu-card" data-bread="durum" data-flour="durum" data-grain="2" data-preferment="multi">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.DURUM_BREAD}} (Hamelman)</span>
@@ -248,7 +258,7 @@
       </div>
     </a>
 
-    <a data-route="bread/harvest" class="menu-card" data-bread="harvest">
+    <a data-route="bread/harvest" class="menu-card" data-bread="harvest" data-flour="wheat" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.HARVEST_BREAD}} (Hamelman)</span>
@@ -256,7 +266,7 @@
       </div>
     </a>
 
-    <a data-route="bread/five-grain-levain" class="menu-card" data-bread="five-grain-levain">
+    <a data-route="bread/five-grain-levain" class="menu-card" data-bread="five-grain-levain" data-flour="wheat" data-grain="5" data-preferment="levain-liquid">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.GRAIN_5_LEVAIN_BREAD}} (Hamelman)</span>
@@ -264,7 +274,7 @@
       </div>
     </a>
 
-    <a data-route="bread/sourdough-seed" class="menu-card" data-bread="sourdough-seed">
+    <a data-route="bread/sourdough-seed" class="menu-card" data-bread="sourdough-seed" data-flour="wheat" data-grain="2" data-preferment="levain-liquid">
       <img src="img/icons/sourdough-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SOURDOUGH_SEED_BREAD}} (Hamelman)</span>
@@ -272,7 +282,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-caraway-40" class="menu-card" data-bread="rye-caraway-40">
+    <a data-route="bread/rye-caraway-40" class="menu-card" data-bread="rye-caraway-40" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.CARAWAY_40_RYE_BREAD}} (Hamelman)</span>
@@ -280,7 +290,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-rye-whole-wheat" class="menu-card" data-bread="whole-rye-whole-wheat">
+    <a data-route="bread/whole-rye-whole-wheat" class="menu-card" data-bread="whole-rye-whole-wheat" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_RYE_WHOLE_WHEAT_BREAD}} (Hamelman)</span>
@@ -288,7 +298,7 @@
       </div>
     </a>
 
-    <a data-route="bread/deli-rye" class="menu-card" data-bread="deli-rye">
+    <a data-route="bread/deli-rye" class="menu-card" data-bread="deli-rye" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.DELI_RYE_BREAD}} (Hamelman)</span>
@@ -296,7 +306,7 @@
       </div>
     </a>
 
-    <a data-route="bread/sourdough-rye-walnuts" class="menu-card" data-bread="sourdough-rye-walnuts">
+    <a data-route="bread/sourdough-rye-walnuts" class="menu-card" data-bread="sourdough-rye-walnuts" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SOURDOUGH_RYE_WALNUTS_BREAD}} (Hamelman)</span>
@@ -304,7 +314,7 @@
       </div>
     </a>
 
-    <a data-route="bread/3stage-rye-90" class="menu-card" data-bread="3stage-rye-90">
+    <a data-route="bread/3stage-rye-90" class="menu-card" data-bread="3stage-rye-90" data-flour="rye" data-grain="2" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_3STAGE_90}} (Hamelman)</span>
@@ -312,7 +322,7 @@
       </div>
     </a>
 
-    <a data-route="bread/3stage-rye-80" class="menu-card" data-bread="3stage-rye-80">
+    <a data-route="bread/3stage-rye-80" class="menu-card" data-bread="3stage-rye-80" data-flour="rye" data-grain="2" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_3STAGE_80}} (Hamelman)</span>
@@ -320,7 +330,7 @@
       </div>
     </a>
 
-    <a data-route="bread/3stage-rye-70" class="menu-card" data-bread="3stage-rye-70">
+    <a data-route="bread/3stage-rye-70" class="menu-card" data-bread="3stage-rye-70" data-flour="rye" data-grain="2" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_3STAGE_70}} (Hamelman)</span>
@@ -328,7 +338,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-raisins-walnuts" class="menu-card" data-bread="rye-raisins-walnuts">
+    <a data-route="bread/rye-raisins-walnuts" class="menu-card" data-bread="rye-raisins-walnuts" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_RAISINS_WALNUTS_BREAD}} (Hamelman)</span>
@@ -336,7 +346,7 @@
       </div>
     </a>
 
-    <a data-route="bread/quarkbrot" class="menu-card" data-bread="quarkbrot">
+    <a data-route="bread/quarkbrot" class="menu-card" data-bread="quarkbrot" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.QUARKBROT_BREAD}} (Hamelman)</span>
@@ -344,7 +354,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-sourdough-66" class="menu-card" data-bread="rye-sourdough-66">
+    <a data-route="bread/rye-sourdough-66" class="menu-card" data-bread="rye-sourdough-66" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_66_SOURDOUGH}} (Hamelman)</span>
@@ -352,7 +362,7 @@
       </div>
     </a>
 
-    <a data-route="bread/flaxseed" class="menu-card" data-bread="flaxseed">
+    <a data-route="bread/flaxseed" class="menu-card" data-bread="flaxseed" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.FLAXSEED_BREAD}} (Hamelman)</span>
@@ -360,7 +370,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-flour-soaker-80" class="menu-card" data-bread="rye-flour-soaker-80">
+    <a data-route="bread/rye-flour-soaker-80" class="menu-card" data-bread="rye-flour-soaker-80" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_80_FLOUR_SOAKER}} (Hamelman)</span>
@@ -368,7 +378,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-soaker-ww-70" class="menu-card" data-bread="rye-soaker-ww-70">
+    <a data-route="bread/rye-soaker-ww-70" class="menu-card" data-bread="rye-soaker-ww-70" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_70_SOAKER_WW}} (Hamelman)</span>
@@ -376,7 +386,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vollkornbrot" class="menu-card" data-bread="vollkornbrot">
+    <a data-route="bread/vollkornbrot" class="menu-card" data-bread="vollkornbrot" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VOLLKORNBROT_BREAD}} (Hamelman)</span>
@@ -384,7 +394,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vollkornbrot-flax" class="menu-card" data-bread="vollkornbrot-flax">
+    <a data-route="bread/vollkornbrot-flax" class="menu-card" data-bread="vollkornbrot-flax" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VOLLKORNBROT_FLAX_BREAD}} (Hamelman)</span>
@@ -392,7 +402,7 @@
       </div>
     </a>
 
-    <a data-route="bread/vollkornbrot-currants" class="menu-card" data-bread="vollkornbrot-currants">
+    <a data-route="bread/vollkornbrot-currants" class="menu-card" data-bread="vollkornbrot-currants" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.VOLLKORNBROT_CURRANTS_BREAD}} (Hamelman)</span>
@@ -400,7 +410,7 @@
       </div>
     </a>
 
-    <a data-route="bread/horst-bandel-pumpernickel" class="menu-card" data-bread="horst-bandel-pumpernickel">
+    <a data-route="bread/horst-bandel-pumpernickel" class="menu-card" data-bread="horst-bandel-pumpernickel" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.HORST_BANDEL_PUMPERNICKEL}} (Hamelman)</span>
@@ -408,7 +418,7 @@
       </div>
     </a>
 
-    <a data-route="bread/flax-rye-old-bread" class="menu-card" data-bread="flax-rye-old-bread">
+    <a data-route="bread/flax-rye-old-bread" class="menu-card" data-bread="flax-rye-old-bread" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.FLAX_RYE_OLD_BREAD}} (Hamelman)</span>
@@ -416,7 +426,7 @@
       </div>
     </a>
 
-    <a data-route="bread/black-bread" class="menu-card" data-bread="black-bread">
+    <a data-route="bread/black-bread" class="menu-card" data-bread="black-bread" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BLACK_BREAD}} (Hamelman)</span>
@@ -424,7 +434,7 @@
       </div>
     </a>
 
-    <a data-route="bread/5grain-sourdough-rye" class="menu-card" data-bread="5grain-sourdough-rye">
+    <a data-route="bread/5grain-sourdough-rye" class="menu-card" data-bread="5grain-sourdough-rye" data-flour="rye" data-grain="5" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.GRAIN_5_SOURDOUGH_RYE_BREAD}} (Hamelman)</span>
@@ -432,7 +442,7 @@
       </div>
     </a>
 
-    <a data-route="bread/sunflower-seed-rye" class="menu-card" data-bread="sunflower-seed-rye">
+    <a data-route="bread/sunflower-seed-rye" class="menu-card" data-bread="sunflower-seed-rye" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SUNFLOWER_RYE_BREAD}} (Hamelman)</span>
@@ -440,7 +450,7 @@
       </div>
     </a>
 
-    <a data-route="bread/beer-bread" class="menu-card" data-bread="beer-bread">
+    <a data-route="bread/beer-bread" class="menu-card" data-bread="beer-bread" data-flour="wheat" data-grain="2" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BEER_BREAD}} (Hamelman)</span>
@@ -448,7 +458,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-sourdough-65" class="menu-card" data-bread="rye-sourdough-65">
+    <a data-route="bread/rye-sourdough-65" class="menu-card" data-bread="rye-sourdough-65" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_65_SOURDOUGH}} (Hamelman)</span>
@@ -456,7 +466,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-firm-white-levain-65" class="menu-card" data-bread="rye-firm-white-levain-65">
+    <a data-route="bread/rye-firm-white-levain-65" class="menu-card" data-bread="rye-firm-white-levain-65" data-flour="rye" data-grain="2" data-preferment="levain-stiff">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_65_FIRM_WHITE_LEVAIN}} (Hamelman)</span>
@@ -464,7 +474,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-no-acidified-65" class="menu-card" data-bread="rye-no-acidified-65">
+    <a data-route="bread/rye-no-acidified-65" class="menu-card" data-bread="rye-no-acidified-65" data-flour="rye" data-grain="2" data-preferment="none">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_65_NO_ACIDIFIED}} (Hamelman)</span>
@@ -472,7 +482,7 @@
       </div>
     </a>
 
-    <a data-route="bread/hand-mixed-white" class="menu-card" data-bread="hand-mixed-white">
+    <a data-route="bread/hand-mixed-white" class="menu-card" data-bread="hand-mixed-white" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.HAND_MIXED_WHITE_BREAD}} (Hamelman)</span>
@@ -480,7 +490,7 @@
       </div>
     </a>
 
-    <a data-route="bread/barley-beer" class="menu-card" data-bread="barley-beer">
+    <a data-route="bread/barley-beer" class="menu-card" data-bread="barley-beer" data-flour="wheat" data-grain="3" data-preferment="levain-stiff">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BARLEY_BEER_BREAD}} (Hamelman)</span>
@@ -488,7 +498,7 @@
       </div>
     </a>
 
-    <a data-route="bread/borodinsky" class="menu-card" data-bread="borodinsky">
+    <a data-route="bread/borodinsky" class="menu-card" data-bread="borodinsky" data-flour="rye" data-grain="1" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BORODINSKY_BREAD}} (Hamelman)</span>
@@ -496,7 +506,7 @@
       </div>
     </a>
 
-    <a data-route="bread/busy-farmer" class="menu-card" data-bread="busy-farmer">
+    <a data-route="bread/busy-farmer" class="menu-card" data-bread="busy-farmer" data-flour="wheat" data-grain="1" data-preferment="levain-stiff">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BUSY_FARMER_BREAD}} (Hamelman)</span>
@@ -504,7 +514,7 @@
       </div>
     </a>
 
-    <a data-route="bread/danish-black-rye" class="menu-card" data-bread="danish-black-rye">
+    <a data-route="bread/danish-black-rye" class="menu-card" data-bread="danish-black-rye" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.DANISH_BLACK_RYE_BREAD}} (Hamelman)</span>
@@ -512,7 +522,7 @@
       </div>
     </a>
 
-    <a data-route="bread/danish-spelt-rye" class="menu-card" data-bread="danish-spelt-rye">
+    <a data-route="bread/danish-spelt-rye" class="menu-card" data-bread="danish-spelt-rye" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.DANISH_SPELT_RYE_BREAD}} (Hamelman)</span>
@@ -520,7 +530,7 @@
       </div>
     </a>
 
-    <a data-route="bread/flaxseed-rye" class="menu-card" data-bread="flaxseed-rye">
+    <a data-route="bread/flaxseed-rye" class="menu-card" data-bread="flaxseed-rye" data-flour="rye" data-grain="2" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.FLAXSEED_RYE_OLD_BREAD_SOAKER}} (Hamelman)</span>
@@ -528,7 +538,7 @@
       </div>
     </a>
 
-    <a data-route="bread/khachapuri" class="menu-card" data-bread="khachapuri">
+    <a data-route="bread/khachapuri" class="menu-card" data-bread="khachapuri" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.KHACHAPURI_BREAD}} (Hamelman)</span>
@@ -536,7 +546,7 @@
       </div>
     </a>
 
-    <a data-route="bread/lithuanian-rye" class="menu-card" data-bread="lithuanian-rye">
+    <a data-route="bread/lithuanian-rye" class="menu-card" data-bread="lithuanian-rye" data-flour="rye" data-grain="2" data-preferment="multi">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.LITOVSKY_RYE_BREAD}} (Hamelman)</span>
@@ -544,7 +554,7 @@
       </div>
     </a>
 
-    <a data-route="bread/rye-miche" class="menu-card" data-bread="rye-miche">
+    <a data-route="bread/rye-miche" class="menu-card" data-bread="rye-miche" data-flour="rye" data-grain="1" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.RYE_MICHE_BREAD}} (Hamelman)</span>
@@ -552,7 +562,7 @@
       </div>
     </a>
 
-    <a data-route="bread/spelt-miche" class="menu-card" data-bread="spelt-miche">
+    <a data-route="bread/spelt-miche" class="menu-card" data-bread="spelt-miche" data-flour="spelt" data-grain="3" data-preferment="sourdough">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SPELT_MICHE_BREAD}} (Hamelman)</span>
@@ -560,7 +570,7 @@
       </div>
     </a>
 
-    <a data-route="bread/olive-levain" class="menu-card" data-bread="olive-levain">
+    <a data-route="bread/olive-levain" class="menu-card" data-bread="olive-levain" data-flour="wheat" data-grain="1" data-preferment="levain-liquid">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.OLIVE_LEVAIN_BREAD}} (Hamelman)</span>
@@ -568,7 +578,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whole-wheat-workday" class="menu-card" data-bread="whole-wheat-workday">
+    <a data-route="bread/whole-wheat-workday" class="menu-card" data-bread="whole-wheat-workday" data-flour="wheat" data-grain="1" data-preferment="levain-stiff">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHOLE_WHEAT_WORKDAY_BREAD}} (Hamelman)</span>
@@ -576,7 +586,7 @@
       </div>
     </a>
 
-    <a data-route="bread/french-bread" class="menu-card" data-bread="french-bread">
+    <a data-route="bread/french-bread" class="menu-card" data-bread="french-bread" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.FRENCH_BREAD}} (Hamelman)</span>
@@ -584,7 +594,7 @@
       </div>
     </a>
 
-    <a data-route="bread/five-grain-straight" class="menu-card" data-bread="five-grain-straight">
+    <a data-route="bread/five-grain-straight" class="menu-card" data-bread="five-grain-straight" data-flour="wheat" data-grain="5" data-preferment="none">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.GRAIN_5_BREAD}} (Hamelman)</span>
@@ -592,7 +602,7 @@
       </div>
     </a>
 
-    <a data-route="bread/whey" class="menu-card" data-bread="whey">
+    <a data-route="bread/whey" class="menu-card" data-bread="whey" data-flour="wheat" data-grain="2" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WHEY_BREAD}} (Hamelman)</span>
@@ -600,7 +610,7 @@
       </div>
     </a>
 
-    <a data-route="bread/ww-pecans-raisins" class="menu-card" data-bread="ww-pecans-raisins">
+    <a data-route="bread/ww-pecans-raisins" class="menu-card" data-bread="ww-pecans-raisins" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.WW_PECANS_RAISINS_BREAD}} (Hamelman)</span>
@@ -608,7 +618,7 @@
       </div>
     </a>
 
-    <a data-route="bread/hazelnut-fig-rosemary" class="menu-card" data-bread="hazelnut-fig-rosemary">
+    <a data-route="bread/hazelnut-fig-rosemary" class="menu-card" data-bread="hazelnut-fig-rosemary" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/additions-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.HAZELNUT_FIG_ROSEMARY_BREAD}} (Hamelman)</span>
@@ -616,7 +626,7 @@
       </div>
     </a>
 
-    <a data-route="bread/german-farmers" class="menu-card" data-bread="german-farmers">
+    <a data-route="bread/german-farmers" class="menu-card" data-bread="german-farmers" data-flour="rye" data-grain="2" data-preferment="none">
       <img src="img/icons/rye-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.GERMAN_FARMERS_BREAD}} (Hamelman)</span>
@@ -624,7 +634,7 @@
       </div>
     </a>
 
-    <a data-route="bread/semolina" class="menu-card" data-bread="semolina">
+    <a data-route="bread/semolina" class="menu-card" data-bread="semolina" data-flour="durum" data-grain="2" data-preferment="levain-liquid">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SEMOLINA_BREAD}} (Hamelman)</span>
@@ -632,7 +642,7 @@
       </div>
     </a>
 
-    <a data-route="bread/semolina-durum" class="menu-card" data-bread="semolina-durum">
+    <a data-route="bread/semolina-durum" class="menu-card" data-bread="semolina-durum" data-flour="durum" data-grain="1" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SEMOLINA_DURUM_BREAD}} (Hamelman)</span>
@@ -640,7 +650,7 @@
       </div>
     </a>
 
-    <a data-route="bread/semolina-soaker" class="menu-card" data-bread="semolina-soaker">
+    <a data-route="bread/semolina-soaker" class="menu-card" data-bread="semolina-soaker" data-flour="durum" data-grain="2" data-preferment="none">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.SEMOLINA_SOAKER_FENNEL_BREAD}} (Hamelman)</span>
@@ -648,7 +658,7 @@
       </div>
     </a>
 
-    <a data-route="bread/additions" class="menu-card" data-bread="additions">
+    <a data-route="bread/additions" class="menu-card" data-bread="additions" data-flour="wheat" data-grain="1" data-preferment="any">
       <img src="img/icons/additions-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.BREAD_WITH_ADDITIONS}}</span>
@@ -656,7 +666,7 @@
       </div>
     </a>
 
-    <a data-route="bread/mantovana" class="menu-card" data-bread="mantovana">
+    <a data-route="bread/mantovana" class="menu-card" data-bread="mantovana" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.MANTOVANA_BREAD}} (Hazan)</span>
@@ -664,7 +674,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pane-integrale" class="menu-card" data-bread="pane-integrale">
+    <a data-route="bread/pane-integrale" class="menu-card" data-bread="pane-integrale" data-flour="wheat" data-grain="1" data-preferment="none">
       <img src="img/icons/wholegrain-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PANE_INTEGRALE_BREAD}} (Hazan)</span>
@@ -672,7 +682,7 @@
       </div>
     </a>
 
-    <a data-route="bread/pane-di-grano-duro" class="menu-card" data-bread="pane-di-grano-duro">
+    <a data-route="bread/pane-di-grano-duro" class="menu-card" data-bread="pane-di-grano-duro" data-flour="durum" data-grain="1" data-preferment="none">
       <img src="img/icons/wheat-bread.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.PANE_DI_GRANO_DURO_BREAD}} (Hazan)</span>
@@ -680,7 +690,7 @@
       </div>
     </a>
 
-    <a data-route="bread/apulia-olive" class="menu-card" data-bread="apulia-olive">
+    <a data-route="bread/apulia-olive" class="menu-card" data-bread="apulia-olive" data-flour="wheat" data-grain="1" data-preferment="biga">
       <img src="img/icons/biga.png" alt="" class="menu-card-icon">
       <div class="menu-card-text">
         <span class="menu-card-title">{{lang.APULIA_OLIVE_BREAD}} (Hazan)</span>

@@ -1615,6 +1615,48 @@ body.search-active main.menu > nav.menu-grid {
   display: none;
 }
 
+/* ==========================================================
+   Bread hub sort control (data/pages/bread/bread.html only,
+   DoughCalc.initBreadSort() in app.js). Reuses the search-box's
+   card2/border/radius look so it reads as one toolbar with the
+   search field above it.
+   ========================================================== */
+.bread-sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 10px;
+}
+.bread-sort-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.bread-sort-select {
+  flex: 1;
+  height: 40px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-14);
+  padding: 0 12px;
+  font-size: 14px;
+  background: var(--card2);
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
+}
+.bread-sort-select:focus {
+  border-color: var(--accent);
+}
+/* Divider inserted between preferment groups when sorting "по преферементу" —
+   DoughCalc.initBreadSort() appends one after the last card of every group
+   except the final one. .menu-grid is flex-column (not CSS Grid), so this
+   is just a full-width <hr>-like block between cards, not a grid line. */
+.menu-card-group-divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2px 4px;
+}
+
 /* Favorites page placeholder — shown until favoriting a recipe is
    wired up (star/heart toggle on card pages, stored in prefs). */
 .empty-state {

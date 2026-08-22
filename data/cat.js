@@ -143,7 +143,7 @@ DoughCalc.routes = {
     }
   },
 
-  'bread': { file: 'data/pages/bread/bread.html', init: function () { DoughCalc.initHomeSearch(); } },
+  'bread': { file: 'data/pages/bread/bread.html', init: function () { DoughCalc.initHomeSearch(); DoughCalc.initBreadSort(); } },
   'bread/wheat': { file: 'data/pages/bread/wheat.html', json: 'data/json/bread/wheat.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/rye': { file: 'data/pages/bread/rye.html', json: 'data/json/bread/rye.json', init: function (data) { DoughCalc.initRecipePage(data); } },
   'bread/sourdough-bread': { file: 'data/pages/bread/sourdough-bread.html', json: 'data/json/bread/sourdough-bread.json', init: function (data) { DoughCalc.initRecipePage(data); } },
