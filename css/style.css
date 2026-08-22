@@ -137,7 +137,7 @@ div#body-wrapper {
      same --header-icon-size variable the icon uses, so this scales
      automatically at the 600px/900px breakpoints where the icon itself
      gets bigger) plus a small buffer. */
-  padding-right: calc(var(--header-icon-size) + 10px);
+  padding-right: calc(var(--header-icon-size) + 16px);
 }
 /* .app-header {
   display: flex;
@@ -881,7 +881,14 @@ div#body-wrapper {
 .app-header[id]{
     background-image: var(--bg-icon);
     background-repeat: no-repeat;
-    background-position: calc(100% - 20px) center;
+    /* Fixed top offset (matches the header's own 16px top padding, i.e. the
+       burger-button row) instead of "center" — "center" was measured against
+       the WHOLE header box, whose height grows whenever a title wraps to 2-3
+       lines, which dragged the icon down into the title/heart row below.
+       Pinning it to the top keeps it visually anchored to the burger row
+       regardless of how tall the row below gets. Horizontal space for it is
+       reserved separately via .app-header > .app-brand's padding-right. */
+    background-position: right 20px top 16px;
     /* background-size: clamp(48px, 10vw, 128px);   */
     background-size:var(--header-icon-size);
 }
