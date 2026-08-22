@@ -129,6 +129,15 @@ div#body-wrapper {
   margin-left: 14px;
   min-width: 0;
   flex: 1 1 0;
+  /* The header's decorative background icon (.app-header[id]{background-image:
+     var(--bg-icon)}) is a CSS background, not a flex participant — it sits
+     20px from the header's right edge regardless of content width, so it
+     never reserves space on its own. Without this, a long title's text can
+     render straight through/under it. Reserve the icon's own width (the
+     same --header-icon-size variable the icon uses, so this scales
+     automatically at the 600px/900px breakpoints where the icon itself
+     gets bigger) plus a small buffer. */
+  padding-right: calc(var(--header-icon-size) + 10px);
 }
 /* .app-header {
   display: flex;
