@@ -724,3 +724,167 @@ function checkAppUpdateFromSettings() {
     }
   });
 }
+
+/* Floating mini-calculator (2026-08-22). A single global draggable
+   popup for quick arithmetic while filling in the calculator's own
+   number fields — not tied to any recipe's data, just plain +-×÷.
+   Built once, appended to <body> (outside #content-area) so it
+   survives route changes; the trigger icon is injected into every
+   recipe page's "Режим вводу" card by DoughCalc.initRecipePage()
+   (calc.js) calling DoughCalc.initMiniCalcTrigger() — no per-page
+   HTML edits needed across the ~250 recipe pages. */
+DoughCalc.miniCalcState = { current: '0', operator: null, previous: null, resetNext: false };
+
+DoughCalc.initMiniCalcTrigger = function () {
+  var entryToggle = document.getElementById('entry-toggle');
+  if (!entryToggle) return;
+  var row = entryToggle.parentElement;
+  if (!row || row.querySelector('.mini-calc-trigger')) return; // already injected, or wrong markup
+
+  var dict = DoughCalc.getLangDictSync();
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'icon-btn mini-calc-trigger';
+  btn.setAttribute('aria-label', dict.MINI_CALC_OPEN || 'Калькулятор');
+  btn.innerHTML = '<span class="iconify" data-icon="tabler:calculator"></span>';
+  btn.addEventListener('click', function () { DoughCalc.toggleMiniCalc(); });
+
+  row.insertBefore(btn, entryToggle);
+  entryToggle.style.marginLeft = 'auto';
+};
+
+DoughCalc.toggleMiniCalc = function () {
+  var el = document.getElementById('mini-calc');
+  if (!el) {
+    el = DoughCalc.buildMiniCalc();
+    document.body.appendChild(el);
+    // first open: park it near the bottom-right, fully on-screen
+    var w = el.offsetWidth || 220, h = el.offsetHeight || 300;
+    el.style.left = Math.max(8, window.innerWidth - w - 16) + 'px';
+    el.style.top = Math.max(8, window.innerHeight - h - 88) + 'px';
+  }
+  el.style.display = (el.style.display === 'none' || !el.style.display) ? 'flex' : 'none';
+};
+
+DoughCalc.buildMiniCalc = function () {
+  var dict = DoughCalc.getLangDictSync();
+  var el = document.createElement('div');
+  el.id = 'mini-calc';
+  el.innerHTML =
+    '<div class="mini-calc-header" id="mini-calc-drag">' +
+      '<span class="iconify" data-icon="tabler:calculator"></span>' +
+      '<span class="mini-calc-title">' + (dict.MINI_CALC_TITLE || 'Калькулятор') + '</span>' +
+      '<button type="button" class="icon-btn mini-calc-close" aria-label="' + (dict.CLOSE || 'Закрити') + '">' +
+        '<span class="iconify" data-icon="tabler:x"></span>' +
+      '</button>' +
+    '</div>' +
+    '<div class="mini-calc-display" id="mini-calc-display">0</div>' +
+    '<div class="mini-calc-grid">' +
+      '<button data-mc="clear" class="mc-btn mc-btn-op">C</button>' +
+      '<button data-mc="back" class="mc-btn mc-btn-op">⌫</button>' +
+      '<button data-mc="op-÷" class="mc-btn mc-btn-op">÷</button>' +
+      '<button data-mc="op-×" class="mc-btn mc-btn-op">×</button>' +
+      '<button data-mc="7" class="mc-btn">7</button>' +
+      '<button data-mc="8" class="mc-btn">8</button>' +
+      '<button data-mc="9" class="mc-btn">9</button>' +
+      '<button data-mc="op-−" class="mc-btn mc-btn-op">−</button>' +
+      '<button data-mc="4" class="mc-btn">4</button>' +
+      '<button data-mc="5" class="mc-btn">5</button>' +
+      '<button data-mc="6" class="mc-btn">6</button>' +
+      '<button data-mc="op-+" class="mc-btn mc-btn-op">+</button>' +
+      '<button data-mc="1" class="mc-btn">1</button>' +
+      '<button data-mc="2" class="mc-btn">2</button>' +
+      '<button data-mc="3" class="mc-btn">3</button>' +
+      '<button data-mc="equals" class="mc-btn mc-btn-equals" style="grid-row: span 2;">=</button>' +
+      '<button data-mc="0" class="mc-btn" style="grid-column: span 2;">0</button>' +
+      '<button data-mc="dot" class="mc-btn">.</button>' +
+    '</div>';
+
+  var display = null;
+  function render() {
+    if (!display) display = el.querySelector('#mini-calc-display');
+    display.textContent = DoughCalc.miniCalcState.current;
+  }
+
+  el.querySelectorAll('.mc-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      DoughCalc.miniCalcPress(b.getAttribute('data-mc'));
+      render();
+    });
+  });
+  el.querySelector('.mini-calc-close').addEventListener('click', function () {
+    el.style.display = 'none';
+  });
+
+  DoughCalc.makeDraggable(el.querySelector('#mini-calc-drag'), el);
+  render();
+  return el;
+};
+
+DoughCalc.miniCalcPress = function (key) {
+  var s = DoughCalc.miniCalcState;
+  function computeNow() {
+    var prev = s.previous, curr = parseFloat(s.current);
+    if (prev === null || s.operator === null || isNaN(curr)) return;
+    var result;
+    if (s.operator === '+') result = prev + curr;
+    else if (s.operator === '−') result = prev - curr;
+    else if (s.operator === '×') result = prev * curr;
+    else if (s.operator === '÷') result = curr === 0 ? NaN : prev / curr;
+    result = Math.round((result + Number.EPSILON) * 1e10) / 1e10; // trim fp noise
+    s.current = String(result);
+    s.operator = null;
+    s.previous = null;
+  }
+
+  if (key === 'clear') {
+    s.current = '0'; s.operator = null; s.previous = null; s.resetNext = false;
+  } else if (key === 'back') {
+    s.current = s.current.length > 1 ? s.current.slice(0, -1) : '0';
+  } else if (key === 'dot') {
+    if (s.resetNext) { s.current = '0.'; s.resetNext = false; }
+    else if (s.current.indexOf('.') === -1) s.current += '.';
+  } else if (key === 'equals') {
+    computeNow();
+    s.resetNext = true;
+  } else if (key.indexOf('op-') === 0) {
+    var op = key.slice(3);
+    if (s.operator && !s.resetNext) computeNow();
+    s.previous = parseFloat(s.current);
+    s.operator = op;
+    s.resetNext = true;
+  } else {
+    // digit
+    if (s.resetNext) { s.current = key; s.resetNext = false; }
+    else s.current = s.current === '0' ? key : s.current + key;
+  }
+};
+
+/* Generic draggable helper — used by the mini-calculator, kept
+   general (handle element + the element it moves) in case another
+   floating widget wants it later. Clamps fully within the viewport. */
+DoughCalc.makeDraggable = function (handleEl, moveEl) {
+  var dragging = false, startX = 0, startY = 0, origX = 0, origY = 0;
+  handleEl.style.cursor = 'move';
+  handleEl.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('button')) return; // let buttons inside the handle (e.g. close) work normally
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    var rect = moveEl.getBoundingClientRect();
+    origX = rect.left; origY = rect.top;
+    handleEl.setPointerCapture(e.pointerId);
+  });
+  handleEl.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var w = moveEl.offsetWidth, h = moveEl.offsetHeight;
+    var newX = origX + (e.clientX - startX);
+    var newY = origY + (e.clientY - startY);
+    newX = Math.max(0, Math.min(window.innerWidth - w, newX));
+    newY = Math.max(0, Math.min(window.innerHeight - h, newY));
+    moveEl.style.left = newX + 'px';
+    moveEl.style.top = newY + 'px';
+  });
+  ['pointerup', 'pointercancel'].forEach(function (evt) {
+    handleEl.addEventListener(evt, function () { dragging = false; });
+  });
+};

@@ -1725,3 +1725,91 @@ body.search-active main.menu > nav.menu-grid {
 .favorite-btn[aria-pressed="true"] {
   color: var(--accent);
 }
+
+/* ==========================================================
+   Floating mini-calculator (2026-08-22). Draggable within the
+   viewport via DoughCalc.makeDraggable() (app.js). Single global
+   instance appended to <body>, not #content-area, so it survives
+   route/page changes. Trigger icon is injected into every recipe
+   page's "Режим вводу" card-title-row by
+   DoughCalc.initMiniCalcTrigger() — no per-page HTML.
+   ========================================================== */
+.mini-calc-trigger {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+#mini-calc {
+  position: fixed;
+  z-index: 500;
+  width: 220px;
+  display: none;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+}
+.mini-calc-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 8px 10px 12px;
+  background: var(--card2);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  user-select: none;
+  touch-action: none;
+}
+.mini-calc-title {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 700;
+}
+.mini-calc-close {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.mini-calc-display {
+  padding: 14px 12px;
+  text-align: right;
+  font-size: 26px;
+  font-family: "Play", sans-serif;
+  color: var(--text);
+  background: var(--card2);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.mini-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  padding: 8px;
+}
+.mc-btn {
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-14);
+  background: var(--card2);
+  color: var(--text);
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.mc-btn:active {
+  background: var(--card3);
+}
+.mc-btn-op {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+.mc-btn-equals {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}

@@ -816,4 +816,9 @@ DoughCalc.LANG.en = {
   SORT_PREFERMENT_ANY: 'No fixed preferment',
   SORT_PREFERMENT_MULTI: 'Multi-stage',
   SORT_PREFERMENT_NONE: 'No preferment',
+
+  // Mini-calculator (2026-08-22)
+  MINI_CALC_OPEN: 'Calculator',
+  MINI_CALC_TITLE: 'Calculator',
+  CLOSE: 'Close',
 };

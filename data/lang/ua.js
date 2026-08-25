@@ -824,4 +824,9 @@ FAVORITE_REMOVE: 'Прибрати з обраного',
   SORT_PREFERMENT_MULTI: 'Багатоетапні',
   SORT_PREFERMENT_NONE: 'Без преферементу',
 
+  // Mini-calculator (2026-08-22)
+  MINI_CALC_OPEN: 'Калькулятор',
+  MINI_CALC_TITLE: 'Калькулятор',
+  CLOSE: 'Закрити',
+
 };

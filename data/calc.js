@@ -471,6 +471,8 @@ DoughCalc.initRecipePage = function (recipeData, options) {
     dcSetHTML('hero-desc', DoughCalc.pickLocalized(recipeData.description));
   }
 
+  if (DoughCalc.initMiniCalcTrigger) DoughCalc.initMiniCalcTrigger();
+
   var entryButtons = document.querySelectorAll('#entry-toggle .segmented-item');
   var entryMode = 'flour';
   var rowTotal = document.getElementById('row-total');
