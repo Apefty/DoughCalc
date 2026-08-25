@@ -472,7 +472,7 @@ DoughCalc.initRecipePage = function (recipeData, options) {
   }
 
   var entryButtons = document.querySelectorAll('#entry-toggle .segmented-item');
-  var entryMode = 'total';
+  var entryMode = 'flour';
   var rowTotal = document.getElementById('row-total');
   var rowFlour = document.getElementById('row-flour');
   var rowPortions = document.getElementById('row-portions');

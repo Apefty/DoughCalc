@@ -19,16 +19,16 @@
     <div class="card-title-row">
       <span class="card-title">{{lang.ENTRY_MODE}}</span>
       <div class="segmented" id="entry-toggle">
-        <button class="segmented-item is-active" data-entry="total">{{lang.BY_DOUGH}}</button>
-        <button class="segmented-item" data-entry="flour">{{lang.BY_FLOUR}}</button>
+        <button class="segmented-item is-active" data-entry="flour">{{lang.BY_FLOUR}}</button>
+        <button class="segmented-item" data-entry="total">{{lang.BY_DOUGH}}</button>
         <button class="segmented-item" data-entry="portions">{{lang.PORTIONS}}</button>
       </div>
     </div>
-    <div class="field-row" id="row-total">
+    <div class="field-row" id="row-total" style="display:none">
       <label for="input-total" class="field-label">{{lang.TOTAL_DOUGH_WEIGHT}}</label>
       <div class="value-box value-box-accent"><input type="number" id="input-total" value="650" step="10" min="0"><span class="value-unit">{{lang.UNIT_G}}</span></div>
     </div>
-    <div class="field-row" id="row-flour" style="display:none">
+    <div class="field-row" id="row-flour">
       <label for="input-flour" class="field-label">{{lang.FLOUR_WEIGHT}}</label>
       <div class="value-box value-box-accent"><input type="number" id="input-flour" value="375" step="10" min="0"><span class="value-unit">{{lang.UNIT_G}}</span></div>
     </div>
