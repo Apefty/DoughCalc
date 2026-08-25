@@ -782,22 +782,23 @@ DoughCalc.buildMiniCalc = function () {
     '<div class="mini-calc-grid">' +
       '<button data-mc="clear" class="mc-btn mc-btn-op">C</button>' +
       '<button data-mc="back" class="mc-btn mc-btn-op">⌫</button>' +
+      '<button data-mc="percent" class="mc-btn mc-btn-op">%</button>' +
       '<button data-mc="op-÷" class="mc-btn mc-btn-op">÷</button>' +
-      '<button data-mc="op-×" class="mc-btn mc-btn-op">×</button>' +
       '<button data-mc="7" class="mc-btn">7</button>' +
       '<button data-mc="8" class="mc-btn">8</button>' +
       '<button data-mc="9" class="mc-btn">9</button>' +
-      '<button data-mc="op-−" class="mc-btn mc-btn-op">−</button>' +
+      '<button data-mc="op-×" class="mc-btn mc-btn-op">×</button>' +
       '<button data-mc="4" class="mc-btn">4</button>' +
       '<button data-mc="5" class="mc-btn">5</button>' +
       '<button data-mc="6" class="mc-btn">6</button>' +
-      '<button data-mc="op-+" class="mc-btn mc-btn-op">+</button>' +
+      '<button data-mc="op-−" class="mc-btn mc-btn-op">−</button>' +
       '<button data-mc="1" class="mc-btn">1</button>' +
       '<button data-mc="2" class="mc-btn">2</button>' +
       '<button data-mc="3" class="mc-btn">3</button>' +
-      '<button data-mc="equals" class="mc-btn mc-btn-equals" style="grid-row: span 2;">=</button>' +
+      '<button data-mc="op-+" class="mc-btn mc-btn-op">+</button>' +
       '<button data-mc="0" class="mc-btn" style="grid-column: span 2;">0</button>' +
       '<button data-mc="dot" class="mc-btn">.</button>' +
+      '<button data-mc="equals" class="mc-btn mc-btn-equals">=</button>' +
     '</div>';
 
   var display = null;
@@ -844,6 +845,15 @@ DoughCalc.miniCalcPress = function (key) {
   } else if (key === 'dot') {
     if (s.resetNext) { s.current = '0.'; s.resetNext = false; }
     else if (s.current.indexOf('.') === -1) s.current += '.';
+  } else if (key === 'percent') {
+    var val = parseFloat(s.current);
+    if (!isNaN(val)) {
+      if (s.previous !== null && (s.operator === '+' || s.operator === '−')) {
+        s.current = String(s.previous * val / 100);
+      } else {
+        s.current = String(val / 100);
+      }
+    }
   } else if (key === 'equals') {
     computeNow();
     s.resetNext = true;
