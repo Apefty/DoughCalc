@@ -829,4 +829,7 @@ FAVORITE_REMOVE: 'Прибрати з обраного',
   MINI_CALC_TITLE: 'Калькулятор',
   CLOSE: 'Закрити',
 
+  // Recipe method steps (2026-08-22)
+  METHOD: 'Спосіб приготування',
+
 };

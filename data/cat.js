@@ -1781,6 +1781,7 @@ DoughCalc.navigate = function (route) {
       if (data && data.yt) DoughCalc.renderYouTube(data.yt);
       if (data && data.photo) DoughCalc.renderPhoto(data.photo);
       DoughCalc.renderLinks(data);
+      DoughCalc.renderMethod(data);
       window.scrollTo(0, 0);
       DoughCalc.updateBottomNav(route);
     })

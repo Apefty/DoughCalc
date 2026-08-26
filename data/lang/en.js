@@ -821,4 +821,7 @@ DoughCalc.LANG.en = {
   MINI_CALC_OPEN: 'Calculator',
   MINI_CALC_TITLE: 'Calculator',
   CLOSE: 'Close',
+
+  // Recipe method steps (2026-08-22)
+  METHOD: 'Method',
 };

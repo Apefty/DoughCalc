@@ -137,6 +137,40 @@ DoughCalc.renderPhoto = function (photoValue) {
   }
 };
 
+// Appends a "Спосіб приготування" (Method) card listing numbered
+// preparation steps, from an optional "method": {"uk": [...]} array
+// field in the page's JSON (one string per step; same single-
+// language-so-far convention as "name"/"description" — recipe
+// content isn't bilingual yet, only the app chrome is, see
+// pickLocalized's uk-fallback). Same silent-hide philosophy as
+// renderPhoto/renderLinks above: no field (or an empty array) means
+// no card, not an empty placeholder. Entirely JS-created — no
+// per-page HTML markup needed, so every existing and future recipe
+// page gets this for free the moment its JSON has a "method" array.
+DoughCalc.renderMethod = function (data) {
+  var existing = document.getElementById('method-section');
+  if (existing) existing.remove();
+
+  var steps = data && data.method ? DoughCalc.pickLocalized(data.method) : null;
+  if (!steps || typeof steps === 'string' || !steps.length) return;
+
+  var main = document.querySelector('#content-area main');
+  if (!main) return;
+
+  var dict = DoughCalc.getLangDictSync();
+  var section = document.createElement('section');
+  section.className = 'card';
+  section.id = 'method-section';
+  var itemsHtml = steps.map(function (step) {
+    return '<li>' + step + '</li>';
+  }).join('');
+  section.innerHTML =
+    '<div class="card-title-row"><span class="card-title">' + (dict.METHOD || 'Спосіб приготування') + '</span></div>' +
+    '<ol class="method-steps">' + itemsHtml + '</ol>';
+
+  main.appendChild(section);
+};
+
 // Note: the page JSON itself is now fetched once by cat.js's
 // navigate() (in parallel with the HTML fragment) and passed to
 // both the route's init() and here as DoughCalc.renderYouTube(data.yt) —
