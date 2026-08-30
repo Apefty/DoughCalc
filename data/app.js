@@ -147,6 +147,74 @@ DoughCalc.renderPhoto = function (photoValue) {
 // no card, not an empty placeholder. Entirely JS-created — no
 // per-page HTML markup needed, so every existing and future recipe
 // page gets this for free the moment its JSON has a "method" array.
+//
+// Method text is authored in METRIC ONLY (г/кг/мл/°C) — imperial
+// equivalents are never hand-typed, to avoid having to touch ~250
+// cards by hand. DoughCalc.convertMethodUnits() below finds every
+// metric quantity in the rendered text and appends its computed
+// imperial equivalent in parentheses automatically, for both single
+// values ("450 г" → "450 г (15.9 oz)") and ranges ("340–450 г" →
+// "340–450 г (12–15.9 oz)"). Runs after the HTML is assembled, so it
+// also safely skips over embedded <a data-route="..."> links (their
+// route strings don't match the unit patterns below).
+DoughCalc.UNIT_CONVERSIONS = {
+  'г':  { toUnit: 'oz',    factor: 1 / 28.3495, decimals: 1 },
+  'кг': { toUnit: 'lb',    factor: 2.20462,     decimals: 2 },
+  'мл': { toUnit: 'fl oz', factor: 1 / 29.5735, decimals: 1 }
+};
+
+DoughCalc.roundUnit = function (value, decimals) {
+  var factor = Math.pow(10, decimals);
+  var rounded = Math.round(value * factor) / factor;
+  return decimals > 0 ? rounded.toFixed(decimals).replace(/\.0+$/, '') : String(rounded);
+};
+
+DoughCalc.convertMethodUnits = function (html) {
+  var NUM = '(\\d+(?:[.,]\\d+)?)';
+  // \b doesn't reliably detect a boundary after a Cyrillic letter in JS
+  // regex (its \w is ASCII-only, so Cyrillic counts as "non-word" on
+  // both sides and \b silently fails to match) — use an explicit
+  // "not followed by another letter" lookahead instead everywhere a
+  // unit literal needs a boundary.
+  var NOT_LETTER = "(?![а-яіїєґА-ЯІЇЄҐ'a-zA-Z])";
+
+  // Temperature ranges then singles: °C → °F (F = C×9/5+32, not a
+  // simple factor, handled separately from the weight/volume units).
+  html = html.replace(new RegExp(NUM + '\\s*[–-]\\s*' + NUM + '\\s*°C' + NOT_LETTER + '(?!\\s*\\()', 'g'),
+    function (match, n1, n2) {
+      var f1 = Math.round(parseFloat(n1.replace(',', '.')) * 9 / 5 + 32);
+      var f2 = Math.round(parseFloat(n2.replace(',', '.')) * 9 / 5 + 32);
+      return match + ' (' + f1 + '–' + f2 + '°F)';
+    });
+  html = html.replace(new RegExp(NUM + '\\s*°C' + NOT_LETTER + '(?!\\s*\\()', 'g'),
+    function (match, n) {
+      var f = Math.round(parseFloat(n.replace(',', '.')) * 9 / 5 + 32);
+      return match + ' (' + f + '°F)';
+    });
+
+  // Weight/volume units: plain linear factor, ranges then singles.
+  // The negative lookahead (?!\s*\() on both prevents re-matching a
+  // number that's already followed by a just-appended parenthetical
+  // (e.g. the "450" in a range is skipped by the singles pass since
+  // it's immediately followed by " (...)" from the ranges pass).
+  Object.keys(DoughCalc.UNIT_CONVERSIONS).forEach(function (unit) {
+    var conv = DoughCalc.UNIT_CONVERSIONS[unit];
+    html = html.replace(new RegExp(NUM + '\\s*[–-]\\s*' + NUM + '\\s*' + unit + NOT_LETTER + '(?!\\s*\\()', 'g'),
+      function (match, n1, n2) {
+        var v1 = DoughCalc.roundUnit(parseFloat(n1.replace(',', '.')) * conv.factor, conv.decimals);
+        var v2 = DoughCalc.roundUnit(parseFloat(n2.replace(',', '.')) * conv.factor, conv.decimals);
+        return match + ' (' + v1 + '–' + v2 + ' ' + conv.toUnit + ')';
+      });
+    html = html.replace(new RegExp(NUM + '\\s*' + unit + NOT_LETTER + '(?!\\s*\\()', 'g'),
+      function (match, n) {
+        var v = DoughCalc.roundUnit(parseFloat(n.replace(',', '.')) * conv.factor, conv.decimals);
+        return match + ' (' + v + ' ' + conv.toUnit + ')';
+      });
+  });
+
+  return html;
+};
+
 DoughCalc.renderMethod = function (data) {
   var existing = document.getElementById('method-section');
   if (existing) existing.remove();
@@ -162,7 +230,7 @@ DoughCalc.renderMethod = function (data) {
   section.className = 'card';
   section.id = 'method-section';
   var itemsHtml = steps.map(function (step) {
-    return '<li>' + step + '</li>';
+    return '<li>' + DoughCalc.convertMethodUnits(step) + '</li>';
   }).join('');
   section.innerHTML =
     '<div class="card-title-row"><span class="card-title">' + (dict.METHOD || 'Спосіб приготування') + '</span></div>' +
