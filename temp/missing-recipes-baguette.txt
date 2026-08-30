@@ -1,0 +1,32 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Baguette (data/json/baguette/)
+Last updated: 2026-08-31
+
+Recipes with NO source screenshot/text in temp/, method not yet added:
+
+1. bacon-rolls.json        — Bacon Rolls / Mini Baguettes (Ferrandi)
+2. choc-vienna.json        — Chocolate Chip Vienna (Ferrandi)
+3. marchand-du-vin.json    — Marchand du Vin (MacGuire/Hamelman)
+4. multiseed-poolish.json  — Мультизлаковий пулиш (Ferrandi)
+5. rustic-sourdough.json   — Rustic Sourdough (Ferrandi)
+                              NOTE: bread_rustic.jpg/bread_rustic2.jpg is a
+                              DIFFERENT recipe (Hamelman's yeasted "Rustic
+                              Bread", pâte fermentée, oval/round shape) —
+                              confirmed not a match, do not reuse.
+6. traditional-poolish.json — Традиційний пулиш (Ferrandi)
+7. vienna.json              — Vienna Baguettes (Ferrandi)
+8. white-dough.json         — White Dough (Bertinet)
+
+All 8 already have correct baker's percentages in their JSON (verified
+against the baguette_all_1/2/3.jpg overview table) — only the "method"
+field (step-by-step procedure text) is missing, since no book-page photo
+or text source for these specific recipes exists in temp/ yet.
+
+Also out of scope for this pass (no book source at all, pre-existing
+generic template): baguette.json ("Багет").
+
+Recipes completed this pass (method added, for reference):
+pf, pointage-en-bac, poolish, sourdough, tradition, unkneaded
+
+If photos or text for any of the 8 above become available, method can be
+added the same way as the completed ones.
