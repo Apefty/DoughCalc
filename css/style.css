@@ -791,6 +791,11 @@ div#body-wrapper {
   color: var(--accent);
   font-weight: 700;
 }
+.method-steps a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
 
 /* ---------- Baker sliders ---------- */
 
