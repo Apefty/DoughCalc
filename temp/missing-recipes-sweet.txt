@@ -17,9 +17,21 @@ mid-procedure, method NOT added because the rest would have to be guessed:
   matches this JSON exactly) but contains NO numbered method steps at
   all — the actual procedure must be on a following page that wasn't
   captured. Nothing usable to add yet.
+- pretzels.json — pretzels.jpg. Only the formula table was captured
+  (bread flour 100%/water 54%/salt 2%/yeast 2%/butter 5%/diastatic
+  malt 0.2%, matches this JSON exactly) — NO title, intro, or method
+  text on this page at all.
+- pretzels-spelt.json — pretzels2.jpg (intro+formula) + pretzels3.jpg
+  (final-dough table + steps 1-3: stiff levain, mixing, bulk
+  fermentation/overnight retard). Step 4 explicitly says "Refer to the
+  instructions in the preceding recipe" for dividing/shaping/final
+  fermentation/lye-dipping/baking — i.e. it depends on pretzels.json's
+  own method text, which per above was never captured either. Neither
+  file can get a complete method until a fuller pretzels.jpg page (or
+  a re-photograph) turns up.
 
 Recipes with NO source screenshot/text in temp/ at all, method not
-addable right now (23 files):
+addable right now (21 files):
 - almond-dough.json
 - bagels.json
 - beesting.json
@@ -35,8 +47,6 @@ addable right now (23 files):
 - paska.json
 - pasta-frolla.json
 - pastry-fritters.json
-- pretzels-spelt.json
-- pretzels.json
 - sablee.json
 - shortcrust.json
 - soft-butter-rolls.json
