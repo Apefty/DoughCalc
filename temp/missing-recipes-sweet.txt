@@ -1,0 +1,75 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Sweet / Солодка випічка (data/json/sweet/, incl. brioche/ and paska/ subfolders)
+Last updated: 2026-08-31
+
+Recipe completed this pass (method added, for reference):
+- panforte.json (Panforte, Hamelman) — from panforte.jpg + panforte2.jpg,
+  complete source (formula + full numbered method + spice sub-recipe).
+
+Recipes with a source screenshot in temp/ that is INCOMPLETE — cuts off
+mid-procedure, method NOT added because the rest would have to be guessed:
+- stollen.json — stollen.jpg + stollen2.jpg. Text breaks off mid-step 7
+  ("DIVIDING AND SHAPING: ... Larger or smaller pieces can" — no more
+  pages). Missing: rest of shaping, final fermentation, baking, and the
+  traditional butter-dip + sugar coating finish.
+- brioche/standard.json — brioche.jpg. This page is the section
+  intro + overall formula table only (confirms 9%/2.5%/5%/12%/50%/50%
+  matches this JSON exactly) but contains NO numbered method steps at
+  all — the actual procedure must be on a following page that wasn't
+  captured. Nothing usable to add yet.
+
+Recipes with NO source screenshot/text in temp/ at all, method not
+addable right now (23 files):
+- almond-dough.json
+- bagels.json
+- beesting.json
+- bialys.json
+- brisee.json
+- chocolate-sponge.json
+- choux.json
+- foncer.json
+- genoise.json
+- hot-cross-buns.json
+- kolomba.json
+- panettone.json
+- paska.json
+- pasta-frolla.json
+- pastry-fritters.json
+- pretzels-spelt.json
+- pretzels.json
+- sablee.json
+- shortcrust.json
+- soft-butter-rolls.json
+- sucree.json
+- brioche/cardamom.json
+- brioche/ferrandi-dough.json
+- brioche/gache.json
+- brioche/larousse.json
+- brioche/levee-tartes.json
+- brioche/milk-rolls.json
+- brioche/pandoro.json
+- brioche/savory.json
+- brioche/sweet-dough.json
+- brioche/vegan.json
+- brioche/vendee.json
+- paska/grecka.json
+- paska/podilska.json
+- paska/pokutska.json
+- paska/svyatkova.json
+- paska/zvychayna.json
+
+Out of scope for this pass (generic pre-cookbook template card, not tied
+to a specific book source, same situation as top-level baguette.json):
+- brioche.json (top-level "Бріош" — 20%/1.8%/3%/15%/45%/45%, does not
+  match any single source recipe found, likely an old placeholder)
+
+Also flagged, belongs to a DIFFERENT category (laminated), not sweet —
+noted here only because its temp/ source photo uses a "brioche" filename:
+- data/json/laminated/feuillete-ferrandi.json (Бріош-фельєте / Brioche
+  Feuilletée, Ferrandi) — source brioche_feuletee.jpg is INCOMPLETE,
+  cuts off mid-step 1 (lamination) with no filling/braiding/proofing/
+  baking steps at all. To be revisited when the laminated category is
+  worked on, if a fuller source becomes available.
+
+If photos or text for any of the above become available, method can be
+added the same way as the completed ones.
