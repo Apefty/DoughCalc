@@ -1,0 +1,25 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Flatbread / Пласке (data/json/flatbread/, 7 files)
+Last updated: 2026-08-31
+
+Recipe completed this pass (method added, for reference):
+- tarte-flambee.json — from tarte_flambee.jpg, complete source (single
+  prose passage, not numbered, but covers the full process: whisk
+  topping, roll dough, assemble, bake). Note: the dough itself is
+  referenced in the source only as "Pizza Dough, page 362" (a separate
+  recipe, not detailed on this page) — no existing italian/pizza/*.json
+  recipe matches this JSON's 60% hydration closely enough to link with
+  confidence (closest is `classic.json` at 68%), so the method
+  describes assembly/baking only and does not link to a specific pizza
+  dough page.
+
+Recipes with NO source screenshot/text in temp/ at all (6 files):
+- cassoni.json (Cassoni / Consum Dough, Hazan)
+- grissini.json
+- lavash.json
+- piadina.json (Hazan)
+- sesame-breadsticks.json
+- socca.json
+
+If photos or text for any of the above become available, method can be
+added the same way as the completed ones.
