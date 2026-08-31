@@ -1,0 +1,78 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Preferments / Преферменти (data/json/pre/, 30 files) — first
+section in the established i18n-era order, worked 2026-08-31.
+Last updated: 2026-08-31
+
+Recipes completed this pass (method added, for reference):
+- biga.json — from ciabatta_biga2.jpg step 1 (found via a matching
+  bread/italian recipe's own build-the-preferment step, not a
+  standalone biga page). Complete, self-contained 3-step method.
+- pf.json — reused step 1 from baguette/pf.json's already-completed
+  method (same generic pâte fermentée build technique, applies
+  identically here as a standalone preferment page).
+- poolish.json — same approach, reused step 1 from
+  baguette/poolish.json's completed method.
+- soaker-general.json — generic hot-soaker technique extracted from
+  bread_semolina_w-soaker2.jpg's step 1 (Semolina Bread with Soaker,
+  a Bread-section recipe — the soaker-prep instructions themselves are
+  generic enough to serve the standalone preferment page).
+
+Bonus: while checking temp/ for this section, found complete sources
+for 2 DIFFERENT sections' recipes and added them too:
+- data/json/italian/ciabatta/stiff-biga.json — from ciabatta_biga.jpg
+  + ciabatta_biga2.jpg, complete 8-step method (this is where the biga
+  step 1 text above was originally found).
+- Also corrected an earlier mistake: sweet/bagels.json and
+  sweet/pretzels.json (see missing-recipes-sweet.txt) were re-checked
+  against bagels.jpg/bagels2.jpg — confirmed genuinely INCOMPLETE
+  (formula tables only, zero procedure text), not newly completable,
+  but flagging here since the source images do exist and were missed
+  in the original sweep — see corrected entry in
+  missing-recipes-sweet.txt if a further correction is made there.
+
+Recipes with a source screenshot in temp/ that is INCOMPLETE — formula/
+ingredient info only, NO numbered procedure steps captured at all:
+- levain.json (master levain-chef/culture) — levain.jpg. Only shows
+  ingredients + a single photo caption for step 1 ("place honey and
+  water in a bowl, whisk to dissolve"). No further steps (adding flour,
+  mixing, fermentation handling) captured — likely spread across
+  additional step-photos not in this screenshot.
+- levain-stiff.json — levain_stiff.jpg. Ingredients/equipment/storage
+  info only, no procedure text at all (right side of page, where
+  step photos likely are, is cut off in the screenshot).
+- levain-liquid.json — levain_liquid.jpg. Same situation as
+  levain-stiff.
+
+Recipes with NO source screenshot/text in temp/ at all (23 files):
+- desem.json
+- detmolder.json (+ its 3 stages: detmolder-anfrischsauer.json,
+  detmolder-grundsauer.json, detmolder-vollsauer.json)
+- lievito-madre.json
+- milk-levain.json
+- opara.json
+- pie-de-masa.json
+- raisin-build1.json, raisin-build2.json, raisin-juice.json,
+  raisin-soak.json (the 4-part raisin-yeast-water starter sequence)
+- salzsauer.json
+- soaker-barley.json, soaker-flax.json (soaker-general.json's siblings
+  — the general hot-soaker technique added above may partially apply,
+  but each has its own specific grain/ratio not confirmed against any
+  source)
+- sourdough.json (standalone from-scratch sourdough-starter build —
+  distinct from levain.json's levain-chef, no source found for this
+  one specifically)
+- sponge.json (+ its 3 variants: sponge-classic.json,
+  sponge-liquid.json, sponge-short.json)
+- zavarka.json
+
+Also noted: a large multi-page Bread-section recipe,
+bread_pain_au_levain*.jpg (7 pages, "Pain au Levain with Three
+Builds"), contains a full 3-stage levain-building schedule
+(Refreshing → First Build → Stiff-Levain Build) specific to that one
+bread recipe. It was NOT used to fill levain-stiff.json's own generic
+method (that recipe's 3-build schedule is recipe-specific timing, not
+a generic technique) — left for whenever the Bread section itself is
+worked, as material for data/json/bread/pain-au-levain.json.
+
+If photos or text for any of the above become available, method can be
+added the same way as the completed ones.
