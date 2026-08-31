@@ -1,0 +1,37 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Laminated / Ламіноване (data/json/laminated/, incl. croissant/ subfolder)
+Last updated: 2026-08-31
+
+No recipe in this section could be completed this pass — temp/ has
+essentially no laminated-pastry source material (checked the whole
+folder listing, not just filename guesses; the only "Danish"-named
+files, bread_danish_black_rye.jpg/2 and bread_danish_spelt__seed_
+rye.jpg/2, turned out to be Danish-style RYE BREAD recipes — Pullman
+pan, sourdough, nothing to do with laminated Danish pastry dough —
+confirmed by opening and reading them, not just trusting the name).
+
+Recipes with a source screenshot in temp/ that is INCOMPLETE:
+- feuillete-ferrandi.json (Бріош-фельєте, Ferrandi) — brioche_
+  feuletee.jpg. Cuts off mid-step 1 ("LAMINATING THE BRIOCHE") with
+  no filling-incorporation, braiding, final fermentation, or baking
+  steps present at all. Method not added — too much of the procedure
+  is missing to responsibly reconstruct.
+
+Recipes with NO source screenshot/text in temp/ at all (7 files):
+- feuillete.json (Бріош-фельєте — a second, non-Ferrandi version)
+- flaky-pastry.json
+- puff-pastry-2.json (компактний рецепт)
+- puff-pastry-classic.json (класичний метод)
+- croissant/choc.json (Двоколірний шоколадний)
+- croissant/flaky-rolls.json (Petits Pains Feuilletés)
+- croissant/garlic-herb.json (Часниково-трав'яний)
+- croissant/standard.json (Стандартний)
+
+Out of scope for this pass (generic pre-cookbook template card, same
+situation as top-level baguette.json / sweet/brioche.json):
+- croissant.json (top-level "Круасан / Данська випічка" —
+  58%/2%/3%/9%/8%/33%, generic multi-preferment template, not tied to
+  a specific book source)
+
+If photos or text for any of the above become available, method can be
+added the same way as recipes completed in other sections.
