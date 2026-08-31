@@ -1,0 +1,35 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Enriched / Збагачене (data/json/enriched/, 7 files)
+Last updated: 2026-08-31
+
+Recipe completed this pass (method added, for reference):
+- buttermilk.json — from bread_buttermilk.jpg + bread_buttermilk2.jpg,
+  complete source (pâte fermentée + full 7-step method).
+
+Bonus: while checking temp/ for this section, found a complete source
+for a DIFFERENT category's recipe and added it too (out of the normal
+per-category order, but too good a match to leave for later):
+- data/json/bread/whey.json — from bread_whey.jpg, complete source
+  (6-step method). Not part of the enriched/ folder at all, belongs to
+  the bread section.
+
+Recipes with a source screenshot in temp/ that is INCOMPLETE — cuts off
+mid-procedure, method NOT added:
+- oatmeal.json — bread_oatmeal.jpg. Cuts off mid/end of step 4
+  (dividing and shaping, pan-size guidance) — no final fermentation or
+  baking steps captured, no second page exists in temp/.
+- challah.json — bread_shallah.jpg. Cuts off mid-step 4 ("...once
+  braided, proof the" — sentence incomplete) — no final fermentation
+  or baking steps captured, no second page exists in temp/.
+
+Recipes with NO source screenshot/text in temp/ at all (4 files):
+- berne-brot.json
+- oatmeal-cin-raisins.json (variant of oatmeal.json — even if oatmeal's
+  base method becomes available later, this variant's own specifics,
+  e.g. cinnamon/raisin addition point, would still need its own source)
+- pullman.json
+- toast.json
+
+If photos or text for any of the above become available (including a
+second page for oatmeal or challah), method can be added the same way
+as the completed ones.
