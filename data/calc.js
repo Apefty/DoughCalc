@@ -353,6 +353,7 @@ DoughCalc.initLevainPage = function (masterData) {
   var calcPanel = document.getElementById('levain-calc-panel');
   var calcPanelTemplate = calcPanel.innerHTML; // pristine markup, reused on every tab switch
   var loadedBuild = null;
+  var loadedBuildData = null;
 
   function showTab(tab) {
     tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
@@ -360,17 +361,20 @@ DoughCalc.initLevainPage = function (masterData) {
     if (tab === 'master') {
       masterPanel.style.display = 'block';
       calcPanel.style.display = 'none';
+      DoughCalc.renderMethod(masterData); // restore the master's own method text, if any (a build's method may have replaced it while another tab was active)
       return;
     }
 
     masterPanel.style.display = 'none';
     calcPanel.style.display = 'block';
     var id = tab === 'stiff' ? 'levain-stiff' : 'levain-liquid';
-    if (loadedBuild === id) return;
+    if (loadedBuild === id) { DoughCalc.renderMethod(loadedBuildData); return; }
     loadedBuild = id;
     calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
     DoughCalc.fetchPreferment(id, function (data) {
       DoughCalc.initPrefermentPage(data);
+      loadedBuildData = data;
+      DoughCalc.renderMethod(data); // per-build method text (data.method), if the build's own JSON has one
     });
   }
 
@@ -394,15 +398,18 @@ DoughCalc.initSpongePage = function (shellData) {
   var calcPanel = document.getElementById('sponge-calc-panel');
   var calcPanelTemplate = calcPanel.innerHTML; // pristine markup, reused on every tab switch
   var loadedBuild = null;
+  var loadedBuildData = null;
 
   function showTab(tab) {
     tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
     var id = tab === 'liquid' ? 'sponge-liquid' : 'sponge-classic';
-    if (loadedBuild === id) return;
+    if (loadedBuild === id) { DoughCalc.renderMethod(loadedBuildData); return; }
     loadedBuild = id;
     calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
     DoughCalc.fetchPreferment(id, function (data) {
       DoughCalc.initPrefermentPage(data);
+      loadedBuildData = data;
+      DoughCalc.renderMethod(data); // per-build method text (data.method), if the build's own JSON has one
     });
   }
 
@@ -427,15 +434,18 @@ DoughCalc.initTabbedPreferentPage = function (panelId, tabsContainerId, tabToId,
   if (!calcPanel) return;
   var calcPanelTemplate = calcPanel.innerHTML;
   var loadedBuild = null;
+  var loadedBuildData = null;
 
   function showTab(tab) {
     tabs.forEach(function (b) { b.classList.toggle('is-active', b.getAttribute('data-tab') === tab); });
     var id = tabToId[tab] || tab;
-    if (loadedBuild === id) return;
+    if (loadedBuild === id) { DoughCalc.renderMethod(loadedBuildData); return; }
     loadedBuild = id;
     calcPanel.innerHTML = calcPanelTemplate; // reset so initPrefermentPage attaches fresh listeners
     DoughCalc.fetchPreferment(id, function (data) {
       DoughCalc.initPrefermentPage(data);
+      loadedBuildData = data;
+      DoughCalc.renderMethod(data); // per-build method text (data.method), if the build's own JSON has one
     });
   }
 
