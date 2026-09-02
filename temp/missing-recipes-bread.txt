@@ -1,0 +1,75 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Bread / Хліб (data/json/bread/, 83 live files — 12 additional
+files in this folder are dead orphan duplicates with zero cat.js route
+references, see note at the end)
+Last updated: 2026-09-01
+
+Recipes completed this pass (method added; * = also had data corrected
+against the full source, not just a summary table):
+whey, pain-de-lodeve, five-grain-levain, rye-caraway-40, five-grain-pf,
+rye-sourdough-66, vermont-sourdough, hand-mixed-white, barley-beer,
+black-bread, borodinsky, busy-farmer, cracked-wheat, danish-black-rye,
+danish-spelt-rye, deli-rye, durum, flax-rye-old-bread*, miche-pointe-a-
+calliere, mixed-flour-miche, spelt-miche, olive-levain, pain-au-levain,
+pain-au-levain-ww, rustic, whole-wheat-sandwich, sourdough-seed,
+semolina-durum, semolina, semolina-soaker, sunflower-seed-rye*,
+whole-wheat-workday, whole-wheat, whole-wheat-multigrain,
+ww-multigrain-soaker.
+(32 of 83 live files now have method.)
+
+*flax-rye-old-bread correction: PFF 30%→40%, hydration 75%→80.3%,
+yeast 0%→1.3%, flour ratio was stated backwards (60/40→corrected).
+*sunflower-seed-rye correction (bigger one): preferment type was wrong
+entirely (was sourdough, source clearly uses pâte fermentée), hydration
+70%→74%, yeast 0%→1.5%, flour ratio 50/50→83.5/16.5% (bread flour/rye
+chops), sunflower 15%→18%, added a missing 3% malt-syrup field.
+Lesson for future sessions: don't trust an existing card's numbers just
+because they look confident — always diff the Overall Formula against
+the freshly-opened source before adding method.
+
+Recipes with a source in temp/ that is INCOMPLETE (formula/some steps
+present, procedure doesn't reach the end — method NOT added):
+- 5grain-sourdough-rye — formula-only (2 pages), zero procedure text.
+- five-grain-straight — formula-only (2 pages), zero procedure text.
+- 3stage-rye-80 (and presumably -70/-90, never independently confirmed)
+  — cuts off mid-step-5 (dividing/shaping). Its own Detmolder-phase
+  intro text (steps 1-3) is generic and was reused for the standalone
+  preferments/detmolder pages instead (see Preferments section notes).
+- beer-bread — formula-only (2 pages, dual rye-sourdough+liquid-levain
+  preferment), zero procedure text.
+- vermont-sourdough-ww / vermont-sourdough-increased-wg — only
+  mentioned in vermont-sourdough's intro text as flour-substitution
+  variants, no formula table or procedure of their own captured.
+- khachapuri — cuts off mid-step-4 (folding the cheese-filled rim), no
+  final shaping/proofing/baking captured.
+- lithuanian-rye — formula-only (2 pages), zero procedure text.
+- rye-miche — formula-only (single page), zero procedure text.
+
+Recipes with NO source screenshot/text in temp/ at all (30 files,
+confirmed via an exhaustive re-listing of every bread_*.jpg basename in
+temp/ — none of these have an obvious or hidden match):
+apulia-olive, corn, country, french-bread, german-farmers, harvest,
+hazelnut-fig-rosemary, honey-spelt, horst-bandel-pumpernickel,
+mantovana, pain-rustique, pal-mixed-starters, pane-di-grano-duro,
+pane-integrale, quarkbrot, rye-flour-soaker-80, rye-no-acidified-65,
+rye-raisins-walnuts, rye-soaker-ww-70, rye-sourdough-65,
+sourdough-rye-walnuts, sunflower-pf, vollkornbrot, vollkornbrot-currants,
+vollkornbrot-flax, whole-rye-whole-wheat, whole-wheat-levain,
+ww-pecans-raisins.
+
+Out of scope for this pass (generic pre-cookbook template cards that
+accept multiple preferment types — same situation as baguette.json /
+sweet/brioche.json / laminated/croissant.json — no single book source
+to point to): pan.json, rye.json, wheat.json, wholegrain.json,
+sourdough-bread.json.
+
+Also flagged, unrelated to sourcing: 12 files in data/json/bread/ are
+DEAD duplicates with zero cat.js route references (berne-brot,
+buttermilk, challah, grissini, lavash, oatmeal, oatmeal-cin-raisins,
+pullman, sesame-breadsticks, socca, tarte-flambee, toast — the real
+routed versions of these live in enriched/ or flatbread/ and already
+have their method added there). Not deleted, just not worked on;
+flagged in case the user wants a cleanup `git rm` pass later.
+
+If photos or text for any of the above become available, method can be
+added the same way as the completed ones.
