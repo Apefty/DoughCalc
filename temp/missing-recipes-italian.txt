@@ -1,0 +1,62 @@
+DoughCalc — recipe-population pass: missing method sources
+Section: Italian / Італійське тісто (data/json/italian/, 39 files
+across ciabatta/, focaccia/, pasta/, pizza/, batters/ subfolders)
+Last updated: 2026-09-01
+
+Recipes completed this pass (method added):
+- italian/ciabatta/stiff-biga.json — full 8-step method (from
+  ciabatta_biga.jpg+2). This is where biga's own preferment-page
+  method text was also sourced (see Preferments section notes).
+- italian/ciabatta/overnight-autolyse.json — full 7-step method (from
+  ciabatta_autolyse.jpg+2) — unusual technique: cold overnight autolyse
+  (13-15°C) instead of a yeasted preferment, bassinage mixing with a
+  friction-factor temperature adjustment note, dough stretched to full
+  length at the moment of loading for a more open crumb.
+
+(2 of 39 italian files now have method.)
+
+Recipes with a source in temp/ that is INCOMPLETE (formula confirmed,
+procedure cuts off before the end — method NOT added):
+- focaccia/fougasse-olives.json — fugasse_olive.jpg+2. Cuts off
+  mid-step-5 (shaping the dough into a triangle, cutting diagonal
+  slits) — no final fermentation or baking captured.
+- pizza/biga.json — pizza.jpg+2. Cuts off at the very end of step 6
+  (shaping/stretching by hand) — the loading/baking step is not
+  captured, extremely close to complete but not quite.
+
+Recipes with NO source screenshot/text in temp/ at all (35 files) —
+this section was checked LAST after all other sections' temp/ files
+were already exhausted, so this reflects a genuinely complete sweep of
+the entire temp/ folder (all 126 jpg files reviewed across this whole
+multi-session project) rather than a partial search:
+italian/batters/crespelle, italian/ciabatta/levain,
+italian/ciabatta/olive-wheat-germ, italian/ciabatta/poolish,
+italian/ciabatta/walnut-raisin, italian/focaccia/ciabatta-style,
+italian/focaccia/crescentina, italian/focaccia/ferrandi,
+italian/focaccia/focaccette, italian/focaccia/genovese-hazan,
+italian/focaccia/genovese, italian/focaccia/hamelman,
+italian/focaccia/olive-anchovy, italian/focaccia/olive-dough,
+italian/focaccia/pissaladiere, italian/focaccia/sfinciuni,
+italian/focaccia/spanish-cocas, italian/focaccia/zucchini,
+italian/pasta/apulian-orecchiette, italian/pasta/buckwheat-pizzoccheri,
+italian/pasta/green, italian/pasta/yellow, italian/pizza/alsatian-ham,
+italian/pizza/bertinet, italian/pizza/classic, italian/pizza/hazan,
+italian/pizza/levain-overnight, italian/pizza/neapolitan,
+italian/pizza/overnight-straight, italian/pizza/pissaladiere,
+italian/pizza/poolish-overnight, italian/pizza/poolish-variation,
+italian/pizza/roman, italian/pizza/same-day, italian/pizza/sicilian.
+
+If photos or text for any of the above become available, method can be
+added the same way as the completed ones.
+
+===========================================================================
+ENTIRE temp/ FOLDER NOW FULLY REVIEWED (2026-08-22 through 2026-09-01,
+across many sessions). Every one of the 126 jpg source photos has been
+opened and matched (or ruled out) against the app's JSON files. Per
+missing-recipes-<section>.txt files written for: baguette, sweet,
+laminated, enriched, flatbread, preferments, bread, italian (this
+file). Larousse.txt and proportions-reference.txt (the 2 non-jpg temp/
+files) were already fully processed in an earlier, separate project
+phase (not part of this method-fill pass). User plans to batch-upload
+additional source photos for a future pass once ready.
+===========================================================================
